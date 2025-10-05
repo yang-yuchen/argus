@@ -1,9 +1,13 @@
+from logging import getLogger
+
 import torch
 
 from ..runner import BenchmarkOperator, BenchmarkRunner, DirectOutputRunner
 from ..utils import bnsh_expand_for_gqa, is_amd_gpu
 from .openai import attention as openai_attn
 from .tri_dao import fused_attn as tri_dao_general_attn
+
+logger = getLogger(__name__)
 
 
 class OpenAITritonRunner(DirectOutputRunner):

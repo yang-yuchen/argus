@@ -87,8 +87,7 @@ class AlibiOp(QKVInputOp):
         return (q, k, v, torch.randn((self.q_heads,), device="cuda"))
 
 
-def causal_mask_cond(*args):
-    *_, q_idx, kv_idx = args
+def causal_mask_cond_4d(b, h, q_idx, kv_idx):
     return q_idx >= kv_idx
 
 

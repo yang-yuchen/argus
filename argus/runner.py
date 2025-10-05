@@ -55,11 +55,7 @@ class BenchmarkRunner(ABC):
     def mark_ctx(self):
         """Mark the region where the kernel is executed, so that the profiler can pick it up.
         It uses NVTX on NVIDIA GPUs and ROCm runtime API on AMD GPUs."""
-        name = (
-            f"{self.provider_name}({self.impl_name})"
-            if self.impl_name
-            else self.provider_name
-        )
+        name = f"{self.provider_name}({self.impl_name})" if self.impl_name else self.provider_name
         name += "[warmup]" if self.run_number is None else f"[{self.run_number}]"
         if is_amd_gpu():
             from .utils import roctx_range

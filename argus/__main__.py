@@ -34,7 +34,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         FlashInferRunner(ops.PF_GLOBAL, is_causal=False, is_decode=False),
     ],
     ops.PF_CAUSAL: [
-        FlexAttentionRunner(ops.PF_CAUSAL, mask_expr=ops.causal_mask_cond),
+        FlexAttentionRunner(ops.PF_CAUSAL, mask_expr=ops.causal_mask_cond_4d),
         TorchSDPARunner(ops.PF_CAUSAL, AttentionAlgo.FLASH, True),
         TorchSDPARunner(ops.PF_CAUSAL, AttentionAlgo.CUDNN, True),
         triton.OpenAITritonRunner(ops.PF_CAUSAL, True),
@@ -43,7 +43,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         FlashInferRunner(ops.PF_CAUSAL, is_causal=True, is_decode=False),
     ],
     ops.PF_GQA: [
-        FlexAttentionRunner(ops.PF_GQA, mask_expr=ops.causal_mask_cond, enable_gqa=True),
+        FlexAttentionRunner(ops.PF_GQA, mask_expr=ops.causal_mask_cond_4d, enable_gqa=True),
         TorchSDPARunner(ops.PF_GQA, AttentionAlgo.FLASH, True, is_gqa=True),
         TorchSDPARunner(ops.PF_GQA, AttentionAlgo.CUDNN, True, is_gqa=True),
         triton.OpenAITritonRunner(ops.PF_GQA, True),
@@ -64,7 +64,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         FlexAttentionRunner(
             ops.PF_SOFTCAP,
             score_mod=torch_softcap(softcap=ops.PF_SOFTCAP.softcap),
-            mask_expr=ops.causal_mask_cond,
+            mask_expr=ops.causal_mask_cond_4d,
             enable_gqa=True,
         ),
     ],

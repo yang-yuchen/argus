@@ -19,7 +19,6 @@ from typing import cast
 import torch
 import triton
 import triton.language as tl
-import triton.tools.experimental_descriptor
 
 # ENABLE_LHS_TO_TMEM is an experimental environment variable for Blackwell.
 # If it is set to 1 it can improve performance of Blackwell attention. However,

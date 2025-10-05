@@ -10,8 +10,8 @@ logger = getLogger(__name__)
 class FlashInferRunner(BenchmarkRunner):
     try:
         import flashinfer as fi
-    except ImportError:
-        fi = None
+    except ImportError as e:
+        fi = e
 
     def __init__(self, operator: BenchmarkOperator, is_causal: bool, is_decode: bool):
         super().__init__(operator, "flashinfer", language="cutlass")
@@ -21,8 +21,8 @@ class FlashInferRunner(BenchmarkRunner):
         self.fi_wrapper = None
 
     def setup(self, *inputs) -> bool:
-        if self.fi is None:
-            logger.warning("flashinfer is not installed")
+        if isinstance(self.fi, ImportError):
+            logger.warning("flashinfer import failed with exception: %s", self.fi)
             return False
 
         q, self.k, self.v = inputs

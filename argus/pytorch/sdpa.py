@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from torch.nn.attention import SDPBackend
 
 from ..runner import BenchmarkOperator, DirectOutputRunner
-from ..utils import bnsh_expand_for_gqa, get_current_gpu_info
+from ..utils import bnsh_expand_for_gqa, is_amd_gpu
 
 
 class AttentionAlgo(Enum):
@@ -79,7 +79,7 @@ class TorchSDPARunner(DirectOutputRunner):
         )
 
     def setup(self, *inputs) -> bool:
-        if get_current_gpu_info().is_amd and self.backend == SDPBackend.CUDNN_ATTENTION:
+        if is_amd_gpu() and self.backend == SDPBackend.CUDNN_ATTENTION:
             return False
         self.q, self.k, self.v = inputs
         return True
