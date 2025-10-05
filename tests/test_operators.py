@@ -4,8 +4,14 @@ This test file verifies that all attention operators can run without exceptions.
 
 import pytest
 import torch
+import torch._dynamo
 
 from argus.bench import run_operator
+
+# Increase recompile limit for FlexAttention tests
+# Running many different kernel configurations (shapes, head counts, etc.)
+# in the same process triggers recompilations
+torch._dynamo.config.recompile_limit = 128
 
 
 class TestOperatorsParameterized:
