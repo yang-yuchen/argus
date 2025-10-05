@@ -22,6 +22,7 @@ flashattn = ["flash-attn == 2.7.4.post1", "psutil"]
 flashinfer = ["flashinfer-python == 0.3.1.post1"]
 pytorch = ["torch == 2.8.0"]
 xformers = ["xformers == 0.0.32.post2"]
+test = ["pytest"]
 # TODO: mirage
 # MAX_JOBS=32 pip install mirage-project==0.2.2
 
