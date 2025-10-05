@@ -229,9 +229,13 @@ def parse_args():
     return parser.parse_args()
 
 
-if __name__ == "__main__":
+def main():
     coloredlogs.install(
         level=logging.INFO, fmt="%(asctime)s %(name)s %(levelname)s %(message)s", datefmt="%H:%M:%S"
     )
     args = parse_args()
     args.func(args)
+
+
+if __name__ == "__main__":
+    main()

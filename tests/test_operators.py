@@ -5,7 +5,7 @@ This test file verifies that all attention operators can run without exceptions.
 import pytest
 import torch
 
-from argus.__main__ import run_operator
+from argus.bench import run_operator
 
 
 class TestOperatorsParameterized:
