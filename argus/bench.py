@@ -160,7 +160,7 @@ def run_operator(operator: str, shape: list[int], n_repeats: int, low_mem_overhe
         else:
             shape_match = ref_output.shape == this_output.shape
             assert shape_match, f"{operator}: {runner} shape mismatches against {runners[0]}"
-            if not torch.allclose(ref_output.cpu(), this_output.cpu(), atol=1e-2, rtol=0):
+            if not torch.allclose(ref_output.cpu(), this_output.cpu(), atol=2e-3, rtol=0):
                 logger.warning(f"{operator}: {runner} result mismatch against {runners[0]}")
         del this_output
         if low_mem_overhead:
