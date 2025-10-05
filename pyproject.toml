@@ -18,11 +18,10 @@ dependencies = ["torch >= 2", "nvtx ~= 0.2.11"]
 #    This `flashattn` dependency group will fail. You need to install it manually:
 #    On Nvidia GPUs, it can be as simple as `pip install flash-attn==2.7.4.post1 --no-build-isolation`.
 #    For AMD GPUs, see the `flashattn` README.
-flashattn = ["flash-attn == 2.7.4.post1"]
+flashattn = ["flash-attn == 2.7.4.post1", "psutil"]
 flashinfer = ["flashinfer-python == 0.3.1.post1"]
-pytorch = ["torch == 2.6.0"]
+pytorch = ["torch == 2.8.0"]
 xformers = ["xformers == 0.0.32.post2"]
-triton-openai = ["triton == 3.2.0"]
 # TODO: mirage
 # MAX_JOBS=32 pip install mirage-project==0.2.2
 
