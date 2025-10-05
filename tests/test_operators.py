@@ -1,6 +1,4 @@
-"""
-Test suite for all supported operators in argus.
-This test file verifies that all attention operators can run without exceptions."""
+import re
 
 import pytest
 import torch
@@ -14,9 +12,20 @@ from argus.bench import run_operator
 torch._dynamo.config.recompile_limit = 128
 
 
+def result_mismatch(provider: str, impl: str | None = None):
+    if impl is None:
+        return rf".*: BenchmarkRunner\(.*, provider={provider}.*\) result mismatch against BenchmarkRunner.*"
+    else:
+        return rf".*: BenchmarkRunner\(.*, provider={provider}, impl={impl}.*\) result mismatch against BenchmarkRunner.*"
+
+
+def unsupported(provider: str):
+    return rf".*: BenchmarkRunner\(.*, provider={provider}.*\) does not support this setup"
+
+
 class TestOperatorsParameterized:
     @pytest.mark.parametrize(
-        "operator_name",
+        "op_name",
         [
             "prefill_global",
             "prefill_causal",
@@ -30,16 +39,36 @@ class TestOperatorsParameterized:
             "decode_softcap",
         ],
     )
-    # test extreme sequence lengths, and test a batch size > 1
+    # test small and large sequence lengths, and test a batch size > 1
     @pytest.mark.parametrize(
         "shape",
         [(1, 128), (1, 2048), (1, 32768), (2, 8192)],
     )
-    def test_operator(self, operator_name, shape):
+    @pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA not available")
+    def test_operator(self, op_name, shape, caplog: pytest.LogCaptureFixture):
         """Test that operator runs without exceptions."""
-        if not torch.cuda.is_available():
-            pytest.skip("CUDA not available")
-        run_operator(operator_name, shape, n_repeats=3, low_mem_overhead=False)
+        if op_name in {"decode_causal", "decode_gqa"} and shape[0] > 1:
+            pytest.xfail("TVM does not support batch > 1 in decoding mode")
+        # Capture log messages at WARNING level
+        with caplog.at_level("WARNING"):
+            run_operator(op_name, shape, n_repeats=3, low_mem_overhead=False)
+        exp_warning_ptns = []
+        # Tri-Dao Triton impl uses FP16 in part of softmax, which results in worse precision.
+        if op_name in {"prefill_global", "prefill_causal", "prefill_gqa"}:
+            exp_warning_ptns.append(result_mismatch("triton", "tri-dao"))
+        # TODO: We have some result mismatches for Alibi. We should fix it.
+        elif op_name == "prefill_alibi" or ((op_name, shape) == ("decode_alibi", (1, 32768))):
+            exp_warning_ptns.append(result_mismatch("tri-dao", None))
+        # TVM doesn't support super long sequences for prefill.
+        if shape[1] >= 8192 and op_name in {"prefill_global", "prefill_causal", "prefill_gqa"}:
+            exp_warning_ptns.append(unsupported("tvm"))
+        assert len(caplog.records) == len(exp_warning_ptns), (
+            f"Expected {len(exp_warning_ptns)} warnings, but got {len(caplog.records)}"
+        )
+        for record, pattern in zip(caplog.records, exp_warning_ptns):
+            assert re.match(pattern, record.message), (
+                f"Expected a warning that matches {pattern}, but got {record.message}"
+            )
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ class TriDaoRunner(BenchmarkRunner):
         fa = e
 
     def __init__(self, operator: BenchmarkOperator, has_alibi: bool = False, **runner_kwargs):
-        super().__init__(operator, "tridao", "cutlass")
+        super().__init__(operator, "tri-dao", "cutlass")
         self.runner_kwargs = runner_kwargs
         self.has_alibi = has_alibi
 
