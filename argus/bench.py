@@ -11,6 +11,7 @@ from .flashattn import TriDaoRunner
 from .flashinfer import FlashInferRunner
 from .pytorch.flex import FlexAlibiRunner, FlexAttentionRunner
 from .pytorch.sdpa import AttentionAlgo, TorchDecodeGQARunner, TorchSDPARunner
+from .tvm import TVMDecodeRunner, TVMPrefillRunner
 from .utils import profiler_ctx
 
 logger = logging.getLogger(__name__)
@@ -33,6 +34,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         triton.TriDaoTritonRunner(ops.PF_GLOBAL, False),
         TriDaoRunner(ops.PF_GLOBAL, causal=False),
         FlashInferRunner(ops.PF_GLOBAL, is_causal=False, is_decode=False),
+        TVMPrefillRunner(ops.PF_GLOBAL, is_causal=False),
     ],
     ops.PF_CAUSAL: [
         FlexAttentionRunner(ops.PF_CAUSAL, mask_expr=ops.causal_mask_cond_4d),
@@ -42,6 +44,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         triton.TriDaoTritonRunner(ops.PF_CAUSAL, True),
         TriDaoRunner(ops.PF_CAUSAL, causal=True),
         FlashInferRunner(ops.PF_CAUSAL, is_causal=True, is_decode=False),
+        TVMPrefillRunner(ops.PF_CAUSAL, is_causal=True),
     ],
     ops.PF_GQA: [
         FlexAttentionRunner(ops.PF_GQA, mask_expr=ops.causal_mask_cond_4d, enable_gqa=True),
@@ -53,7 +56,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         TriDaoRunner(ops.PF_GQA, causal=True),
         FlashInferRunner(ops.PF_GQA, is_causal=True, is_decode=False),
         # TVM runs GQA by simply repeating the key and value tensors.
-        # TVMPrefillRunner(ops.PF_GQA, True),
+        TVMPrefillRunner(ops.PF_GQA, is_causal=True),
     ],
     ops.PF_ALIBI: [
         FlexAlibiRunner(ops.PF_ALIBI, is_decode=False),
@@ -93,7 +96,8 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         TorchSDPARunner(ops.DC_CAUSAL, AttentionAlgo.MEM_EFFICIENT, False, False),
         TriDaoRunner(ops.DC_CAUSAL, causal=True),
         FlashInferRunner(ops.DC_CAUSAL, is_causal=False, is_decode=True),
-        # TVMDecodeRunner(ops.DC_CAUSAL),
+        # TODO: TVMDecodeRunner doesn't work for batch>1
+        TVMDecodeRunner(ops.DC_CAUSAL),
         triton.XformerDecodeRunner(ops.DC_CAUSAL),
     ],
     ops.DC_GQA: [
@@ -101,7 +105,8 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         TriDaoRunner(ops.DC_GQA, causal=True),
         FlashInferRunner(ops.DC_GQA, is_causal=False, is_decode=True),
         TorchDecodeGQARunner(ops.DC_GQA),
-        # TVMDecodeRunner(ops.DC_GQA),
+        # TODO: TVMDecodeRunner doesn't work for batch>1
+        TVMDecodeRunner(ops.DC_GQA),
     ],
     ops.DC_ALIBI: [
         FlexAlibiRunner(ops.DC_ALIBI, is_decode=True),

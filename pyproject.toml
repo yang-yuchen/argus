@@ -19,10 +19,13 @@ dependencies = ["torch >= 2", "nvtx ~= 0.2.11", "coloredlogs ~= 15.0"]
 #    For AMD GPUs, see the `flashattn` README.
 #    If you don't have flashattn already installed, requiring this `flashattn` dependency group does not help.
 #    Once it's installed, you can add this group to check compatibility.
+# 3. TVM is another one that has to be installed manually. Follow the instructions on TVM GitHub page.
+#    Make sure to turn on USE_CUDA and USE_LLVM when building TVM.
 flashattn = ["flash-attn == 2.8.3", "psutil"]
 flashinfer = ["flashinfer-python == 0.3.1.post1"]
 pytorch = ["torch == 2.8.0"]
 xformers = ["xformers == 0.0.32.post2"]
+tvm = ["tvm == 0.21.0"]
 test = ["pytest"]
 # TODO: mirage
 # MAX_JOBS=32 pip install mirage-project==0.2.2
