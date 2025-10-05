@@ -13,6 +13,7 @@ def relaunch_with_profiler(
     profiler: str | None,
     gpu_metrics: bool,
     relaunch_args: list[str],
+    wait_for_cuda_profiler: bool,
     nsys_wait: bool = True,
 ):
     import sys
@@ -53,6 +54,10 @@ def relaunch_with_profiler(
             # and return with the same exit code as that process.
             # Does not work well with full-DNN inference workloads because PyTorch does... something.
             nsys_args += ["--wait=primary"]
+        if wait_for_cuda_profiler:
+            # Capture only the part between `cudaProfilerStart()` and `cudaProfilerStop()`.
+            # NOTE: `--capture-range=nvtx` does not work. Don't spend time on it.
+            nsys_args += ["--capture-range=cudaProfilerApi", "--capture-range-end=stop"]
         check_call(nsys_args + relaunch_args)
     elif profiler == "rocprof":
         if not is_amd_gpu():

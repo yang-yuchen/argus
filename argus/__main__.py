@@ -189,11 +189,17 @@ def profile_operator(
     op, _ = RUNNERS_BY_OP_NAME[operator]
     shape_str = ",".join(str(x) for x in shape)
     shape_sig = op.complete_shape(tuple(shape))
-    output_prefix = Path("logs/profiles/")
+    output_prefix = Path("profiles/")
     output_prefix.mkdir(parents=True, exist_ok=True)
     output_prefix = output_prefix / f"{operator}-{','.join(str(x) for x in shape_sig)}"
-    relaunch_args = ["-m", __spec__.name, "profile", operator, shape_str, "--repeat", str(repeat)]
-    relaunch_with_profiler(output_prefix, profiler, gpu_metrics, relaunch_args)
+    relaunch_args = ["-m", __spec__.name, operator, shape_str, "--repeat", str(repeat)]
+    relaunch_with_profiler(
+        output_prefix,
+        profiler,
+        gpu_metrics,
+        relaunch_args,
+        wait_for_cuda_profiler=not low_mem_overhead,
+    )
 
 
 def parse_args():
