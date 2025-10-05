@@ -10,7 +10,7 @@ authors = [{ name = "Yifan Zhao" }]
 # 2. NVTX is always installed because it's safe to do so even on AMD GPUs (it just does nothing).
 #    AMD ROCm doesn't seem to have an installable tracing tool like NVTX -- there is a dyn-lib in ROCm
 #    that we look for and load at runtime.
-dependencies = ["torch >= 2", "nvtx ~= 0.2.11"]
+dependencies = ["torch >= 2", "nvtx ~= 0.2.11", "coloredlogs ~= 15.0"]
 
 [project.optional-dependencies]
 # 1. For result stability, all version numbers for kernel libraries are exact.

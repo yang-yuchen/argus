@@ -2,6 +2,7 @@ import logging
 from pathlib import Path
 from typing import Sequence
 
+import coloredlogs
 import torch
 
 from . import BenchmarkOperator, BenchmarkRunner, triton
@@ -223,6 +224,8 @@ def parse_args():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    coloredlogs.install(
+        level=logging.INFO, fmt="%(asctime)s %(name)s %(levelname)s %(message)s", datefmt="%H:%M:%S"
+    )
     args = parse_args()
     args.func(args)
