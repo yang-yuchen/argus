@@ -14,11 +14,12 @@ dependencies = ["torch >= 2", "nvtx ~= 0.2.11", "coloredlogs ~= 15.0"]
 
 [project.optional-dependencies]
 # 1. For result stability, all version numbers for kernel libraries are exact.
-# 2. `flashattn` cannot be installed this way because it requires custom pip flags.
-#    This `flashattn` dependency group will fail. You need to install it manually:
-#    On Nvidia GPUs, it can be as simple as `pip install flash-attn==2.7.4.post1 --no-build-isolation`.
+# 2. Installing `flashattn` requires custom pip flags. You need to install it manually:
+#    On Nvidia GPUs, it can be as simple as `pip install flash-attn==2.8.3 --no-build-isolation`.
 #    For AMD GPUs, see the `flashattn` README.
-flashattn = ["flash-attn == 2.7.4.post1", "psutil"]
+#    If you don't have flashattn already installed, requiring this `flashattn` dependency group does not help.
+#    Once it's installed, you can add this group to check compatibility.
+flashattn = ["flash-attn == 2.8.3", "psutil"]
 flashinfer = ["flashinfer-python == 0.3.1.post1"]
 pytorch = ["torch == 2.8.0"]
 xformers = ["xformers == 0.0.32.post2"]
