@@ -89,9 +89,13 @@ class XformerDecodeRunner(BenchmarkRunner):
         super().__init__(operator, "triton", language="triton", impl_name="xformer")
 
     def setup(self, *inputs) -> bool:
+        import os
+
         q, k, v = inputs
         self.gqa = k.shape[1] != q.shape[1]
         self.q, self.k, self.v = map(_transform_io, (q, k, v))
+        # Skip the Flash-Attention version check in XFormers -- we're not using it.
+        os.environ["XFORMERS_IGNORE_FLASH_VERSION_CHECK"] = "1"
         return True
 
     def run(self):
