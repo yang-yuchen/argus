@@ -1,0 +1,34 @@
+[project]
+name = "ArgusBench"
+version = "0.1.0"
+requires-python = ">=3.10"
+description = "ArgusBench: A Benchmark Suite Full of Attention"
+authors = [{ name = "Yifan Zhao" }]
+
+# 1. We use PyTorch not just as a kernel library, but also as the library for sending tensors.
+#    For this purpose, any version of PyTorch is fine.
+# 2. NVTX is always installed because it's safe to do so even on AMD GPUs (it just does nothing).
+#    AMD ROCm doesn't seem to have an installable tracing tool like NVTX -- there is a dyn-lib in ROCm
+#    that we look for and load at runtime.
+dependencies = ["torch >= 2", "nvtx ~= 0.2.11"]
+
+[project.optional-dependencies]
+# 1. For result stability, all version numbers for kernel libraries are exact.
+# 2. `flashattn` cannot be installed this way because it requires custom pip flags.
+#    This `flashattn` dependency group will fail. You need to install it manually:
+#    On Nvidia GPUs, it can be as simple as `pip install flash-attn==2.7.4.post1 --no-build-isolation`.
+#    For AMD GPUs, see the `flashattn` README.
+flashattn = ["flash-attn == 2.7.4.post1"]
+flashinfer = ["flashinfer-python == 0.3.1.post1"]
+pytorch = ["torch == 2.6.0"]
+xformers = ["xformers == 0.0.32.post2"]
+triton-openai = ["triton == 3.2.0"]
+# TODO: mirage
+# MAX_JOBS=32 pip install mirage-project==0.2.2
+
+[tool.setuptools]
+package-dir = { "" = "argus" }
+
+[tool.ruff]
+line-length = 100
+indent-width = 4
