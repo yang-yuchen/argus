@@ -1,7 +1,6 @@
 import logging
 from pathlib import Path
 from typing import Sequence
-
 import coloredlogs
 import torch
 
@@ -11,6 +10,8 @@ from .flashattn import TriDaoRunner
 from .flashinfer import FlashInferRunner
 from .pytorch.flex import FlexAlibiRunner, FlexAttentionRunner
 from .pytorch.sdpa import AttentionAlgo, TorchDecodeGQARunner, TorchSDPARunner
+from .tawa import TawaPrefillRunner
+from .tilelang import TileLangPrefillRunner, TileLangDecodeRunner
 from .tvm import TVMDecodeRunner, TVMPrefillRunner
 from .utils import profiler_ctx
 
@@ -35,6 +36,8 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         TriDaoRunner(ops.PF_GLOBAL, causal=False),
         FlashInferRunner(ops.PF_GLOBAL, is_causal=False, is_decode=False),
         TVMPrefillRunner(ops.PF_GLOBAL, is_causal=False),
+        TawaPrefillRunner(ops.PF_GLOBAL, is_causal=False),
+        TileLangPrefillRunner(ops.PF_GLOBAL, is_causal=False, enable_gqa=False),
     ],
     ops.PF_CAUSAL: [
         FlexAttentionRunner(ops.PF_CAUSAL, mask_expr=ops.causal_mask_cond_4d),
@@ -45,6 +48,8 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         TriDaoRunner(ops.PF_CAUSAL, causal=True),
         FlashInferRunner(ops.PF_CAUSAL, is_causal=True, is_decode=False),
         TVMPrefillRunner(ops.PF_CAUSAL, is_causal=True),
+        TawaPrefillRunner(ops.PF_CAUSAL, is_causal=True),
+        TileLangPrefillRunner(ops.PF_CAUSAL, is_causal=True, enable_gqa=False),
     ],
     ops.PF_GQA: [
         FlexAttentionRunner(ops.PF_GQA, mask_expr=ops.causal_mask_cond_4d, enable_gqa=True),
@@ -57,6 +62,8 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         FlashInferRunner(ops.PF_GQA, is_causal=True, is_decode=False),
         # TVM runs GQA by simply repeating the key and value tensors.
         TVMPrefillRunner(ops.PF_GQA, is_causal=True),
+        TawaPrefillRunner(ops.PF_GQA, is_causal=True),
+        TileLangPrefillRunner(ops.PF_GQA, is_causal=True, enable_gqa=True),
     ],
     ops.PF_ALIBI: [
         FlexAlibiRunner(ops.PF_ALIBI, is_decode=False),
@@ -99,6 +106,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         # TODO: TVMDecodeRunner doesn't work for batch>1
         TVMDecodeRunner(ops.DC_CAUSAL),
         triton.XformerDecodeRunner(ops.DC_CAUSAL),
+        TileLangDecodeRunner(ops.DC_CAUSAL, is_causal=True, enable_gqa=False),
     ],
     ops.DC_GQA: [
         FlexAttentionRunner(ops.DC_GQA, enable_gqa=True),
@@ -107,6 +115,7 @@ RUNNERS: dict[BenchmarkOperator, Sequence[BenchmarkRunner]] = {
         TorchDecodeGQARunner(ops.DC_GQA),
         # TODO: TVMDecodeRunner doesn't work for batch>1
         TVMDecodeRunner(ops.DC_GQA),
+        TileLangDecodeRunner(ops.DC_GQA, is_causal=True, enable_gqa=True),
     ],
     ops.DC_ALIBI: [
         FlexAlibiRunner(ops.DC_ALIBI, is_decode=True),
@@ -161,6 +170,12 @@ def run_operator(operator: str, shape: list[int], n_repeats: int, low_mem_overhe
             shape_match = ref_output.shape == this_output.shape
             assert shape_match, f"{operator}: {runner} shape mismatches against {runners[0]}"
             if not torch.allclose(ref_output.cpu(), this_output.cpu(), atol=2e-3, rtol=0):
+                diff = (ref_output - this_output).abs()
+                logger.error(
+                    "%s vs %s -> max %.4e, mean %.4e, idx %s",
+                    runners_[0], runner, diff.max().item(), diff.mean().item(),
+                    torch.nonzero(diff == diff.max(), as_tuple=True)
+                )
                 logger.warning(f"{operator}: {runner} result mismatch against {runners[0]}")
         del this_output
         if low_mem_overhead:
