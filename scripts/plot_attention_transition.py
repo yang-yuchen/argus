@@ -70,8 +70,8 @@ def plot(data, output):
         ax.scatter(POSITIONS, means, color=color, s=58, zorder=4)
     for position in (0.7, 7.35):
         ax.axvline(position, color='0.7', linestyle='--', linewidth=1)
-    for x, text in ((0, 'Decode\nH=32'), (4, 'Causal MTP'),
-                    (8.3, 'Causal prefill\nH=32')):
+    for x, text in ((0, 'Decode'), (4, 'Causal MTP'),
+                    (8.3, 'Causal prefill')):
         ax.text(x, 1.035, text, transform=ax.get_xaxis_transform(), ha='center', fontsize=13)
     ax.set_xticks(POSITIONS, ['1', '2', '4', '8', '16', '32', '64', 'KV'])
     ax.set_xlabel('Query tokens (Q)', fontsize=20)
