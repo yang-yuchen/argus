@@ -1,0 +1,35 @@
+{
+  "variant": "decode8_L8192",
+  "backend": "tilelang",
+  "fusion": "default",
+  "trials": 64,
+  "trials_measured": 171,
+  "trials_failed": 85,
+  "in_tuner_best_ms": 0.0328253,
+  "tuned": {
+    "correct": true,
+    "max_err": 0.00164031982421875,
+    "ms": 0.032576940000000054,
+    "event_ms": 0.036288000643253326
+  },
+  "decisions": [
+    "tile=[64, 128]",
+    "tile=[1, 128]",
+    "warps=4",
+    "stages_idx=0",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "warps=4",
+    "stages_idx=0",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=0"
+  ],
+  "export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L8192/decode8_L8192/tilelang_w3/best/export",
+  "manual": null,
+  "sdpa_ms": 0.05580014,
+  "seconds": 586.8143277168274
+}

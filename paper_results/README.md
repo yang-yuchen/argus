@@ -22,6 +22,7 @@ Conventions:
 | `operator_gh200/gh200-bf16-tc1-sparse-d35a206-shared-kv-tilelang.pdf` (final, Nautilus vs TileLang) | `operator_gh200/sparse_shared_kv_20261027/plot_input_tilelang.csv` | `plot_from_csv.py` |
 | `operator_gh200/gh200-bf16-tc1-sparse-d35a206-shared-kv.pdf` (also has Flex/Helion BlockMask) | `operator_gh200/sparse_shared_kv_20261027/plot_input.csv` | `plot_from_csv.py` |
 | `operator_gh200/gh200-fp16-tc1-attention-transition-20261029.pdf` (decode → MTP → prefill) | `operator_gh200/attention_transition_20261029/plot_input.csv` | `scripts/plot_attention_transition.py` |
+| `operator_gh200/gh200-fp8-tc1-{decode8,mtpc8}-4e06b84.pdf` (FP8) | `operator_gh200/fp8_compilers_20261029/sweep_4e06b84_3484820/plot_input_*.csv` | `fp8_compilers_20261029/make_plots_fp8_sweep.py` |
 | `operator_rtx5090/rtx5090-20261029-{decode,causal-mtp}.pdf` | `operator_rtx5090/rtx5090_decode_mtpc16_results.md` | `operator_rtx5090/make_plots_20261029.py` |
 | `e2e_gh200/decode_e2e_graph_throughput.pdf` | `e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_throughput_paper_style.csv` | `scripts/plot_decode_e2e_paper_style.py` |
 | `e2e_gh200/mtpc16_e2e_graph_throughput.pdf` | `e2e_gh200/mtpc_2k4k_recheck_j3481758/throughput_plot_input.csv` | `scripts/plot_mtpc_throughput_paper_style.py`, `mtpc_2k4k_recheck_j3481758/summarize_recheck.py` |
@@ -74,15 +75,18 @@ Data: `decode_mtpc16_plot_b7749f3_20261027/`, `nautilus_decode_update_b7749f3_20
 `attention_transition_20261029/` plots decode (Q=1) → MTP (Q=2…64) → prefill (Q=KV).
 Decode and prefill use H32, while MTP uses H4 (the upstream kernel shape).
 
-### FP8 (in progress)
-`fp8_compilers_20261029/smoke_summary.json` has 5 smoke cases against official TileOPs FP8:
-- prefill8 L2048: 0.86×
-- prefillc8 L2048: 1.07×
-- decode8 L4096: 2.45×
-- mtp8 Q16/L4096: 7.14×
-- mtpc8 Q16/L4096: 6.20×
+### FP8 (GH200, E4M3 Q/K/V, FP16 output)
+Full-length decode8 and mtpc8 sweep, `fp8_compilers_20261029/sweep_4e06b84_3484820/`:
+- Kernels: neptune-internal `4e06b84` ("more 8b kernels"), snapshot in `fp8_compilers_20261029/source_4e06b84/`.
+- Run: one GH200 (gh081), job 3484820. 17 cases × 2 methods, all passed the FP8 correctness gate and the 50-repeat cold-L2 nsys measurement.
+- decode8, B1/H32/Q1, KV 256–32K: Nautilus vs TileLang (official TileOPs `GQAVarlenFP8WSFwdKernel`) geomean **2.58×** (2.25–3.11×).
+- mtpc8, H4/Q16 lower-right causal, KV 256–64K: vs TileLang (official TileOPs `GQADenseFP8Kernel`) geomean **5.53×** (1.71× at 256, 14.8× at 64K).
+  - The official FP8 dense kernel has no split-KV path for this short-Q shape, so its latency grows linearly with KV.
+- FlexAttention is excluded: its official all-FP8 path outputs FP8, not FP16.
+- Plots: `make_plots_fp8_sweep.py` (reuses `plot_from_csv.py`).
 
-The full 12-kernel FP8 sweep has not been run.
+`fp8_compilers_20261029/smoke_summary.json` keeps the earlier 5-case smoke, which includes prefill8 L2048 (0.86×) and prefillc8 L2048 (1.07×).
+prefill8/prefillc8/mtp8 have not been swept over all lengths.
 
 ### RTX 5090 (operator level, nsys medians)
 - Newest numbers (`rtx5090_decode_mtpc16_results.md`):

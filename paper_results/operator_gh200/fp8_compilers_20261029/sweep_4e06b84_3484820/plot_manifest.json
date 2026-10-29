@@ -1,0 +1,38 @@
+{
+  "kernels": "neptune-internal nautilus-gh200 4e06b84 (source_4e06b84/paper_kernels)",
+  "tilelang_label": "official TileOPs FP8 (pinned 2c54caec)",
+  "normalization": "Nautilus mean latency / baseline mean latency; higher=faster",
+  "plots": [
+    {
+      "group": "decode8",
+      "csv": "profiles_fp8_compilers_20261029/sweep_4e06b84_3484820/plot_input_decode8.csv",
+      "pdf": "plots_from_csv/gh200-fp8-tc1-decode8-4e06b84.pdf",
+      "lengths": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768
+      ]
+    },
+    {
+      "group": "mtpc8",
+      "csv": "profiles_fp8_compilers_20261029/sweep_4e06b84_3484820/plot_input_mtpc8.csv",
+      "pdf": "plots_from_csv/gh200-fp8-tc1-mtpc8-4e06b84.pdf",
+      "lengths": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768,
+        65536
+      ]
+    }
+  ]
+}

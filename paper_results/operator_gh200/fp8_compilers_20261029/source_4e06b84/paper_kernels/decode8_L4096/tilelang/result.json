@@ -1,0 +1,35 @@
+{
+  "variant": "decode8_L4096",
+  "backend": "tilelang",
+  "fusion": "default",
+  "trials": 64,
+  "trials_measured": 168,
+  "trials_failed": 88,
+  "in_tuner_best_ms": 0.0205798,
+  "tuned": {
+    "correct": true,
+    "max_err": 0.001953125,
+    "ms": 0.020624719999999996,
+    "event_ms": 0.024159999564290047
+  },
+  "decisions": [
+    "tile=[64, 64]",
+    "tile=[1, 128]",
+    "warps=8",
+    "stages_idx=0",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "warps=8",
+    "stages_idx=2",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "[0, 1]=1"
+  ],
+  "export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/decode8_L4096/tilelang_w3/best/export",
+  "manual": null,
+  "sdpa_ms": 0.034172419999999974,
+  "seconds": 431.24010825157166
+}

@@ -1,0 +1,35 @@
+{
+  "variant": "decode8_L1024",
+  "backend": "tilelang",
+  "fusion": "default",
+  "trials": 64,
+  "trials_measured": 183,
+  "trials_failed": 73,
+  "in_tuner_best_ms": 0.0079978,
+  "tuned": {
+    "correct": true,
+    "max_err": 0.003753662109375,
+    "ms": 0.007913359999999996,
+    "event_ms": 0.011615999974310398
+  },
+  "decisions": [
+    "tile=[32, 32]",
+    "tile=[1, 128]",
+    "warps=2",
+    "stages_idx=2",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "warps=2",
+    "stages_idx=2",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=0"
+  ],
+  "export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/decode8_L1024/tilelang_w3/best/export",
+  "manual": null,
+  "sdpa_ms": 0.015062599999999976,
+  "seconds": 391.2948431968689
+}

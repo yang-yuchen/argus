@@ -1,0 +1,35 @@
+{
+  "variant": "mtpc8_Q16_L256",
+  "backend": "tilelang",
+  "fusion": "default",
+  "trials": 32,
+  "trials_measured": 77,
+  "trials_failed": 19,
+  "in_tuner_best_ms": 0.0050168,
+  "tuned": {
+    "correct": true,
+    "max_err": 0.00811767578125,
+    "ms": 0.004962999999999971,
+    "event_ms": 0.008960000239312649
+  },
+  "decisions": [
+    "tile=[8, 32]",
+    "tile=[2, 64]",
+    "warps=8",
+    "stages_idx=1",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "warps=2",
+    "stages_idx=0",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=1"
+  ],
+  "export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L256/mtpc8_Q16_L256/tilelang_w4/best/export",
+  "manual": null,
+  "sdpa_ms": 0.007544619999999993,
+  "seconds": 162.37623524665833
+}
