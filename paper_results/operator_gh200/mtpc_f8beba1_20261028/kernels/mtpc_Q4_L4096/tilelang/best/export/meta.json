@@ -1,0 +1,73 @@
+{
+  "target": "cuda -keys=cuda,gpu -arch=sm_90 -max_num_threads=1024 -thread_warp_size=32",
+  "params": [
+    {
+      "name": "q",
+      "shape": [
+        1,
+        4,
+        4,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "k",
+      "shape": [
+        1,
+        4,
+        4096,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "v",
+      "shape": [
+        1,
+        4,
+        4096,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "T_cast",
+      "shape": [
+        1,
+        4,
+        4,
+        128
+      ],
+      "dtype": "float16"
+    }
+  ],
+  "files": [
+    "kernel.so",
+    "tilelang_0.cu",
+    "schedule.py",
+    "meta.json"
+  ],
+  "triton_kernels": [],
+  "variant": "mtpc_Q4_L4096",
+  "backend": "tilelang",
+  "fusion": "default",
+  "trials": 64,
+  "decisions": [
+    "tile=[128, 32]",
+    "tile=[1, 128]",
+    "tile=[64, 2]",
+    "warps=2",
+    "stages_idx=1",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "warps=4",
+    "stages_idx=0",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=0"
+  ]
+}

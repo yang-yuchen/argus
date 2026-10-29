@@ -1,0 +1,202 @@
+[
+  {
+    "config": {
+      "num_splits": 1,
+      "tile": 64,
+      "num_warps": 4,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (!br_->block->init.defined()) is false: "
+  },
+  {
+    "config": {
+      "num_splits": 1,
+      "tile": 64,
+      "num_warps": 8,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (!br_->block->init.defined()) is false: "
+  },
+  {
+    "config": {
+      "num_splits": 2,
+      "tile": 64,
+      "num_warps": 4,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": true,
+    "validation": [
+      {
+        "max_abs_error": 0.0002250075340270996,
+        "relative_l2": 0.00026675858464956864
+      },
+      {
+        "max_abs_error": 0.00020945072174072266,
+        "relative_l2": 0.00026646633727281843
+      }
+    ],
+    "times_ms": [
+      0.006079879999999974,
+      0.006075880000000001
+    ],
+    "screening_ms": 0.006077879999999988
+  },
+  {
+    "config": {
+      "num_splits": 2,
+      "tile": 64,
+      "num_warps": 8,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": true,
+    "validation": [
+      {
+        "max_abs_error": 0.0002250075340270996,
+        "relative_l2": 0.00026675858464956864
+      },
+      {
+        "max_abs_error": 0.00020945072174072266,
+        "relative_l2": 0.00026646633727281843
+      }
+    ],
+    "times_ms": [
+      0.0062451199999999625,
+      0.0062932400000000185
+    ],
+    "screening_ms": 0.0062691799999999905
+  },
+  {
+    "config": {
+      "num_splits": 4,
+      "tile": 64,
+      "num_warps": 4,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (reduce_iv_indices.size() == 1) is false: There should be exactly one reduction IterVar in the block that touches the target loop var; got []"
+  },
+  {
+    "config": {
+      "num_splits": 4,
+      "tile": 64,
+      "num_warps": 8,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (reduce_iv_indices.size() == 1) is false: There should be exactly one reduction IterVar in the block that touches the target loop var; got []"
+  },
+  {
+    "config": {
+      "num_splits": 2,
+      "tile": 128,
+      "num_warps": 4,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (reduce_iv_indices.size() == 1) is false: There should be exactly one reduction IterVar in the block that touches the target loop var; got []"
+  },
+  {
+    "config": {
+      "num_splits": 2,
+      "tile": 128,
+      "num_warps": 8,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (reduce_iv_indices.size() == 1) is false: There should be exactly one reduction IterVar in the block that touches the target loop var; got []"
+  },
+  {
+    "config": {
+      "num_splits": 4,
+      "tile": 32,
+      "num_warps": 4,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": true,
+    "validation": [
+      {
+        "max_abs_error": 0.0002250075340270996,
+        "relative_l2": 0.0002584074802665282
+      },
+      {
+        "max_abs_error": 0.00020945072174072266,
+        "relative_l2": 0.00025916315139000456
+      }
+    ],
+    "times_ms": [
+      0.005752291666666642,
+      0.005700479999999984
+    ],
+    "screening_ms": 0.005726385833333313
+  },
+  {
+    "config": {
+      "num_splits": 4,
+      "tile": 32,
+      "num_warps": 8,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": true,
+    "validation": [
+      {
+        "max_abs_error": 0.0002250075340270996,
+        "relative_l2": 0.00025840692929783273
+      },
+      {
+        "max_abs_error": 0.00020945072174072266,
+        "relative_l2": 0.0002591693001619066
+      }
+    ],
+    "times_ms": [
+      0.006032489361702099,
+      0.006005170212765927
+    ],
+    "screening_ms": 0.006018829787234013
+  },
+  {
+    "config": {
+      "num_splits": 8,
+      "tile": 32,
+      "num_warps": 4,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (reduce_iv_indices.size() == 1) is false: There should be exactly one reduction IterVar in the block that touches the target loop var; got []"
+  },
+  {
+    "config": {
+      "num_splits": 8,
+      "tile": 32,
+      "num_warps": 8,
+      "num_stages": 2,
+      "tma": false,
+      "warp_specialize": null
+    },
+    "correct": false,
+    "error": "Check failed: (reduce_iv_indices.size() == 1) is false: There should be exactly one reduction IterVar in the block that touches the target loop var; got []"
+  }
+]

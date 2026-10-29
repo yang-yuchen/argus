@@ -1,0 +1,2479 @@
+{
+  "variant": "sparse_split",
+  "family": "sparse",
+  "stage": "candidates",
+  "repeat": 50,
+  "environment": {
+    "host": "gh008.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "ffe64d70-e658-1c7c-018b-e1978a340e0d",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "packages": {
+      "tilelang": {
+        "version": "0.1.15",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/__init__.py"
+      },
+      "tvm": {
+        "version": "0.25.dev0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+      },
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      },
+      "flashinfer": {
+        "version": "0.7.2.post1",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/__init__.py"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "tilelang_i64_s1_t64",
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "adaptations": "noncausal, ignore -1, empty rows zero, split packing timed",
+        "architecture": "Hopper SM90 (H100/H800/GH200)",
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 64
+        },
+        "scope": "raw indices; split layout packing included"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.0002012828751017679,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.0020255466940382874,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.291802198703812e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009350545528938407,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019989259320917199,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.0020307006439020552,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.246819314722441e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.000939382964719107,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.0002001110787306857,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002032852807157456,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.261761153807792e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009408718923261717,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.00020365099407340117,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.0019320653596811433,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022813785276769045,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21154028934154373,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        904.672,
+        903.264,
+        899.8720000000001,
+        900.6400000000001,
+        901.2479999999999,
+        900.288,
+        902.368,
+        899.6800000000001,
+        902.016,
+        900.192,
+        900.3199999999999,
+        903.1999999999999,
+        900.096,
+        899.168,
+        900.992,
+        887.712,
+        887.392,
+        890.528,
+        887.552,
+        887.648,
+        885.9839999999999,
+        888.0640000000001,
+        890.144,
+        889.6320000000001,
+        888.384,
+        889.344,
+        887.2,
+        889.056,
+        888.2560000000001,
+        888.384,
+        886.272,
+        887.072,
+        888.224,
+        887.8399999999999,
+        888.096,
+        887.712,
+        886.6239999999999,
+        888.16,
+        888.9920000000001,
+        891.648,
+        890.8159999999999,
+        890.208,
+        895.968,
+        892.48,
+        893.792,
+        895.392,
+        893.6320000000001,
+        893.1519999999999,
+        893.728,
+        891.904
+      ],
+      "mean_us": 893.10016,
+      "median_us": 890.672,
+      "min_us": 885.9839999999999
+    },
+    {
+      "name": "tilelang_i64_s1_t128",
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "adaptations": "noncausal, ignore -1, empty rows zero, split packing timed",
+        "architecture": "Hopper SM90 (H100/H800/GH200)",
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "scope": "raw indices; split layout packing included"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.00020128301602839253,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.0020255481122089017,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.29179950470938e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009350542817912381,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019989250545910064,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.0020306997524526848,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.246955637070577e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.000939396813685675,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00020011107457519926,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.0020328527649434397,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.261914791496083e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009408874998742519,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.000203651133361287,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.001932066681124726,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022813785276659324,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21154028934052635,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        910.24,
+        914.08,
+        914.208,
+        912.1279999999999,
+        912.5120000000001,
+        917.056,
+        912.3839999999999,
+        913.728,
+        913.248,
+        914.496,
+        913.056,
+        909.952,
+        913.5039999999999,
+        912.128,
+        919.552,
+        918.368,
+        920.4480000000001,
+        919.744,
+        920.2239999999999,
+        923.4559999999999,
+        921.504,
+        918.624,
+        918.624,
+        921.312,
+        921.376,
+        917.312,
+        919.2,
+        921.792,
+        920.224,
+        922.0160000000001,
+        921.312,
+        923.168,
+        919.936,
+        921.2479999999999,
+        920.7040000000001,
+        920.384,
+        921.184,
+        920.352,
+        916.128,
+        915.488,
+        915.52,
+        917.12,
+        917.248,
+        916.32,
+        916.8960000000001,
+        918.176,
+        915.616,
+        915.456,
+        917.44,
+        919.552
+      ],
+      "mean_us": 917.5148800000001,
+      "median_us": 917.808,
+      "min_us": 909.952
+    },
+    {
+      "name": "tilelang_i64_s1_t256",
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "adaptations": "noncausal, ignore -1, empty rows zero, split packing timed",
+        "architecture": "Hopper SM90 (H100/H800/GH200)",
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 256
+        },
+        "scope": "raw indices; split layout packing included"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.0002012827318047903,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002025545252014374,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.291687302788111e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009350429906643843,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019989243965433623,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002030699083944786,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.246842264068834e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.000939385296139709,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00020011134128606123,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.00203285547435827,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.261880238988205e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009408839897984756,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.00020365085244272786,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.0019320640160112093,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022813785272089493,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.2115402892981527,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        1455.776,
+        1458.624,
+        1458.24,
+        1457.1200000000001,
+        1456.928,
+        1455.008,
+        1462.432,
+        1456.416,
+        1457.952,
+        1453.952,
+        1457.984,
+        1456.512,
+        1458.048,
+        1456.384,
+        1457.184,
+        1456.5120000000002,
+        1457.472,
+        1456.9279999999999,
+        1458.0159999999998,
+        1457.92,
+        1463.3600000000001,
+        1456.3200000000002,
+        1457.5359999999998,
+        1456.512,
+        1460.576,
+        1469.6,
+        1461.1200000000001,
+        1467.168,
+        1462.3039999999999,
+        1463.6480000000001,
+        1470.976,
+        1465.856,
+        1465.92,
+        1467.712,
+        1460.576,
+        1462.048,
+        1461.632,
+        1466.304,
+        1470.3359999999998,
+        1466.624,
+        1454.816,
+        1458.0800000000002,
+        1457.952,
+        1456.416,
+        1454.144,
+        1455.9360000000001,
+        1458.528,
+        1461.408,
+        1457.856,
+        1457.856
+      ],
+      "mean_us": 1459.89056,
+      "median_us": 1458.0,
+      "min_us": 1453.952
+    },
+    {
+      "name": "tilelang_i64_s2_t128",
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "adaptations": "noncausal, ignore -1, empty rows zero, split packing timed",
+        "architecture": "Hopper SM90 (H100/H800/GH200)",
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 128
+        },
+        "scope": "raw indices; split layout packing included"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.00020128301602839253,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.0020255481122089017,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.29179950470938e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009350542817912381,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019989250545910064,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.0020306997524526848,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.246955637070577e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.000939396813685675,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00020011107457519926,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.0020328527649434397,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.261914791496083e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009408874998742519,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.000203651133361287,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.001932066681124726,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022813785276659324,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21154028934052635,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        1220.096,
+        1218.624,
+        1219.328,
+        1220.672,
+        1217.792,
+        1219.2959999999998,
+        1218.9440000000002,
+        1222.624,
+        1223.744,
+        1222.272,
+        1219.2,
+        1224.384,
+        1221.9840000000002,
+        1225.6640000000002,
+        1224.704,
+        1224.8000000000002,
+        1221.952,
+        1221.952,
+        1220.3519999999999,
+        1222.4,
+        1222.688,
+        1222.784,
+        1225.8880000000001,
+        1222.848,
+        1223.232,
+        1219.5839999999998,
+        1217.6319999999998,
+        1219.168,
+        1218.912,
+        1218.464,
+        1219.264,
+        1218.1760000000002,
+        1219.9679999999998,
+        1217.632,
+        1218.5600000000002,
+        1217.152,
+        1216.672,
+        1218.656,
+        1218.72,
+        1218.912,
+        1218.912,
+        1217.696,
+        1219.648,
+        1218.912,
+        1221.312,
+        1224.224,
+        1226.016,
+        1225.312,
+        1224.3200000000002,
+        1221.568
+      ],
+      "mean_us": 1220.87232,
+      "median_us": 1220.032,
+      "min_us": 1216.672
+    },
+    {
+      "name": "tilelang_i64_s2_t256",
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "adaptations": "noncausal, ignore -1, empty rows zero, split packing timed",
+        "architecture": "Hopper SM90 (H100/H800/GH200)",
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scope": "raw indices; split layout packing included"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.0002012827318047903,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002025545252014374,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.291687302788111e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009350429906643843,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019989243965433623,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002030699083944786,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.246842264068834e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.000939385296139709,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00020011134128606123,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.00203285547435827,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 9.261880238988205e-05,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0009408839897984756,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.00020365085244272786,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.0019320640160112093,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022813785272089493,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.2115402892981527,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        1436.8960000000002,
+        1433.408,
+        1437.376,
+        1431.712,
+        1434.2720000000002,
+        1440.832,
+        1439.264,
+        1437.8239999999998,
+        1435.648,
+        1438.72,
+        1438.6879999999999,
+        1426.816,
+        1430.624,
+        1432.096,
+        1428.2240000000002,
+        1431.0720000000001,
+        1426.976,
+        1426.5600000000002,
+        1433.536,
+        1431.328,
+        1432.352,
+        1431.52,
+        1430.368,
+        1427.392,
+        1431.904,
+        1426.7839999999999,
+        1429.088,
+        1438.624,
+        1434.976,
+        1439.712,
+        1440.064,
+        1440.384,
+        1431.424,
+        1441.1200000000001,
+        1431.936,
+        1433.152,
+        1436.128,
+        1439.4879999999998,
+        1440.544,
+        1437.344,
+        1440.352,
+        1432.768,
+        1432.896,
+        1425.7920000000001,
+        1426.5919999999999,
+        1426.0159999999998,
+        1432.8,
+        1430.8799999999999,
+        1426.6560000000002,
+        1428.512
+      ],
+      "mean_us": 1433.3888,
+      "median_us": 1432.784,
+      "min_us": 1425.7920000000001
+    },
+    {
+      "name": "tilelang_i32_s1_t64",
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "adaptations": "noncausal, ignore -1, empty rows zero, split packing timed",
+        "architecture": "Hopper SM90 (H100/H800/GH200)",
+        "configuration": {
+          "block_I": 32,
+          "num_stages": 1,
+          "threads": 64
+        },
+        "scope": "raw indices; split layout packing included"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.00020040380465036369,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.0020167004459619503,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 6.639614292115038e-06,
+            "max_abs_error": 0.001953125,
+            "relative_l2": 6.681590331493756e-05,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019897667343561387,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021395852543524,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 6.82874649160746e-06,
+            "max_abs_error": 0.001953125,
+            "relative_l2": 6.93731315198081e-05,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.0001991851154801611,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.0020234462965080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 7.064440533107949e-06,
+            "max_abs_error": 0.001953125,
+            "relative_l2": 7.176533082888141e-05,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.00020278248561041634,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.0019238256988655515,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022813597609829227,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.2115385492042422,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        910.4960000000001,
+        911.552,
+        910.848,
+        913.088,
+        911.4240000000001,
+        913.056,
+        913.76,
+        913.664,
+        909.6,
+        909.8240000000001,
+        911.84,
+        910.8480000000001,
+        913.504,
+        911.904,
+        914.656,
+        913.312,
+        911.36,
+        910.336,
+        911.8720000000001,
+        915.648,
+        913.376,
+        911.232,
+        911.68,
+        913.3439999999999,
+        911.936,
+        911.104,
+        913.216,
+        914.112,
+        912.288,
+        912.096,
+        911.744,
+        913.184,
+        912.384,
+        910.944,
+        911.264,
+        912.6400000000001,
+        912.7040000000001,
+        912.096,
+        915.776,
+        914.848,
+        914.5920000000001,
+        914.2719999999999,
+        915.9680000000001,
+        917.4079999999999,
+        918.336,
+        916.8000000000001,
+        918.4000000000001,
+        917.216,
+        916.576,
+        916.6080000000001
+      ],
+      "mean_us": 913.21472,
+      "median_us": 912.8800000000001,
+      "min_us": 909.6
+    },
+    {
+      "name": "tilelang_i128_s1_t128",
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "adaptations": "noncausal, ignore -1, empty rows zero, split packing timed",
+        "architecture": "Hopper SM90 (H100/H800/GH200)",
+        "configuration": {
+          "block_I": 128,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "scope": "raw indices; split layout packing included"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.0002027619222724305,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002040430618492107,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00012039846834804005,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0012115963467881868,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.0002014317371136242,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.0020463367436076526,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00012037508157897201,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0012228886189213197,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00020161225039821968,
+            "max_abs_error": 0.00256022562301339,
+            "relative_l2": 0.002048102642687445,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00012032886822549716,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0012223814463434347,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.0002051092562348045,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.0019459000960162169,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.0228139132707849,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.2115414761630562,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        1098.368,
+        1093.632,
+        1093.216,
+        1093.344,
+        1093.184,
+        1097.088,
+        1095.168,
+        1097.376,
+        1098.016,
+        1098.624,
+        1094.24,
+        1094.368,
+        1093.632,
+        1099.264,
+        1096.064,
+        1096.416,
+        1094.624,
+        1092.992,
+        1096.608,
+        1098.88,
+        1094.784,
+        1098.4959999999999,
+        1094.1119999999999,
+        1093.376,
+        1095.392,
+        1098.432,
+        1095.264,
+        1093.4399999999998,
+        1096.1599999999999,
+        1095.328,
+        1093.76,
+        1089.7600000000002,
+        1088.768,
+        1093.312,
+        1088.5120000000002,
+        1089.312,
+        1088.8000000000002,
+        1089.152,
+        1089.4080000000001,
+        1091.008,
+        1088.32,
+        1092.192,
+        1089.6000000000001,
+        1088.832,
+        1089.376,
+        1089.472,
+        1092.4479999999999,
+        1088.48,
+        1088.096,
+        1088.9920000000002
+      ],
+      "mean_us": 1093.34976,
+      "median_us": 1093.536,
+      "min_us": 1088.096
+    },
+    {
+      "name": "tilelang_pipelined_i64_s2_t384",
+      "source": {},
+      "validation": [],
+      "status": "compile_or_runtime_failed",
+      "error": "Traceback (most recent call last):\n  File \"/u/yucheny8/argus/scripts/bench_paper_strong.py\", line 124, in prepare_candidates\n    function = factory()\n  File \"/u/yucheny8/argus/argus/paper_baselines/sparse_strong.py\", line 84, in _tilelang\n    kernel = tilelang.compile(\n        program.without_attr(\"tilelang_out_idx\"), out_idx=[],\n        pass_configs=sparse_mla_fwd.pass_configs,\n    )\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/__init__.py\", line 164, in compile\n    return cached(\n        func=func,\n    ...<6 lines>...\n        compile_flags=compile_flags,\n    )\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/__init__.py\", line 90, in cached\n    return cache.cached(\n           ~~~~~~~~~~~~^\n        func,\n        ^^^^^\n    ...<5 lines>...\n        compile_flags=compile_flags,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py\", line 427, in cached\n    kernel = JITKernel(\n        func,\n    ...<7 lines>...\n        backend_context=backend_context,\n    )\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py\", line 140, in __init__\n    adapter = self._compile_and_create_adapter(func, out_idx)\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py\", line 274, in _compile_and_create_adapter\n    self.artifact = self._compile_artifact(tilelang_func, pass_configs, compile_metadata)\n                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py\", line 315, in _compile_artifact\n    artifact = lower_with_context(\n        tilelang_func,\n    ...<2 lines>...\n        enable_device_compile=enable_device_compile,\n    )\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py\", line 165, in lower_with_context\n    return _lower_with_context_impl(\n        func_or_mod,\n    ...<3 lines>...\n        enable_device_compile=enable_device_compile,\n    )\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py\", line 184, in _lower_with_context_impl\n    host_mod, device_mod, params, target, target_host = lower_to_host_device_ir(\n                                                        ~~~~~~~~~~~~~~~~~~~~~~~^\n        func_or_mod,\n        ^^^^^^^^^^^^\n        context,\n        ^^^^^^^^\n        runtime_only=runtime_only,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py\", line 136, in lower_to_host_device_ir\n    mod = context.lower(mod)\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py\", line 214, in lower\n    return self.module.lower(mod, self.target)\n           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py\", line 115, in lower\n    return self.get_pipeline(target).lower(mod, target)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/pass_pipeline/pipeline.py\", line 31, in lower\n    return self._lower(mod, target)\n           ~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py\", line 171, in CUDAPassPipelineBody\n    mod = CUDAPassPipelineBodyPrologue(mod, target)\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py\", line 134, in CUDAPassPipelineBodyPrologue\n    mod = tilelang.transform.LayoutInference()(mod)\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/ir/transform.py\", line 171, in __call__\n    return _ffi_transform_api.RunPass(self, mod)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in tvm::transform::Pass::operator()(tvm::IRModule) const\n  File \"<unknown>\", line 0, in tvm::transform::Pass::operator()(tvm::IRModule, tvm::transform::PassContext const&) const\n  File \"<unknown>\", line 0, in tvm::tirx::transform::PrimFuncPassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const\n  File \"<unknown>\", line 0, in tvm::tl::LayoutInferencer::Substitute(tvm::tirx::PrimFunc)\n  File \"<unknown>\", line 0, in tvm::tl::BufferUseDefCollector::Run()\n  File \"<unknown>\", line 0, in tvm::tl::BufferUseDefCollector::RunInferStep(int, tvm::tl::InferLevel, bool, tvm::ffi::Map<tvm::tirx::Buffer, tvm::tl::Layout, void>&, tvm::ffi::Map<tvm::tirx::Buffer, tvm::tl::Layout, void> const&, std::deque<int, std::allocator<int> >&, std::vector<bool, std::allocator<bool> >&, int)\n  File \"<unknown>\", line 0, in tvm::tl::GemmNode::InferLayout(tvm::tl::LayoutInferArgs const&, tvm::tl::InferLevel) const\n  File \"<unknown>\", line 0, in TVMFFIPyCallback(void*, TVMFFIAny const*, int, TVMFFIAny*)\n  File \"<unknown>\", line 0, in TVMFFIPyCallManager::ForwardPyErrorToFFI()\n  File \"<unknown>\", line 0, in TVMFFICyErrorSetRaisedFromPyError(_object*)\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py\", line 15, in gemm_infer_layout\n    return gemm.infer_layout(target, thread_nums)\n    \n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py\", line 103, in infer_layout\n    gemm_inst = self._select_gemm_instruction(thread_nums, target)\n    \n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py\", line 138, in _select_gemm_instruction\n    return str(_ffi_api.GemmGetGemmInstructionKey(self, int(thread_nums), target))\n    \n  File \"python/tvm_ffi/cython/function.pxi\", line 968, in tvm_ffi.core.Function.__call__\n  File \"<unknown>\", line 0, in tvm::tl::GemmNode::GetGemmInstructionKey(int, tvm::Target) const\n  File \"<unknown>\", line 0, in tvm::tl::cuda::Gemm::SelectInst(tvm::tl::GemmNode const&, int, tvm::Target)\n  File \"<unknown>\", line 0, in tvm::runtime::detail::LogFatal::~LogFatal()\ntvm.error.InternalError: T.wgmma_gemm() requires Hopper WGMMA lowering, but constraints were not satisfied. Got target={\"kind\":\"cuda\",\"tag\":\"\",\"keys\":[\"cuda\",\"gpu\"],\"host\":{\"kind\":\"c\",\"tag\":\"\",\"keys\":[\"cpu\"]},\"max_num_threads\":1024,\"thread_warp_size\":32,\"arch\":\"sm_90a\"}, A(scope=shared.dyn, dtype=bfloat16), B(scope=shared.dyn, dtype=bfloat16), C(scope=local.fragment, dtype=float32), M=16, N=64, K=256.\n  --> /u/yucheny8/argus/argus/paper_baselines/vendor/sparse_strong_pipelined.py:87:1\n     |\n 87 |         Q_shared = T.alloc_shared([H_per_block, D + D_tail], dtype)\n     |         ^\n"
+    },
+    {
+      "name": "flashinfer_mla_fa2_preplanned",
+      "source": {
+        "repository": "https://github.com/flashinfer-ai/flashinfer",
+        "version": "0.7.2.post1",
+        "backend": "fa2",
+        "page_size": 1,
+        "architecture": "SM90a FA3 requires CUDA >= 12.3; FA2 supports SM80+",
+        "scope": "preplanned CSR; index mask/compaction/planning excluded",
+        "layout": "native packed/split views; no query/KV copies",
+        "duplicates": "preserved"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.00020025786183621566,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002015231796507462,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021583366593475335,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021719817930284002,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019902656736311882,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021902722903673,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021452371318783615,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021793431323578307,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00019922435818511234,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.0020238449483139234,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.0002147755191431648,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.002181833948918945,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.00020253287220530034,
+            "max_abs_error": 0.008136713108933158,
+            "relative_l2": 0.0019214575817074156,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022814634919177772,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21154816763086742,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        792.0,
+        795.264,
+        798.272,
+        795.232,
+        800.032,
+        799.296,
+        798.784,
+        796.832,
+        793.024,
+        798.912,
+        797.248,
+        796.064,
+        795.744,
+        798.304,
+        796.096,
+        793.728,
+        801.888,
+        800.544,
+        789.952,
+        798.208,
+        795.616,
+        800.8,
+        796.448,
+        797.856,
+        798.24,
+        791.36,
+        796.864,
+        798.944,
+        796.288,
+        800.96,
+        798.4,
+        798.56,
+        798.08,
+        793.952,
+        796.576,
+        799.904,
+        793.152,
+        795.552,
+        802.688,
+        795.776,
+        797.312,
+        795.776,
+        801.024,
+        795.36,
+        796.864,
+        790.816,
+        793.664,
+        793.184,
+        792.224,
+        791.616
+      ],
+      "mean_us": 796.5856,
+      "median_us": 796.704,
+      "min_us": 789.952
+    },
+    {
+      "name": "flashinfer_mla_fa2_timed_compaction",
+      "source": {
+        "repository": "https://github.com/flashinfer-ai/flashinfer",
+        "version": "0.7.2.post1",
+        "backend": "fa2",
+        "page_size": 1,
+        "architecture": "SM90a FA3 requires CUDA >= 12.3; FA2 supports SM80+",
+        "scope": "raw index mask/compaction timed; fixed per-row valid counts; planning excluded",
+        "layout": "native packed/split views; no query/KV copies",
+        "duplicates": "preserved"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.00020025786183621566,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002015231796507462,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021583366593475335,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021719817930284002,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.00019902656736311882,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021902722903673,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021452371318783615,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021793431323578307,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00019922435818511234,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.0020238449483139234,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.0002147755191431648,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.002181833948918945,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.00020253287220530034,
+            "max_abs_error": 0.008136713108933158,
+            "relative_l2": 0.0019214575817074156,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022814634919177772,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21154816763086742,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        824.224,
+        826.688,
+        821.3119999999999,
+        824.384,
+        825.152,
+        821.312,
+        822.144,
+        817.056,
+        820.576,
+        820.0,
+        816.672,
+        819.936,
+        818.4000000000001,
+        819.808,
+        819.648,
+        820.8960000000001,
+        820.448,
+        818.4,
+        818.9440000000001,
+        818.3679999999999,
+        818.752,
+        816.672,
+        817.216,
+        816.928,
+        821.856,
+        818.592,
+        818.2080000000001,
+        820.96,
+        814.912,
+        818.464,
+        820.832,
+        823.5840000000001,
+        820.384,
+        819.3919999999999,
+        820.8960000000001,
+        825.952,
+        823.008,
+        823.904,
+        824.864,
+        823.936,
+        821.504,
+        820.64,
+        822.9119999999999,
+        819.3599999999999,
+        820.3199999999999,
+        821.888,
+        822.88,
+        818.208,
+        822.624,
+        825.76
+      ],
+      "mean_us": 820.79552,
+      "median_us": 820.608,
+      "min_us": 814.912
+    },
+    {
+      "name": "flashinfer_mla_fa3_preplanned",
+      "source": {
+        "repository": "https://github.com/flashinfer-ai/flashinfer",
+        "version": "0.7.2.post1",
+        "backend": "fa3",
+        "page_size": 1,
+        "architecture": "SM90a FA3 requires CUDA >= 12.3; FA2 supports SM80+",
+        "scope": "preplanned CSR; index mask/compaction/planning excluded",
+        "layout": "native packed/split views; no query/KV copies",
+        "duplicates": "preserved"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.00020099044723703014,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.0020226039385039937,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.0002161067268529251,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021747296652849736,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.0001997204000055036,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002028951340218756,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021475402012975523,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021816828170702902,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00019993614846221375,
+            "max_abs_error": 0.002281807998002039,
+            "relative_l2": 0.002031075756683411,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021505455467471496,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021846685792256,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.0002033569057695546,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.0019292753029611423,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022814616554497326,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21154799734479837,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        382.88,
+        383.168,
+        383.808,
+        382.56,
+        385.856,
+        383.232,
+        383.424,
+        380.48,
+        379.904,
+        382.944,
+        383.616,
+        384.352,
+        382.688,
+        383.456,
+        381.728,
+        383.648,
+        381.888,
+        381.376,
+        382.08,
+        382.208,
+        380.8,
+        381.312,
+        380.48,
+        381.6,
+        382.08,
+        381.408,
+        379.584,
+        383.327,
+        382.464,
+        383.328,
+        381.76,
+        381.248,
+        381.696,
+        382.976,
+        383.264,
+        382.912,
+        379.904,
+        385.6,
+        380.896,
+        384.864,
+        381.824,
+        380.704,
+        381.824,
+        382.4,
+        381.888,
+        385.28,
+        383.584,
+        381.12,
+        382.112,
+        384.064
+      ],
+      "mean_us": 382.43198,
+      "median_us": 382.304,
+      "min_us": 379.584
+    },
+    {
+      "name": "flashinfer_mla_fa3_timed_compaction",
+      "source": {
+        "repository": "https://github.com/flashinfer-ai/flashinfer",
+        "version": "0.7.2.post1",
+        "backend": "fa3",
+        "page_size": 1,
+        "architecture": "SM90a FA3 requires CUDA >= 12.3; FA2 supports SM80+",
+        "scope": "raw index mask/compaction timed; fixed per-row valid counts; planning excluded",
+        "layout": "native packed/split views; no query/KV copies",
+        "duplicates": "preserved"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.00020099044723703014,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.0020226039385039937,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.0002161067268529251,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021747296652849736,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00020040319783291497,
+            "max_abs_error": 0.003019658861153518,
+            "relative_l2": 0.002016694339446051,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.0001997204000055036,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002028951340218756,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021475402012975523,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021816828170702902,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019897749524359454,
+            "max_abs_error": 0.0034417755952649287,
+            "relative_l2": 0.002021404201257044,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.00019993614846221375,
+            "max_abs_error": 0.002281807998002039,
+            "relative_l2": 0.002031075756683411,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.00021505455467471496,
+            "max_abs_error": 0.00390625,
+            "relative_l2": 0.0021846685792256,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.00019918713117164744,
+            "max_abs_error": 0.002228087124492517,
+            "relative_l2": 0.002023466773155885,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        },
+        {
+          "case": "padding_duplicates",
+          "accuracy": {
+            "rmse": 0.0002033569057695546,
+            "max_abs_error": 0.009320909011131029,
+            "relative_l2": 0.0019292753029611423,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "vs_nautilus": {
+            "rmse": 0.022814616554497326,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21154799734479837,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          },
+          "nautilus_accuracy": {
+            "rmse": 0.022814497853601373,
+            "max_abs_error": 3.078125,
+            "relative_l2": 0.21644432035316136,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.008,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.008
+          }
+        }
+      ],
+      "nautilus_failed_cases": [
+        "padding_duplicates"
+      ],
+      "all_cases_equivalent": false,
+      "status": "measured",
+      "samples_us": [
+        415.36,
+        416.288,
+        414.81600000000003,
+        413.88800000000003,
+        413.56800000000004,
+        422.432,
+        419.13599999999997,
+        417.91999999999996,
+        417.79200000000003,
+        419.904,
+        417.12,
+        419.61600000000004,
+        415.84,
+        419.13599999999997,
+        418.91200000000003,
+        420.704,
+        417.152,
+        420.32,
+        421.088,
+        418.24,
+        418.144,
+        415.872,
+        415.296,
+        417.952,
+        419.168,
+        417.792,
+        415.52000000000004,
+        419.488,
+        418.176,
+        415.328,
+        420.992,
+        417.472,
+        420.992,
+        419.936,
+        416.38399999999996,
+        414.912,
+        414.176,
+        418.08000000000004,
+        417.44,
+        421.664,
+        421.024,
+        419.936,
+        418.81600000000003,
+        417.088,
+        418.688,
+        415.808,
+        415.968,
+        417.952,
+        417.248,
+        416.512
+      ],
+      "mean_us": 417.86112,
+      "median_us": 417.936,
+      "min_us": 413.56800000000004
+    }
+  ],
+  "accuracy_metric": "scripts.error.compute_rmse against FP64 reference",
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "measurement_complete": true
+}

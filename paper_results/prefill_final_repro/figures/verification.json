@@ -1,0 +1,71 @@
+{
+  "dpi": 144,
+  "figures": [
+    {
+      "figure": "gh200-fp16-tc1.pdf",
+      "passed": true,
+      "changed_pixels": 0,
+      "reference_size": [
+        2589,
+        562
+      ],
+      "generated_size": [
+        2589,
+        562
+      ]
+    },
+    {
+      "figure": "gh200-fp8-tc1.pdf",
+      "passed": true,
+      "changed_pixels": 0,
+      "reference_size": [
+        2576,
+        483
+      ],
+      "generated_size": [
+        2576,
+        483
+      ]
+    },
+    {
+      "figure": "rtx5090-fp16-tc1.pdf",
+      "passed": true,
+      "changed_pixels": 0,
+      "reference_size": [
+        2576,
+        483
+      ],
+      "generated_size": [
+        2576,
+        483
+      ]
+    },
+    {
+      "figure": "throughput_plot.pdf",
+      "passed": true,
+      "changed_pixels": 0,
+      "reference_size": [
+        2866,
+        2390
+      ],
+      "generated_size": [
+        2866,
+        2390
+      ]
+    },
+    {
+      "figure": "throughput_plot_5090.pdf",
+      "passed": true,
+      "changed_pixels": 0,
+      "reference_size": [
+        3586,
+        583
+      ],
+      "generated_size": [
+        3586,
+        583
+      ]
+    }
+  ],
+  "passed": true
+}

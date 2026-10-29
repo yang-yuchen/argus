@@ -1,0 +1,141 @@
+{
+  "variant": "mtp",
+  "implementation": "baseline",
+  "nvtx_marker": "tilelang(mtp)",
+  "params": [
+    {
+      "name": "q",
+      "shape": [
+        1,
+        4,
+        16,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "k",
+      "shape": [
+        1,
+        4,
+        65536,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "v",
+      "shape": [
+        1,
+        4,
+        65536,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "T_cast",
+      "shape": [
+        1,
+        4,
+        16,
+        128
+      ],
+      "dtype": "float16"
+    }
+  ],
+  "seed": 0,
+  "inputs_sha256": "178a673343a70ae21e89cf6e91f63d06997940c6f1ffa84d1e023709ebe30f43",
+  "nautilus_export_sha256": "846db50d28f7e7f74e6ad8671a3f1ef47733d6c70e2235752dba52faded4c386",
+  "baseline_source": {
+    "repository": "https://github.com/tile-ai/tilelang",
+    "commit": "a3497ebc8c0f201bf0d4a75d422a8f8990154dbd",
+    "path": "examples/flash_decoding/example_mha_inference.py",
+    "configuration": {
+      "block_M": 128,
+      "block_N": 64,
+      "num_split": 4,
+      "is_causal": false
+    }
+  },
+  "host": "gh015.hsn.cm.delta.internal.ncsa.edu",
+  "gpu": "NVIDIA GH200 120GB",
+  "python": "3.11.15 (main, Mar 11 2026, 17:11:19) [GCC 14.3.0]",
+  "gpu_uuid": "5862fde6-53e7-e3ad-1a9a-71bda65a2076",
+  "torch": "2.10.0+cu128",
+  "cuda": "12.8",
+  "nvidia_smi": "NVIDIA GH200 120GB, GPU-5862fde6-53e7-e3ad-1a9a-71bda65a2076, 595.71.05, 1980 MHz, 2619 MHz, 900.00 W",
+  "packages": {
+    "tilelang": {
+      "version": "0.1.6.post1+a3497ebc8c0f201bf0d4a75d422a8f8990154dbd",
+      "path": "/work/nvme/beqg/yucheny8/envs/tl16n/lib/python3.11/site-packages/tilelang/__init__.py"
+    },
+    "tvm": {
+      "version": "0.22.dev0",
+      "path": "/work/nvme/beqg/yucheny8/envs/tl16n/lib/python3.11/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+    }
+  },
+  "correct": true,
+  "max_abs_error": 4.2430125176906586e-05,
+  "relative_l2": 0.0014531968627125025,
+  "repeats": 50,
+  "measurement_complete": true,
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "warmup": 10,
+  "samples_us": [
+    480.48,
+    479.36,
+    477.536,
+    477.408,
+    477.408,
+    477.28,
+    477.79200000000003,
+    479.23199999999997,
+    477.408,
+    479.13599999999997,
+    479.072,
+    477.472,
+    478.944,
+    479.872,
+    481.632,
+    477.728,
+    479.104,
+    477.76,
+    477.152,
+    479.072,
+    477.6,
+    477.536,
+    477.50399999999996,
+    477.472,
+    478.24,
+    477.408,
+    477.344,
+    476.35200000000003,
+    476.288,
+    476.32,
+    476.512,
+    476.416,
+    480.99199999999996,
+    478.432,
+    476.35200000000003,
+    477.44,
+    476.544,
+    477.536,
+    478.048,
+    478.272,
+    476.48,
+    476.416,
+    476.512,
+    478.208,
+    476.86400000000003,
+    476.48,
+    476.16,
+    476.64,
+    476.67199999999997,
+    478.30400000000003
+  ],
+  "mean_us": 477.76384,
+  "median_us": 477.48799999999994,
+  "min_us": 476.16
+}

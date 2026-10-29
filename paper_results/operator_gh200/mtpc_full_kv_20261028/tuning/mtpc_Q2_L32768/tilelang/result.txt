@@ -1,0 +1,7 @@
+[     6s] tuning mtpc_Q2_L32768: backend tilelang, 64 trials, 16 per iteration, fusion auto, kernel timing True, population 64, evolve iters 1, seed 3, out /u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q2_L32768/tilelang
+[   811s] tuning done
+[   811s] trials: 41 measured, 23 failed (17 error in building, 6 error in running); in-tuner best 0.0302 ms
+[   811s] winner's decisions (in trace order; [0,1] = ws, tma, fold; [0..k-1] = block order): tile=[512, 64], tile=[1, 128], tile=[64, 8], warps=2, stages_idx=1, [0, 1]=1, [0, 1]=1, [0, 1]=1, warps=8, stages_idx=1, [0, 1]=1, [0, 1]=1, [0, 1]=1, [0, 1]=0, [0, 1]=0
+[   825s] tuned:  correct (max err 1.5e-05), 0.0301 ms kernel, 0.0344 ms event  (exported kernel.so, reloaded)
+[   826s] manual: FAILED (Check failed: (M % kMPerWarp == 0) is false: M must be divisible by 16, but got 2)  [schedule_split_kv_flash(sch, 16), mask on every tile]
+[   826s] sdpa:   0.0453 ms kernel  (torch.nn.functional.scaled_dot_product_attention)

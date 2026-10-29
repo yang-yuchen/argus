@@ -1,0 +1,69 @@
+{
+  "case": "decode_L512",
+  "environment": {
+    "host": "gh032.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "e0c65f9e-bbf2-27f8-882e-e2f9c96c8cd3",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "packages": {
+      "tilelang": {
+        "version": "0.1.15",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/__init__.py"
+      },
+      "tvm": {
+        "version": "0.25.dev0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+      },
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      },
+      "flashinfer": {
+        "version": "0.7.2.post1",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/__init__.py"
+      },
+      "flash_attn": {
+        "version": "2.8.3.post2",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flash_attn/__init__.py"
+      }
+    }
+  },
+  "inputs_sha256": "ac825b76c38b958be3d07bde65a42b39d187d112d112f05be8ee4d28c2748b61",
+  "repeats": 50,
+  "metric": "cold-L2 GPU kernel duration sum (us)",
+  "warmup": 10,
+  "l2_flush_bytes": 209715200,
+  "candidates": [
+    {
+      "implementation": "helion_official",
+      "source": {
+        "url": "https://huggingface.co/kernels/HelionDSL/attention",
+        "commit": "bffcab17baba6d257c084ad797d1c7bb80e5877f",
+        "api": "attention(q, k, v, causal=False, out=out)",
+        "configuration": "unmodified official SM90 AOT heuristic"
+      },
+      "status": "passed",
+      "relative_l2": 0.0003476539277471602,
+      "max_abs_error": 0.0001055002212524414
+    },
+    {
+      "implementation": "flex_official",
+      "source": {
+        "url": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode",
+        "split_kv": "automatic official FlexDecoding heuristic"
+      },
+      "status": "passed",
+      "relative_l2": 0.00027667116955854,
+      "max_abs_error": 8.824467658996582e-05
+    }
+  ]
+}

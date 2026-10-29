@@ -1,0 +1,14 @@
+{
+  "case": "prefillc_L512",
+  "implementation": "helion_official",
+  "source": {
+    "repository": "https://huggingface.co/kernels/HelionDSL/attention",
+    "commit": "bffcab17baba6d257c084ad797d1c7bb80e5877f",
+    "api": "attention(q,k,v,causal=True,out=out)",
+    "configuration": "unmodified official SM90 AOT heuristic"
+  },
+  "correct": true,
+  "relative_l2": 0.0003038155264221132,
+  "repeats": 50,
+  "measurement_complete": false
+}

@@ -1,0 +1,26 @@
+{
+  "trace": "profiles_paper_e2e/mtpc_native_audit_j3471084/tileops.trace.json",
+  "profiled_samples_only": true,
+  "gpu_memcpy_count": 1,
+  "large_gpu_copies_ge_64mib": [],
+  "large_torch_allocations_ge_64mib": [],
+  "kernels": [
+    "main_kernel",
+    "nvjet_sm90_hsh_128x16_64x11_4x1_v_bz_TNT",
+    "nvjet_sm90_hsh_128x16_64x11_4x1_v_bz_splitK_TNT",
+    "nvjet_sm90_hsh_64x16_64x16_2x1_v_bz_splitK_TNT",
+    "parts_kernel",
+    "triton_poi_fused__to_copy_bmm_cat_expand_mul_transpose_unsqueeze_0",
+    "triton_poi_fused__unsafe_view_add_2",
+    "triton_poi_fused__unsafe_view_add_cat_index_copy_mul_neg_permute_slice_transpose_unsqueeze_view_1",
+    "triton_poi_fused__unsafe_view_add_cat_mul_neg_slice_transpose_unsqueeze_view_0",
+    "triton_poi_fused__unsafe_view_index_copy_permute_transpose_view_2",
+    "triton_poi_fused__unsafe_view_mul_silu_1",
+    "triton_red_fused__to_copy_add_mean_mul_pow_rsqrt_0",
+    "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#10}::operator()() const::{lambda(c10::Half)#1} const&)::{lambda(int)#1})",
+    "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::MaxNanFunctor<float> >, unsigned int, float, 4, 4> >(at::native::ReduceOp<float, at::native::func_wrapper_t<float, at::native::MaxNanFunctor<float> >, unsigned int, float, 4, 4>)",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::AbsFunctor<float>, std::array<char*, 2ul>, false>(int, at::native::AbsFunctor<float>, std::array<char*, 2ul>)",
+    "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+    "void cublasLt::splitKreduce_kernel<32, 16, int, float, __half, float, __half, false, float, __half, __half, true, false, false, false>(cublasLt::cublasSplitKParams<float>, float const*, __half const*, float*, __half*, float const*, float const*, __half const*, float const*, __half*, void*, long, float*, int*, float*, float*, float const*, float const*, float const*, float const*, float const*)"
+  ]
+}

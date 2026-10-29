@@ -1,0 +1,43 @@
+{
+  "variant": "mtpc_Q64_L32768",
+  "backend": "tilelang",
+  "fusion": "auto",
+  "trials": 64,
+  "trials_measured": 44,
+  "trials_failed": 20,
+  "in_tuner_best_ms": 0.0384843,
+  "tuned": {
+    "correct": true,
+    "max_err": 3.0517578125e-05,
+    "ms": 0.03867537999999992,
+    "event_ms": 0.042208001017570496
+  },
+  "decisions": [
+    "tile=[1, 64]",
+    "tile=[256, 128]",
+    "tile=[1, 128]",
+    "tile=[128, 2]",
+    "warps=4",
+    "stages_idx=0",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "warps=8",
+    "stages_idx=1",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=1"
+  ],
+  "export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q64_L32768/tilelang/best/export",
+  "manual": {
+    "correct": true,
+    "max_err": 3.0517578125e-05,
+    "ms": 0.03725777999999996,
+    "event_ms": 0.04102399945259094,
+    "note": "schedule_split_kv_flash(sch, 16), mask on every tile"
+  },
+  "sdpa_ms": 0.04678959999999996,
+  "seconds": 514.5697984695435
+}

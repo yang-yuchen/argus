@@ -1,0 +1,69 @@
+{
+  "status": "completed",
+  "cases": 54,
+  "method_length_pairs": 162,
+  "kv_lengths": [
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384,
+    32768,
+    65536
+  ],
+  "replaced_nautilus_measurements": {
+    "mtpc_Q4_L32768": "profiles_paper_kernels/mtpc_optimize_20261028/measurement/manual/mtpc_Q4_L32768.json",
+    "mtpc_Q32_L32768": "profiles_paper_kernels/mtpc_optimize_20261028/measurement/manual/mtpc_Q32_L32768.json",
+    "mtpc_Q64_L256": "profiles_paper_kernels/mtpc_optimize_20261028/measurement/manual/mtpc_Q64_L256.json",
+    "mtpc_Q64_L32768": "profiles_paper_kernels/mtpc_optimize_20261028/measurement/manual/mtpc_Q64_L32768.json"
+  },
+  "baseline_experiment": "profiles_paper_kernels/mtpc_full_kv_20261028",
+  "same_gpu_required": false,
+  "plotting_script": "plot_from_csv.py",
+  "plotting_functions": [
+    "load_data",
+    "normalize_by_baseline",
+    "plot_multi_operator_row"
+  ],
+  "normalization": "Nautilus latency / method latency; higher=faster; Nautilus=1",
+  "plots": [
+    {
+      "q_length": 2,
+      "csv": "profiles_paper_kernels/mtpc_optimize_20261028/plots/plot_input_Q2.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q2-full-kv-optimized-20261029.pdf",
+      "pdf_sha256": "d1c6b32e0398bcb3ff4b36bb0e68cff7c6d941566cabc182b266dc382e15c12f"
+    },
+    {
+      "q_length": 4,
+      "csv": "profiles_paper_kernels/mtpc_optimize_20261028/plots/plot_input_Q4.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q4-full-kv-optimized-20261029.pdf",
+      "pdf_sha256": "61e986131feeefcd79d10651e126f0363c3fb5678c66eb6e4db597c2ff8a8ebb"
+    },
+    {
+      "q_length": 8,
+      "csv": "profiles_paper_kernels/mtpc_optimize_20261028/plots/plot_input_Q8.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q8-full-kv-optimized-20261029.pdf",
+      "pdf_sha256": "6197ba3bbb8378a63500568ef5ec37491a6163c05678a132f757ff2afc0bda45"
+    },
+    {
+      "q_length": 16,
+      "csv": "profiles_paper_kernels/mtpc_optimize_20261028/plots/plot_input_Q16.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q16-full-kv-optimized-20261029.pdf",
+      "pdf_sha256": "dbcedad90a8dddc84fc902c1c35c6628ace7667c30272b73894ceb32f769a714"
+    },
+    {
+      "q_length": 32,
+      "csv": "profiles_paper_kernels/mtpc_optimize_20261028/plots/plot_input_Q32.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q32-full-kv-optimized-20261029.pdf",
+      "pdf_sha256": "d0daff9abae09c6d4f9fa8fbac8743849810ab834f0ea3c6a6ad8f3d505e4daa"
+    },
+    {
+      "q_length": 64,
+      "csv": "profiles_paper_kernels/mtpc_optimize_20261028/plots/plot_input_Q64.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q64-full-kv-optimized-20261029.pdf",
+      "pdf_sha256": "a65c5f96df30333c221b6c52fddac7e4b8f6bf20b79220303b1fc9563a53c921"
+    }
+  ]
+}

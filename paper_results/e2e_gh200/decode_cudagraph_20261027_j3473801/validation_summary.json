@@ -1,0 +1,24 @@
+[
+  {
+    "kv_length": 256,
+    "compiled_ms": 28.23003527397911,
+    "graph_ms": 5.103106889873743,
+    "speedup": 5.531931014417288,
+    "graph_submit_ms": 0.018080417066812515,
+    "compiled_stdev_ms": 3.1025940068955093,
+    "compiled_median_ms": 28.31551106646657,
+    "graph_stdev_ms": 0.03328376723934557,
+    "graph_median_ms": 5.088173318654299
+  },
+  {
+    "kv_length": 32768,
+    "compiled_ms": 28.600227211912472,
+    "graph_ms": 9.55762897307674,
+    "speedup": 2.9923977267246484,
+    "graph_submit_ms": 0.01530203347404798,
+    "compiled_stdev_ms": 3.3402693880811114,
+    "compiled_median_ms": 28.301046695560217,
+    "graph_stdev_ms": 0.06732830881399789,
+    "graph_median_ms": 9.530458133667707
+  }
+]

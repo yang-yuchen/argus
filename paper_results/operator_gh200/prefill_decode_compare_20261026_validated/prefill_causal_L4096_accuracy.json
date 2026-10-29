@@ -1,0 +1,86 @@
+{
+  "case": "prefillc_L4096",
+  "environment": {
+    "host": "gh151.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "3486ae04-61d2-b0a7-1993-60644f87d6c2",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "packages": {
+      "tilelang": {
+        "version": "0.1.15",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/__init__.py"
+      },
+      "tvm": {
+        "version": "0.25.dev0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+      },
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      },
+      "flashinfer": {
+        "version": "0.7.2.post1",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/__init__.py"
+      },
+      "flash_attn": {
+        "version": "2.8.3.post2",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flash_attn/__init__.py"
+      }
+    }
+  },
+  "inputs_sha256": "8013333a292a36de8e020ff5ca72b48ac8a0b78f83b7a5b9bcce463d540ec5a0",
+  "repeats": 50,
+  "metric": "cold-L2 GPU kernel duration sum (us)",
+  "warmup": 10,
+  "l2_flush_bytes": 209715200,
+  "candidates": [
+    {
+      "implementation": "flex",
+      "status": "passed",
+      "relative_l2": 0.00025628189905546606,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "implementation": "torch(flash)",
+      "status": "passed",
+      "relative_l2": 0.00025619324878789485,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "implementation": "torch(cudnn)",
+      "status": "passed",
+      "relative_l2": 0.00025732532958500087,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "implementation": "tri-dao",
+      "status": "passed",
+      "relative_l2": 0.000256190454820171,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "implementation": "tilelang",
+      "status": "passed",
+      "relative_l2": 0.00025732070207595825,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "implementation": "neptune_tilelang",
+      "status": "passed",
+      "relative_l2": 0.00025732070207595825,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "implementation": "tawa(tma)",
+      "status": "passed",
+      "relative_l2": 0.0002573233505245298,
+      "max_abs_error": 0.0009765625
+    }
+  ]
+}

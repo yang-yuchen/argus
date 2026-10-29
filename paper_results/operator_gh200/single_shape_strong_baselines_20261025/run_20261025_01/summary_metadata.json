@@ -1,0 +1,15 @@
+{
+  "cohorts": {
+    "decode": "profiles_paper_strong/run_20261025_01",
+    "mtp": "profiles_paper_strong/run_20261025_mtp_02",
+    "sparse": "profiles_paper_strong/run_20261025_01",
+    "sparse_split": "profiles_paper_strong/run_20261025_01"
+  },
+  "nautilus_failed_cases": {
+    "sparse_split": [
+      "padding_duplicates"
+    ]
+  },
+  "rmse_metric": "scripts.error.compute_rmse against FP64 reference",
+  "rmse_matching_rule": "benchmark RMSE <= benchmark Nautilus RMSE"
+}

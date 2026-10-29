@@ -1,0 +1,147 @@
+[
+  {
+    "implementation": "nautilus",
+    "execution": "cuda_graph_replay",
+    "baseline_source": null,
+    "export_directory": "/u/yucheny8/argus/paper_kernels/mtpc_Q16_L65536/tilelang/best/export",
+    "kernel_sha256": "8595aebc3c6108a7520eca00107f1631aae1da473cbab3cb0c438b7408670200",
+    "weights_sha256": "35a9b4db19947bed874240e6d9783fc2f22c11ba2d4ecd02e71b01e1c7034e7b",
+    "inputs_sha256": "20abb34c720e06ef28609300c8111da73a18cba533452072d151fd7d56350514",
+    "gpu_uuid": "f7ae2b56-e98f-70ed-615e-4a112f25378f",
+    "host": "gh052.hsn.cm.delta.internal.ncsa.edu",
+    "torch": "2.14.1+cu130",
+    "packages": {
+      "tvm": {
+        "version": "0.21.0",
+        "path": "/work/nvme/beqg/yucheny8/argus-paper-kernels/runtime_py313/tvm/__init__.py"
+      },
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      }
+    },
+    "graph_validation": {
+      "changed_token_relative_l2": [
+        0.0,
+        0.0
+      ],
+      "changed_prefix_v_relative_l2": 0.0,
+      "prefix_v_output_change_relative_l2": 0.9587064981460571,
+      "restored_relative_l2": 0.0058053527027368546,
+      "shared_buffers_poisoned_before_replay": true,
+      "attention_group_count": 256,
+      "kernel_count": 1634,
+      "attention_kernel_count": 512,
+      "kv_update_kernel_count": 64,
+      "all_kernels_in_graph": true,
+      "attention_gpu_ms": 10.459818499999999,
+      "all_gpu_kernel_ms": 16.5840905
+    }
+  },
+  {
+    "implementation": "tileops",
+    "execution": "cuda_graph_replay",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADensePersistentWSKernel",
+      "kernel_config": null,
+      "shape": {
+        "q": [
+          1,
+          16,
+          4,
+          128
+        ],
+        "kv": [
+          1,
+          65536,
+          4,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; non-native layout refresh and public op allocations included in each call"
+    },
+    "export_directory": "/u/yucheny8/argus/paper_kernels/mtpc_Q16_L65536/tilelang/best/export",
+    "kernel_sha256": "8595aebc3c6108a7520eca00107f1631aae1da473cbab3cb0c438b7408670200",
+    "weights_sha256": "35a9b4db19947bed874240e6d9783fc2f22c11ba2d4ecd02e71b01e1c7034e7b",
+    "inputs_sha256": "20abb34c720e06ef28609300c8111da73a18cba533452072d151fd7d56350514",
+    "gpu_uuid": "f7ae2b56-e98f-70ed-615e-4a112f25378f",
+    "host": "gh052.hsn.cm.delta.internal.ncsa.edu",
+    "torch": "2.14.1+cu130",
+    "packages": {
+      "tvm": {
+        "version": "0.25.dev0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+      },
+      "tilelang": {
+        "version": "0.1.15",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/__init__.py"
+      },
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      }
+    },
+    "graph_validation": {
+      "changed_token_relative_l2": [
+        0.0,
+        0.0
+      ],
+      "changed_prefix_v_relative_l2": 0.0,
+      "prefix_v_output_change_relative_l2": 0.9587271809577942,
+      "restored_relative_l2": 0.0058313398621976376,
+      "shared_buffers_poisoned_before_replay": true,
+      "attention_group_count": 256,
+      "kernel_count": 1634,
+      "attention_kernel_count": 512,
+      "kv_update_kernel_count": 64,
+      "all_kernels_in_graph": true,
+      "attention_gpu_ms": 11.930876999999999,
+      "all_gpu_kernel_ms": 18.248508
+    }
+  },
+  {
+    "implementation": "flex",
+    "execution": "cuda_graph_replay",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": "q_idx + (KV_LEN-Q_LEN) >= kv_idx",
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "export_directory": "/u/yucheny8/argus/paper_kernels/mtpc_Q16_L65536/tilelang/best/export",
+    "kernel_sha256": "8595aebc3c6108a7520eca00107f1631aae1da473cbab3cb0c438b7408670200",
+    "weights_sha256": "35a9b4db19947bed874240e6d9783fc2f22c11ba2d4ecd02e71b01e1c7034e7b",
+    "inputs_sha256": "20abb34c720e06ef28609300c8111da73a18cba533452072d151fd7d56350514",
+    "gpu_uuid": "f7ae2b56-e98f-70ed-615e-4a112f25378f",
+    "host": "gh052.hsn.cm.delta.internal.ncsa.edu",
+    "torch": "2.14.1+cu130",
+    "packages": {
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      }
+    },
+    "graph_validation": {
+      "changed_token_relative_l2": [
+        0.0,
+        0.0
+      ],
+      "changed_prefix_v_relative_l2": 0.0,
+      "prefix_v_output_change_relative_l2": 0.9587333798408508,
+      "restored_relative_l2": 0.005842226557433605,
+      "shared_buffers_poisoned_before_replay": true,
+      "attention_group_count": 256,
+      "kernel_count": 1890,
+      "attention_kernel_count": 768,
+      "kv_update_kernel_count": 64,
+      "all_kernels_in_graph": true,
+      "attention_gpu_ms": 12.5671365,
+      "all_gpu_kernel_ms": 18.7660585
+    }
+  }
+]

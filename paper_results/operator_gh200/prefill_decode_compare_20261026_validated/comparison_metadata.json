@@ -1,0 +1,44 @@
+{
+  "baseline_environment": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest",
+  "nautilus_source": "profiles_paper_kernels/sweep_20261026_merged/results.csv",
+  "repeats": 50,
+  "baseline_rows": 112,
+  "cases": 16,
+  "expected_cases": 16,
+  "measurement_complete": true,
+  "comparison_scope": "Baselines use argus-gh200-latest; Nautilus uses the prior Neptune TVM/Triton runtime and measurements from different GH200 nodes. Ratios are cross-run comparisons. Times are mean sums of GPU kernel durations per cold-L2 NVTX repeat; compilation, setup and CPU launch time are excluded.",
+  "runner_warnings": [
+    {
+      "log": "decode_causal_L1024_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    },
+    {
+      "log": "decode_causal_L16384_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    },
+    {
+      "log": "decode_causal_L2048_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    },
+    {
+      "log": "decode_causal_L256_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    },
+    {
+      "log": "decode_causal_L32768_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    },
+    {
+      "log": "decode_causal_L4096_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    },
+    {
+      "log": "decode_causal_L512_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    },
+    {
+      "log": "decode_causal_L8192_accuracy.json",
+      "message": "tawa(tma_decode): 'Keyword argument mma_depth was specified but unrecognised'"
+    }
+  ]
+}

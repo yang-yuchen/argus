@@ -1,0 +1,314 @@
+[
+  {
+    "variant": "mtpc_Q16_L1024",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L1024/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L1024",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "min_ms": 0.03017600066959858,
+        "median_ms": 0.03200000151991844,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.024992000311613083,
+        "median_ms": 0.026367999613285065,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "min_ms": 0.06643199920654297,
+        "median_ms": 0.07110399752855301,
+        "rounds": 5
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L16384",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L16384/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L16384",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "min_ms": 0.0504320003092289,
+        "median_ms": 0.051711998879909515,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.04620800167322159,
+        "median_ms": 0.04732799902558327,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "min_ms": 0.07993599772453308,
+        "median_ms": 0.08457600325345993,
+        "rounds": 5
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L2048",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L2048/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L2048",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "min_ms": 0.03171199932694435,
+        "median_ms": 0.03302399814128876,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.02828799933195114,
+        "median_ms": 0.028991999104619026,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "min_ms": 0.06896000355482101,
+        "median_ms": 0.07046400010585785,
+        "rounds": 5
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L256",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L256/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L256",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "min_ms": 0.03177599981427193,
+        "median_ms": 0.03296000137925148,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.024512000381946564,
+        "median_ms": 0.025439999997615814,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "min_ms": 0.0671359971165657,
+        "median_ms": 0.07423999905586243,
+        "rounds": 5
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L32768",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L32768/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L32768",
+        "status": "ok",
+        "correct": true,
+        "max_err": 1.52587890625e-05,
+        "min_ms": 0.0461760014295578,
+        "median_ms": 0.047520000487565994,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.059808000922203064,
+        "median_ms": 0.06047999858856201,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 1.52587890625e-05,
+        "min_ms": 0.13571199774742126,
+        "median_ms": 0.13743999600410461,
+        "rounds": 5
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L4096",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L4096/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L4096",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "min_ms": 0.02940800040960312,
+        "median_ms": 0.03392000123858452,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.02864000014960766,
+        "median_ms": 0.03254399821162224,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "min_ms": 0.061184000223875046,
+        "median_ms": 0.06726399809122086,
+        "rounds": 5
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L512",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L512/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L512",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "min_ms": 0.030239999294281006,
+        "median_ms": 0.03171199932694435,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.02396799996495247,
+        "median_ms": 0.02566399984061718,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "min_ms": 0.06588800251483917,
+        "median_ms": 0.06985600292682648,
+        "rounds": 5
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L8192",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L8192/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L8192",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "min_ms": 0.03404799848794937,
+        "median_ms": 0.035711999982595444,
+        "rounds": 5
+      },
+      {
+        "implementation": "sdpa-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0,
+        "min_ms": 0.03891199827194214,
+        "median_ms": 0.04025600105524063,
+        "rounds": 5
+      },
+      {
+        "implementation": "tilelang-official-mtp",
+        "status": "failed",
+        "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "min_ms": 0.0679360032081604,
+        "median_ms": 0.07459200173616409,
+        "rounds": 5
+      }
+    ]
+  }
+]

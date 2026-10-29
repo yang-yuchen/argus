@@ -1,0 +1,54 @@
+[
+  {
+    "config": {
+      "kv_tile": 64,
+      "kv_outer_tiles": 512,
+      "num_splits": 32,
+      "rolling_tiles": 16,
+      "query_padding": 16,
+      "donor_case": "mtpc_Q4_L65536"
+    },
+    "correct": true,
+    "validation": [
+      {
+        "max_abs_error": 1.2636184692382812e-05,
+        "relative_l2": 0.00028162093000440265
+      },
+      {
+        "max_abs_error": 1.132860779762268e-05,
+        "relative_l2": 0.0002828025376423424
+      }
+    ],
+    "times_ms": [
+      0.03599895999999998,
+      0.03591057999999998
+    ],
+    "screening_ms": 0.03595476999999998
+  },
+  {
+    "config": {
+      "kv_tile": 64,
+      "kv_outer_tiles": 512,
+      "num_splits": 64,
+      "rolling_tiles": 8,
+      "query_padding": 16,
+      "donor_case": "mtpc_Q4_L65536"
+    },
+    "correct": true,
+    "validation": [
+      {
+        "max_abs_error": 1.2636184692382812e-05,
+        "relative_l2": 0.00027341229323823475
+      },
+      {
+        "max_abs_error": 1.1388212442398071e-05,
+        "relative_l2": 0.0002806095967133286
+      }
+    ],
+    "times_ms": [
+      0.030699160000000076,
+      0.030704980000000087
+    ],
+    "screening_ms": 0.03070207000000008
+  }
+]

@@ -1,0 +1,127 @@
+{
+  "variant": "mtp",
+  "implementation": "nautilus",
+  "nvtx_marker": "nautilus(mtp)",
+  "params": [
+    {
+      "name": "q",
+      "shape": [
+        1,
+        4,
+        16,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "k",
+      "shape": [
+        1,
+        4,
+        65536,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "v",
+      "shape": [
+        1,
+        4,
+        65536,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "T_cast",
+      "shape": [
+        1,
+        4,
+        16,
+        128
+      ],
+      "dtype": "float16"
+    }
+  ],
+  "seed": 0,
+  "inputs_sha256": "178a673343a70ae21e89cf6e91f63d06997940c6f1ffa84d1e023709ebe30f43",
+  "nautilus_export_sha256": "846db50d28f7e7f74e6ad8671a3f1ef47733d6c70e2235752dba52faded4c386",
+  "baseline_source": null,
+  "host": "gh015.hsn.cm.delta.internal.ncsa.edu",
+  "gpu": "NVIDIA GH200 120GB",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:17:31) [GCC 11.2.0]",
+  "gpu_uuid": "5862fde6-53e7-e3ad-1a9a-71bda65a2076",
+  "torch": "2.9.1+cu126",
+  "cuda": "12.6",
+  "nvidia_smi": "NVIDIA GH200 120GB, GPU-5862fde6-53e7-e3ad-1a9a-71bda65a2076, 595.71.05, 1980 MHz, 2619 MHz, 900.00 W",
+  "packages": {
+    "tvm": {
+      "version": "0.21.0",
+      "path": "/work/nvme/beqg/yucheny8/argus-paper-kernels/runtime_py313/tvm/__init__.py"
+    }
+  },
+  "correct": true,
+  "max_abs_error": 9.413808584213257e-06,
+  "relative_l2": 0.00028982898220419884,
+  "repeats": 50,
+  "measurement_complete": true,
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "warmup": 10,
+  "samples_us": [
+    52.0,
+    49.696,
+    50.528,
+    51.007999999999996,
+    50.784,
+    49.984,
+    50.24,
+    51.296,
+    49.984,
+    50.016,
+    50.688,
+    50.751999999999995,
+    50.111999999999995,
+    50.208,
+    50.464,
+    51.391999999999996,
+    51.488,
+    50.464,
+    50.047999999999995,
+    50.752,
+    51.552,
+    50.24,
+    50.08,
+    50.751999999999995,
+    51.232,
+    51.648,
+    51.232,
+    51.424,
+    50.4,
+    50.367999999999995,
+    50.144,
+    50.239999999999995,
+    51.199999999999996,
+    50.784,
+    51.456,
+    51.04,
+    50.4,
+    50.4,
+    50.016,
+    49.696,
+    51.104,
+    50.88,
+    51.552,
+    50.784,
+    50.272,
+    50.048,
+    51.104,
+    50.144,
+    50.048,
+    50.624
+  ],
+  "mean_us": 50.65536,
+  "median_us": 50.576,
+  "min_us": 49.696
+}

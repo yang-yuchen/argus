@@ -1,0 +1,14 @@
+{
+  "torch": "2.13.0",
+  "tilelang": "0.1.12",
+  "apache-tvm-ffi": "0.1.11",
+  "triton": "3.7.1",
+  "nvidia-cuda-nvcc": "13.2.86",
+  "nvidia-cuda-crt": "13.2.86",
+  "nvidia-nvvm": "13.2.86",
+  "torch_cuda": "13.0",
+  "tilelang_path": "/work/nvme/beqg/yucheny8/home-relocated/argus/.fp8-baseline-env/lib/python3.13/site-packages/tilelang/__init__.py",
+  "cuda_compiler_root": "profiles_fp8_compilers_20261029/cuda132/nvidia/cu13",
+  "compiler_headers_version": "13.2.86",
+  "compiler_probe": "compiler_probe/official_prefill8_L2048.cubin"
+}

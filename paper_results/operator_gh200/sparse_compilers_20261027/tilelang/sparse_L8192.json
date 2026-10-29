@@ -1,0 +1,155 @@
+{
+  "case": "sparse_L8192",
+  "implementation": "tilelang",
+  "source": {
+    "repository": "https://github.com/tile-ai/tilelang",
+    "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+    "files": {
+      "sparse_mla_fwd.py": {
+        "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+        "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+      },
+      "utils.py": {
+        "path": "examples/deepseek_v32/utils.py",
+        "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+      }
+    },
+    "kernel_source_unchanged": true,
+    "configuration": {
+      "block_I": 64,
+      "num_stages": 1,
+      "threads": 128
+    },
+    "autotune": {
+      "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+      "search_space_origin": "local GH200 calibration of upstream public parameters",
+      "upstream_recommended_search_space": false,
+      "candidates": [
+        {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 256
+        },
+        {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 128
+        },
+        {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        }
+      ],
+      "selected": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      },
+      "latency_ms": 3.4720020294189453,
+      "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+    },
+    "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+    "selected_kernel": "sparse_mla_fwd",
+    "upstream_configuration": {
+      "block_I": 64,
+      "num_stages": 2,
+      "threads": 256
+    },
+    "scale": 0.04419417382415922,
+    "is_causal": true,
+    "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+    "padding_conversion": "upstream test inputs use SKV for invalid positions",
+    "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+    "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+  },
+  "correct": true,
+  "accuracy": {
+    "rmse": 0.00013968472544391268,
+    "max_abs_error": 0.008629593162115867,
+    "relative_l2": 0.0019503223221222614,
+    "finite": true,
+    "allclose": true,
+    "passed": true,
+    "atol": 0.008,
+    "rtol": 0.01,
+    "relative_l2_limit": 0.008
+  },
+  "relative_l2": 0.0019503223221222614,
+  "inputs_sha256": "af3a398ff0eeca91b28c873af6fcf4725c434569a4967e9d4501a0d0c8dc51ea",
+  "repeats": 50,
+  "metric": "sum GPU kernel durations; 200 MiB cold-L2 flush each repeat",
+  "measurement_complete": true,
+  "environment": {
+    "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "python": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/bin/python",
+    "packages": {
+      "torch": "2.14.1",
+      "triton": "3.8.0",
+      "tilelang": "0.1.15",
+      "helion": "1.5.1",
+      "tileops": "0.0.1.dev1+g85e7e644f"
+    }
+  },
+  "samples_us": [
+    3460.928,
+    3447.04,
+    3438.24,
+    3428.032,
+    3448.48,
+    3453.408,
+    3392.8,
+    3385.152,
+    3397.056,
+    3391.424,
+    3377.664,
+    3399.648,
+    3407.936,
+    3449.728,
+    3419.776,
+    3448.16,
+    3441.344,
+    3448.64,
+    3457.728,
+    3447.008,
+    3451.296,
+    3458.144,
+    3442.816,
+    3443.392,
+    3429.472,
+    3448.384,
+    3442.624,
+    3454.112,
+    3462.112,
+    3456.704,
+    3455.52,
+    3458.848,
+    3454.4,
+    3457.92,
+    3436.64,
+    3432.192,
+    3438.464,
+    3425.344,
+    3432.512,
+    3446.976,
+    3446.528,
+    3468.256,
+    3444.32,
+    3466.368,
+    3474.528,
+    3439.296,
+    3475.072,
+    3444.224,
+    3447.488,
+    3428.448
+  ],
+  "mean_us": 3440.05184,
+  "median_us": 3446.752,
+  "min_us": 3377.664
+}

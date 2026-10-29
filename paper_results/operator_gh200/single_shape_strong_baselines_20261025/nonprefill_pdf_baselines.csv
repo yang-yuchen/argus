@@ -1,0 +1,21 @@
+variant,method,status,mean_us,rmse,relative_l2,scope,official_source
+decode,flex,measured,14.304640000000001,1.987572434638638e-05,0.0002752311662118613,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,torch_flash,measured,11.047039999999999,1.990680585095301e-05,0.00027566157058859776,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,torch_cudnn,measured,9.296,1.9990235071765107e-05,0.0002768168654266667,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,openai_triton,accuracy_failed,,0.20675582940848872,2.863072915354909,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,tridao_triton,accuracy_failed,,2.0244452334917147e-05,0.0002803371654966988,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,helion,accuracy_failed,,1.987886747055707e-05,0.00027527469095168817,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,flashinfer,accuracy_failed,,1.5051270288166017e-05,0.00020842403538037774,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,tawa_decode,compile_or_runtime_failed,,,,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,tilelang_decode,accuracy_failed,,5.81421917400545e-05,0.0008051300651912231,PDF dense runner; current Argus latest env,package/local Argus runner
+mtp,flex,measured,741.08608,1.9250532896164505e-06,0.0003050051305619375,PDF dense runner; current Argus latest env,package/local Argus runner
+mtp,torch_flash,measured,65.3728,1.7812818571509952e-06,0.0002822260081518041,PDF dense runner; current Argus latest env,package/local Argus runner
+mtp,torch_cudnn,measured,744.79104,1.9306874568063997e-06,0.00030589780709647674,PDF dense runner; current Argus latest env,package/local Argus runner
+mtp,openai_triton,accuracy_failed,,0.19526758047927537,30.93816373803415,PDF dense runner; current Argus latest env,package/local Argus runner
+mtp,tridao_triton,measured,2208.82816,3.1037748055705735e-06,0.0004917615761153915,PDF dense runner; current Argus latest env,package/local Argus runner
+mtp,helion,measured,1282.73728,1.9313851795849275e-06,0.00030600835418019063,PDF dense runner; current Argus latest env,package/local Argus runner
+mtp,flashinfer,compile_or_runtime_failed,,,,PDF dense runner; current Argus latest env,package/local Argus runner
+decode,FlashInfer SIMT strong,measured,8.47232,2.126840216619796e-05,,strong supplemental; same FP64/RMSE gate,FlashInfer 0.7.2.post1
+decode,Triton MSLK split8 strong,measured,8.60288,1.9192336568015796e-05,,strong supplemental; same FP64/RMSE gate,Meta MSLK 25cf718
+mtp,FlashInfer ragged FA2 strong,measured,57.6576,2.564604801384045e-06,,strong supplemental; same FP64/RMSE gate,FlashInfer 0.7.2.post1
+mtp,Triton MSLK split128 strong,measured,55.43808,1.7461869693718491e-06,,strong supplemental; same FP64/RMSE gate,Meta MSLK 25cf718

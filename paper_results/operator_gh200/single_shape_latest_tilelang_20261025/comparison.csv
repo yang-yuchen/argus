@@ -1,0 +1,5 @@
+variant,previous_tilelang_us,latest_tilelang_us,latency_change_pct,nautilus_latest
+decode,18.46208,16.432,-10.995944118972522,skipped
+mtp,477.76384,380.78592,-20.298296329835264,skipped
+sparse,1385.77792,1389.62496,0.27760869504978025,skipped
+sparse_split,1408.8224,1427.55776,1.3298596047308653,skipped

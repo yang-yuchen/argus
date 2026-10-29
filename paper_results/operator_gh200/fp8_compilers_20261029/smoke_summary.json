@@ -1,0 +1,37 @@
+[
+  {
+    "case": "prefill8_L2048",
+    "nautilus_us": 118.83712,
+    "tilelang_us": 102.48,
+    "tilelang_over_nautilus": 0.862356812416861,
+    "nautilus_advantage_percent": -13.764318758313898
+  },
+  {
+    "case": "prefillc8_L2048",
+    "nautilus_us": 101.62176,
+    "tilelang_us": 109.09056,
+    "tilelang_over_nautilus": 1.073496070133011,
+    "nautilus_advantage_percent": 7.349607013301096
+  },
+  {
+    "case": "decode8_L4096",
+    "nautilus_us": 20.4,
+    "tilelang_us": 50.0416,
+    "tilelang_over_nautilus": 2.4530196078431374,
+    "nautilus_advantage_percent": 145.30196078431374
+  },
+  {
+    "case": "mtp8_Q16_L4096",
+    "nautilus_us": 6.87232,
+    "tilelang_us": 49.04896,
+    "tilelang_over_nautilus": 7.137176382939095,
+    "nautilus_advantage_percent": 613.7176382939094
+  },
+  {
+    "case": "mtpc8_Q16_L4096",
+    "nautilus_us": 6.863360000000001,
+    "tilelang_us": 42.57152,
+    "tilelang_over_nautilus": 6.202722864602759,
+    "nautilus_advantage_percent": 520.2722864602758
+  }
+]

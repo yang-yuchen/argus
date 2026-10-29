@@ -1,0 +1,5 @@
+case,nautilus_mean_us,tileops_mean_us,nautilus_median_us,tileops_median_us,nautilus_latency_higher_pct,host,input_and_kernel_match
+mtpc_Q4_L32768,33.30271,31.448,33.216,31.247999999999998,5.897704146527594,gh031.hsn.cm.delta.internal.ncsa.edu,True
+mtpc_Q32_L32768,35.35744,32.33152,35.296,32.064,9.359040342056302,gh031.hsn.cm.delta.internal.ncsa.edu,True
+mtpc_Q64_L256,9.2576,6.80352,9.248,6.752,36.07073985231175,gh031.hsn.cm.delta.internal.ncsa.edu,True
+mtpc_Q64_L32768,38.15584,33.045120000000004,38.048,32.72,15.465884221331304,gh031.hsn.cm.delta.internal.ncsa.edu,True

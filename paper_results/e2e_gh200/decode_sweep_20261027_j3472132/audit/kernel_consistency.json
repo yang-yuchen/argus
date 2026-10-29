@@ -1,0 +1,163 @@
+{
+  "baseline_checks": [
+    {
+      "kv_length": 256,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L256.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L256_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 6.13824,
+      "source_config_shape_match": true
+    },
+    {
+      "kv_length": 512,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L512.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L512_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 8.5312,
+      "source_config_shape_match": true
+    },
+    {
+      "kv_length": 1024,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L1024.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L1024_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 11.050239999999999,
+      "source_config_shape_match": true
+    },
+    {
+      "kv_length": 2048,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L2048.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L2048_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 17.7728,
+      "source_config_shape_match": true
+    },
+    {
+      "kv_length": 4096,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L4096.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L4096_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 29.80544,
+      "source_config_shape_match": true
+    },
+    {
+      "kv_length": 8192,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L8192.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L8192_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 49.7728,
+      "source_config_shape_match": true
+    },
+    {
+      "kv_length": 16384,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L16384.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L16384_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 85.77024,
+      "source_config_shape_match": true
+    },
+    {
+      "kv_length": 32768,
+      "kernel_record": "profiles_official_tileops_all_20261026/decode_L32768.json",
+      "model_record": "profiles_paper_e2e/decode_sweep_20261027_j3472132/decode_L32768_tileops.json",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "plot_baseline_us": 155.28064,
+      "source_config_shape_match": true
+    }
+  ],
+  "profile_32768": {
+    "tileops": {
+      "trace": "profiles_paper_e2e/decode_sweep_20261027_j3472132/audit/tileops_L32768.trace.json",
+      "forwards": [
+        {
+          "range": "paper_e2e_decode_tileops[0]",
+          "profiled_wall_ms": 65.05985100000001,
+          "all_gpu_kernel_sum_ms": 9.454398,
+          "attention_gpu_kernel_sum_ms": 4.723967,
+          "attention_kernel_count": 64,
+          "gpu_kernel_count": 642,
+          "tileops_cpu_api_inclusive_ms": 7.3473500000000005
+        },
+        {
+          "range": "paper_e2e_decode_tileops[1]",
+          "profiled_wall_ms": 62.395124,
+          "all_gpu_kernel_sum_ms": 9.348113999999999,
+          "attention_gpu_kernel_sum_ms": 4.709057,
+          "attention_kernel_count": 64,
+          "gpu_kernel_count": 642,
+          "tileops_cpu_api_inclusive_ms": 7.632625
+        }
+      ],
+      "mean_attention_gpu_ms": 4.716512,
+      "mean_all_gpu_kernel_sum_ms": 9.401256,
+      "formal_wall_ms": 31.341767153935507
+    },
+    "nautilus": {
+      "trace": "profiles_paper_e2e/decode_sweep_20261027_j3472132/audit/nautilus_L32768.trace.json",
+      "forwards": [
+        {
+          "range": "paper_e2e_decode_nautilus[0]",
+          "profiled_wall_ms": 52.043472,
+          "all_gpu_kernel_sum_ms": 9.399772,
+          "attention_gpu_kernel_sum_ms": 4.616193,
+          "attention_kernel_count": 64,
+          "gpu_kernel_count": 642,
+          "tileops_cpu_api_inclusive_ms": 0.0
+        },
+        {
+          "range": "paper_e2e_decode_nautilus[1]",
+          "profiled_wall_ms": 48.020734,
+          "all_gpu_kernel_sum_ms": 9.280447,
+          "attention_gpu_kernel_sum_ms": 4.616033000000001,
+          "attention_kernel_count": 64,
+          "gpu_kernel_count": 642,
+          "tileops_cpu_api_inclusive_ms": 0.0
+        }
+      ],
+      "mean_attention_gpu_ms": 4.616113,
+      "mean_all_gpu_kernel_sum_ms": 9.3401095,
+      "formal_wall_ms": 23.65814195945859
+    }
+  },
+  "scope": "GPU durations restricted to the two forward annotation ranges. Formal wall measurements are from the original unprofiled 20 samples. CPU inclusive durations are diagnostic only, not additive attribution."
+}

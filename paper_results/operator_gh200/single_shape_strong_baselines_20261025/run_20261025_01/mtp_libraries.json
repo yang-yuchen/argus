@@ -1,0 +1,1053 @@
+{
+  "variant": "mtp",
+  "family": "libraries",
+  "stage": "candidates",
+  "repeat": 50,
+  "environment": {
+    "host": "gh008.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "ffe64d70-e658-1c7c-018b-e1978a340e0d",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "packages": {
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      },
+      "flashinfer": {
+        "version": "0.7.2.post1",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/__init__.py"
+      },
+      "flash_attn": {
+        "version": "2.8.3.post2",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flash_attn/__init__.py"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "torch_flash",
+      "source": {
+        "library": "torch_flash",
+        "scope": "prepared inputs; library output allocation is host work",
+        "is_causal": false,
+        "precision": "FP16 inputs, no FP8 or FP16 QK reductions",
+        "architecture": "CUDA/Hopper; FA3 specifically requires SM90a"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.7812818571509952e-06,
+            "max_abs_error": 9.140314570429964e-06,
+            "relative_l2": 0.0002822260081518041,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.3297888164431657e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00036913162591134443,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.7659559232717642e-06,
+            "max_abs_error": 9.245202856344309e-06,
+            "relative_l2": 0.0002793256693732999,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.2722016831864187e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003593983597857144,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.8272174679766546e-06,
+            "max_abs_error": 1.0043907892880177e-05,
+            "relative_l2": 0.0002775328087637877,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.3111298395780578e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00035103339806114784,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        65.12,
+        65.408,
+        65.28,
+        65.72800000000001,
+        66.65599999999999,
+        65.856,
+        64.64,
+        64.64,
+        66.016,
+        66.52799999999999,
+        64.928,
+        64.70400000000001,
+        65.344,
+        64.48,
+        66.176,
+        64.544,
+        66.048,
+        65.664,
+        65.088,
+        65.12,
+        64.864,
+        65.44,
+        65.248,
+        64.672,
+        65.12,
+        65.21600000000001,
+        66.368,
+        64.352,
+        65.696,
+        64.448,
+        66.56,
+        65.568,
+        65.088,
+        66.816,
+        65.6,
+        64.96000000000001,
+        64.608,
+        66.144,
+        64.32,
+        65.024,
+        64.768,
+        64.704,
+        65.856,
+        64.736,
+        66.176,
+        65.376,
+        65.312,
+        64.70400000000001,
+        65.024,
+        65.696
+      ],
+      "mean_us": 65.32864000000001,
+      "median_us": 65.232,
+      "min_us": 64.32
+    },
+    {
+      "name": "torch_cudnn",
+      "source": {
+        "library": "torch_cudnn",
+        "scope": "prepared inputs; library output allocation is host work",
+        "is_causal": false,
+        "precision": "FP16 inputs, no FP8 or FP16 QK reductions",
+        "architecture": "CUDA/Hopper; FA3 specifically requires SM90a"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9306874568063997e-06,
+            "max_abs_error": 1.0705441930273368e-05,
+            "relative_l2": 0.00030589780709647674,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.505186490643502e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00039692162481668846,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.8968865534661333e-06,
+            "max_abs_error": 1.1236650682720783e-05,
+            "relative_l2": 0.000300035294929952,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.4283023954815137e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003840890993337829,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.9643787385209205e-06,
+            "max_abs_error": 1.0655665195646868e-05,
+            "relative_l2": 0.0002983659899996877,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.493510928381468e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00037873493704367484,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.725212312554694e-07,
+            "max_abs_error": 3.95298411604017e-06,
+            "relative_l2": 0.00020294462538447946,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 4.6966736868257174e-07,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.00012338198804695368,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        754.592,
+        746.24,
+        746.176,
+        746.432,
+        754.912,
+        754.784,
+        750.88,
+        746.56,
+        755.008,
+        754.912,
+        750.624,
+        754.912,
+        754.528,
+        754.592,
+        746.272,
+        755.456,
+        746.176,
+        755.072,
+        751.328,
+        755.104,
+        746.112,
+        746.144,
+        746.368,
+        743.584,
+        743.584,
+        743.616,
+        744.352,
+        743.776,
+        743.712,
+        744.256,
+        743.488,
+        744.512,
+        743.712,
+        743.552,
+        743.648,
+        744.736,
+        743.68,
+        743.52,
+        744.192,
+        743.584,
+        744.352,
+        743.776,
+        743.584,
+        743.648,
+        744.224,
+        743.552,
+        744.352,
+        744.416,
+        743.68,
+        744.448
+      ],
+      "mean_us": 747.1744,
+      "median_us": 744.48,
+      "min_us": 743.488
+    },
+    {
+      "name": "flashattention2",
+      "source": {
+        "library": "flashattention2",
+        "scope": "prepared inputs; library output allocation is host work",
+        "is_causal": false,
+        "precision": "FP16 inputs, no FP8 or FP16 QK reductions",
+        "architecture": "CUDA/Hopper; FA3 specifically requires SM90a"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.7824349410653019e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002824087025799164,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.321775130690091e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00036786193793331937,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.7643205562457476e-06,
+            "max_abs_error": 9.245202856344309e-06,
+            "relative_l2": 0.0002790669992767287,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.2692401248623025e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.000358929924605874,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.8287668511614677e-06,
+            "max_abs_error": 1.0043907892880177e-05,
+            "relative_l2": 0.00027776814181782676,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.3137430613283813e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003514303156618789,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        69.44,
+        69.504,
+        69.44,
+        69.344,
+        70.336,
+        69.44,
+        70.336,
+        68.544,
+        68.70400000000001,
+        68.416,
+        70.112,
+        69.216,
+        69.504,
+        69.024,
+        67.936,
+        68.928,
+        69.664,
+        70.208,
+        68.032,
+        69.21600000000001,
+        69.568,
+        69.024,
+        69.12,
+        68.8,
+        69.408,
+        69.792,
+        68.768,
+        68.864,
+        69.056,
+        69.28,
+        68.256,
+        69.47200000000001,
+        68.8,
+        69.504,
+        69.504,
+        68.0,
+        69.76,
+        68.64,
+        68.544,
+        69.44,
+        68.896,
+        68.64,
+        68.352,
+        68.064,
+        70.144,
+        69.47200000000001,
+        68.896,
+        69.056,
+        68.96000000000001,
+        68.8
+      ],
+      "mean_us": 69.12448,
+      "median_us": 69.088,
+      "min_us": 67.936
+    },
+    {
+      "name": "flashinfer_fa2",
+      "source": {
+        "library": "flashinfer_fa2",
+        "scope": "prepared inputs; library output allocation is host work",
+        "is_causal": false,
+        "precision": "FP16 inputs, no FP8 or FP16 QK reductions",
+        "architecture": "CUDA/Hopper; FA3 specifically requires SM90a"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 2.51753253723829e-06,
+            "max_abs_error": 1.2867333689187133e-05,
+            "relative_l2": 0.0003988774463315141,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.0255294969103117e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0004793647452313966,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 2.4944403960634193e-06,
+            "max_abs_error": 1.1236650682720783e-05,
+            "relative_l2": 0.0003945518821621171,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.9730749432097574e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0004702567848691837,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 2.552306319155524e-06,
+            "max_abs_error": 1.1369382794394062e-05,
+            "relative_l2": 0.000387665263711154,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.0100580458396925e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0004571923593809487,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 1.3847446946828464e-06,
+            "max_abs_error": 6.6044995037373155e-06,
+            "relative_l2": 0.0003637783428409379,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 1.4846064737327816e-06,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.0003900072911395457,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        59.232,
+        56.736,
+        56.896,
+        57.728,
+        56.384,
+        57.312,
+        56.608,
+        56.832,
+        57.408,
+        56.544000000000004,
+        57.760000000000005,
+        57.728,
+        56.736000000000004,
+        57.504,
+        56.576,
+        56.544000000000004,
+        57.536,
+        56.736000000000004,
+        56.672,
+        56.704,
+        57.472,
+        56.64,
+        57.632,
+        57.408,
+        56.832,
+        56.896,
+        56.512,
+        57.376000000000005,
+        56.864000000000004,
+        57.216,
+        56.576,
+        57.504000000000005,
+        56.544000000000004,
+        56.864000000000004,
+        57.472,
+        56.480000000000004,
+        57.76,
+        56.544,
+        57.664,
+        56.576,
+        57.632000000000005,
+        56.96,
+        57.568,
+        56.864000000000004,
+        57.984,
+        56.768,
+        57.312000000000005,
+        56.64,
+        57.44,
+        57.056
+      ],
+      "mean_us": 57.10464,
+      "median_us": 56.896,
+      "min_us": 56.384
+    },
+    {
+      "name": "flashinfer_fa3",
+      "source": {
+        "library": "flashinfer_fa3",
+        "scope": "prepared inputs; library output allocation is host work",
+        "is_causal": false,
+        "precision": "FP16 inputs, no FP8 or FP16 QK reductions",
+        "architecture": "CUDA/Hopper; FA3 specifically requires SM90a"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.6483237307784524,
+            "max_abs_error": 2.716346780184775,
+            "relative_l2": 102.7203066112952,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.6483237425073408,
+            "max_abs_error": 2.7163467407226562,
+            "relative_l2": 102.72038199325803,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.6068458683873147,
+            "max_abs_error": 2.6701324292087385,
+            "relative_l2": 95.98633021353301,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.6068459069344146,
+            "max_abs_error": 2.6701316833496094,
+            "relative_l2": 95.98594403338858,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.6479710697262261,
+            "max_abs_error": 2.9062793008552426,
+            "relative_l2": 98.41917239217925,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.6479710871064502,
+            "max_abs_error": 2.9062795639038086,
+            "relative_l2": 98.41917518311321,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.5189086724784499,
+            "max_abs_error": 1.6233654308243786,
+            "relative_l2": 136.31952350843684,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.5189086799036807,
+            "max_abs_error": 1.6233673095703125,
+            "relative_l2": 136.31771932745778,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    }
+  ],
+  "accuracy_metric": "scripts.error.compute_rmse against FP64 reference",
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "measurement_complete": true
+}

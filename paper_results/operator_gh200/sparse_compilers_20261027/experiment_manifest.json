@@ -1,0 +1,65 @@
+{
+  "nautilus_commit": "d35a206bf55a6fed0a56ba3fd41d3aba6afb1e44",
+  "gpu_job": "3471992",
+  "sequence_lengths": [
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384,
+    32768
+  ],
+  "query_heads": 16,
+  "shared_kv_heads": 1,
+  "qk_dim": 576,
+  "value_dim": 512,
+  "dtype": "bfloat16",
+  "topk": "min(L,2048)",
+  "indices": "unique random causal prefix; -1 padding",
+  "scale": "1/sqrt(512)",
+  "timing": "50 cold-L2 repeats; sum GPU kernel durations; index/mask construction and compilation excluded",
+  "planned_methods": [
+    "Nautilus",
+    "TileLang",
+    "FlexAttn",
+    "Helion"
+  ],
+  "tileops_attempt": "official DSADenseFwdOp autotune failed H16 WGMMA M16 constraints; no kernel edits",
+  "tilelang_fallback": "unchanged official sparse_mla_fwd_interface; convert -1 sentinel to L outside timing",
+  "flex_tuning": "Official DEFAULT autotune pipeline stages with public kernel_options BLOCK_M=32,BLOCK_N=64,num_warps=8; geometry won unrestricted L1024 and L4096 searches; every final point replayed with this scope.",
+  "plot_script": "plot_from_csv.py",
+  "tileops_environment": {
+    "torch": "2.14.1+cu130",
+    "tilelang": "0.1.15",
+    "package_requirement": "torch>=2.13,<2.14; tilelang==0.1.12"
+  },
+  "obsolete_scope_interruption": "L16384 tuning child stopped before correctness/timing after final uniform scope was selected; final replay required",
+  "helion_tuning": "Official full search with HELION_AUTOTUNE_BUDGET_SECONDS=180 at every length; HL.load mask callback preserves exact selected set; official attention source unchanged",
+  "tilelang_tuning": "Official TileLang autotune API on unchanged official kernel; four locally specified public stage/thread configurations, BI64, stages1/2, threads128/256; original default results kept separately",
+  "gpu_jobs": [
+    "3471992",
+    "3472827"
+  ],
+  "nodes_requested": [
+    "gh079"
+  ],
+  "nodes_used": [
+    "gh079",
+    "gh004"
+  ],
+  "continuation_note": "Node constraint removed and TimeMin=10min permitted backfill; continuation started on gh004. Raw metadata records each host.",
+  "status": "complete",
+  "source_tuning_audit": {
+    "report": "../profiles_sparse_source_audit_20261027/README.md",
+    "sufficiently_tuned_baselines_established": false,
+    "plot_status": "provisional historical timings",
+    "flex_helion_layout": "historical results used independently packed V; adapter now preserves shared KV storage",
+    "corrected_layout_gpu_replay_complete": true,
+    "corrected_layout_replay": "../profiles_sparse_shared_kv_20261027/README.md"
+  },
+  "validated_method_length_pairs": 32,
+  "node_control_completed": false,
+  "node_control_note": "The continuation batch exited after the main loop; the appended optional host control was not executed. No paired or rescaled data are substituted. Cross-node limitations apply."
+}

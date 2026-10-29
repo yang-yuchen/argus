@@ -1,0 +1,23 @@
+{
+  "variant": "sparse_split",
+  "implementation": "nautilus",
+  "skipped": true,
+  "skip_reason": "Exported module: Module has no function 'main'\nScheduled source: one or more error diagnostics were emitted, please check diagnostic render for output.",
+  "correct": null,
+  "measurement_complete": false,
+  "inputs_sha256": "3920c5f4c8caf0fd388f0c87e635a30601cd425ce99698464076a64dd6b3e307",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "host": "gh008.hsn.cm.delta.internal.ncsa.edu",
+  "gpu": "NVIDIA GH200 120GB",
+  "packages": {
+    "tilelang": {
+      "version": "0.1.15",
+      "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/__init__.py"
+    },
+    "tvm": {
+      "version": "0.25.dev0",
+      "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+    }
+  }
+}

@@ -1,0 +1,1670 @@
+{
+  "sparse_L256": {
+    "Nautilus": {
+      "kernel_sha256": "5f296df6f9d9c86867cd03dcc9979825b928d226ff879665386d19d04efcd093",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 0.023200640454888344,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.00193408558867515,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019320289185687264,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=2, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 2
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.001921461068604799,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          16,
+          32
+        ],
+        "host_tensor_descriptors": true,
+        "indexing": [
+          "tensor_descriptor",
+          "tensor_descriptor",
+          "pointer",
+          "pointer",
+          "tensor_descriptor",
+          "tensor_descriptor",
+          "tensor_descriptor",
+          "pointer",
+          "tensor_descriptor",
+          "pointer",
+          "tensor_descriptor",
+          "tensor_descriptor"
+        ],
+        "l2_groupings": [
+          4
+        ],
+        "load_eviction_policies": [
+          "",
+          "first",
+          "last",
+          "first",
+          "first",
+          "first",
+          "last",
+          "first",
+          "first",
+          "last"
+        ],
+        "loop_orders": [
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "maxnreg": 256,
+        "num_sm_multiplier": 8,
+        "num_stages": 5,
+        "num_warps": 4,
+        "pid_type": "persistent_blocked",
+        "range_flattens": [
+          null,
+          null,
+          false,
+          false
+        ],
+        "range_multi_buffers": [
+          true,
+          false,
+          null,
+          false
+        ],
+        "range_num_stages": [
+          4,
+          4,
+          4,
+          2
+        ],
+        "range_unroll_factors": [
+          2,
+          0,
+          0,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L256.py"
+    }
+  },
+  "sparse_L512": {
+    "Nautilus": {
+      "kernel_sha256": "312f89fbc01aedbc220bf258d051215d9f1bf06a26037593df50bfbc1fc4a05c",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 0.06659712642431259,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019454912296864187,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.001944440692020234,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=3, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 3
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019245330649217886,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          16,
+          16
+        ],
+        "host_tensor_descriptors": false,
+        "indexing": [
+          "pointer",
+          "tensor_descriptor",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "tensor_descriptor",
+          "pointer"
+        ],
+        "l2_groupings": [
+          4
+        ],
+        "load_eviction_policies": [
+          "last",
+          "first",
+          "last",
+          "first",
+          "",
+          "last",
+          "first",
+          "",
+          "first",
+          "last"
+        ],
+        "loop_orders": [
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "num_stages": 2,
+        "num_warps": 2,
+        "pid_type": "flat",
+        "range_flattens": [
+          null,
+          null,
+          null,
+          false
+        ],
+        "range_multi_buffers": [
+          null,
+          null,
+          true,
+          true
+        ],
+        "range_num_stages": [
+          0,
+          4,
+          4,
+          0
+        ],
+        "range_unroll_factors": [
+          0,
+          4,
+          0,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L512.py"
+    }
+  },
+  "sparse_L1024": {
+    "Nautilus": {
+      "kernel_sha256": "92eb20ac08c7d0fd95a733df47a62b0fa5fe41bc2acc03a1790841092b9e8c0d",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 0.2258560210466385,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.00196924827256629,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019696487676351252,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=2, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 2
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019601152878656746,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          32,
+          32
+        ],
+        "host_tensor_descriptors": false,
+        "indexing": [
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer"
+        ],
+        "l2_groupings": [
+          1
+        ],
+        "load_eviction_policies": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "loop_orders": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "num_stages": 1,
+        "num_warps": 4,
+        "pid_type": "flat",
+        "range_flattens": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_multi_buffers": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_num_stages": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_unroll_factors": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L1024.py"
+    }
+  },
+  "sparse_L2048": {
+    "Nautilus": {
+      "kernel_sha256": "9d6b997971693508aa56e32b1621958f55e2f6956a99a3b6a318bf6b24690845",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 0.8480058312416077,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.001959957465124532,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019594106618673534,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=3, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 3
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019526316384104734,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          32,
+          32
+        ],
+        "host_tensor_descriptors": false,
+        "indexing": [
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer"
+        ],
+        "l2_groupings": [
+          1
+        ],
+        "load_eviction_policies": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "loop_orders": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "num_stages": 1,
+        "num_warps": 4,
+        "pid_type": "flat",
+        "range_flattens": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_multi_buffers": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_num_stages": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_unroll_factors": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L2048.py"
+    }
+  },
+  "sparse_L4096": {
+    "Nautilus": {
+      "kernel_sha256": "5e134686b6d7ca36df223a53ceacf1e52259574b6f0c00ce77f1ccffd4d425fc",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 1.6938071250915527,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.001951018833099664,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019502853031983622,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=3, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 3
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019564636263088276,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          32,
+          128
+        ],
+        "host_tensor_descriptors": true,
+        "indexing": [
+          "pointer",
+          "pointer",
+          "tensor_descriptor",
+          "pointer",
+          "pointer",
+          "tensor_descriptor",
+          "pointer",
+          "pointer",
+          "tensor_descriptor",
+          "tensor_descriptor",
+          "pointer",
+          "pointer"
+        ],
+        "l2_groupings": [
+          32
+        ],
+        "load_eviction_policies": [
+          "first",
+          "last",
+          "last",
+          "first",
+          "last",
+          "first",
+          "first",
+          "last",
+          "last",
+          ""
+        ],
+        "loop_orders": [
+          [
+            1,
+            2,
+            0
+          ]
+        ],
+        "maxnreg": 256,
+        "num_sm_multiplier": 16,
+        "num_stages": 8,
+        "num_warps": 8,
+        "pid_type": "persistent_interleaved",
+        "range_flattens": [
+          false,
+          null,
+          null,
+          null
+        ],
+        "range_multi_buffers": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "range_num_stages": [
+          3,
+          1,
+          2,
+          1
+        ],
+        "range_unroll_factors": [
+          1,
+          4,
+          4,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L4096.py"
+    }
+  },
+  "sparse_L8192": {
+    "Nautilus": {
+      "kernel_sha256": "b1ba78ae910e57ef0ed39fdcfa8489e6a0d09e7085e812ecbd8aa5094e43c935",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 3.4720020294189453,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019503223221222614,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019491238372448063,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=3, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 3
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019452550087841092,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          32,
+          32
+        ],
+        "host_tensor_descriptors": false,
+        "indexing": [
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer"
+        ],
+        "l2_groupings": [
+          1
+        ],
+        "load_eviction_policies": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "loop_orders": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "num_stages": 1,
+        "num_warps": 4,
+        "pid_type": "flat",
+        "range_flattens": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_multi_buffers": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_num_stages": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_unroll_factors": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L8192.py"
+    }
+  },
+  "sparse_L16384": {
+    "Nautilus": {
+      "kernel_sha256": "104478ead4debb8844f294df49c253df9f4cbfffe130d31306ee3168ba19495e",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 6.961297988891602,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.001942974875995188,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019415927235037667,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=3, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 3
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019387255862287566,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          32,
+          32
+        ],
+        "host_tensor_descriptors": false,
+        "indexing": [
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer"
+        ],
+        "l2_groupings": [
+          1
+        ],
+        "load_eviction_policies": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "loop_orders": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "num_stages": 1,
+        "num_warps": 4,
+        "pid_type": "flat",
+        "range_flattens": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_multi_buffers": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_num_stages": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_unroll_factors": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L16384.py"
+    }
+  },
+  "sparse_L32768": {
+    "Nautilus": {
+      "kernel_sha256": "0e4c42846a7fdd72cc8a85e456a22e66044609a102dc7492aba954af1a402360",
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu"
+    },
+    "TileLang": {
+      "source": {
+        "repository": "https://github.com/tile-ai/tilelang",
+        "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+        "files": {
+          "sparse_mla_fwd.py": {
+            "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+            "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30"
+          },
+          "utils.py": {
+            "path": "examples/deepseek_v32/utils.py",
+            "sha256": "84f8a18d114400026acdfec946877e18be85a396465b5315039160238803498c"
+          }
+        },
+        "kernel_source_unchanged": true,
+        "configuration": {
+          "block_I": 64,
+          "num_stages": 1,
+          "threads": 128
+        },
+        "autotune": {
+          "api": "tilelang.autotuner.autotune + set_autotune_inputs",
+          "search_space_origin": "local GH200 calibration of upstream public parameters",
+          "upstream_recommended_search_space": false,
+          "candidates": [
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 1,
+              "threads": 256
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 128
+            },
+            {
+              "block_I": 64,
+              "num_stages": 2,
+              "threads": 256
+            }
+          ],
+          "selected": {
+            "block_I": 64,
+            "num_stages": 1,
+            "threads": 128
+          },
+          "latency_ms": 14.150409698486328,
+          "tuning_objective": "upstream autotuner timing defaults; final sweep is cold-L2"
+        },
+        "api": "autotune(configs=...)(sparse_mla_fwd).compile",
+        "selected_kernel": "sparse_mla_fwd",
+        "upstream_configuration": {
+          "block_I": 64,
+          "num_stages": 2,
+          "threads": 256
+        },
+        "scale": 0.04419417382415922,
+        "is_causal": true,
+        "input_mapping": "Q/KV/indices batch/group views; -1 padding remapped to KV length",
+        "padding_conversion": "upstream test inputs use SKV for invalid positions",
+        "scope": "index sentinel conversion and layout preparation excluded; official kernel timed",
+        "fallback_reason": "TileOPs H16 WGMMA path fails to compile; no kernel/source modifications"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019391055837377354,
+      "selected_config": {
+        "block_I": 64,
+        "num_stages": 1,
+        "threads": 128
+      }
+    },
+    "FlexAttn": {
+      "source": {
+        "repository": "https://github.com/pytorch/pytorch",
+        "commit": "5c4886908584029761b579af026dcfb627c84070",
+        "api": "torch.nn.attention.flex_attention.flex_attention",
+        "configuration": "inference_mode, max_autotune=True, cudagraphs=False, fullgraph",
+        "flex_search_space": "DEFAULT",
+        "tuning_scope": "official pipeline-stage search at 32x64, 8 warps",
+        "kernel_options": {
+          "BLOCK_M": 32,
+          "BLOCK_N": 64,
+          "num_warps": 8
+        },
+        "tile_reason": "D576/V512 register pressure; unrestricted L1024 and L4096 searches selected M32/N64/8warps; tune pipeline stages",
+        "mask": "exact membership in supplied unique causal sparse indices; -1 ignored",
+        "scope": "BlockMask and layout preparation excluded; official attention kernel timed",
+        "enable_gqa": true,
+        "scale": 0.04419417382415922
+      },
+      "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.00193717301375754,
+      "selected_config_description": "BLOCKS_ARE_CONTIGUOUS=False, BLOCK_M=32, BLOCK_N=64, FLOAT32_PRECISION=\"'ieee'\", GQA_SHARED_HEADS=16, HAS_FULL_BLOCKS=True, IS_DIVISIBLE=True, OUTPUT_LOGSUMEXP=False, OUTPUT_MAX=False, PRESCALE_QK=False, QK_HEAD_DIM=576, QK_HEAD_DIM_ROUNDED=1024, ROWS_GUARANTEED_SAFE=False, SAFE_HEAD_DIM=False, SM_SCALE=0.04419417382415922, SPARSE_KV_BLOCK_SIZE=128, SPARSE_Q_BLOCK_SIZE=128, USE_TMA=False, V_HEAD_DIM=512, V_HEAD_DIM_ROUNDED=512, WRITE_DQ=True, num_stages=1, num_warps=8",
+      "selected_config": {
+        "BLOCK_M": 32,
+        "BLOCK_N": 64,
+        "num_warps": 8,
+        "num_stages": 1
+      }
+    },
+    "Helion": {
+      "source": {
+        "repository": "https://github.com/pytorch/helion",
+        "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+        "path": "examples/flex_attention.py",
+        "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+        "adaptations": [],
+        "api": "helion_flex_attention",
+        "configuration": {
+          "enable_gqa": true,
+          "scale": 0.04419417382415922,
+          "return_lse": false,
+          "kernel_decorator": "static_shapes=True, fast_math=True",
+          "autotune_effort": "full",
+          "autotune_budget_seconds": 180
+        },
+        "mask_callback": "hl.load(allowed, [q_idx, kv_idx]); exact supplied membership table",
+        "mask_conversion": "shallow-copy BlockMask tables; replace only user callback load syntax",
+        "scope": "prebuilt exact selection BlockMask; layout preparation outside timing",
+        "semantics": "indexed MLA: Q/K D576, V=shared KV first512, Hq16/Hkv1"
+      },
+      "host": "gh004.hsn.cm.delta.internal.ncsa.edu",
+      "relative_l2": 0.0019354880751167262,
+      "selected_config": {
+        "atomic_indexing": [],
+        "block_sizes": [
+          32,
+          32
+        ],
+        "host_tensor_descriptors": false,
+        "indexing": [
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer",
+          "pointer"
+        ],
+        "l2_groupings": [
+          1
+        ],
+        "load_eviction_policies": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "loop_orders": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "num_stages": 1,
+        "num_warps": 4,
+        "pid_type": "flat",
+        "range_flattens": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_multi_buffers": [
+          null,
+          null,
+          null,
+          null
+        ],
+        "range_num_stages": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_unroll_factors": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "range_warp_specializes": []
+      },
+      "generated_code": "profiles_sparse_compilers_20261027/selected_kernels/helion_L32768.py"
+    }
+  }
+}

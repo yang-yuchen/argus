@@ -1,0 +1,661 @@
+{
+  "status": "infrastructure_in_progress",
+  "repository": "git@github.com:uiuc-arc/neptune-internal.git",
+  "branch": "nautilus-gh200",
+  "commit": "276020e7c4f9b6828887bf805e9427ca6a2b75a4",
+  "cases": [
+    {
+      "case": "decode8_L32768",
+      "backend": "tilelang",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            1,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            32768,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            32768
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            1,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/decode8_L32768/tilelang/best/export",
+      "kernel_sha256": "a1bb90e778c65fc7f27a3ebd2192db84141da2ad1916ba510fff26595a5889e6",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/decode8_L32768",
+      "measured": false
+    },
+    {
+      "case": "decode8_L4096",
+      "backend": "tilelang",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            1,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            4096,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            4096
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            1,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/decode8_L4096/tilelang/best/export",
+      "kernel_sha256": "2836df5df572015d896266d315c8535e4ebf3373e674b54359dc1f34e5be8ffd",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/decode8_L4096",
+      "measured": false
+    },
+    {
+      "case": "mtp8_Q16_L4096",
+      "backend": "tilelang",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            4,
+            4096,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            4,
+            128,
+            4096
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/mtp8_Q16_L4096/tilelang/best/export",
+      "kernel_sha256": "8c857e012168ceebb9901269fbd5c6c0afafa6bdffe7e1cad478e7451a74ea3c",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/mtp8_Q16_L4096",
+      "measured": false
+    },
+    {
+      "case": "mtp8_Q16_L65536",
+      "backend": "tilelang",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            4,
+            65536,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            4,
+            128,
+            65536
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/mtp8_Q16_L65536/tilelang/best/export",
+      "kernel_sha256": "bd06c7051038c8f23af176c61f8e01ebf616affd92a30d648d2af0c1d8f3ae94",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/mtp8_Q16_L65536",
+      "measured": false
+    },
+    {
+      "case": "mtpc8_Q16_L4096",
+      "backend": "tilelang",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            4,
+            4096,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            4,
+            128,
+            4096
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/mtpc8_Q16_L4096/tilelang/best/export",
+      "kernel_sha256": "8fa2cf9616757973b4f658fcc2423ea143eb0fddf8b3b1e855bc622f0835535f",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/mtpc8_Q16_L4096",
+      "measured": false
+    },
+    {
+      "case": "mtpc8_Q16_L65536",
+      "backend": "tilelang",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            4,
+            65536,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            4,
+            128,
+            65536
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            4,
+            16,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/mtpc8_Q16_L65536/tilelang/best/export",
+      "kernel_sha256": "7a675b99930d1bfc1e7251ca0011f5be9d08eb758996de98e500749b79993ea0",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/mtpc8_Q16_L65536",
+      "measured": false
+    },
+    {
+      "case": "prefill8_L2048",
+      "backend": "tawa",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            2048,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            2048,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            2048
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            2048,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/prefill8_L2048/tawa/best/export",
+      "kernel_sha256": "c8140cd2b2a8114670c47daf2feb21be7082d02c6f19f624de4d5f309ca45b06",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/prefill8_L2048",
+      "measured": false
+    },
+    {
+      "case": "prefill8_L32768",
+      "backend": "tawa",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            32768,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            32768,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            32768
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            32768,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/prefill8_L32768/tawa/best/export",
+      "kernel_sha256": "4d10a175079674d7008f7b337221461ae974f448b6018fda2b0c7ff6eb0b8b2c",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/prefill8_L32768",
+      "measured": false
+    },
+    {
+      "case": "prefill8_L8192",
+      "backend": "tawa",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            8192,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            8192,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            8192
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            8192,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/prefill8_L8192/tawa/best/export",
+      "kernel_sha256": "26f4aeb3d19c221b2985ec11c0a6cf835e70e8f45728fe95b541f46f283cf290",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/prefill8_L8192",
+      "measured": false
+    },
+    {
+      "case": "prefillc8_L2048",
+      "backend": "tawa",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            2048,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            2048,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            2048
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            2048,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/prefillc8_L2048/tawa/best/export",
+      "kernel_sha256": "56263607491ea980c4604599a411095a2ae0409c1c3235a89e0a9f0aa59a12ae",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/prefillc8_L2048",
+      "measured": false
+    },
+    {
+      "case": "prefillc8_L32768",
+      "backend": "tawa",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            32768,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            32768,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            32768
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            32768,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/prefillc8_L32768/tawa/best/export",
+      "kernel_sha256": "ad17b1a2bf2ddaa99ac50d7ebe0e8c33b8ee3b6b20f6a73cad63014f226a00fd",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/prefillc8_L32768",
+      "measured": false
+    },
+    {
+      "case": "prefillc8_L8192",
+      "backend": "tawa",
+      "params": [
+        {
+          "name": "q",
+          "shape": [
+            1,
+            32,
+            8192,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "k",
+          "shape": [
+            1,
+            32,
+            8192,
+            128
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "v",
+          "shape": [
+            1,
+            32,
+            128,
+            8192
+          ],
+          "dtype": "float8_e4m3fn"
+        },
+        {
+          "name": "T_cast",
+          "shape": [
+            1,
+            32,
+            8192,
+            128
+          ],
+          "dtype": "float16"
+        }
+      ],
+      "export": "profiles_fp8_compilers_20261029/source/paper_kernels/prefillc8_L8192/tawa/best/export",
+      "kernel_sha256": "f5a39f22f1b2c7ce9b633890f45664be226a4f12a68dccfe657103b53142fd08",
+      "source": "https://github.com/uiuc-arc/neptune-internal/tree/276020e7c4f9b6828887bf805e9427ca6a2b75a4/paper_kernels/prefillc8_L8192",
+      "measured": false
+    }
+  ],
+  "comparison_contract": "e4m3fn Q/K/V and probabilities; FP32 accumulation; FP16 output; unity QKV scales; MHA; bottom-right causal for mtpc; transposed V storage in upstream export ABI",
+  "baseline_environment": "/u/yucheny8/argus/.fp8-baseline-env",
+  "timing": "existing Argus nsys50-repeat cold-L2 sum-of-kernels protocol",
+  "same_gpu_required": false,
+  "gpu_jobs": {
+    "initial_capture": "3482373",
+    "continuation": "3482409",
+    "pinned_environment_continuation": "3482523",
+    "fixed_toolkit_continuation": "3482600",
+    "missing_yaml_attempt": "3482523",
+    "missing_cccl_attempt": "3482561",
+    "mtp_smoke": "3482706",
+    "varlen_decode": "3482685"
+  },
+  "gpu_validation": {
+    "status": "five representative FP8 workloads complete; full12-case sweep not launched",
+    "initial_collector_failure": "Fixed undefined case in common summary; recovered the original valid50-repeat CUDA capture without rerunning the kernel.",
+    "output_directory": "profiles_fp8_compilers_20261029/smoke_3482373",
+    "nautilus_prefill8_L2048": {
+      "correct": true,
+      "measurement_complete": true,
+      "relative_l2": 0.024521205574274063,
+      "mean_us": 118.83712
+    },
+    "original_modern_environment_failure": "TileLang0.1.15 ReduceOp layout ownership rejected the unchanged official FP8 Dense kernel. Official pins restored in isolated environment.",
+    "smoke_results": "profiles_fp8_compilers_20261029/smoke_results.json",
+    "official_tileops_dense_decode": "failed official ReduceOp layout lowering; use official public Varlen route",
+    "smoke_summary": "profiles_fp8_compilers_20261029/smoke_summary.json"
+  },
+  "baseline_capability_manifest": {
+    "TileLang": "argus/paper_baselines/vendor/fp8_tileops_official_manifest.json",
+    "FlexAttn": "argus/paper_baselines/vendor/fp8_flex_official_manifest.json",
+    "others": "profiles_fp8_compilers_20261029/other_official_audit.json"
+  },
+  "cpu_tests": {
+    "passed": 50,
+    "command": "python -m pytest tests/test_paper_fp8.py tests/test_paper_sweep_exports.py tests/test_fp8_flex.py tests/test_fp8_tilelang.py tests/test_mtpc_official_dynamic.py -q"
+  },
+  "original_modern_environment_preserved": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest",
+  "baseline_versions": {
+    "torch": "2.13.0",
+    "tilelang": "0.1.12",
+    "apache-tvm-ffi": "0.1.11",
+    "triton": "3.7.1",
+    "nvidia-cuda-nvcc": "13.2.86",
+    "nvidia-cuda-crt": "13.2.86",
+    "nvidia-nvvm": "13.2.86",
+    "torch_cuda": "13.0",
+    "tilelang_path": "/work/nvme/beqg/yucheny8/home-relocated/argus/.fp8-baseline-env/lib/python3.13/site-packages/tilelang/__init__.py",
+    "cuda_compiler_root": "profiles_fp8_compilers_20261029/cuda132/nvidia/cu13",
+    "compiler_headers_version": "13.2.86",
+    "compiler_probe": "compiler_probe/official_prefill8_L2048.cubin"
+  }
+}

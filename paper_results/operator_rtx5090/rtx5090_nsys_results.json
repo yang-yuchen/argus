@@ -1,0 +1,738 @@
+[
+  {
+    "variant": "decode_L1024",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L1024/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L1024",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L1024.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.013280000000000002,
+        "median_ms": 0.013583999999999999,
+        "mean_ms": 0.0137392,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L1024.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.039008,
+        "median_ms": 0.042527999999999996,
+        "mean_ms": 0.0423664,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L1024.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.02544,
+        "median_ms": 0.0407195,
+        "mean_ms": 0.03985755,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "decode_L16384",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L16384/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L16384",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L16384.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.168096,
+        "median_ms": 0.168896,
+        "mean_ms": 0.17043675,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L16384.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.58208,
+        "median_ms": 0.5960799999999999,
+        "mean_ms": 0.59508475,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 1.52587890625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L16384.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.473952,
+        "median_ms": 0.524208,
+        "mean_ms": 0.5212592,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "decode_L2048",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L2048/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L2048",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L2048.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.023392,
+        "median_ms": 0.02432,
+        "mean_ms": 0.0244432,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L2048.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.078304,
+        "median_ms": 0.07931200000000001,
+        "mean_ms": 0.0792864,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L2048.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.06752,
+        "median_ms": 0.071104,
+        "mean_ms": 0.0710192,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "decode_L256",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L256/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L256",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.00048828125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L256.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.004640000000000001,
+        "median_ms": 0.005824,
+        "mean_ms": 0.0058192,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L256.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.012672000000000001,
+        "median_ms": 0.012912,
+        "mean_ms": 0.01297115,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L256.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.019744,
+        "median_ms": 0.023216,
+        "mean_ms": 0.0231248,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "decode_L32768",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L32768/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L32768",
+        "status": "ok",
+        "correct": true,
+        "max_err": 1.52587890625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L32768.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.329504,
+        "median_ms": 0.33118400000000003,
+        "mean_ms": 0.3326928,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 1.52587890625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L32768.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 1.161824,
+        "median_ms": 1.172816,
+        "mean_ms": 1.1720465,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L32768.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 1.020928,
+        "median_ms": 1.0598239999999999,
+        "mean_ms": 1.05878525,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "decode_L4096",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L4096/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L4096",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L4096.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.044351999999999996,
+        "median_ms": 0.045104,
+        "mean_ms": 0.0452448,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L4096.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.152192,
+        "median_ms": 0.153488,
+        "mean_ms": 0.1536991,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L4096.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.078304,
+        "median_ms": 0.122992,
+        "mean_ms": 0.1203968,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "decode_L512",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L512/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L512",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L512.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.008032,
+        "median_ms": 0.008352,
+        "mean_ms": 0.0083984,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L512.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.021728,
+        "median_ms": 0.023039999999999998,
+        "mean_ms": 0.0230064,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L512.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.027903999999999998,
+        "median_ms": 0.028496,
+        "mean_ms": 0.028412800000000002,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "decode_L8192",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/decode_L8192/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-decode_L8192",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L8192.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.086048,
+        "median_ms": 0.08691200000000002,
+        "mean_ms": 0.08720175,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-decode",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L8192.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.302144,
+        "median_ms": 0.3042245,
+        "mean_ms": 0.3041682,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/decode_L8192.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.22112,
+        "median_ms": 0.26304,
+        "mean_ms": 0.2612144,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L1024",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L1024/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L1024",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L1024.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.00464,
+        "median_ms": 0.005488,
+        "mean_ms": 0.0054672,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L1024.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.038335999999999995,
+        "median_ms": 0.0388,
+        "mean_ms": 0.0389776,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L1024.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.01328,
+        "median_ms": 0.013439999999999999,
+        "mean_ms": 0.0134224,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L16384",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L16384/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L16384",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L16384.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.023648,
+        "median_ms": 0.024384,
+        "mean_ms": 0.024368,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L16384.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.5811839999999999,
+        "median_ms": 0.586256,
+        "mean_ms": 0.58560015,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L16384.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.021567999999999997,
+        "median_ms": 0.021695999999999997,
+        "mean_ms": 0.021793599999999996,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L2048",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L2048/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L2048",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L2048.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.005856,
+        "median_ms": 0.006608,
+        "mean_ms": 0.0066240000000000005,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L2048.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.07408,
+        "median_ms": 0.07504,
+        "mean_ms": 0.07506095,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L2048.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.013312,
+        "median_ms": 0.0136,
+        "mean_ms": 0.0136096,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L256",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L256/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L256",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L256.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.004128,
+        "median_ms": 0.004224,
+        "mean_ms": 0.0042816,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L256.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.01104,
+        "median_ms": 0.011184,
+        "mean_ms": 0.011215999999999999,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L256.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.012863999999999999,
+        "median_ms": 0.01312,
+        "mean_ms": 0.0131104,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L32768",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L32768/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L32768",
+        "status": "ok",
+        "correct": true,
+        "max_err": 1.52587890625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L32768.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.043808,
+        "median_ms": 0.045376,
+        "mean_ms": 0.04532805,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 1.52587890625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L32768.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 1.1605450000000002,
+        "median_ms": 1.166065,
+        "mean_ms": 1.1655465999999999,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L32768.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.030048,
+        "median_ms": 0.030271999999999997,
+        "mean_ms": 0.030339199999999997,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L4096",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L4096/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L4096",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L4096.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.008991999999999998,
+        "median_ms": 0.009295999999999999,
+        "mean_ms": 0.009292799999999999,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L4096.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.149792,
+        "median_ms": 0.1512965,
+        "mean_ms": 0.15125145,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L4096.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.014559999999999998,
+        "median_ms": 0.014976,
+        "mean_ms": 0.014936,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L512",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L512/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L512",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.0001220703125,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L512.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.004256,
+        "median_ms": 0.004384000000000001,
+        "mean_ms": 0.0044272,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L512.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.019615999999999998,
+        "median_ms": 0.020368,
+        "mean_ms": 0.02039685,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 0.000244140625,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L512.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.013151999999999999,
+        "median_ms": 0.01336,
+        "mean_ms": 0.0133856,
+        "rounds": 20
+      }
+    ]
+  },
+  {
+    "variant": "mtpc_Q16_L8192",
+    "export": "/home/yuchen/workrepo/nautilus/local/rtx5090/20261028T052602Z/paper-tilelang/mtpc_Q16_L8192/tilelang/best/export",
+    "errors": [],
+    "measurements": [
+      {
+        "implementation": "tilelang-mtpc_Q16_L8192",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L8192.nautilus.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.013856,
+        "median_ms": 0.014128,
+        "mean_ms": 0.0142416,
+        "rounds": 20
+      },
+      {
+        "implementation": "tilelang-official-wgmma-mtpc",
+        "status": "ok",
+        "correct": true,
+        "max_err": 3.0517578125e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L8192.tilelang.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.29142399999999996,
+        "median_ms": 0.294833,
+        "mean_ms": 0.29475575,
+        "rounds": 20
+      },
+      {
+        "implementation": "flex-5090",
+        "status": "ok",
+        "correct": true,
+        "max_err": 6.103515625e-05,
+        "profile": "/home/yuchen/argus/argus/rtx5090_nsys_profiles/mtpc_Q16_L8192.flex.nsys-rep",
+        "timing_source": "nsys",
+        "timing_metric": "sum_kernel_duration",
+        "min_ms": 0.016864,
+        "median_ms": 0.017071999999999997,
+        "mean_ms": 0.017153599999999998,
+        "rounds": 20
+      }
+    ]
+  }
+]

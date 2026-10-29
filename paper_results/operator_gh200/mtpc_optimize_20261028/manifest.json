@@ -1,0 +1,72 @@
+{
+  "status": "complete",
+  "base_experiment": "profiles_paper_kernels/mtpc_full_kv_20261028",
+  "cases": [
+    "mtpc_Q4_L32768",
+    "mtpc_Q32_L32768",
+    "mtpc_Q64_L256",
+    "mtpc_Q64_L32768"
+  ],
+  "resume_trials_added": 192,
+  "previous_trials": 64,
+  "total_attempt_budget": 256,
+  "new_seed": 7,
+  "attention_math_changed": false,
+  "manual_api": "neptune.operators.attn_plain.schedule_split_kv_flash",
+  "validation": "original FP32 reference; rtol1e-2 atol3e-3 relL2<1e-2; NaN/one output poisoning; extra input seed",
+  "selection": "Independent FP32 correctness, poisoned output and extra seed first; compare optimized candidate measurements with saved GH200 results.",
+  "original_kernel_sha256": {
+    "mtpc_Q4_L32768": "f0c3c5bebfb400b58599d8d688e1cd4f065102eb9a5f7e39a234de5bfb37e716",
+    "mtpc_Q32_L32768": "ef703cb4df5eb1b0dc194a229ebd5876b5df7811ba08599a179790461bec125c",
+    "mtpc_Q64_L256": "9461b8bf2dce742299fdc77860206f9866530f42ff4fed6529ebc149f54a4a40",
+    "mtpc_Q64_L32768": "6836b7964bb0339d0ee6ab2d3b046c5e8ee1da415067fde94ad859c74ddc19a8"
+  },
+  "jobs": {
+    "retune_array": "3481282",
+    "manual_probe": "3481225",
+    "manual_counterbalanced_verification": "3481296",
+    "manual_candidate_measurement": "3481613",
+    "q4_trace_parameters": "3481333",
+    "q4_checkpoint_selection": "3481384",
+    "cancelled_same_gpu_verification": "3481321",
+    "cancelled_separate_candidate_measurement": "3481488",
+    "cancelled_optional_retune_tasks": [
+      "3481282_1",
+      "3481282_2",
+      "3481282_3"
+    ],
+    "completed_q4_trace_and_measurement": "3481333",
+    "completed_q4_checkpoint_selection": "3481384"
+  },
+  "continuation": "resume in batches of up to64, stopping at256 committed records per case",
+  "continuation_seeds": "7 + 4*((committed_records-64)//64)",
+  "original_fallback_preserved": true,
+  "comparison_policy": "User explicitly permits different GH200 nodes; reuse existing original and TileOPs baselines; only optimized candidates are remeasured.",
+  "same_gpu_required": false,
+  "measurement_scheduling": "Q4 completed and validated. Original sbatch snapshot did not include shell additions made after submission; remaining three candidate measurements are submitted together as3481613 using the current external runner.",
+  "retune_actual_records": {
+    "mtpc_Q4_L32768": 96,
+    "mtpc_Q32_L32768": 64,
+    "mtpc_Q64_L256": 64,
+    "mtpc_Q64_L32768": 64
+  },
+  "continuation_status": "Cancelled pending optional continuation for three cases after independently correct faster manual candidates were found; retain Q4 checkpoint validation and candidate measurement jobs.",
+  "completed_formal_measurements": [
+    "mtpc_Q4_L32768",
+    "mtpc_Q32_L32768",
+    "mtpc_Q64_L256",
+    "mtpc_Q64_L32768"
+  ],
+  "pending_formal_measurements": [],
+  "remaining_slower_shapes": {
+    "TileLang_us": [],
+    "FlexAttn_us": []
+  },
+  "final_results": "comparison.csv",
+  "final_report": "RESULTS.md",
+  "final_measurement_jobs": {
+    "Q4": "3481333",
+    "other_three": "3481613"
+  },
+  "updated_plots_manifest": "profiles_paper_kernels/mtpc_optimize_20261028/plots/plot_manifest.json"
+}

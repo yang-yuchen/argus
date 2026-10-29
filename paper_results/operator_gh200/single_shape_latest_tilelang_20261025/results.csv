@@ -1,0 +1,9 @@
+variant,baseline,nautilus_mean_us,baseline_mean_us,speedup,nautilus_median_us,baseline_median_us,nautilus_relative_l2,baseline_relative_l2,repeats,nautilus_status,skip_reason
+decode,tilelang,,16.432,,,16.256,,0.0008083345601335168,50,skipped,"Exported module: Module has no function 'main'
+Scheduled source: one or more error diagnostics were emitted, please check diagnostic render for output."
+mtp,tilelang,,380.78592,,,381.20000000000005,,0.0014596099499613047,50,skipped,"Exported module: Module has no function 'main'
+Scheduled source: one or more error diagnostics were emitted, please check diagnostic render for output."
+sparse,tilelang,,1389.62496,,,1389.12,,0.0020255455747246742,50,skipped,"Exported module: Module has no function 'main'
+Scheduled source: one or more error diagnostics were emitted, please check diagnostic render for output."
+sparse_split,tilelang,,1427.55776,,,1424.9279999999999,,0.0020255455747246742,50,skipped,"Exported module: Module has no function 'main'
+Scheduled source: one or more error diagnostics were emitted, please check diagnostic render for output."

@@ -1,0 +1,37 @@
+{
+  "case": "mtpc_Q64_L256",
+  "original_screening_ms": 0.009294459999999978,
+  "original_validation": [
+    {
+      "max_abs_error": 0.0002250075340270996,
+      "relative_l2": 0.00025478799921972256
+    },
+    {
+      "max_abs_error": 0.00020945072174072266,
+      "relative_l2": 0.0002552080794711969
+    }
+  ],
+  "candidate_count": 12,
+  "valid_candidates": 4,
+  "best_config": {
+    "num_splits": 4,
+    "tile": 32,
+    "num_warps": 4,
+    "num_stages": 2,
+    "tma": false,
+    "warp_specialize": null
+  },
+  "best_screening_ms": 0.005726385833333313,
+  "validation": [
+    {
+      "max_abs_error": 0.0002250075340270996,
+      "relative_l2": 0.0002584074802665282
+    },
+    {
+      "max_abs_error": 0.00020945072174072266,
+      "relative_l2": 0.00025916315139000456
+    }
+  ],
+  "export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_optimize_20261028/manual/mtpc_Q64_L256/best/export",
+  "kernel_sha256": "1d3612b8b85c45d36fc2740925bcb8f79d8788c0ac4ed7bca0445881f7c4aaf9"
+}

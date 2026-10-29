@@ -1,0 +1,17 @@
+{
+  "wall_ms": {
+    "mean_long_minus_short_ms": -0.018989318050444126,
+    "stdev_ms": 2.2636950354104326,
+    "sem_ms": 0.41329227806891655
+  },
+  "submit_ms": {
+    "mean_long_minus_short_ms": -0.019854299413661163,
+    "stdev_ms": 2.264522029137189,
+    "sem_ms": 0.4134432657752698
+  },
+  "event_span_ms": {
+    "mean_long_minus_short_ms": -0.019593556722005207,
+    "stdev_ms": 2.2641369285346133,
+    "sem_ms": 0.41337295634628995
+  }
+}

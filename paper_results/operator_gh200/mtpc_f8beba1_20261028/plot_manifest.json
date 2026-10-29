@@ -1,0 +1,44 @@
+{
+  "status": "completed",
+  "method_length_pairs": 87,
+  "cases": 29,
+  "hosts": [
+    "gh066.hsn.cm.delta.internal.ncsa.edu"
+  ],
+  "slurm_job": "3478832",
+  "slurm_exit_code": "0:0",
+  "plots": [
+    {
+      "q_length": 2,
+      "csv": "profiles_paper_kernels/mtpc_f8beba1_20261028/plot_input_Q2.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q2-f8beba1.pdf"
+    },
+    {
+      "q_length": 4,
+      "csv": "profiles_paper_kernels/mtpc_f8beba1_20261028/plot_input_Q4.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q4-f8beba1.pdf"
+    },
+    {
+      "q_length": 8,
+      "csv": "profiles_paper_kernels/mtpc_f8beba1_20261028/plot_input_Q8.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q8-f8beba1.pdf"
+    },
+    {
+      "q_length": 16,
+      "csv": "profiles_paper_kernels/mtpc_f8beba1_20261028/plot_input_Q16.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q16-f8beba1.pdf"
+    },
+    {
+      "q_length": 32,
+      "csv": "profiles_paper_kernels/mtpc_f8beba1_20261028/plot_input_Q32.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q32-f8beba1.pdf"
+    },
+    {
+      "q_length": 64,
+      "csv": "profiles_paper_kernels/mtpc_f8beba1_20261028/plot_input_Q64.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q64-f8beba1.pdf"
+    }
+  ],
+  "tilelang_label": "official TileOPs GQADenseFwdOp",
+  "normalization": "Nautilus mean latency / baseline mean latency; higher=faster"
+}

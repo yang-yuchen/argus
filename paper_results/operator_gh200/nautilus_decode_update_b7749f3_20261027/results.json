@@ -1,0 +1,46 @@
+[
+  {
+    "case": "decode_L16384",
+    "variant": "decode",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 85.38304,
+    "median_us": 85.344,
+    "min_us": 83.67999999999999,
+    "relative_l2": 0.0002871656324714422,
+    "repeats": 50
+  },
+  {
+    "case": "decode_L32768",
+    "variant": "decode",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 154.32768,
+    "median_us": 154.192,
+    "min_us": 153.24800000000002,
+    "relative_l2": 0.0002867656294256449,
+    "repeats": 50
+  },
+  {
+    "case": "decode_L4096",
+    "variant": "decode",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 29.66592,
+    "median_us": 29.504,
+    "min_us": 29.056,
+    "relative_l2": 0.00027570236125029624,
+    "repeats": 50
+  },
+  {
+    "case": "decode_L8192",
+    "variant": "decode",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 49.61408,
+    "median_us": 49.632,
+    "min_us": 48.864,
+    "relative_l2": 0.00027502013836055994,
+    "repeats": 50
+  }
+]

@@ -1,0 +1,1474 @@
+{
+  "variant": "decode",
+  "family": "pdf_dense",
+  "stage": "candidates",
+  "repeat": 50,
+  "environment": {
+    "host": "gh059.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "297e2b34-026e-3e5b-94b0-9ab0cb701e37",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "packages": {
+      "tilelang": {
+        "version": "0.1.15",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/__init__.py"
+      },
+      "tvm": {
+        "version": "0.25.dev0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+      },
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      },
+      "flashinfer": {
+        "version": "0.7.2.post1",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/__init__.py"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "flex",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "flex",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.987572434638638e-05,
+            "max_abs_error": 0.00010126909885213586,
+            "relative_l2": 0.0002752311662118613,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.1247259879382656e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00043270115169995903,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.9962689619724925e-05,
+            "max_abs_error": 9.561247144743157e-05,
+            "relative_l2": 0.0002804314855342409,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.156655417009206e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004434376804242911,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.969293657938612e-05,
+            "max_abs_error": 8.794209615992088e-05,
+            "relative_l2": 0.0002738500843912859,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.2075064857729946e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00044603709742554776,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        15.36,
+        14.24,
+        14.08,
+        14.496,
+        14.112,
+        14.112,
+        14.016,
+        14.24,
+        14.08,
+        14.592,
+        14.464,
+        14.144,
+        14.368,
+        14.08,
+        14.176,
+        14.048,
+        14.24,
+        14.112,
+        14.144,
+        14.304,
+        14.016,
+        14.336,
+        14.4,
+        14.24,
+        14.688,
+        14.304,
+        14.24,
+        14.368,
+        14.592,
+        14.304,
+        14.208,
+        14.176,
+        14.336,
+        14.336,
+        14.496,
+        14.272,
+        14.24,
+        14.336,
+        14.336,
+        14.528,
+        14.272,
+        14.688,
+        14.336,
+        14.144,
+        14.24,
+        14.496,
+        14.272,
+        14.144,
+        14.336,
+        14.144
+      ],
+      "mean_us": 14.304640000000001,
+      "median_us": 14.272,
+      "min_us": 14.016
+    },
+    {
+      "name": "torch_flash",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "torch_flash",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.990680585095301e-05,
+            "max_abs_error": 0.00010126909885213586,
+            "relative_l2": 0.00027566157058859776,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.160689899094427e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004376813086279506,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.9398279086238812e-05,
+            "max_abs_error": 7.716496471588119e-05,
+            "relative_l2": 0.00027250277014709734,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.170448401467741e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004453752783646504,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.9076586056835838e-05,
+            "max_abs_error": 8.410136487849162e-05,
+            "relative_l2": 0.00026527911063454877,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.154317379834985e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004386405996998285,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        11.84,
+        11.04,
+        11.136,
+        10.911999999999999,
+        10.943999999999999,
+        11.104,
+        11.008,
+        11.008,
+        11.072,
+        11.648,
+        10.847999999999999,
+        10.975999999999999,
+        11.04,
+        11.008,
+        10.975999999999999,
+        10.911999999999999,
+        10.943999999999999,
+        11.072,
+        11.008,
+        11.008,
+        11.008,
+        10.783999999999999,
+        10.943999999999999,
+        11.616,
+        11.104,
+        11.04,
+        10.815999999999999,
+        10.911999999999999,
+        11.136,
+        10.815999999999999,
+        11.008,
+        10.943999999999999,
+        11.072,
+        10.943999999999999,
+        11.104,
+        10.975999999999999,
+        10.911999999999999,
+        11.2,
+        11.104,
+        11.2,
+        10.943999999999999,
+        11.264,
+        11.072,
+        10.911999999999999,
+        11.008,
+        11.136,
+        10.911999999999999,
+        10.943999999999999,
+        11.008,
+        11.008
+      ],
+      "mean_us": 11.047039999999999,
+      "median_us": 11.008,
+      "min_us": 10.783999999999999
+    },
+    {
+      "name": "torch_cudnn",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "torch_cudnn",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9990235071765107e-05,
+            "max_abs_error": 8.82273154998725e-05,
+            "relative_l2": 0.0002768168654266667,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.142538447943602e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00043516775900846223,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 2.0042941445949385e-05,
+            "max_abs_error": 8.021521425721767e-05,
+            "relative_l2": 0.00028155884558810475,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.1393920660304086e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00044101257558923715,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.9831148120191087e-05,
+            "max_abs_error": 8.794209615992088e-05,
+            "relative_l2": 0.00027577205483793376,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.226307131120104e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004486515224680371,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 9.232385450119702e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.00020575695846741275,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 7.450580596923828e-09,
+            "max_abs_error": 4.76837158203125e-07,
+            "relative_l2": 1.660477202455716e-07,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        9.536,
+        9.216,
+        9.408,
+        9.152,
+        9.28,
+        9.408,
+        9.088,
+        9.568,
+        9.28,
+        9.568,
+        9.216,
+        9.44,
+        9.408,
+        9.312,
+        9.024,
+        9.504,
+        9.152,
+        9.536,
+        9.12,
+        9.28,
+        9.216,
+        9.216,
+        9.504,
+        9.952,
+        9.536,
+        9.504,
+        9.184,
+        9.12,
+        9.408,
+        9.152,
+        9.568,
+        9.312,
+        8.928,
+        9.312,
+        9.024,
+        9.568,
+        9.536,
+        9.024,
+        9.312,
+        9.056,
+        9.12,
+        9.312,
+        9.12,
+        9.344,
+        9.056,
+        9.376,
+        9.12,
+        9.44,
+        8.992,
+        8.992
+      ],
+      "mean_us": 9.296,
+      "median_us": 9.296,
+      "min_us": 8.928
+    },
+    {
+      "name": "openai_triton",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "openai_triton",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.20675582940848872,
+            "max_abs_error": 0.9572810342331503,
+            "relative_l2": 2.863072915354909,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.20675631890577087,
+            "max_abs_error": 0.957275390625,
+            "relative_l2": 2.863089360702644,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.20202215578288604,
+            "max_abs_error": 0.8508616961527538,
+            "relative_l2": 2.8379629366699146,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.20202182511677289,
+            "max_abs_error": 0.8509521484375,
+            "relative_l2": 2.837943256085284,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.20547873734529243,
+            "max_abs_error": 0.7994474957877238,
+            "relative_l2": 2.8573884517317274,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.20547847278823872,
+            "max_abs_error": 0.7994461059570312,
+            "relative_l2": 2.857391621573383,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.1455772021094973,
+            "max_abs_error": 0.5654640644788742,
+            "relative_l2": 6.784802376646367,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.14920208668452628,
+            "max_abs_error": 0.5950927734375,
+            "relative_l2": 3.325199429434617,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    },
+    {
+      "name": "tridao_triton",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "tridao_triton",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 2.0244452334917147e-05,
+            "max_abs_error": 9.276752561626633e-05,
+            "relative_l2": 0.0002803371654966988,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.2240499249620286e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00044645518392789,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 2.0790416236564644e-05,
+            "max_abs_error": 9.781494643382183e-05,
+            "relative_l2": 0.00029205920750950204,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.3092620186919074e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00046487540755249523,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 2.0340103912497447e-05,
+            "max_abs_error": 0.00010539943479359604,
+            "relative_l2": 0.0002828495968851887,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.199419288310152e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00044491248860600727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.039405316835664006,
+            "max_abs_error": 0.15185546875,
+            "relative_l2": 1.83653266751219,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 1.1069850013182215e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00024670874091453166,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    },
+    {
+      "name": "helion",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "helion",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.987886747055707e-05,
+            "max_abs_error": 0.00010126909885213586,
+            "relative_l2": 0.00027527469095168817,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.133714006701323e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004339457811763638,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.997729291669983e-05,
+            "max_abs_error": 9.561247144743157e-05,
+            "relative_l2": 0.00028063662944732983,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.148682152360392e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004423176196275923,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.9695615033092272e-05,
+            "max_abs_error": 8.794209615992088e-05,
+            "relative_l2": 0.00027388733098325616,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.198591863528726e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.000444797426594603,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.03940747602456094,
+            "max_abs_error": 0.15185546875,
+            "relative_l2": 1.8366332991340872,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    },
+    {
+      "name": "flashinfer",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "flashinfer",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.5051270288166017e-05,
+            "max_abs_error": 6.0931059410185284e-05,
+            "relative_l2": 0.00020842403538037774,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.8788933096874587e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00039865910020001446,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.48776821014696e-05,
+            "max_abs_error": 7.716496471588119e-05,
+            "relative_l2": 0.0002089984151684064,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.8658747760301004e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0004025896701367979,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.4775628372304824e-05,
+            "max_abs_error": 8.289751606072038e-05,
+            "relative_l2": 0.0002054699694166226,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.8702168108941092e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.00039913346426318847,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.03940747602456094,
+            "max_abs_error": 0.15185546875,
+            "relative_l2": 1.8366332991340872,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    },
+    {
+      "name": "tawa_decode",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "tawa_decode",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [],
+      "status": "compile_or_runtime_failed",
+      "error": "Traceback (most recent call last):\n  File \"/u/yucheny8/argus/scripts/bench_paper_strong.py\", line 183, in prepare_candidates\n    output = call()\n  File \"/u/yucheny8/argus/scripts/bench_paper_strong.py\", line 83, in run\n    runner.run()\n    ~~~~~~~~~~^^\n  File \"/u/yucheny8/argus/argus/tawa/decoder.py\", line 339, in run\n    self.output = _tawa_decode_attention(\n                  ~~~~~~~~~~~~~~~~~~~~~~^\n        q, k, v,\n        ^^^^^^^^\n    ...<6 lines>...\n        ENABLE_WARP_SPECIALIZATION=self.enable_warp_specialization,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/u/yucheny8/argus/argus/tawa/decoder.py\", line 247, in _tawa_decode_attention\n    _attn_decode[grid](\n    ~~~~~~~~~~~~~~~~~~^\n        q, k, v,\n        ^^^^^^^^\n    ...<15 lines>...\n        force_membar=FORCE_MEMBAR,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/runtime/jit.py\", line 374, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/runtime/jit.py\", line 754, in run\n    options, signature, constexprs, attrs = self._pack_args(backend, kwargs, bound_args, specialization,\n                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                                            options)\n                                                            ^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/runtime/jit.py\", line 715, in _pack_args\n    raise KeyError(\"Keyword argument %s was specified but unrecognised\" % k)\nKeyError: 'Keyword argument mma_depth was specified but unrecognised'\n"
+    },
+    {
+      "name": "tilelang_decode",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "tilelang_decode",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 5.81421917400545e-05,
+            "max_abs_error": 0.0002901472184899112,
+            "relative_l2": 0.0008051300651912231,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 6.376429853628661e-05,
+            "max_abs_error": 0.000244140625,
+            "relative_l2": 0.0008829857568469884,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6124335992419596e-05,
+            "max_abs_error": 0.00010733927707790025,
+            "relative_l2": 0.00036175946780080034,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 5.6339596310654606e-05,
+            "max_abs_error": 0.00027268899649712797,
+            "relative_l2": 0.0007914462924968332,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 6.238498970365917e-05,
+            "max_abs_error": 0.000244140625,
+            "relative_l2": 0.0008763660099997297,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6012241026763223e-05,
+            "max_abs_error": 0.0001276526472919759,
+            "relative_l2": 0.0003654142569046492,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 5.9574644876852726e-05,
+            "max_abs_error": 0.0003254006033573398,
+            "relative_l2": 0.0008284453393398159,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 6.447792392638913e-05,
+            "max_abs_error": 0.0003662109375,
+            "relative_l2": 0.0008966325138769272,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 2.6247248633212293e-05,
+            "max_abs_error": 0.00011298407160553747,
+            "relative_l2": 0.00036499438386290245,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.03940767505905893,
+            "max_abs_error": 0.15185546875,
+            "relative_l2": 1.8366425753786875,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 1.449309384654529e-05,
+            "max_abs_error": 0.0001220703125,
+            "relative_l2": 0.0003230010280698895,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 9.232385426632768e-06,
+            "max_abs_error": 6.091315299272537e-05,
+            "relative_l2": 0.0002057569579439727,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    }
+  ],
+  "accuracy_metric": "scripts.error.compute_rmse against FP64 reference",
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "measurement_complete": true
+}

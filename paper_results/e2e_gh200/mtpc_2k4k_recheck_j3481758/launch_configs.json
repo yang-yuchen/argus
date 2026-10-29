@@ -1,0 +1,470 @@
+[
+  {
+    "kv_length": 2048,
+    "implementation": "nautilus",
+    "original": [
+      {
+        "name": "main_kernel_kernel",
+        "grid": [
+          32,
+          4,
+          1
+        ],
+        "block": [
+          192,
+          1,
+          1
+        ],
+        "registers per thread": 240,
+        "shared memory": 23040
+      },
+      {
+        "name": "main_kernel_1_kernel",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 60,
+        "shared memory": 512
+      }
+    ],
+    "rerun": [
+      {
+        "name": "main_kernel_kernel",
+        "grid": [
+          32,
+          4,
+          1
+        ],
+        "block": [
+          192,
+          1,
+          1
+        ],
+        "registers per thread": 240,
+        "shared memory": 23040
+      },
+      {
+        "name": "main_kernel_1_kernel",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 60,
+        "shared memory": 512
+      }
+    ]
+  },
+  {
+    "kv_length": 2048,
+    "implementation": "tileops",
+    "original": [
+      {
+        "name": "parts_kernel",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          384,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 231984
+      },
+      {
+        "name": "main_kernel",
+        "grid": [
+          2,
+          4,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 0
+      }
+    ],
+    "rerun": [
+      {
+        "name": "parts_kernel",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          384,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 231984
+      },
+      {
+        "name": "main_kernel",
+        "grid": [
+          2,
+          4,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 0
+      }
+    ]
+  },
+  {
+    "kv_length": 2048,
+    "implementation": "flex",
+    "original": [
+      {
+        "name": "triton_tem_fused_flex_attention_0",
+        "grid": [
+          1,
+          4,
+          66
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 194,
+        "shared memory": 22528
+      },
+      {
+        "name": "triton_red_fused_flex_attention_1",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 24,
+        "shared memory": 0
+      },
+      {
+        "name": "triton_red_fused_flex_attention_2",
+        "grid": [
+          4096,
+          1,
+          1
+        ],
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "registers per thread": 20,
+        "shared memory": 1024
+      }
+    ],
+    "rerun": [
+      {
+        "name": "triton_tem_fused_flex_attention_0",
+        "grid": [
+          1,
+          4,
+          66
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 194,
+        "shared memory": 22528
+      },
+      {
+        "name": "triton_red_fused_flex_attention_1",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          32,
+          1,
+          1
+        ],
+        "registers per thread": 21,
+        "shared memory": 0
+      },
+      {
+        "name": "triton_red_fused_flex_attention_2",
+        "grid": [
+          2048,
+          1,
+          1
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 28,
+        "shared memory": 512
+      }
+    ]
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "nautilus",
+    "original": [
+      {
+        "name": "main_kernel_kernel",
+        "grid": [
+          32,
+          4,
+          1
+        ],
+        "block": [
+          192,
+          1,
+          1
+        ],
+        "registers per thread": 240,
+        "shared memory": 40448
+      },
+      {
+        "name": "main_kernel_1_kernel",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 108,
+        "shared memory": 256
+      }
+    ],
+    "rerun": [
+      {
+        "name": "main_kernel_kernel",
+        "grid": [
+          32,
+          4,
+          1
+        ],
+        "block": [
+          192,
+          1,
+          1
+        ],
+        "registers per thread": 240,
+        "shared memory": 40448
+      },
+      {
+        "name": "main_kernel_1_kernel",
+        "grid": [
+          64,
+          1,
+          1
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 108,
+        "shared memory": 256
+      }
+    ]
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "tileops",
+    "original": [
+      {
+        "name": "parts_kernel",
+        "grid": [
+          128,
+          1,
+          1
+        ],
+        "block": [
+          384,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 231984
+      },
+      {
+        "name": "main_kernel",
+        "grid": [
+          2,
+          4,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 252,
+        "shared memory": 0
+      }
+    ],
+    "rerun": [
+      {
+        "name": "parts_kernel",
+        "grid": [
+          128,
+          1,
+          1
+        ],
+        "block": [
+          384,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 231984
+      },
+      {
+        "name": "main_kernel",
+        "grid": [
+          2,
+          4,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 252,
+        "shared memory": 0
+      }
+    ]
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "flex",
+    "original": [
+      {
+        "name": "triton_tem_fused_flex_attention_0",
+        "grid": [
+          1,
+          4,
+          66
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 71680
+      },
+      {
+        "name": "triton_red_fused_flex_attention_1",
+        "grid": [
+          32,
+          1,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 24,
+        "shared memory": 0
+      },
+      {
+        "name": "triton_red_fused_flex_attention_2",
+        "grid": [
+          2048,
+          1,
+          1
+        ],
+        "block": [
+          256,
+          1,
+          1
+        ],
+        "registers per thread": 21,
+        "shared memory": 1024
+      }
+    ],
+    "rerun": [
+      {
+        "name": "triton_tem_fused_flex_attention_0",
+        "grid": [
+          1,
+          4,
+          66
+        ],
+        "block": [
+          64,
+          1,
+          1
+        ],
+        "registers per thread": 168,
+        "shared memory": 71680
+      },
+      {
+        "name": "triton_red_fused_flex_attention_1",
+        "grid": [
+          16,
+          1,
+          1
+        ],
+        "block": [
+          32,
+          1,
+          1
+        ],
+        "registers per thread": 38,
+        "shared memory": 16
+      },
+      {
+        "name": "triton_red_fused_flex_attention_2",
+        "grid": [
+          4096,
+          1,
+          1
+        ],
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "registers per thread": 18,
+        "shared memory": 32
+      }
+    ]
+  }
+]

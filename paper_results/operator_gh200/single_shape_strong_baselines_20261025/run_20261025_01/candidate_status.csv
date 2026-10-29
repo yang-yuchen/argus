@@ -1,0 +1,597 @@
+variant,candidate,status,error
+decode,torch_flash,measured,
+decode,torch_cudnn,measured,
+decode,flashattention2,measured,
+decode,flashinfer_simt,measured,
+decode,flashinfer_tensorcores,measured,
+decode,tilelang_default,measured,
+decode,tilelang_decode_n64_h16_s1,compile_or_runtime_failed,"Traceback (most recent call last):
+  File ""/u/yucheny8/argus/scripts/bench_paper_strong.py"", line 123, in prepare_candidates
+    function = factory()
+  File ""/u/yucheny8/argus/argus/paper_baselines/tilelang_tuned.py"", line 39, in _build_decode
+    kernel = tilelang.compile(program, out_idx=[], pass_configs=flashattn.pass_configs)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/__init__.py"", line 164, in compile
+    return cached(
+        func=func,
+    ...<6 lines>...
+        compile_flags=compile_flags,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/__init__.py"", line 90, in cached
+    return cache.cached(
+           ~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<5 lines>...
+        compile_flags=compile_flags,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py"", line 427, in cached
+    kernel = JITKernel(
+        func,
+    ...<7 lines>...
+        backend_context=backend_context,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 140, in __init__
+    adapter = self._compile_and_create_adapter(func, out_idx)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 274, in _compile_and_create_adapter
+    self.artifact = self._compile_artifact(tilelang_func, pass_configs, compile_metadata)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 315, in _compile_artifact
+    artifact = lower_with_context(
+        tilelang_func,
+    ...<2 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 165, in lower_with_context
+    return _lower_with_context_impl(
+        func_or_mod,
+    ...<3 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 184, in _lower_with_context_impl
+    host_mod, device_mod, params, target, target_host = lower_to_host_device_ir(
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~^
+        func_or_mod,
+        ^^^^^^^^^^^^
+        context,
+        ^^^^^^^^
+        runtime_only=runtime_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 136, in lower_to_host_device_ir
+    mod = context.lower(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 214, in lower
+    return self.module.lower(mod, self.target)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 115, in lower
+    return self.get_pipeline(target).lower(mod, target)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/pass_pipeline/pipeline.py"", line 31, in lower
+    return self._lower(mod, target)
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 171, in CUDAPassPipelineBody
+    mod = CUDAPassPipelineBodyPrologue(mod, target)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 134, in CUDAPassPipelineBodyPrologue
+    mod = tilelang.transform.LayoutInference()(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/ir/transform.py"", line 171, in __call__
+    return _ffi_transform_api.RunPass(self, mod)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+tvm.error.InternalError: Layout infer conflict between acc_s and acc_s_cast in T.Parallel loop:
+    loop Fragment((16, 64) -> (32,), replicate: 4, thread: 128, forward_thread: _rep * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+    fragment Fragment((16, 64) -> (8,), replicate: 1, thread: 128, forward_thread: _j // 16 * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j % 16 // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+
+"
+decode,tilelang_decode_n64_h16_s4,compile_or_runtime_failed,"Traceback (most recent call last):
+  File ""/u/yucheny8/argus/scripts/bench_paper_strong.py"", line 123, in prepare_candidates
+    function = factory()
+  File ""/u/yucheny8/argus/argus/paper_baselines/tilelang_tuned.py"", line 39, in _build_decode
+    kernel = tilelang.compile(program, out_idx=[], pass_configs=flashattn.pass_configs)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/__init__.py"", line 164, in compile
+    return cached(
+        func=func,
+    ...<6 lines>...
+        compile_flags=compile_flags,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/__init__.py"", line 90, in cached
+    return cache.cached(
+           ~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<5 lines>...
+        compile_flags=compile_flags,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py"", line 427, in cached
+    kernel = JITKernel(
+        func,
+    ...<7 lines>...
+        backend_context=backend_context,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 140, in __init__
+    adapter = self._compile_and_create_adapter(func, out_idx)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 274, in _compile_and_create_adapter
+    self.artifact = self._compile_artifact(tilelang_func, pass_configs, compile_metadata)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 315, in _compile_artifact
+    artifact = lower_with_context(
+        tilelang_func,
+    ...<2 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 165, in lower_with_context
+    return _lower_with_context_impl(
+        func_or_mod,
+    ...<3 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 184, in _lower_with_context_impl
+    host_mod, device_mod, params, target, target_host = lower_to_host_device_ir(
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~^
+        func_or_mod,
+        ^^^^^^^^^^^^
+        context,
+        ^^^^^^^^
+        runtime_only=runtime_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 136, in lower_to_host_device_ir
+    mod = context.lower(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 214, in lower
+    return self.module.lower(mod, self.target)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 115, in lower
+    return self.get_pipeline(target).lower(mod, target)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/pass_pipeline/pipeline.py"", line 31, in lower
+    return self._lower(mod, target)
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 171, in CUDAPassPipelineBody
+    mod = CUDAPassPipelineBodyPrologue(mod, target)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 134, in CUDAPassPipelineBodyPrologue
+    mod = tilelang.transform.LayoutInference()(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/ir/transform.py"", line 171, in __call__
+    return _ffi_transform_api.RunPass(self, mod)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+tvm.error.InternalError: Layout infer conflict between acc_s and acc_s_cast in T.Parallel loop:
+    loop Fragment((16, 64) -> (32,), replicate: 4, thread: 128, forward_thread: _rep * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+    fragment Fragment((16, 64) -> (8,), replicate: 1, thread: 128, forward_thread: _j // 16 * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j % 16 // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+
+"
+decode,tilelang_decode_n64_h64_s1,measured,
+decode,tilelang_decode_n64_h64_s4,measured,
+decode,tilelang_decode_n128_h16_s1,compile_or_runtime_failed,"Traceback (most recent call last):
+  File ""/u/yucheny8/argus/scripts/bench_paper_strong.py"", line 123, in prepare_candidates
+    function = factory()
+  File ""/u/yucheny8/argus/argus/paper_baselines/tilelang_tuned.py"", line 39, in _build_decode
+    kernel = tilelang.compile(program, out_idx=[], pass_configs=flashattn.pass_configs)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/__init__.py"", line 164, in compile
+    return cached(
+        func=func,
+    ...<6 lines>...
+        compile_flags=compile_flags,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/__init__.py"", line 90, in cached
+    return cache.cached(
+           ~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<5 lines>...
+        compile_flags=compile_flags,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py"", line 427, in cached
+    kernel = JITKernel(
+        func,
+    ...<7 lines>...
+        backend_context=backend_context,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 140, in __init__
+    adapter = self._compile_and_create_adapter(func, out_idx)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 274, in _compile_and_create_adapter
+    self.artifact = self._compile_artifact(tilelang_func, pass_configs, compile_metadata)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 315, in _compile_artifact
+    artifact = lower_with_context(
+        tilelang_func,
+    ...<2 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 165, in lower_with_context
+    return _lower_with_context_impl(
+        func_or_mod,
+    ...<3 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 184, in _lower_with_context_impl
+    host_mod, device_mod, params, target, target_host = lower_to_host_device_ir(
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~^
+        func_or_mod,
+        ^^^^^^^^^^^^
+        context,
+        ^^^^^^^^
+        runtime_only=runtime_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 136, in lower_to_host_device_ir
+    mod = context.lower(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 214, in lower
+    return self.module.lower(mod, self.target)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 115, in lower
+    return self.get_pipeline(target).lower(mod, target)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/pass_pipeline/pipeline.py"", line 31, in lower
+    return self._lower(mod, target)
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 171, in CUDAPassPipelineBody
+    mod = CUDAPassPipelineBodyPrologue(mod, target)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 134, in CUDAPassPipelineBodyPrologue
+    mod = tilelang.transform.LayoutInference()(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/ir/transform.py"", line 171, in __call__
+    return _ffi_transform_api.RunPass(self, mod)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+tvm.error.InternalError: Layout infer conflict between acc_s and acc_s_cast in T.Parallel loop:
+    loop Fragment((16, 128) -> (64,), replicate: 4, thread: 128, forward_thread: _rep * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+    fragment Fragment((16, 128) -> (16,), replicate: 1, thread: 128, forward_thread: _j // 32 * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j % 32 // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+
+"
+decode,tilelang_decode_n128_h16_s4,compile_or_runtime_failed,"Traceback (most recent call last):
+  File ""/u/yucheny8/argus/scripts/bench_paper_strong.py"", line 123, in prepare_candidates
+    function = factory()
+  File ""/u/yucheny8/argus/argus/paper_baselines/tilelang_tuned.py"", line 39, in _build_decode
+    kernel = tilelang.compile(program, out_idx=[], pass_configs=flashattn.pass_configs)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/__init__.py"", line 164, in compile
+    return cached(
+        func=func,
+    ...<6 lines>...
+        compile_flags=compile_flags,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/__init__.py"", line 90, in cached
+    return cache.cached(
+           ~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<5 lines>...
+        compile_flags=compile_flags,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py"", line 427, in cached
+    kernel = JITKernel(
+        func,
+    ...<7 lines>...
+        backend_context=backend_context,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 140, in __init__
+    adapter = self._compile_and_create_adapter(func, out_idx)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 274, in _compile_and_create_adapter
+    self.artifact = self._compile_artifact(tilelang_func, pass_configs, compile_metadata)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 315, in _compile_artifact
+    artifact = lower_with_context(
+        tilelang_func,
+    ...<2 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 165, in lower_with_context
+    return _lower_with_context_impl(
+        func_or_mod,
+    ...<3 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 184, in _lower_with_context_impl
+    host_mod, device_mod, params, target, target_host = lower_to_host_device_ir(
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~^
+        func_or_mod,
+        ^^^^^^^^^^^^
+        context,
+        ^^^^^^^^
+        runtime_only=runtime_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 136, in lower_to_host_device_ir
+    mod = context.lower(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 214, in lower
+    return self.module.lower(mod, self.target)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 115, in lower
+    return self.get_pipeline(target).lower(mod, target)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/pass_pipeline/pipeline.py"", line 31, in lower
+    return self._lower(mod, target)
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 171, in CUDAPassPipelineBody
+    mod = CUDAPassPipelineBodyPrologue(mod, target)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 134, in CUDAPassPipelineBodyPrologue
+    mod = tilelang.transform.LayoutInference()(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/ir/transform.py"", line 171, in __call__
+    return _ffi_transform_api.RunPass(self, mod)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+tvm.error.InternalError: Layout infer conflict between acc_s and acc_s_cast in T.Parallel loop:
+    loop Fragment((16, 128) -> (64,), replicate: 4, thread: 128, forward_thread: _rep * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+    fragment Fragment((16, 128) -> (16,), replicate: 1, thread: 128, forward_thread: _j // 32 * 32 + _i % 8 * 4 + _j % 8 // 2, forward_index: (_j % 32 // 8 * 4 + _i // 8 * 2 + _j % 2,), thread_range: I.Range(0, 128))
+
+"
+decode,tilelang_decode_n128_h64_s1,measured,
+decode,tilelang_decode_n128_h64_s4,measured,
+decode,triton_mslk_s1,measured,
+decode,triton_mslk_s2,measured,
+decode,triton_mslk_s4,measured,
+decode,triton_mslk_s8,measured,
+decode,triton_vllm_s1,measured,
+decode,triton_vllm_s4,measured,
+mtp,torch_flash,measured,
+mtp,torch_cudnn,measured,
+mtp,flashattention2,measured,
+mtp,flashinfer_fa2,measured,
+mtp,flashinfer_fa3,measured,
+mtp,flashinfer_ragged_fa2,measured,
+mtp,flashinfer_ragged_fa3,measured,
+mtp,tilelang_default,measured,
+mtp,tilelang_sm90_mtp_m64_n64_s16,measured,
+mtp,tilelang_sm90_mtp_m64_n64_s32,measured,
+mtp,tilelang_sm90_mtp_m64_n64_s64,measured,
+mtp,tilelang_sm90_mtp_m64_n128_s16,measured,
+mtp,tilelang_sm90_mtp_m64_n128_s32,measured,
+mtp,tilelang_sm90_mtp_m64_n128_s64,measured,
+mtp,tilelang_sm90_mtp_m128_n64_s16,measured,
+mtp,tilelang_sm90_mtp_m128_n64_s32,measured,
+mtp,tilelang_sm90_mtp_m128_n64_s64,measured,
+mtp,tilelang_sm90_mtp_m128_n128_s16,measured,
+mtp,tilelang_sm90_mtp_m128_n128_s32,measured,
+mtp,tilelang_sm90_mtp_m128_n128_s64,measured,
+mtp,tilelang_hopper_varlen_mtp_stages2,measured,
+mtp,tilelang_hopper_varlen_mtp_stages3,measured,
+mtp,triton_mslk_s4,measured,
+mtp,triton_mslk_s16,measured,
+mtp,triton_mslk_s32,measured,
+mtp,triton_mslk_s64,measured,
+mtp,triton_vllm_s16,measured,
+mtp,triton_vllm_s64,measured,
+mtp,triton_mslk_s128,measured,
+mtp,triton_mslk_s256,measured,
+sparse,tilelang_i64_s1_t64,measured,
+sparse,tilelang_i64_s1_t128,measured,
+sparse,tilelang_i64_s1_t256,measured,
+sparse,tilelang_i64_s2_t128,measured,
+sparse,tilelang_i64_s2_t256,measured,
+sparse,tilelang_i32_s1_t64,measured,
+sparse,tilelang_i128_s1_t128,measured,
+sparse,tilelang_pipelined_i64_s2_t384,compile_or_runtime_failed,"Traceback (most recent call last):
+  File ""/u/yucheny8/argus/scripts/bench_paper_strong.py"", line 124, in prepare_candidates
+    function = factory()
+  File ""/u/yucheny8/argus/argus/paper_baselines/sparse_strong.py"", line 84, in _tilelang
+    kernel = tilelang.compile(
+        program.without_attr(""tilelang_out_idx""), out_idx=[],
+        pass_configs=sparse_mla_fwd.pass_configs,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/__init__.py"", line 164, in compile
+    return cached(
+        func=func,
+    ...<6 lines>...
+        compile_flags=compile_flags,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/__init__.py"", line 90, in cached
+    return cache.cached(
+           ~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<5 lines>...
+        compile_flags=compile_flags,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py"", line 427, in cached
+    kernel = JITKernel(
+        func,
+    ...<7 lines>...
+        backend_context=backend_context,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 140, in __init__
+    adapter = self._compile_and_create_adapter(func, out_idx)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 274, in _compile_and_create_adapter
+    self.artifact = self._compile_artifact(tilelang_func, pass_configs, compile_metadata)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 315, in _compile_artifact
+    artifact = lower_with_context(
+        tilelang_func,
+    ...<2 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 165, in lower_with_context
+    return _lower_with_context_impl(
+        func_or_mod,
+    ...<3 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 184, in _lower_with_context_impl
+    host_mod, device_mod, params, target, target_host = lower_to_host_device_ir(
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~^
+        func_or_mod,
+        ^^^^^^^^^^^^
+        context,
+        ^^^^^^^^
+        runtime_only=runtime_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 136, in lower_to_host_device_ir
+    mod = context.lower(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 214, in lower
+    return self.module.lower(mod, self.target)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 115, in lower
+    return self.get_pipeline(target).lower(mod, target)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/pass_pipeline/pipeline.py"", line 31, in lower
+    return self._lower(mod, target)
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 171, in CUDAPassPipelineBody
+    mod = CUDAPassPipelineBodyPrologue(mod, target)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 134, in CUDAPassPipelineBodyPrologue
+    mod = tilelang.transform.LayoutInference()(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/ir/transform.py"", line 171, in __call__
+    return _ffi_transform_api.RunPass(self, mod)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+  File ""<unknown>"", line 0, in tvm::transform::Pass::operator()(tvm::IRModule) const
+  File ""<unknown>"", line 0, in tvm::transform::Pass::operator()(tvm::IRModule, tvm::transform::PassContext const&) const
+  File ""<unknown>"", line 0, in tvm::tirx::transform::PrimFuncPassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const
+  File ""<unknown>"", line 0, in tvm::tl::LayoutInferencer::Substitute(tvm::tirx::PrimFunc)
+  File ""<unknown>"", line 0, in tvm::tl::BufferUseDefCollector::Run()
+  File ""<unknown>"", line 0, in tvm::tl::BufferUseDefCollector::RunInferStep(int, tvm::tl::InferLevel, bool, tvm::ffi::Map<tvm::tirx::Buffer, tvm::tl::Layout, void>&, tvm::ffi::Map<tvm::tirx::Buffer, tvm::tl::Layout, void> const&, std::deque<int, std::allocator<int> >&, std::vector<bool, std::allocator<bool> >&, int)
+  File ""<unknown>"", line 0, in tvm::tl::GemmNode::InferLayout(tvm::tl::LayoutInferArgs const&, tvm::tl::InferLevel) const
+  File ""<unknown>"", line 0, in TVMFFIPyCallback(void*, TVMFFIAny const*, int, TVMFFIAny*)
+  File ""<unknown>"", line 0, in TVMFFIPyCallManager::ForwardPyErrorToFFI()
+  File ""<unknown>"", line 0, in TVMFFICyErrorSetRaisedFromPyError(_object*)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py"", line 15, in gemm_infer_layout
+    return gemm.infer_layout(target, thread_nums)
+    
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py"", line 103, in infer_layout
+    gemm_inst = self._select_gemm_instruction(thread_nums, target)
+    
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py"", line 138, in _select_gemm_instruction
+    return str(_ffi_api.GemmGetGemmInstructionKey(self, int(thread_nums), target))
+    
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+  File ""<unknown>"", line 0, in tvm::tl::GemmNode::GetGemmInstructionKey(int, tvm::Target) const
+  File ""<unknown>"", line 0, in tvm::tl::cuda::Gemm::SelectInst(tvm::tl::GemmNode const&, int, tvm::Target)
+  File ""<unknown>"", line 0, in tvm::runtime::detail::LogFatal::~LogFatal()
+tvm.error.InternalError: T.wgmma_gemm() requires Hopper WGMMA lowering, but constraints were not satisfied. Got target={""kind"":""cuda"",""tag"":"""",""keys"":[""cuda"",""gpu""],""host"":{""kind"":""c"",""tag"":"""",""keys"":[""cpu""]},""max_num_threads"":1024,""thread_warp_size"":32,""arch"":""sm_90a""}, A(scope=shared.dyn, dtype=bfloat16), B(scope=shared.dyn, dtype=bfloat16), C(scope=local.fragment, dtype=float32), M=16, N=64, K=256.
+  --> /u/yucheny8/argus/argus/paper_baselines/vendor/sparse_strong_pipelined.py:87:1
+     |
+ 87 |         Q_shared = T.alloc_shared([H_per_block, D + D_tail], dtype)
+     |         ^
+"
+sparse,flashinfer_mla_fa2_preplanned,measured,
+sparse,flashinfer_mla_fa2_timed_compaction,measured,
+sparse,flashinfer_mla_fa3_preplanned,measured,
+sparse,flashinfer_mla_fa3_timed_compaction,measured,
+sparse_split,tilelang_i64_s1_t64,measured,
+sparse_split,tilelang_i64_s1_t128,measured,
+sparse_split,tilelang_i64_s1_t256,measured,
+sparse_split,tilelang_i64_s2_t128,measured,
+sparse_split,tilelang_i64_s2_t256,measured,
+sparse_split,tilelang_i32_s1_t64,measured,
+sparse_split,tilelang_i128_s1_t128,measured,
+sparse_split,tilelang_pipelined_i64_s2_t384,compile_or_runtime_failed,"Traceback (most recent call last):
+  File ""/u/yucheny8/argus/scripts/bench_paper_strong.py"", line 124, in prepare_candidates
+    function = factory()
+  File ""/u/yucheny8/argus/argus/paper_baselines/sparse_strong.py"", line 84, in _tilelang
+    kernel = tilelang.compile(
+        program.without_attr(""tilelang_out_idx""), out_idx=[],
+        pass_configs=sparse_mla_fwd.pass_configs,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/__init__.py"", line 164, in compile
+    return cached(
+        func=func,
+    ...<6 lines>...
+        compile_flags=compile_flags,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/__init__.py"", line 90, in cached
+    return cache.cached(
+           ~~~~~~~~~~~~^
+        func,
+        ^^^^^
+    ...<5 lines>...
+        compile_flags=compile_flags,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cache/kernel_cache.py"", line 427, in cached
+    kernel = JITKernel(
+        func,
+    ...<7 lines>...
+        backend_context=backend_context,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 140, in __init__
+    adapter = self._compile_and_create_adapter(func, out_idx)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 274, in _compile_and_create_adapter
+    self.artifact = self._compile_artifact(tilelang_func, pass_configs, compile_metadata)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/jit/kernel.py"", line 315, in _compile_artifact
+    artifact = lower_with_context(
+        tilelang_func,
+    ...<2 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 165, in lower_with_context
+    return _lower_with_context_impl(
+        func_or_mod,
+    ...<3 lines>...
+        enable_device_compile=enable_device_compile,
+    )
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 184, in _lower_with_context_impl
+    host_mod, device_mod, params, target, target_host = lower_to_host_device_ir(
+                                                        ~~~~~~~~~~~~~~~~~~~~~~~^
+        func_or_mod,
+        ^^^^^^^^^^^^
+        context,
+        ^^^^^^^^
+        runtime_only=runtime_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/engine/lower.py"", line 136, in lower_to_host_device_ir
+    mod = context.lower(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 214, in lower
+    return self.module.lower(mod, self.target)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/module.py"", line 115, in lower
+    return self.get_pipeline(target).lower(mod, target)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/backend/pass_pipeline/pipeline.py"", line 31, in lower
+    return self._lower(mod, target)
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 171, in CUDAPassPipelineBody
+    mod = CUDAPassPipelineBodyPrologue(mod, target)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/cuda/pipeline.py"", line 134, in CUDAPassPipelineBodyPrologue
+    mod = tilelang.transform.LayoutInference()(mod)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/ir/transform.py"", line 171, in __call__
+    return _ffi_transform_api.RunPass(self, mod)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+  File ""<unknown>"", line 0, in tvm::transform::Pass::operator()(tvm::IRModule) const
+  File ""<unknown>"", line 0, in tvm::transform::Pass::operator()(tvm::IRModule, tvm::transform::PassContext const&) const
+  File ""<unknown>"", line 0, in tvm::tirx::transform::PrimFuncPassNode::operator()(tvm::IRModule, tvm::transform::PassContext const&) const
+  File ""<unknown>"", line 0, in tvm::tl::LayoutInferencer::Substitute(tvm::tirx::PrimFunc)
+  File ""<unknown>"", line 0, in tvm::tl::BufferUseDefCollector::Run()
+  File ""<unknown>"", line 0, in tvm::tl::BufferUseDefCollector::RunInferStep(int, tvm::tl::InferLevel, bool, tvm::ffi::Map<tvm::tirx::Buffer, tvm::tl::Layout, void>&, tvm::ffi::Map<tvm::tirx::Buffer, tvm::tl::Layout, void> const&, std::deque<int, std::allocator<int> >&, std::vector<bool, std::allocator<bool> >&, int)
+  File ""<unknown>"", line 0, in tvm::tl::GemmNode::InferLayout(tvm::tl::LayoutInferArgs const&, tvm::tl::InferLevel) const
+  File ""<unknown>"", line 0, in TVMFFIPyCallback(void*, TVMFFIAny const*, int, TVMFFIAny*)
+  File ""<unknown>"", line 0, in TVMFFIPyCallManager::ForwardPyErrorToFFI()
+  File ""<unknown>"", line 0, in TVMFFICyErrorSetRaisedFromPyError(_object*)
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py"", line 15, in gemm_infer_layout
+    return gemm.infer_layout(target, thread_nums)
+    
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py"", line 103, in infer_layout
+    gemm_inst = self._select_gemm_instruction(thread_nums, target)
+    
+  File ""/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/tileop/gemm/__init__.py"", line 138, in _select_gemm_instruction
+    return str(_ffi_api.GemmGetGemmInstructionKey(self, int(thread_nums), target))
+    
+  File ""python/tvm_ffi/cython/function.pxi"", line 968, in tvm_ffi.core.Function.__call__
+  File ""<unknown>"", line 0, in tvm::tl::GemmNode::GetGemmInstructionKey(int, tvm::Target) const
+  File ""<unknown>"", line 0, in tvm::tl::cuda::Gemm::SelectInst(tvm::tl::GemmNode const&, int, tvm::Target)
+  File ""<unknown>"", line 0, in tvm::runtime::detail::LogFatal::~LogFatal()
+tvm.error.InternalError: T.wgmma_gemm() requires Hopper WGMMA lowering, but constraints were not satisfied. Got target={""kind"":""cuda"",""tag"":"""",""keys"":[""cuda"",""gpu""],""host"":{""kind"":""c"",""tag"":"""",""keys"":[""cpu""]},""max_num_threads"":1024,""thread_warp_size"":32,""arch"":""sm_90a""}, A(scope=shared.dyn, dtype=bfloat16), B(scope=shared.dyn, dtype=bfloat16), C(scope=local.fragment, dtype=float32), M=16, N=64, K=256.
+  --> /u/yucheny8/argus/argus/paper_baselines/vendor/sparse_strong_pipelined.py:87:1
+     |
+ 87 |         Q_shared = T.alloc_shared([H_per_block, D + D_tail], dtype)
+     |         ^
+"
+sparse_split,flashinfer_mla_fa2_preplanned,measured,
+sparse_split,flashinfer_mla_fa2_timed_compaction,measured,
+sparse_split,flashinfer_mla_fa3_preplanned,measured,
+sparse_split,flashinfer_mla_fa3_timed_compaction,measured,

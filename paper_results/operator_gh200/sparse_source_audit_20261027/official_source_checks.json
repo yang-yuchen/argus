@@ -1,0 +1,51 @@
+[
+  {
+    "repo": "pytorch/pytorch",
+    "commit": "5c4886908584029761b579af026dcfb627c84070",
+    "path": "torch/nn/attention/flex_attention.py",
+    "sha256": "213ccc122b0961ae354dcbe4befe92f94e55d45fa06b1df8757c327d2afaa155",
+    "official_byte_identical": true
+  },
+  {
+    "repo": "pytorch/pytorch",
+    "commit": "5c4886908584029761b579af026dcfb627c84070",
+    "path": "torch/_inductor/kernel/flex/flex_attention.py",
+    "sha256": "58453a26355bdbad9532235e8455f9b6c22282803d628466ec06b6837d059fb9",
+    "official_byte_identical": true
+  },
+  {
+    "repo": "pytorch/pytorch",
+    "commit": "5c4886908584029761b579af026dcfb627c84070",
+    "path": "torch/_inductor/kernel/flex/common.py",
+    "sha256": "d20df6180978954f79a576f20b32a021558318f0c53d2c7c3bb8164edfa1918d",
+    "official_byte_identical": true
+  },
+  {
+    "repo": "pytorch/pytorch",
+    "commit": "5c4886908584029761b579af026dcfb627c84070",
+    "path": "torch/_inductor/kernel/flex/templates/flex_attention.py.jinja",
+    "sha256": "509437b4e051e3d5a0167f0967c3d2e292978ad0fac37685e47378b3391f9aca",
+    "official_byte_identical": true
+  },
+  {
+    "repo": "pytorch/pytorch",
+    "commit": "5c4886908584029761b579af026dcfb627c84070",
+    "path": "torch/_inductor/heuristics/template/triton.py",
+    "sha256": "83e2167a485f8d539b03e822ebc2c1a9531d8c497429042e564f3bd7c75b9408",
+    "official_byte_identical": true
+  },
+  {
+    "repo": "pytorch/helion",
+    "commit": "429c00227b9802538be459b918ee8d34ccbf636c",
+    "path": "examples/flex_attention.py",
+    "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+    "official_byte_identical": true
+  },
+  {
+    "repo": "tile-ai/tilelang",
+    "commit": "fdb19f26d61e71cabcc61abbc66ab60a97e3a100",
+    "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+    "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30",
+    "official_byte_identical": true
+  }
+]

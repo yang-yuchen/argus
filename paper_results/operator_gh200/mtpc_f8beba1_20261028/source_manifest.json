@@ -1,0 +1,460 @@
+{
+  "repository": "git@github.com:uiuc-arc/neptune-internal.git",
+  "branch": "nautilus-gh200",
+  "commit": "f8beba14d7af0f49354809179d6db580837e74ee",
+  "causal_mtp_addition_commit": "c1a4a60b2e6797fd9c332ae47e39e171c09206ed",
+  "cases": [
+    {
+      "case": "mtpc_Q2_L1024",
+      "query_length": 2,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q2_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "ecf934755ec77ae18ee2022b3fd25c2be69b9063a2b2662c1b946bb6b8011ed3",
+        "meta.json": "a38d3a914cbbf6906c921c9bd525fc59bbc4c12760a18bc45cf49c2acbda1121",
+        "schedule.py": "6b50eba6cf1be772097ed73afb1f275dc98702a391d3878cfddf69e9a9f8dbd4",
+        "tilelang_0.cu": "95df35787087070d47476132437275e1537383e9bfde05e1ea4d42729cd3bb05"
+      }
+    },
+    {
+      "case": "mtpc_Q2_L4096",
+      "query_length": 2,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q2_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "af3e3c15de41d02b6fb6df76c1f84c98638e130e736558b7f14acd537ad5fe99",
+        "meta.json": "fca022d265031543b352048620f9e692b2f5292e8587f5a3ff183f98a0898064",
+        "schedule.py": "9aa17fe6a59c202165af07e28debb99473a230a772aa45762c0102deccb6fe70",
+        "tilelang_0.cu": "320e0e9c40853350291ada4842a80d58c0c3f1242c84683180a68148aa789204"
+      }
+    },
+    {
+      "case": "mtpc_Q2_L16384",
+      "query_length": 2,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q2_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "a0a265d2ba6066c0ae2437a0fbc3383de2b2d77a41c79dec20b8febc56fce1b5",
+        "meta.json": "c8d0447abb2d4f03c0eb3b5f9ac580bfa5aa8739e67310f12ac79ca02ff8aea4",
+        "schedule.py": "6297dcbadc3ea746156e3d5b1ff896b610aec312b6c65eb67807bb4d4528a3c9",
+        "tilelang_0.cu": "b46002c25ae51dbc4ba1a533c9a5841b69288e925327e84862078f5e83b287dc"
+      }
+    },
+    {
+      "case": "mtpc_Q2_L65536",
+      "query_length": 2,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q2_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "13435eeba2a25b4efb2f01a9fdb7965487d5180b8e5cc269afe72e89d321384a",
+        "meta.json": "c28db6f459fca10b6d1732529c8fa8b068db0a4133c50fe9600b4ce0a552e842",
+        "schedule.py": "85d8e32abf99e984e156c68fe6b0ae4cab9122ee8616f6aa2275439a5079f67f",
+        "tilelang_0.cu": "9ae80d6319166e88860e08e645d16e9ef94ca88f42dd4a23bbc1c6c136120c49"
+      }
+    },
+    {
+      "case": "mtpc_Q4_L1024",
+      "query_length": 4,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q4_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "be62d37f2f74a96678af428117bca338a9395a6df6ddaaea5c91fe13e3a18af8",
+        "meta.json": "26bfe2b3fc23e96c9fc7e3c86aa26df01d8dc909ec72a69e8fb3cbe67a97b4ed",
+        "schedule.py": "7b492c384c4c3bf29f0ce7e9de1ef2984e126580a08e94da7fbdd63c5b1bb4d2",
+        "tilelang_0.cu": "46d11379652babf7583635381b1c20cf612db9b65d71d39b98deb91fb55363ba"
+      }
+    },
+    {
+      "case": "mtpc_Q4_L4096",
+      "query_length": 4,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q4_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "d75c1e4eb369d9b4f63a7f7f651e463e275de9b28bbc5d51933f5ff0afee64a5",
+        "meta.json": "5eaa308ec6eaa72b86482a1698328aef6b9828d28aabbadf6a48c2889c7a4be6",
+        "schedule.py": "1d1ec79cc6706f0eee7087ad55b34f13df3cb5ff6f033670cbcba4936baf0ed4",
+        "tilelang_0.cu": "4f88cdf40413d934ddb34037a414c7731df0a6bf2db3aca142ce3d59b660d510"
+      }
+    },
+    {
+      "case": "mtpc_Q4_L16384",
+      "query_length": 4,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q4_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "32674a9584435f0070ead592c59bc1eb7d5084db154ca17ae666d0f83ca22708",
+        "meta.json": "c8a083a81e95c0382c76a67fa001fa043a818eec8d3655aab7181ba1690e8c5e",
+        "schedule.py": "b40cf6aade24db8b4953e82a3bba497c53a9069ec43839cc2fb3738902fa7d1a",
+        "tilelang_0.cu": "5bac52007e8c90f18c479939412a787ec851ca6dacda3b33778dd83b6ef87a40"
+      }
+    },
+    {
+      "case": "mtpc_Q4_L65536",
+      "query_length": 4,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q4_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "ffa32c44c6e8e0fb864e6576360efc7c6851b6682f2377cb5935590d6e958e7e",
+        "meta.json": "ae974f1dd195c17a89d4da6911990f8737f2b1510c27d98c4e6f74ae7cbeb408",
+        "schedule.py": "d2dfc24dfb916f734e647ba6a1796ced688835a819ac3ea3a8fd911671e9c3b5",
+        "tilelang_0.cu": "e709d60418408e142a6ff43a95050d5c7254dd4af73c80bad8b08f0aa38ac8f6"
+      }
+    },
+    {
+      "case": "mtpc_Q8_L1024",
+      "query_length": 8,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q8_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "c55d6d3e3f9e4f6fd62451a2b4e62f5ca8802a92d990bec511fe3a06af943f49",
+        "meta.json": "d4cb47379514e9f7530d9ea3740bfd98852f6411ba52348f3e63a79f4c2da62c",
+        "schedule.py": "ff2e0166e5eecb0c26f14cd0229bd7d830e0dd12c96b2ef9662205c0b5b5fb0c",
+        "tilelang_0.cu": "091587d95d53b333e6c84b8bc6445b1c5a65ec1942443127d1557425d18d1f7b"
+      }
+    },
+    {
+      "case": "mtpc_Q8_L4096",
+      "query_length": 8,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q8_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "030b837d3bca715ce07000c42a04ad6ec35a8703d8311233f2258377665c2140",
+        "meta.json": "2d302ed65d5bbcdff792afc2ecb5add2e44b9a459e2ae19d7ebde47d19f5575e",
+        "schedule.py": "6572a3c6cb9632bbd61fa0a5e4b467ebe9804e356b06f30014c6ef66dcdc7f2a",
+        "tilelang_0.cu": "ab11290bff0d6a2e5ddbe04281b11352061a7ad7669792b1e73056236e11fdb0"
+      }
+    },
+    {
+      "case": "mtpc_Q8_L16384",
+      "query_length": 8,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q8_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "cb27f91719176b91d9f269009d0a34f6b05d80970af9564864744419e704755a",
+        "meta.json": "9c7427423da6b74b9d9fa861367faa926809bc8e25d48f7efa1ff86d273a8fec",
+        "schedule.py": "e9d48a21180426e671df75cad04ed82d2a69686d49d57f008f60f9147370cb52",
+        "tilelang_0.cu": "63a2942220d3fc20a852d38c67acc10863099996cd19d7d7820bd7056e1f24e2"
+      }
+    },
+    {
+      "case": "mtpc_Q8_L65536",
+      "query_length": 8,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q8_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "e7cc68f7a95b7e3f34bd1abec86874a5c482fa82940a5dd49c07e3bd0d695ee7",
+        "meta.json": "f04f6f58035d5228e8f878d21c284781d14d340efdf9959328c5941c124c9df6",
+        "schedule.py": "a974bec2be4ab1c5d72a5a1a8c6843bb0e681128edca961bf499c42b162bbfde",
+        "tilelang_0.cu": "88b49e6a0719f1cde7d2c0ed2113a92ec36b1f97f0adf3cff5e600f89ff3a473"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L256",
+      "query_length": 16,
+      "kv_length": 256,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L256/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L256/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "d88f691d057a57213928acebe1d20dc62fe3d2e4368c84c38fe0b1fe701e2177",
+        "schedule.py": "1dfc508bec3df7f9a7e42af4821c7aad2bdeb8d49c60a76feeb5775de20f04b4",
+        "tilelang_0.cu": "1933f3780acb435e0c9744a4d523f258c7c5615f8a2af8710015a8c15a2cd27d"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L512",
+      "query_length": 16,
+      "kv_length": 512,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L512/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L512/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "4d3bb7d82b4f28e305902c5e658a9649dfb2d3f9cd6eb27b84c01a7e32c1b1a2",
+        "schedule.py": "aa86a93775df7c05f956cb698a0fbba6ad90652a315a002b77c06f6794d62888",
+        "tilelang_0.cu": "8d14dc3f2f63dd7e916815874a8a00052d7722198e70563bcf872e52b68e6fb1"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L1024",
+      "query_length": 16,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L1024/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L1024/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "608c84628ed58ad8ff4f2645ff0f08b85e5b749e453fe3565f71a409e4c201a0",
+        "schedule.py": "4913d018f6ff4a22c8629b1251f9e9456a39b6b94a1c48ec2c3683cbb86a2483",
+        "tilelang_0.cu": "c379922099d90651e38ac41833badfae32bb66c53bd30563483e573c5e07c4e6"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L2048",
+      "query_length": 16,
+      "kv_length": 2048,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L2048/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L2048/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "cf04581c243001b69a41d2ade7467e7a36b094d41539cde4279181d43a9c5142",
+        "schedule.py": "ffece3002a02a878e65346876b9be70b99c623c3a9052cefab5c21fb836f3858",
+        "tilelang_0.cu": "743c4debb35429c2a334891917dd44ab11fe05389232060e07c4f0c857410d48"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L4096",
+      "query_length": 16,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L4096/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L4096/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "c2db3876988ed188f4477a8604300c9ee72bbd136c0a9bbd2233b17fecbc006d",
+        "schedule.py": "0cd6211e89c95252037beb68fb37e786271b68a987429de926f5550b8931ed41",
+        "tilelang_0.cu": "aac8afbf87c41067db6cdb04869d1364ccd5b0630ce09963b74b82e844869015"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L8192",
+      "query_length": 16,
+      "kv_length": 8192,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L8192/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L8192/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "7997228757893974eb4e572326ce2c4fc182a8668f56aaa25511805a020a267a",
+        "schedule.py": "9ce258734ce95a727461beea6dda38b61c84a3316335daf1cc276d0080687dda",
+        "tilelang_0.cu": "de258db43a0828af65d30a1dbc4b1308510104a2ec654bdf9f1f74dec05af017"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L16384",
+      "query_length": 16,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L16384/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L16384/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "b44e634f5c9f464f78d51c0f20af31a2ecac924d54a67fdc0a9e0bc448e4b793",
+        "schedule.py": "56f21707000d005000255bd0e72c32bd5c77ba0793e408e12f3824d815ec9d9a",
+        "tilelang_0.cu": "ee7e41a112df5c1491071f7dea35fa6769ab7f8645a16c84b8b3902af3788109"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L32768",
+      "query_length": 16,
+      "kv_length": 32768,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L32768/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L32768/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "b48eb6e699ae3f56e3585e3d7bdbeb6210a526dce1d675b048ef0d560be37d03",
+        "schedule.py": "21f5a9de4c32d974931c6b44d2d45fadf8f74267539a53755c24bd5b80082614",
+        "tilelang_0.cu": "ccaa30e80b8fb3244b84917b687276ea14dd85c164189e33e40e653f558dd186"
+      }
+    },
+    {
+      "case": "mtpc_Q16_L65536",
+      "query_length": 16,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L65536/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L65536/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "8595aebc3c6108a7520eca00107f1631aae1da473cbab3cb0c438b7408670200",
+        "schedule.py": "4a4c57e6a6f93d344f13d3a027c6c7ccbd796519f391568e81963cfc3179e8c8",
+        "tilelang_0.cu": "d56db97454b8ce06027bf0586edc870166e98102bae3eb66b79ce77abefca99f"
+      }
+    },
+    {
+      "case": "mtpc_Q32_L1024",
+      "query_length": 32,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q32_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "7d8bf58935775b93a6b4f515fb3a6684d8fafb13df6869ba1bf2192946d95bbb",
+        "meta.json": "ffef3397874b0aa927bb465b1196b815d048d7372281d910d9ffdb9210c71592",
+        "schedule.py": "79ef3c8b52adc3c04d03e0a31ee2f30b332ef40504c25eddac88d0d423fee5d0",
+        "tilelang_0.cu": "060bf018b383b35de9d831026f8c14b54f2d2ed88904aa83eab69735d4943230"
+      }
+    },
+    {
+      "case": "mtpc_Q32_L4096",
+      "query_length": 32,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q32_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "7ecbc5343929a884858fb1472b1487e529dfdc101f12bb1d060978e19f9dfdac",
+        "meta.json": "8e9c82799aea6c727f641889aba80f736a9df8e9d2ac2e8c52dd8b9815fa6e63",
+        "schedule.py": "c1f465f8d71c3d16c1569361b2c88cf2bfffd3b317725d483c71b000153a481d",
+        "tilelang_0.cu": "f68cfecf66432303d3f48ac9fc103c898edee1a7870034ede7cbf53224d1c641"
+      }
+    },
+    {
+      "case": "mtpc_Q32_L16384",
+      "query_length": 32,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q32_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "f9e2f91d3d91a18dfed928ea7d01e83dba6496586305d1b421bc301e9a32e1ac",
+        "meta.json": "94f0968af02045d422df3b047b696ff261e5dbd130114ebd93ee63fd6e5d0fab",
+        "schedule.py": "e88054e1b90ceb5c125d90416d45d39d1ba975a3f27c707a5d0043eac6e35048",
+        "tilelang_0.cu": "7978cec41223bc35f0e7bfac5ceeb851c7daf9f8c0ae0ce82c499906098e3ce1"
+      }
+    },
+    {
+      "case": "mtpc_Q32_L65536",
+      "query_length": 32,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q32_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "8a13bcef17d2dbcfddc4c25cd7ed0c9d714885a377d5509fefa05ccd3da9bb01",
+        "meta.json": "aa2e2276d33bca783cc830024df44f942503f5b3feeba90c00bf9aeb0e7c9341",
+        "schedule.py": "cc0c342616da81074ffcb3ced24625b5c78ede22d70fb028d8e57283b67f6fb1",
+        "tilelang_0.cu": "49d98871d95e1a6b897c3ce821ded78dbc72d0db0b743e8444277dc622aaf678"
+      }
+    },
+    {
+      "case": "mtpc_Q64_L1024",
+      "query_length": 64,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q64_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "58a353a964543399e336157c93a7a8618d9b711789799ffdff0b3039d6c93c9b",
+        "meta.json": "7be8d8d2c4306c9de731a6cf01ed88b23b6795c094293c710fa95f8e3e4dcc6b",
+        "schedule.py": "02894c6b7c8a85486e627630a65579d1be42e15bc12f1494f9fd4c147f739b1e",
+        "tilelang_0.cu": "896c53507b0f6e53d741de985584c0b11851c933827df72ec48641b57bccd751"
+      }
+    },
+    {
+      "case": "mtpc_Q64_L4096",
+      "query_length": 64,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q64_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "2801d01fe8bd21a53ab90f626db8822266e8ac1e5241ec364a4d0995c8351f5c",
+        "meta.json": "b5c6c59c5ea50c8069cd4f637ff0d927b7b5f5eae80026f15e1b2127e3a26844",
+        "schedule.py": "75e828596e6a845d9f60c2c8fc4edd6242455cca7e4f7f7f66b387ac7a6235d3",
+        "tilelang_0.cu": "2878835c8e92886462203c6a542cba63a34f6d8c83f310dc72d32c3ad8dbd053"
+      }
+    },
+    {
+      "case": "mtpc_Q64_L16384",
+      "query_length": 64,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q64_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "a0498f53e53f2cd055226a7949eab1323f304051d20634002e03fffc9597e747",
+        "meta.json": "6f311dbe55e8f646a4f4313b881f2a017a6589aad601a395cda3da1a8daa94a8",
+        "schedule.py": "23c417d5ac89fedfb1093a032863d63aa9a526328d38aba918125b1988a5de02",
+        "tilelang_0.cu": "21feb4422050a6f53d5e1b949c24cdcfaf179dcc7a3dc35ca7b93187a82462bf"
+      }
+    },
+    {
+      "case": "mtpc_Q64_L65536",
+      "query_length": 64,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q64_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "eee2222bb23aa85a6573d99887345d088a5f4fd3a36715aced3f0f5f6aaff279",
+        "meta.json": "34c453d44e6012b55b3659682c117e83bcf44664f54ad222173a05e1184ddda8",
+        "schedule.py": "5cdcea3be242b2d8e86d8b18d2465785c7d7464a79ccb43c12d45b371efff61e",
+        "tilelang_0.cu": "19983b36717317260fada761373192e5402fbe5569307eaeab118e3ba8d7049a"
+      }
+    }
+  ],
+  "methods": [
+    "Nautilus",
+    "FlexAttn",
+    "TileLang"
+  ],
+  "baseline_sources": {
+    "FlexAttn": "torch.nn.attention.flex_attention; max-autotune-no-cudagraphs",
+    "TileLang": "tile-ai/TileOPs@85e7e644f1d99037e937378b8d8dc70c6568113f GQADenseFwdOp(is_causal=True,target=BUILTIN)"
+  },
+  "protocol": {
+    "repeats": 50,
+    "warmups": 10,
+    "l2_flush_bytes": 209715200,
+    "timing": "sum of all GPU kernel durations in NVTX repeat; no CPU/setup/compilation"
+  },
+  "mask": "key_position <= KV_LEN - Q_LEN + query_position",
+  "status": "complete",
+  "slurm_job": "3478832",
+  "same_gpu_required": true,
+  "measured_method_case_pairs": 87,
+  "nodes_used": [
+    "gh066.hsn.cm.delta.internal.ncsa.edu"
+  ],
+  "slurm_state": "COMPLETED",
+  "slurm_exit_code": "0:0",
+  "slurm_elapsed": "00:42:50"
+}

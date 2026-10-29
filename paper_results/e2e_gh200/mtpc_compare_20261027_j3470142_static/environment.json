@@ -1,0 +1,28 @@
+{
+  "job_id": 3470142,
+  "gpu_uuid": "5fec3f12-dcb5-1e2c-ff5b-713d0f6aa983",
+  "torch": "2.14.1+cu130",
+  "transformers": "4.57.1",
+  "cache_implementation": "StaticCache",
+  "allocator": "expandable_segments:True",
+  "hf_overlay_symlinks": {
+    ".paper_e2e_hf/beartype": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/beartype",
+    ".paper_e2e_hf/beartype-0.22.5.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/beartype-0.22.5.dist-info",
+    ".paper_e2e_hf/hf_xet": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/hf_xet",
+    ".paper_e2e_hf/hf_xet-1.2.0.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/hf_xet-1.2.0.dist-info",
+    ".paper_e2e_hf/huggingface_hub": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/huggingface_hub",
+    ".paper_e2e_hf/huggingface_hub-0.36.0.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/huggingface_hub-0.36.0.dist-info",
+    ".paper_e2e_hf/pyyaml-6.0.3.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/pyyaml-6.0.3.dist-info",
+    ".paper_e2e_hf/regex": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/regex",
+    ".paper_e2e_hf/regex-2025.11.3.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/regex-2025.11.3.dist-info",
+    ".paper_e2e_hf/safetensors": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/safetensors",
+    ".paper_e2e_hf/safetensors-0.7.0.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/safetensors-0.7.0.dist-info",
+    ".paper_e2e_hf/tokenizers": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/tokenizers",
+    ".paper_e2e_hf/tokenizers-0.22.1.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/tokenizers-0.22.1.dist-info",
+    ".paper_e2e_hf/transformers": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/transformers",
+    ".paper_e2e_hf/transformers-4.57.1.dist-info": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/transformers-4.57.1.dist-info",
+    ".paper_e2e_hf/yaml": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/yaml"
+  },
+  "tileops_commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+  "runner": "scripts/run_paper_e2e_mtpc_ghx4.sh"
+}

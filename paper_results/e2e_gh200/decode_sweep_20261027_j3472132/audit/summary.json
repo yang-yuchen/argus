@@ -1,0 +1,25 @@
+{
+  "tileops": {
+    "profiled_forwards": 2,
+    "large_gpu_copies_ge_64mib": 0,
+    "large_torch_allocations_ge_64mib": 0,
+    "max_aten_copy_elements": 4096,
+    "max_gpu_memcpy_bytes": 8192,
+    "index_copy_kernels": 128,
+    "index_copy_grids": {
+      "[32, 1, 1]": 64,
+      "[16, 1, 1]": 64
+    }
+  },
+  "nautilus": {
+    "profiled_forwards": 2,
+    "large_gpu_copies_ge_64mib": 0,
+    "large_torch_allocations_ge_64mib": 0,
+    "max_aten_copy_elements": 4096,
+    "max_gpu_memcpy_bytes": 8192,
+    "index_copy_kernels": 128,
+    "index_copy_grids": {
+      "[32, 1, 1]": 128
+    }
+  }
+}

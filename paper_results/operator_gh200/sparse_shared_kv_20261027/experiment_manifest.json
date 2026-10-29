@@ -1,0 +1,44 @@
+{
+  "status": "complete",
+  "gpu_job": "3473409",
+  "previous_experiment": "profiles_sparse_compilers_20261027",
+  "rerun_methods": [
+    "flex",
+    "helion"
+  ],
+  "reused_methods": [
+    "nautilus",
+    "tilelang"
+  ],
+  "sequence_lengths": [
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384,
+    32768
+  ],
+  "layout": "K and V share KV storage; V sequence stride576, last stride1",
+  "tuning_changed": false,
+  "repeats": 50,
+  "warmups": 10,
+  "cold_l2_flush_bytes": 209715200,
+  "source_sha256_at_submission": {
+    "argus/paper_baselines/sparse_flex_official.py": "379ebabfb8f29278068ffff0b00e556ccc9394402fc672960c0572c4ecd581ff",
+    "argus/paper_baselines/sparse_helion_official.py": "d27be16d053bf40ea20044d5bb391a84688e136b550898084e23a126b665f2c5",
+    "scripts/bench_sparse_official.py": "49d1c6e0d7f92c459b2340b53082a191a8b1a48f04d18d053783f37b89d8b1d7",
+    "scripts/run_sparse_compiler_resume.sh": "2cdafb410e0c4ffe6d792c44f933dc1cde60c09652535dbddff37cf958577f2b"
+  },
+  "comparison_limit": "Old/new runs may differ in node and selected tuning configuration; not a paired isolated layout ablation.",
+  "validated_rerun_points": 16,
+  "nodes_used": [
+    "gh093.hsn.cm.delta.internal.ncsa.edu"
+  ],
+  "slurm_state": "COMPLETED",
+  "slurm_exit_code": "0:0",
+  "plot": "plots_from_csv/gh200-bf16-tc1-sparse-d35a206-shared-kv.pdf",
+  "plot_script": "plot_from_csv.py",
+  "layout_comparison_csv": "profiles_sparse_shared_kv_20261027/layout_replay_comparison.csv"
+}

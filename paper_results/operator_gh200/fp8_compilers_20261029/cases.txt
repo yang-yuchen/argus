@@ -1,0 +1,12 @@
+decode8_L32768
+decode8_L4096
+mtp8_Q16_L4096
+mtp8_Q16_L65536
+mtpc8_Q16_L4096
+mtpc8_Q16_L65536
+prefill8_L2048
+prefill8_L32768
+prefill8_L8192
+prefillc8_L2048
+prefillc8_L32768
+prefillc8_L8192

@@ -1,0 +1,140 @@
+{
+  "variant": "sparse_split",
+  "implementation": "nautilus",
+  "nvtx_marker": "nautilus(sparse_split)",
+  "params": [
+    {
+      "name": "q_nope",
+      "shape": [
+        2048,
+        16,
+        512
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "name": "q_pe",
+      "shape": [
+        2048,
+        16,
+        64
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "name": "ckv_cache",
+      "shape": [
+        8,
+        64,
+        512
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "name": "kpe_cache",
+      "shape": [
+        8,
+        64,
+        64
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "name": "sparse_indices",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "int32"
+    },
+    {
+      "name": "compute",
+      "shape": [
+        2048,
+        16,
+        512
+      ],
+      "dtype": "bfloat16"
+    }
+  ],
+  "seed": 0,
+  "inputs_sha256": "3920c5f4c8caf0fd388f0c87e635a30601cd425ce99698464076a64dd6b3e307",
+  "nautilus_export_sha256": "6bd65abddc9db46256707fef8d5d6f56b4e27ed1bb6f194d9c9abd910c9bfe93",
+  "baseline_source": null,
+  "host": "gh015.hsn.cm.delta.internal.ncsa.edu",
+  "gpu": "NVIDIA GH200 120GB",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:17:31) [GCC 11.2.0]",
+  "gpu_uuid": "5862fde6-53e7-e3ad-1a9a-71bda65a2076",
+  "torch": "2.9.1+cu126",
+  "cuda": "12.6",
+  "nvidia_smi": "NVIDIA GH200 120GB, GPU-5862fde6-53e7-e3ad-1a9a-71bda65a2076, 595.71.05, 1980 MHz, 2619 MHz, 900.00 W",
+  "packages": {
+    "tvm": {
+      "version": "0.21.0",
+      "path": "/work/nvme/beqg/yucheny8/argus-paper-kernels/runtime_py313/tvm/__init__.py"
+    }
+  },
+  "correct": true,
+  "max_abs_error": 0.003020048141479492,
+  "relative_l2": 0.002016694750636816,
+  "repeats": 50,
+  "measurement_complete": true,
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "warmup": 10,
+  "samples_us": [
+    1080.896,
+    1079.808,
+    1078.784,
+    1083.264,
+    1077.696,
+    1077.888,
+    1080.288,
+    1076.416,
+    1080.544,
+    1077.792,
+    1080.544,
+    1081.408,
+    1080.928,
+    1078.976,
+    1078.368,
+    1082.336,
+    1080.512,
+    1080.064,
+    1071.648,
+    1070.816,
+    1070.624,
+    1067.872,
+    1069.888,
+    1069.92,
+    1072.256,
+    1070.08,
+    1071.168,
+    1072.448,
+    1068.704,
+    1069.216,
+    1068.64,
+    1071.168,
+    1069.088,
+    1070.656,
+    1068.032,
+    1070.496,
+    1069.152,
+    1068.928,
+    1069.376,
+    1069.376,
+    1084.704,
+    1083.84,
+    1086.784,
+    1083.776,
+    1082.624,
+    1083.872,
+    1088.16,
+    1086.88,
+    1086.432,
+    1090.944
+  ],
+  "mean_us": 1076.6816,
+  "median_us": 1077.84,
+  "min_us": 1067.872
+}

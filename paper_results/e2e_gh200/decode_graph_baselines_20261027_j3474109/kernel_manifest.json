@@ -1,0 +1,482 @@
+[
+  {
+    "kv_length": 256,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L256/tilelang/best/export",
+    "kernel_sha256": "1e822280840b3ad71f84a0405f26c993ab6b038483c3cbdfc08246cf88bbcf14",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 256,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L256/tilelang/best/export",
+    "kernel_sha256": "1e822280840b3ad71f84a0405f26c993ab6b038483c3cbdfc08246cf88bbcf14",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          256,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": null,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 0
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 256,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L256/tilelang/best/export",
+    "kernel_sha256": "1e822280840b3ad71f84a0405f26c993ab6b038483c3cbdfc08246cf88bbcf14",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 512,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L512/tilelang/best/export",
+    "kernel_sha256": "5c5537790c0ed2a9356157fdbaa6cdcbaebfe94edb4301b432852da5b72c2bab",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 512,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L512/tilelang/best/export",
+    "kernel_sha256": "5c5537790c0ed2a9356157fdbaa6cdcbaebfe94edb4301b432852da5b72c2bab",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          512,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": null,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 0
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 512,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L512/tilelang/best/export",
+    "kernel_sha256": "5c5537790c0ed2a9356157fdbaa6cdcbaebfe94edb4301b432852da5b72c2bab",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 1024,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L1024/tilelang/best/export",
+    "kernel_sha256": "8f938488ff51f16e8d19e1b4050c3532864d1b5e0e7204e17a79ce967635c4c9",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 1024,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L1024/tilelang/best/export",
+    "kernel_sha256": "8f938488ff51f16e8d19e1b4050c3532864d1b5e0e7204e17a79ce967635c4c9",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          1024,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 1024,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L1024/tilelang/best/export",
+    "kernel_sha256": "8f938488ff51f16e8d19e1b4050c3532864d1b5e0e7204e17a79ce967635c4c9",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 2048,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L2048/tilelang/best/export",
+    "kernel_sha256": "e6acd1ef4f97bc4c7e905af8f2f99cd28fd95ac11411d294f081c24ca10399bd",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 2048,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L2048/tilelang/best/export",
+    "kernel_sha256": "e6acd1ef4f97bc4c7e905af8f2f99cd28fd95ac11411d294f081c24ca10399bd",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          2048,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 2048,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L2048/tilelang/best/export",
+    "kernel_sha256": "e6acd1ef4f97bc4c7e905af8f2f99cd28fd95ac11411d294f081c24ca10399bd",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L4096/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "bb369b2e703f8e4ba6d4cf482da08648dc1ab9d081c90a0c72719a0429280279",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L4096/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "bb369b2e703f8e4ba6d4cf482da08648dc1ab9d081c90a0c72719a0429280279",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          4096,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L4096/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "bb369b2e703f8e4ba6d4cf482da08648dc1ab9d081c90a0c72719a0429280279",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 8192,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L8192/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "2a518546102a4453ce7f87cc9410bdea447bc6511753c297a99284e6441bb116",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 8192,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L8192/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "2a518546102a4453ce7f87cc9410bdea447bc6511753c297a99284e6441bb116",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          8192,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 8192,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L8192/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "2a518546102a4453ce7f87cc9410bdea447bc6511753c297a99284e6441bb116",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 16384,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L16384/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "8f3666e0f2d3ced5a1be6f8177db2e5807cfd08c3e1886ceeb466f02fe923b46",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 16384,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L16384/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "8f3666e0f2d3ced5a1be6f8177db2e5807cfd08c3e1886ceeb466f02fe923b46",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          16384,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 16384,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L16384/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "8f3666e0f2d3ced5a1be6f8177db2e5807cfd08c3e1886ceeb466f02fe923b46",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 32768,
+    "implementation": "nautilus",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L32768/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "b1bb79ca0029471973e2289b9068569987325141ea3c98b9f7ec524e409b351f",
+    "baseline_source": null,
+    "run": "decode_graph_baselines_20261027_j3474109"
+  },
+  {
+    "kv_length": 32768,
+    "implementation": "tileops_bound",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L32768/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "b1bb79ca0029471973e2289b9068569987325141ea3c98b9f7ec524e409b351f",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          32768,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "run": "decode_graph_sweep_20261027_j3473944"
+  },
+  {
+    "kv_length": 32768,
+    "implementation": "flex",
+    "export_directory": "/u/yucheny8/argus/paper_kernels/decode_L32768/tilelang/tilelang_auto/best/export",
+    "kernel_sha256": "b1bb79ca0029471973e2289b9068569987325141ea3c98b9f7ec524e409b351f",
+    "baseline_source": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "api": "torch.nn.attention.flex_attention",
+      "mask": null,
+      "configuration": "fullgraph=True, max-autotune-no-cudagraphs, inference_mode"
+    },
+    "run": "decode_graph_baselines_20261027_j3474109"
+  }
+]

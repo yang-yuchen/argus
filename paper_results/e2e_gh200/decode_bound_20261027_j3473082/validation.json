@@ -1,0 +1,35 @@
+{
+  "metadata_and_correctness_checks": "passed",
+  "rows": [
+    {
+      "implementation": "tileops",
+      "mean_ms": 27.884530900276634,
+      "median_ms": 27.872342499904335,
+      "stdev_ms": 0.2056914533289292,
+      "min_ms": 27.493042000060086,
+      "max_ms": 28.269786000237218,
+      "compiled_relative_l2": 0.005481668747961521
+    },
+    {
+      "implementation": "tileops_bound",
+      "mean_ms": 25.262393266712024,
+      "median_ms": 25.260585000069113,
+      "stdev_ms": 0.21160210518033823,
+      "min_ms": 24.870085000657127,
+      "max_ms": 25.90765199965972,
+      "compiled_relative_l2": 0.005481668747961521
+    },
+    {
+      "implementation": "nautilus",
+      "mean_ms": 25.27892906679578,
+      "median_ms": 25.258506499994837,
+      "stdev_ms": 0.22440686995382075,
+      "min_ms": 24.735754001085297,
+      "max_ms": 25.70266800103127,
+      "compiled_relative_l2": 0.005665645934641361
+    }
+  ],
+  "public_to_bound_speedup": 1.1037960895423067,
+  "public_to_bound_latency_reduction_pct": 9.403556555934733,
+  "bound_over_nautilus": 0.9993458662730506
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "case": "sparse_L1024",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 207.3696,
+    "median_us": 206.848,
+    "min_us": 204.704,
+    "relative_l2": 0.0019692459609359503,
+    "repeats": 50
+  },
+  {
+    "case": "sparse_L16384",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 6039.71392,
+    "median_us": 6047.952,
+    "min_us": 5866.688,
+    "relative_l2": 0.0019429754465818405,
+    "repeats": 50
+  },
+  {
+    "case": "sparse_L2048",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 762.69246,
+    "median_us": 765.072,
+    "min_us": 749.856,
+    "relative_l2": 0.001959963236004114,
+    "repeats": 50
+  },
+  {
+    "case": "sparse_L256",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 19.40864,
+    "median_us": 19.424,
+    "min_us": 18.976,
+    "relative_l2": 0.0019340754952281713,
+    "repeats": 50
+  },
+  {
+    "case": "sparse_L32768",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 12209.56728,
+    "median_us": 12207.728,
+    "min_us": 11898.304,
+    "relative_l2": 0.0019391042878851295,
+    "repeats": 50
+  },
+  {
+    "case": "sparse_L4096",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 1541.05536,
+    "median_us": 1537.984,
+    "min_us": 1514.208,
+    "relative_l2": 0.0019510196289047599,
+    "repeats": 50
+  },
+  {
+    "case": "sparse_L512",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 59.4528,
+    "median_us": 59.536,
+    "min_us": 57.888,
+    "relative_l2": 0.001945499680005014,
+    "repeats": 50
+  },
+  {
+    "case": "sparse_L8192",
+    "variant": "sparse",
+    "backend": "tilelang",
+    "correct": true,
+    "mean_us": 3027.7504,
+    "median_us": 3032.032,
+    "min_us": 2977.184,
+    "relative_l2": 0.0019503195071592927,
+    "repeats": 50
+  }
+]

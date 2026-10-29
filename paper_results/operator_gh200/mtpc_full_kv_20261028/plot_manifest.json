@@ -1,0 +1,63 @@
+{
+  "status": "completed",
+  "method_length_pairs": 162,
+  "cases": 54,
+  "hosts": [
+    "gh004.hsn.cm.delta.internal.ncsa.edu",
+    "gh005.hsn.cm.delta.internal.ncsa.edu",
+    "gh031.hsn.cm.delta.internal.ncsa.edu",
+    "gh041.hsn.cm.delta.internal.ncsa.edu",
+    "gh042.hsn.cm.delta.internal.ncsa.edu",
+    "gh059.hsn.cm.delta.internal.ncsa.edu",
+    "gh066.hsn.cm.delta.internal.ncsa.edu",
+    "gh069.hsn.cm.delta.internal.ncsa.edu",
+    "gh075.hsn.cm.delta.internal.ncsa.edu",
+    "gh088.hsn.cm.delta.internal.ncsa.edu",
+    "gh121.hsn.cm.delta.internal.ncsa.edu"
+  ],
+  "prior_slurm_job": "3478832",
+  "jobs": {
+    "pilot": "3479794",
+    "remaining_array": "3479801",
+    "array_dependency": "afterok:3479794",
+    "array_max_concurrent": 4,
+    "final_recollection": "3480105",
+    "recollection_dependency": "afterany:3479801:3480293",
+    "known_empty_capture_recollection": "3480293",
+    "known_empty_capture_dependency": "afterany:3479801_10"
+  },
+  "plots": [
+    {
+      "q_length": 2,
+      "csv": "profiles_paper_kernels/mtpc_full_kv_20261028/plot_input_Q2.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q2-full-kv-20261028.pdf"
+    },
+    {
+      "q_length": 4,
+      "csv": "profiles_paper_kernels/mtpc_full_kv_20261028/plot_input_Q4.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q4-full-kv-20261028.pdf"
+    },
+    {
+      "q_length": 8,
+      "csv": "profiles_paper_kernels/mtpc_full_kv_20261028/plot_input_Q8.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q8-full-kv-20261028.pdf"
+    },
+    {
+      "q_length": 16,
+      "csv": "profiles_paper_kernels/mtpc_full_kv_20261028/plot_input_Q16.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q16-full-kv-20261028.pdf"
+    },
+    {
+      "q_length": 32,
+      "csv": "profiles_paper_kernels/mtpc_full_kv_20261028/plot_input_Q32.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q32-full-kv-20261028.pdf"
+    },
+    {
+      "q_length": 64,
+      "csv": "profiles_paper_kernels/mtpc_full_kv_20261028/plot_input_Q64.csv",
+      "pdf": "plots_from_csv/gh200-fp16-tc1-mtpc-Q64-full-kv-20261028.pdf"
+    }
+  ],
+  "tilelang_label": "official TileOPs GQADenseFwdOp",
+  "normalization": "Nautilus mean latency / baseline mean latency; higher=faster"
+}

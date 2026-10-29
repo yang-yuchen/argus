@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "file": "topology_sparse_attention.py",
+      "repository": "triton-lang/kernels",
+      "commit": "e16236ab73f0d4334d0752f9ee4fbc6b263431a6",
+      "upstream_path": "kernels/topology_sparse_attention.py",
+      "sha256": "40f8843260ffaef6ab6b129bfd2f5b1e6779cf678b5544951edbeb2eb70d9c2d",
+      "url": "https://github.com/triton-lang/kernels/blob/e16236ab73f0d4334d0752f9ee4fbc6b263431a6/kernels/topology_sparse_attention.py"
+    },
+    {
+      "file": "test_topology_sparse_attention.py",
+      "repository": "triton-lang/kernels",
+      "commit": "e16236ab73f0d4334d0752f9ee4fbc6b263431a6",
+      "upstream_path": "test/test_topology_sparse_attention.py",
+      "sha256": "26058c4dc17f298de67fb2e13705f2feeee5c2ae3f738f62bc98a97a744175e0",
+      "url": "https://github.com/triton-lang/kernels/blob/e16236ab73f0d4334d0752f9ee4fbc6b263431a6/test/test_topology_sparse_attention.py"
+    },
+    {
+      "file": "pyproject.toml",
+      "repository": "triton-lang/kernels",
+      "commit": "e16236ab73f0d4334d0752f9ee4fbc6b263431a6",
+      "upstream_path": "pyproject.toml",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/triton-lang/kernels/blob/e16236ab73f0d4334d0752f9ee4fbc6b263431a6/pyproject.toml"
+    },
+    {
+      "file": "v2_test_blocksparse.py",
+      "repository": "triton-lang/triton",
+      "commit": "bd5c2117f62c73a9e922d5e93353a39ab3ac269b",
+      "upstream_path": "python/test/unit/operators/test_blocksparse.py",
+      "sha256": "eb8e7fbd32c1cf25cf45ce72eb3073b768a8586ba74be40dcc7eb06a662fa268",
+      "url": "https://github.com/triton-lang/triton/blob/bd5c2117f62c73a9e922d5e93353a39ab3ac269b/python/test/unit/operators/test_blocksparse.py"
+    },
+    {
+      "file": "current_fused_attention.py",
+      "repository": "triton-lang/triton",
+      "commit": "96ffafdd35cbd70f0a12a81ba2b3d1acb43888a2",
+      "upstream_path": "python/tutorials/06-fused-attention.py",
+      "sha256": "36eb1f04b8ae795a554c69529e8c930edc5727a43322b39e87f916c535d7ba63",
+      "url": "https://github.com/triton-lang/triton/blob/96ffafdd35cbd70f0a12a81ba2b3d1acb43888a2/python/tutorials/06-fused-attention.py"
+    }
+  ],
+  "source_unchanged": true,
+  "gpu_tested": false
+}

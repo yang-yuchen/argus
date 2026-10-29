@@ -1,0 +1,131 @@
+{
+  "variant": "prefill",
+  "implementation": "nautilus",
+  "nvtx_marker": "nautilus(prefill)",
+  "params": [
+    {
+      "name": "q",
+      "shape": [
+        1,
+        32,
+        512,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "k",
+      "shape": [
+        1,
+        32,
+        512,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "v",
+      "shape": [
+        1,
+        32,
+        512,
+        128
+      ],
+      "dtype": "float16"
+    },
+    {
+      "name": "T_cast",
+      "shape": [
+        1,
+        32,
+        512,
+        128
+      ],
+      "dtype": "float16"
+    }
+  ],
+  "seed": 0,
+  "inputs_sha256": "6a98289dc6ba84913eef9ec7818c8ae9b57110c58cc66dcfad9634c49909cf63",
+  "nautilus_export_sha256": "b30a8b42c06067081a6d13fd883f495abde88263933465a66042643eed0f4cfe",
+  "baseline_source": null,
+  "host": "gh015.hsn.cm.delta.internal.ncsa.edu",
+  "gpu": "NVIDIA GH200 120GB",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:17:31) [GCC 11.2.0]",
+  "gpu_uuid": "5862fde6-53e7-e3ad-1a9a-71bda65a2076",
+  "torch": "2.9.1+cu126",
+  "cuda": "12.6",
+  "nvidia_smi": "NVIDIA GH200 120GB, GPU-5862fde6-53e7-e3ad-1a9a-71bda65a2076, 595.71.05, 1980 MHz, 2619 MHz, 900.00 W",
+  "packages": {
+    "triton": {
+      "version": "3.3.0",
+      "path": "/u/yucheny8/triton/python/triton/__init__.py"
+    },
+    "tvm": {
+      "version": "0.21.0",
+      "path": "/work/nvme/beqg/yucheny8/argus-paper-kernels/runtime_py313/tvm/__init__.py"
+    }
+  },
+  "correct": true,
+  "max_abs_error": 0.0002155303955078125,
+  "relative_l2": 0.0002753886510618031,
+  "repeats": 50,
+  "measurement_complete": true,
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "warmup": 10,
+  "samples_us": [
+    13.664,
+    13.344,
+    13.12,
+    13.184,
+    13.184,
+    13.056,
+    13.28,
+    13.12,
+    12.928,
+    13.12,
+    13.024,
+    12.992,
+    13.152,
+    13.12,
+    13.408,
+    13.088,
+    13.024,
+    12.992,
+    13.152,
+    13.184,
+    13.056,
+    13.184,
+    13.184,
+    13.024,
+    13.28,
+    13.056,
+    12.928,
+    12.896,
+    13.76,
+    13.984,
+    13.216,
+    13.088,
+    13.216,
+    12.896,
+    13.088,
+    13.28,
+    13.184,
+    13.184,
+    13.12,
+    13.088,
+    13.088,
+    12.992,
+    12.96,
+    13.056,
+    13.088,
+    12.992,
+    13.152,
+    14.144,
+    13.12,
+    13.152
+  ],
+  "mean_us": 13.17184,
+  "median_us": 13.12,
+  "min_us": 12.896
+}

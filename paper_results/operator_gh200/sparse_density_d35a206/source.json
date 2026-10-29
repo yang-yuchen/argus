@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/uiuc-arc/neptune-internal",
+  "commit": "d35a206bf55a6fed0a56ba3fd41d3aba6afb1e44",
+  "path": "python/attn_variants.py",
+  "generator_line": 181,
+  "source_sha256": "714a6310eea809941659b8e8b33e410be019702ca5ab621fe451b76bb5e873c4",
+  "method": "exact connection counts from the upstream generator; export shapes verified at every length; no GPU input replay"
+}

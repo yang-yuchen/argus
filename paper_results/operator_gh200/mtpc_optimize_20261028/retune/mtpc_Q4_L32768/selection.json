@@ -1,0 +1,21 @@
+{
+  "case": "mtpc_Q4_L32768",
+  "selected_kind": "manual",
+  "screening_ms": 0.030029809999999983,
+  "original_screening_ms": 0.03378489999999999,
+  "correct_candidates_checked": 16,
+  "validation": [
+    {
+      "max_abs_error": 1.2636184692382812e-05,
+      "relative_l2": 0.00027341229323823475
+    },
+    {
+      "max_abs_error": 1.1388212442398071e-05,
+      "relative_l2": 0.0002806095967133286
+    }
+  ],
+  "export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_optimize_20261028/selected/mtpc_Q4_L32768/tilelang/best/export",
+  "kernel_sha256": "bb3a02b5b0aa1575c6fc85b9b21ec3e849958683dbcc8fcc27786417547f01de",
+  "status": "independently validated; final50-repeat nsys measurement complete",
+  "final_measurement": "profiles_paper_kernels/mtpc_optimize_20261028/measurement/manual/mtpc_Q4_L32768.json"
+}

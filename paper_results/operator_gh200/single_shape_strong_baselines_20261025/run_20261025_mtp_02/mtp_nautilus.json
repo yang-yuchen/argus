@@ -1,0 +1,148 @@
+{
+  "variant": "mtp",
+  "family": null,
+  "stage": "nautilus",
+  "repeat": 50,
+  "environment": {
+    "host": "gh079.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "d9d05044-0127-fab9-087f-73f5b8add6c1",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:17:31) [GCC 11.2.0]",
+    "torch": "2.9.1+cu126",
+    "cuda": "12.6",
+    "packages": {
+      "tvm": {
+        "version": "0.21.0",
+        "path": "/work/nvme/beqg/yucheny8/argus-paper-kernels/runtime_py313/tvm/__init__.py"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "nautilus",
+      "status": "measured",
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "source": "original paper_kernels kernel.so; compatible custom TVM runtime",
+      "samples_us": [
+        53.888000000000005,
+        52.704,
+        51.776,
+        51.872,
+        52.128,
+        51.296,
+        51.711999999999996,
+        52.896,
+        51.872,
+        51.647999999999996,
+        52.0,
+        51.936,
+        51.68,
+        52.48,
+        51.712,
+        52.64,
+        52.064,
+        51.616,
+        53.184000000000005,
+        52.288,
+        51.327999999999996,
+        53.024,
+        50.943999999999996,
+        52.448,
+        51.168,
+        51.904,
+        52.96,
+        51.52,
+        52.832,
+        51.583999999999996,
+        51.616,
+        52.736,
+        53.120000000000005,
+        52.544,
+        52.064,
+        51.68,
+        52.704,
+        51.424,
+        50.848,
+        52.576,
+        51.839999999999996,
+        51.872,
+        51.232,
+        51.936,
+        52.512,
+        52.160000000000004,
+        51.392,
+        51.84,
+        51.008,
+        51.52
+      ],
+      "mean_us": 52.03456,
+      "median_us": 51.888000000000005,
+      "min_us": 50.848
+    }
+  ],
+  "accuracy_metric": "scripts.error.compute_rmse against FP64 reference",
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "measurement_complete": true
+}

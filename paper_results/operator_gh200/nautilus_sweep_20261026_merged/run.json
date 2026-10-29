@@ -1,0 +1,15 @@
+{
+  "kernel_source": "uiuc-arc/neptune-internal",
+  "branch": "nautilus-gh200",
+  "commit": "a6e64fb71851d812ddf33f6f3a61a8e860e1d682",
+  "cases": 44,
+  "repeats": 50,
+  "correct": true,
+  "measurement_complete": true,
+  "source_runs": [
+    "sweep_20261026_a",
+    "sweep_20261026_b",
+    "sweep_20261026_sparse"
+  ],
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)"
+}

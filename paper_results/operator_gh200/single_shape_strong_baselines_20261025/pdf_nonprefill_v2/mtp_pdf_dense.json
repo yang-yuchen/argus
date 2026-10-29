@@ -1,0 +1,1262 @@
+{
+  "variant": "mtp",
+  "family": "pdf_dense",
+  "stage": "candidates",
+  "repeat": 50,
+  "environment": {
+    "host": "gh059.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "297e2b34-026e-3e5b-94b0-9ab0cb701e37",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "packages": {
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      },
+      "flashinfer": {
+        "version": "0.7.2.post1",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/__init__.py"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "flex",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "flex",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9250532896164505e-06,
+            "max_abs_error": 1.0705441930273368e-05,
+            "relative_l2": 0.0003050051305619375,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.5091878363938246e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003975555978412928,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.8910488666662776e-06,
+            "max_abs_error": 9.469902171488354e-06,
+            "relative_l2": 0.0002991119333944385,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.419057277392113e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003826267818370824,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.963626047033617e-06,
+            "max_abs_error": 1.0655665195646868e-05,
+            "relative_l2": 0.000298251665029472,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.4877337053097067e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00037785744491341535,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.725212312554694e-07,
+            "max_abs_error": 3.95298411604017e-06,
+            "relative_l2": 0.00020294462538447946,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 4.6966736868257174e-07,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.00012338198804695368,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        749.0880000000001,
+        747.8720000000001,
+        747.1360000000001,
+        748.192,
+        747.424,
+        746.8480000000001,
+        746.976,
+        746.944,
+        746.944,
+        746.6880000000001,
+        747.1680000000001,
+        748.256,
+        746.976,
+        746.816,
+        747.168,
+        747.9680000000001,
+        747.488,
+        747.168,
+        747.104,
+        740.864,
+        741.504,
+        736.48,
+        735.008,
+        735.4559999999999,
+        735.104,
+        736.64,
+        735.2320000000001,
+        737.248,
+        736.9920000000001,
+        735.2640000000001,
+        740.4480000000001,
+        737.1199999999999,
+        735.5840000000001,
+        740.8,
+        740.4799999999999,
+        737.1840000000001,
+        735.6800000000001,
+        741.2479999999999,
+        735.1999999999999,
+        735.2,
+        740.8000000000001,
+        735.6160000000001,
+        735.2959999999999,
+        735.488,
+        740.256,
+        740.544,
+        735.36,
+        735.4879999999999,
+        735.4240000000001,
+        735.072
+      ],
+      "mean_us": 741.08608,
+      "median_us": 740.512,
+      "min_us": 735.008
+    },
+    {
+      "name": "torch_flash",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "torch_flash",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.7812818571509952e-06,
+            "max_abs_error": 9.140314570429964e-06,
+            "relative_l2": 0.0002822260081518041,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.3297888164431657e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00036913162591134443,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.7659559232717642e-06,
+            "max_abs_error": 9.245202856344309e-06,
+            "relative_l2": 0.0002793256693732999,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.2722016831864187e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003593983597857144,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.8272174679766546e-06,
+            "max_abs_error": 1.0043907892880177e-05,
+            "relative_l2": 0.0002775328087637877,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.3111298395780578e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00035103339806114784,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        67.04,
+        66.208,
+        66.048,
+        64.256,
+        65.21600000000001,
+        65.12,
+        64.928,
+        66.08,
+        65.92,
+        64.416,
+        65.21600000000001,
+        65.216,
+        64.70400000000001,
+        66.208,
+        65.08800000000001,
+        64.544,
+        64.864,
+        65.856,
+        65.056,
+        65.85600000000001,
+        65.056,
+        65.98400000000001,
+        63.968,
+        66.208,
+        64.704,
+        65.056,
+        64.736,
+        65.184,
+        64.96,
+        64.064,
+        65.536,
+        64.512,
+        66.464,
+        66.112,
+        65.952,
+        64.128,
+        66.304,
+        65.088,
+        65.504,
+        65.472,
+        65.536,
+        64.928,
+        64.544,
+        64.864,
+        66.496,
+        65.408,
+        65.856,
+        66.24,
+        65.92,
+        66.016
+      ],
+      "mean_us": 65.3728,
+      "median_us": 65.21600000000001,
+      "min_us": 63.968
+    },
+    {
+      "name": "torch_cudnn",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "torch_cudnn",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9306874568063997e-06,
+            "max_abs_error": 1.0705441930273368e-05,
+            "relative_l2": 0.00030589780709647674,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.505186490643502e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00039692162481668846,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.8968865534661333e-06,
+            "max_abs_error": 1.1236650682720783e-05,
+            "relative_l2": 0.000300035294929952,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.4283023954815137e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003840890993337829,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.9643787385209205e-06,
+            "max_abs_error": 1.0655665195646868e-05,
+            "relative_l2": 0.0002983659899996877,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.493510928381468e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00037873493704367484,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.725212312554694e-07,
+            "max_abs_error": 3.95298411604017e-06,
+            "relative_l2": 0.00020294462538447946,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 4.6966736868257174e-07,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.00012338198804695368,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        745.888,
+        745.728,
+        744.0,
+        743.904,
+        743.744,
+        743.616,
+        743.776,
+        743.968,
+        743.552,
+        743.776,
+        746.048,
+        744.0,
+        743.616,
+        743.68,
+        744.032,
+        745.76,
+        743.68,
+        745.984,
+        745.568,
+        743.616,
+        743.808,
+        743.808,
+        746.176,
+        743.552,
+        743.616,
+        743.584,
+        743.52,
+        745.856,
+        743.904,
+        743.808,
+        743.616,
+        743.84,
+        744.0,
+        743.584,
+        743.712,
+        745.76,
+        743.552,
+        745.664,
+        743.648,
+        743.84,
+        743.904,
+        744.16,
+        750.56,
+        746.112,
+        750.24,
+        751.04,
+        743.776,
+        750.912,
+        744.064,
+        744.0
+      ],
+      "mean_us": 744.79104,
+      "median_us": 743.904,
+      "min_us": 743.52
+    },
+    {
+      "name": "openai_triton",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "openai_triton",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.19526758047927537,
+            "max_abs_error": 0.9311342110851699,
+            "relative_l2": 30.93816373803415,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.19526759313818787,
+            "max_abs_error": 0.9311332702636719,
+            "relative_l2": 30.938187888177854,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.19548940298672948,
+            "max_abs_error": 0.9106463764755676,
+            "relative_l2": 30.92104826913721,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.19548939662062517,
+            "max_abs_error": 0.9106464385986328,
+            "relative_l2": 30.92092089396953,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.19205994025821277,
+            "max_abs_error": 0.7815932338496359,
+            "relative_l2": 29.171642459116466,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.19205992771311783,
+            "max_abs_error": 0.7815933227539062,
+            "relative_l2": 29.171640598445524,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.12509017776488737,
+            "max_abs_error": 0.3894842389727273,
+            "relative_l2": 32.86172371536782,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.12509018851540132,
+            "max_abs_error": 0.3894844055175781,
+            "relative_l2": 32.861291146308126,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    },
+    {
+      "name": "tridao_triton",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "tridao_triton",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 3.1037748055705735e-06,
+            "max_abs_error": 1.273424053679223e-05,
+            "relative_l2": 0.0004917615761153915,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.597638290801711e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.000570009634500682,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 3.058749620541801e-06,
+            "max_abs_error": 1.2718173934488444e-05,
+            "relative_l2": 0.0004838100849200432,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.5171071811944015e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0005563073742376588,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 3.111283722334209e-06,
+            "max_abs_error": 1.2612826989812087e-05,
+            "relative_l2": 0.0004725673465001583,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.611161040050024e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0005484928233483503,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 2.6244581897562898e-06,
+            "max_abs_error": 8.548525329388212e-06,
+            "relative_l2": 0.0006894563703986852,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.7114611871015335e-06,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.0007123029916154242,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        2211.008,
+        2221.6,
+        2238.784,
+        2212.32,
+        2225.984,
+        2218.112,
+        2202.752,
+        2199.616,
+        2216.928,
+        2191.136,
+        2193.216,
+        2200.256,
+        2212.8,
+        2202.016,
+        2195.68,
+        2201.152,
+        2208.48,
+        2221.376,
+        2228.16,
+        2207.84,
+        2208.064,
+        2214.912,
+        2204.608,
+        2218.656,
+        2206.624,
+        2199.168,
+        2215.648,
+        2203.68,
+        2199.52,
+        2205.152,
+        2207.2,
+        2192.32,
+        2203.488,
+        2198.72,
+        2204.672,
+        2214.336,
+        2191.84,
+        2192.96,
+        2212.096,
+        2203.04,
+        2228.032,
+        2216.48,
+        2218.272,
+        2208.736,
+        2219.072,
+        2213.344,
+        2201.984,
+        2214.368,
+        2217.696,
+        2197.504
+      ],
+      "mean_us": 2208.82816,
+      "median_us": 2207.952,
+      "min_us": 2191.136
+    },
+    {
+      "name": "helion",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "helion",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9313851795849275e-06,
+            "max_abs_error": 1.0705441930273368e-05,
+            "relative_l2": 0.00030600835418019063,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.5160177070678424e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00039863772221620223,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.8943405755935767e-06,
+            "max_abs_error": 9.469902171488354e-06,
+            "relative_l2": 0.00029963259123611126,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.420167552792515e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00038280239615898334,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.9544250781479373e-06,
+            "max_abs_error": 1.0040392393047964e-05,
+            "relative_l2": 0.00029685414624315126,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.4915491659531807e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003784369684399221,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.725212312554694e-07,
+            "max_abs_error": 3.95298411604017e-06,
+            "relative_l2": 0.00020294462538447946,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 4.6966736868257174e-07,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.00012338198804695368,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "measured",
+      "samples_us": [
+        1279.424,
+        1284.576,
+        1283.616,
+        1282.912,
+        1280.704,
+        1282.496,
+        1278.592,
+        1282.944,
+        1280.16,
+        1281.92,
+        1279.52,
+        1283.072,
+        1282.176,
+        1282.976,
+        1283.584,
+        1291.008,
+        1281.696,
+        1293.568,
+        1282.56,
+        1290.4,
+        1283.488,
+        1285.184,
+        1281.664,
+        1279.776,
+        1282.304,
+        1289.664,
+        1281.536,
+        1286.176,
+        1283.392,
+        1281.248,
+        1282.368,
+        1290.656,
+        1278.944,
+        1280.384,
+        1281.088,
+        1282.752,
+        1279.264,
+        1283.328,
+        1282.912,
+        1279.072,
+        1281.6,
+        1279.392,
+        1280.8,
+        1280.256,
+        1283.168,
+        1281.44,
+        1280.8,
+        1284.8,
+        1280.448,
+        1281.056
+      ],
+      "mean_us": 1282.73728,
+      "median_us": 1282.24,
+      "min_us": 1278.592
+    },
+    {
+      "name": "flashinfer",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "flashinfer",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [],
+      "status": "compile_or_runtime_failed",
+      "error": "Traceback (most recent call last):\n  File \"/u/yucheny8/argus/scripts/bench_paper_strong.py\", line 183, in prepare_candidates\n    output = call()\n  File \"/u/yucheny8/argus/scripts/bench_paper_strong.py\", line 83, in run\n    runner.run()\n    ~~~~~~~~~~^^\n  File \"/u/yucheny8/argus/argus/flashinfer/__init__.py\", line 85, in run\n    self.output = self.fi_wrapper.run(self.q, (self.k, self.v))\n                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/api_logging.py\", line 2369, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/prefill.py\", line 4179, in run\n    raise ValueError(\n    ...<3 lines>...\n    )\nValueError: q.shape[0] (16) does not match qo_indptr[-1] (65536). For paged prefill, q must have shape [total_tokens, num_heads, head_dim] where total_tokens = qo_indptr[-1].\n"
+    }
+  ],
+  "accuracy_metric": "scripts.error.compute_rmse against FP64 reference",
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "measurement_complete": true
+}

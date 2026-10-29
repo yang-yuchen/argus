@@ -1,0 +1,31 @@
+| Case | Backend | Correct | Mean (us) | Median (us) | Min (us) |
+|---|---|---:|---:|---:|---:|
+| mtpc_Q16_L1024 | tilelang | True | 5.379 | 5.376 | 5.248 |
+| mtpc_Q16_L16384 | tilelang | True | 17.330 | 17.280 | 16.928 |
+| mtpc_Q16_L2048 | tilelang | True | 6.455 | 6.432 | 6.240 |
+| mtpc_Q16_L256 | tilelang | True | 4.647 | 4.608 | 4.416 |
+| mtpc_Q16_L32768 | tilelang | True | 29.506 | 29.344 | 28.832 |
+| mtpc_Q16_L4096 | tilelang | True | 7.700 | 7.680 | 7.488 |
+| mtpc_Q16_L512 | tilelang | True | 4.950 | 4.928 | 4.768 |
+| mtpc_Q16_L65536 | tilelang | True | 49.579 | 49.472 | 48.896 |
+| mtpc_Q16_L8192 | tilelang | True | 10.898 | 10.816 | 10.208 |
+| mtpc_Q2_L1024 | tilelang | True | 4.947 | 4.928 | 4.768 |
+| mtpc_Q2_L16384 | tilelang | True | 17.494 | 17.408 | 16.992 |
+| mtpc_Q2_L4096 | tilelang | True | 8.111 | 8.096 | 7.680 |
+| mtpc_Q2_L65536 | tilelang | True | 49.487 | 49.424 | 48.736 |
+| mtpc_Q32_L1024 | tilelang | True | 5.860 | 5.824 | 5.696 |
+| mtpc_Q32_L16384 | tilelang | True | 17.939 | 17.888 | 17.472 |
+| mtpc_Q32_L4096 | tilelang | True | 8.292 | 8.288 | 8.064 |
+| mtpc_Q32_L65536 | tilelang | True | 51.121 | 51.104 | 49.920 |
+| mtpc_Q4_L1024 | tilelang | True | 5.247 | 5.216 | 5.088 |
+| mtpc_Q4_L16384 | tilelang | True | 17.300 | 17.216 | 16.608 |
+| mtpc_Q4_L4096 | tilelang | True | 8.058 | 8.000 | 7.872 |
+| mtpc_Q4_L65536 | tilelang | True | 49.780 | 49.712 | 48.960 |
+| mtpc_Q64_L1024 | tilelang | True | 6.289 | 6.272 | 6.080 |
+| mtpc_Q64_L16384 | tilelang | True | 18.783 | 18.704 | 18.208 |
+| mtpc_Q64_L4096 | tilelang | True | 9.153 | 9.104 | 8.672 |
+| mtpc_Q64_L65536 | tilelang | True | 51.448 | 51.376 | 50.112 |
+| mtpc_Q8_L1024 | tilelang | True | 5.779 | 5.760 | 5.568 |
+| mtpc_Q8_L16384 | tilelang | True | 17.377 | 17.280 | 16.800 |
+| mtpc_Q8_L4096 | tilelang | True | 8.101 | 8.080 | 7.840 |
+| mtpc_Q8_L65536 | tilelang | True | 49.872 | 49.824 | 49.056 |

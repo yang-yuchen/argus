@@ -1,0 +1,518 @@
+[
+  {
+    "kv_length": 256,
+    "description": "Llama-7B backbone, 32 layers, MHA, Q=1, prefix=255, total KV=256, variant=decode",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "daac6fcf-51d5-7420-9673-02be24954a7d",
+    "torch": "2.14.1+cu130",
+    "warmup_rounds": 10,
+    "samples": [
+      {
+        "round": 0,
+        "wall_ms": 28.04687013849616,
+        "submit_ms": 27.993240160867572,
+        "event_span_ms": 28.03379249572754
+      },
+      {
+        "round": 1,
+        "wall_ms": 26.783098932355642,
+        "submit_ms": 26.740700006484985,
+        "event_span_ms": 26.767295837402344
+      },
+      {
+        "round": 2,
+        "wall_ms": 24.69461504369974,
+        "submit_ms": 24.653272004798055,
+        "event_span_ms": 24.67967987060547
+      },
+      {
+        "round": 3,
+        "wall_ms": 26.46963601000607,
+        "submit_ms": 26.427845004945993,
+        "event_span_ms": 26.454303741455078
+      },
+      {
+        "round": 4,
+        "wall_ms": 24.240291910246015,
+        "submit_ms": 24.198469007387757,
+        "event_span_ms": 24.22502326965332
+      },
+      {
+        "round": 5,
+        "wall_ms": 26.75881190225482,
+        "submit_ms": 26.718077016994357,
+        "event_span_ms": 26.74492835998535
+      },
+      {
+        "round": 6,
+        "wall_ms": 25.08977218531072,
+        "submit_ms": 25.049613090232015,
+        "event_span_ms": 25.074655532836914
+      },
+      {
+        "round": 7,
+        "wall_ms": 26.838266057893634,
+        "submit_ms": 26.796635007485747,
+        "event_span_ms": 26.822463989257812
+      },
+      {
+        "round": 8,
+        "wall_ms": 24.27395503036678,
+        "submit_ms": 24.232804076746106,
+        "event_span_ms": 24.259103775024414
+      },
+      {
+        "round": 9,
+        "wall_ms": 26.39091806486249,
+        "submit_ms": 26.34791098535061,
+        "event_span_ms": 26.375104904174805
+      },
+      {
+        "round": 10,
+        "wall_ms": 24.594777962192893,
+        "submit_ms": 24.554202798753977,
+        "event_span_ms": 24.580799102783203
+      },
+      {
+        "round": 11,
+        "wall_ms": 26.639678981155157,
+        "submit_ms": 26.5972800552845,
+        "event_span_ms": 26.62396812438965
+      },
+      {
+        "round": 12,
+        "wall_ms": 24.33353685773909,
+        "submit_ms": 24.29180988110602,
+        "event_span_ms": 24.31760025024414
+      },
+      {
+        "round": 13,
+        "wall_ms": 26.923029916360974,
+        "submit_ms": 26.88207197934389,
+        "event_span_ms": 26.907808303833008
+      },
+      {
+        "round": 14,
+        "wall_ms": 24.62607203051448,
+        "submit_ms": 24.585722014307976,
+        "event_span_ms": 24.61180877685547
+      },
+      {
+        "round": 15,
+        "wall_ms": 27.0368829369545,
+        "submit_ms": 26.996501022949815,
+        "event_span_ms": 27.021696090698242
+      },
+      {
+        "round": 16,
+        "wall_ms": 24.584122002124786,
+        "submit_ms": 24.541659047827125,
+        "event_span_ms": 24.568927764892578
+      },
+      {
+        "round": 17,
+        "wall_ms": 26.93487098440528,
+        "submit_ms": 26.893623871728778,
+        "event_span_ms": 26.91926383972168
+      },
+      {
+        "round": 18,
+        "wall_ms": 24.82549101114273,
+        "submit_ms": 24.782259948551655,
+        "event_span_ms": 24.809568405151367
+      },
+      {
+        "round": 19,
+        "wall_ms": 27.287340024486184,
+        "submit_ms": 27.247373014688492,
+        "event_span_ms": 27.273696899414062
+      },
+      {
+        "round": 20,
+        "wall_ms": 24.985581869259477,
+        "submit_ms": 24.94375896640122,
+        "event_span_ms": 24.97020721435547
+      },
+      {
+        "round": 21,
+        "wall_ms": 26.761594926938415,
+        "submit_ms": 26.721755973994732,
+        "event_span_ms": 26.74720001220703
+      },
+      {
+        "round": 22,
+        "wall_ms": 24.312609806656837,
+        "submit_ms": 24.27021088078618,
+        "event_span_ms": 24.296512603759766
+      },
+      {
+        "round": 23,
+        "wall_ms": 26.485763024538755,
+        "submit_ms": 26.444836985319853,
+        "event_span_ms": 26.471168518066406
+      },
+      {
+        "round": 24,
+        "wall_ms": 24.71611788496375,
+        "submit_ms": 24.67483887448907,
+        "event_span_ms": 24.70047950744629
+      },
+      {
+        "round": 25,
+        "wall_ms": 27.752829948440194,
+        "submit_ms": 27.710878988727927,
+        "event_span_ms": 27.73833656311035
+      },
+      {
+        "round": 26,
+        "wall_ms": 25.84651787765324,
+        "submit_ms": 25.803958997130394,
+        "event_span_ms": 25.83033561706543
+      },
+      {
+        "round": 27,
+        "wall_ms": 26.96885308250785,
+        "submit_ms": 26.926965918391943,
+        "event_span_ms": 26.95315170288086
+      },
+      {
+        "round": 28,
+        "wall_ms": 24.474109057337046,
+        "submit_ms": 24.43439792841673,
+        "event_span_ms": 24.45929527282715
+      },
+      {
+        "round": 29,
+        "wall_ms": 26.796953985467553,
+        "submit_ms": 26.756891049444675,
+        "event_span_ms": 26.781408309936523
+      }
+    ],
+    "means": {
+      "wall_ms": 25.882432314877708,
+      "submit_ms": 25.840652151964605,
+      "event_span_ms": 25.86731948852539
+    },
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          256,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": null,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 0
+    },
+    "relative_l2": 0.00519286235794425,
+    "compiled_relative_l2": 0.005604042671620846,
+    "profiles": [
+      {
+        "range": "timing_audit_L256[0]",
+        "profiled_wall_ms": 50.941089,
+        "gpu_kernel_sum_ms": 4.912789,
+        "attention_kernel_sum_ms": 0.179614,
+        "gpu_busy_union_ms": 4.92456884765625,
+        "gpu_span_ms": 50.4937490234375,
+        "gpu_idle_within_span_ms": 45.56918017578125,
+        "kernel_count": 610,
+        "streams": [
+          7
+        ]
+      },
+      {
+        "range": "timing_audit_L256[1]",
+        "profiled_wall_ms": 47.827675000000006,
+        "gpu_kernel_sum_ms": 4.861714,
+        "attention_kernel_sum_ms": 0.18041200000000002,
+        "gpu_busy_union_ms": 4.87295263671875,
+        "gpu_span_ms": 47.52455419921875,
+        "gpu_idle_within_span_ms": 42.6516015625,
+        "kernel_count": 610,
+        "streams": [
+          7
+        ]
+      }
+    ],
+    "event_note": "CUDA event span includes GPU idle; kernel sum comes from separate profiled forwards, never substituted for wall samples"
+  },
+  {
+    "kv_length": 32768,
+    "description": "Llama-7B backbone, 32 layers, MHA, Q=1, prefix=32767, total KV=32768, variant=decode",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "daac6fcf-51d5-7420-9673-02be24954a7d",
+    "torch": "2.14.1+cu130",
+    "warmup_rounds": 10,
+    "samples": [
+      {
+        "round": 0,
+        "wall_ms": 27.3726808372885,
+        "submit_ms": 27.32221898622811,
+        "event_span_ms": 27.35478401184082
+      },
+      {
+        "round": 1,
+        "wall_ms": 24.704406037926674,
+        "submit_ms": 24.663542862981558,
+        "event_span_ms": 24.689023971557617
+      },
+      {
+        "round": 2,
+        "wall_ms": 27.035027043893933,
+        "submit_ms": 26.991349179297686,
+        "event_span_ms": 27.018688201904297
+      },
+      {
+        "round": 3,
+        "wall_ms": 24.79189191944897,
+        "submit_ms": 24.750964948907495,
+        "event_span_ms": 24.77631950378418
+      },
+      {
+        "round": 4,
+        "wall_ms": 26.757788145914674,
+        "submit_ms": 26.716733118519187,
+        "event_span_ms": 26.74297523498535
+      },
+      {
+        "round": 5,
+        "wall_ms": 24.719638051465154,
+        "submit_ms": 24.659800110384822,
+        "event_span_ms": 24.703039169311523
+      },
+      {
+        "round": 6,
+        "wall_ms": 26.868920074775815,
+        "submit_ms": 26.827705092728138,
+        "event_span_ms": 26.853343963623047
+      },
+      {
+        "round": 7,
+        "wall_ms": 25.170440785586834,
+        "submit_ms": 25.11713095009327,
+        "event_span_ms": 25.14246368408203
+      },
+      {
+        "round": 8,
+        "wall_ms": 26.48982685059309,
+        "submit_ms": 26.44922095350921,
+        "event_span_ms": 26.47488021850586
+      },
+      {
+        "round": 9,
+        "wall_ms": 24.695286992937326,
+        "submit_ms": 24.65234394185245,
+        "event_span_ms": 24.679616928100586
+      },
+      {
+        "round": 10,
+        "wall_ms": 27.051699114963412,
+        "submit_ms": 27.00955606997013,
+        "event_span_ms": 27.03708839416504
+      },
+      {
+        "round": 11,
+        "wall_ms": 24.329344974830747,
+        "submit_ms": 24.28953885100782,
+        "event_span_ms": 24.314943313598633
+      },
+      {
+        "round": 12,
+        "wall_ms": 27.115919860079885,
+        "submit_ms": 27.07317005842924,
+        "event_span_ms": 27.100032806396484
+      },
+      {
+        "round": 13,
+        "wall_ms": 24.31657793931663,
+        "submit_ms": 24.274626979604363,
+        "event_span_ms": 24.300960540771484
+      },
+      {
+        "round": 14,
+        "wall_ms": 26.80440992116928,
+        "submit_ms": 26.7619788646698,
+        "event_span_ms": 26.788480758666992
+      },
+      {
+        "round": 15,
+        "wall_ms": 24.565658997744322,
+        "submit_ms": 24.522204184904695,
+        "event_span_ms": 24.550207138061523
+      },
+      {
+        "round": 16,
+        "wall_ms": 27.498438023030758,
+        "submit_ms": 27.458727126941085,
+        "event_span_ms": 27.48406410217285
+      },
+      {
+        "round": 17,
+        "wall_ms": 24.973391089588404,
+        "submit_ms": 24.934063898399472,
+        "event_span_ms": 24.959264755249023
+      },
+      {
+        "round": 18,
+        "wall_ms": 27.022836031392217,
+        "submit_ms": 26.981012895703316,
+        "event_span_ms": 27.007999420166016
+      },
+      {
+        "round": 19,
+        "wall_ms": 24.93767999112606,
+        "submit_ms": 24.896912975236773,
+        "event_span_ms": 24.922592163085938
+      },
+      {
+        "round": 20,
+        "wall_ms": 27.249070117250085,
+        "submit_ms": 27.208783198148012,
+        "event_span_ms": 27.234464645385742
+      },
+      {
+        "round": 21,
+        "wall_ms": 24.741429137066007,
+        "submit_ms": 24.7009820304811,
+        "event_span_ms": 24.726720809936523
+      },
+      {
+        "round": 22,
+        "wall_ms": 26.68242994695902,
+        "submit_ms": 26.641407050192356,
+        "event_span_ms": 26.667327880859375
+      },
+      {
+        "round": 23,
+        "wall_ms": 24.345441022887826,
+        "submit_ms": 24.304706137627363,
+        "event_span_ms": 24.330623626708984
+      },
+      {
+        "round": 24,
+        "wall_ms": 27.020883979275823,
+        "submit_ms": 26.981109054759145,
+        "event_span_ms": 27.005760192871094
+      },
+      {
+        "round": 25,
+        "wall_ms": 24.61756090633571,
+        "submit_ms": 24.576314026489854,
+        "event_span_ms": 24.60223960876465
+      },
+      {
+        "round": 26,
+        "wall_ms": 27.096114121377468,
+        "submit_ms": 27.051795041188598,
+        "event_span_ms": 27.0795841217041
+      },
+      {
+        "round": 27,
+        "wall_ms": 24.926544167101383,
+        "submit_ms": 24.886385072022676,
+        "event_span_ms": 24.912160873413086
+      },
+      {
+        "round": 28,
+        "wall_ms": 27.219213778153062,
+        "submit_ms": 27.178830932825804,
+        "event_span_ms": 27.204479217529297
+      },
+      {
+        "round": 29,
+        "wall_ms": 24.78274004533887,
+        "submit_ms": 24.740820983424783,
+        "event_span_ms": 24.767648696899414
+      }
+    ],
+    "means": {
+      "wall_ms": 25.863442996827263,
+      "submit_ms": 25.820797852550943,
+      "event_span_ms": 25.847725931803385
+    },
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          32768,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "relative_l2": 0.004427213221788406,
+    "compiled_relative_l2": 0.005481668747961521,
+    "profiles": [
+      {
+        "range": "timing_audit_L32768[0]",
+        "profiled_wall_ms": 52.977158,
+        "gpu_kernel_sum_ms": 9.376865,
+        "attention_kernel_sum_ms": 4.6325069999999995,
+        "gpu_busy_union_ms": 9.3877421875,
+        "gpu_span_ms": 52.57714501953125,
+        "gpu_idle_within_span_ms": 43.18940283203125,
+        "kernel_count": 642,
+        "streams": [
+          7
+        ]
+      },
+      {
+        "range": "timing_audit_L32768[1]",
+        "profiled_wall_ms": 48.513638,
+        "gpu_kernel_sum_ms": 9.321306,
+        "attention_kernel_sum_ms": 4.63174,
+        "gpu_busy_union_ms": 9.3325439453125,
+        "gpu_span_ms": 48.21541357421875,
+        "gpu_idle_within_span_ms": 38.88286962890625,
+        "kernel_count": 642,
+        "streams": [
+          7
+        ]
+      }
+    ],
+    "event_note": "CUDA event span includes GPU idle; kernel sum comes from separate profiled forwards, never substituted for wall samples"
+  }
+]

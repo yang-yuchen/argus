@@ -1,0 +1,198 @@
+{
+  "repository": "https://github.com/uiuc-arc/neptune-internal",
+  "branch": "nautilus-gh200",
+  "commit": "b7749f37d2aa96b7124d2a97c2bfec5be1011346",
+  "previous_tree": "paper_kernels.before_b7749f3_20261027",
+  "cases": [
+    {
+      "case": "decode_L256",
+      "export": "paper_kernels/decode_L256/tilelang/best/export/kernel.so",
+      "kernel_sha256": "1e822280840b3ad71f84a0405f26c993ab6b038483c3cbdfc08246cf88bbcf14",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L256.json",
+      "previous_inputs_sha256": "cf12fef5b952b193aa9ca53d399e2a4056cdd547a58293595ae4cb6932d1c17d",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L256.json",
+      "mean_us": 5.340800000000001,
+      "reused": true
+    },
+    {
+      "case": "decode_L512",
+      "export": "paper_kernels/decode_L512/tilelang/best/export/kernel.so",
+      "kernel_sha256": "5c5537790c0ed2a9356157fdbaa6cdcbaebfe94edb4301b432852da5b72c2bab",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L512.json",
+      "previous_inputs_sha256": "ac825b76c38b958be3d07bde65a42b39d187d112d112f05be8ee4d28c2748b61",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L512.json",
+      "mean_us": 6.705920000000001,
+      "reused": true
+    },
+    {
+      "case": "decode_L1024",
+      "export": "paper_kernels/decode_L1024/tilelang/best/export/kernel.so",
+      "kernel_sha256": "8f938488ff51f16e8d19e1b4050c3532864d1b5e0e7204e17a79ce967635c4c9",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L1024.json",
+      "previous_inputs_sha256": "96193ba36eb7c197c6c42576ef247c41bb4d171100bc1f1cc3abab72b6f83b3b",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L1024.json",
+      "mean_us": 10.272,
+      "reused": true
+    },
+    {
+      "case": "decode_L2048",
+      "export": "paper_kernels/decode_L2048/tilelang/best/export/kernel.so",
+      "kernel_sha256": "e6acd1ef4f97bc4c7e905af8f2f99cd28fd95ac11411d294f081c24ca10399bd",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L2048.json",
+      "previous_inputs_sha256": "d044db0a5757761a6cc74006465299a708aceaadf7e6d3aeb13e876ef4a04091",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L2048.json",
+      "mean_us": 17.665280000000003,
+      "reused": true
+    },
+    {
+      "case": "decode_L4096",
+      "export": "paper_kernels/decode_L4096/tilelang/tilelang_auto/best/export/kernel.so",
+      "kernel_sha256": "bb369b2e703f8e4ba6d4cf482da08648dc1ab9d081c90a0c72719a0429280279",
+      "changed": true,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L4096.json",
+      "previous_inputs_sha256": "b646d24d7cfbf3da5cf013a4418e8c221d93aef3a40bfde229e3f78f5d33bcb2",
+      "used_measurement": "profiles_paper_kernels/update_b7749f3_20261027/decode_L4096.json",
+      "mean_us": 29.66592,
+      "reused": false
+    },
+    {
+      "case": "decode_L8192",
+      "export": "paper_kernels/decode_L8192/tilelang/tilelang_auto/best/export/kernel.so",
+      "kernel_sha256": "2a518546102a4453ce7f87cc9410bdea447bc6511753c297a99284e6441bb116",
+      "changed": true,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_a/decode_L8192.json",
+      "previous_inputs_sha256": "00d0fe80f762345de38ef6e73159811233868d099eec1de4dcc87acc55f67485",
+      "used_measurement": "profiles_paper_kernels/update_b7749f3_20261027/decode_L8192.json",
+      "mean_us": 49.61408,
+      "reused": false
+    },
+    {
+      "case": "decode_L16384",
+      "export": "paper_kernels/decode_L16384/tilelang/tilelang_auto/best/export/kernel.so",
+      "kernel_sha256": "8f3666e0f2d3ced5a1be6f8177db2e5807cfd08c3e1886ceeb466f02fe923b46",
+      "changed": true,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/decode_L16384.json",
+      "previous_inputs_sha256": "ac7befe3f79fa9d60a04a0d966da178756b859b8034ed6f84c40b12d1252164b",
+      "used_measurement": "profiles_paper_kernels/update_b7749f3_20261027/decode_L16384.json",
+      "mean_us": 85.38304,
+      "reused": false
+    },
+    {
+      "case": "decode_L32768",
+      "export": "paper_kernels/decode_L32768/tilelang/tilelang_auto/best/export/kernel.so",
+      "kernel_sha256": "b1bb79ca0029471973e2289b9068569987325141ea3c98b9f7ec524e409b351f",
+      "changed": true,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/decode_L32768.json",
+      "previous_inputs_sha256": "f934898e2e2b18f4148ed98146e8cc2617c31b69b5459b9b62b257e03bc07d18",
+      "used_measurement": "profiles_paper_kernels/update_b7749f3_20261027/decode_L32768.json",
+      "mean_us": 154.32768,
+      "reused": false
+    },
+    {
+      "case": "mtpc_Q16_L256",
+      "export": "paper_kernels/mtpc_Q16_L256/tilelang/best/export/kernel.so",
+      "kernel_sha256": "d88f691d057a57213928acebe1d20dc62fe3d2e4368c84c38fe0b1fe701e2177",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L256.json",
+      "previous_inputs_sha256": "afa914c8cb40038e20c934056d4ea4d4dd5ae81e8a7726c005ba81da61feb357",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L256.json",
+      "mean_us": 4.62528,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L512",
+      "export": "paper_kernels/mtpc_Q16_L512/tilelang/best/export/kernel.so",
+      "kernel_sha256": "4d3bb7d82b4f28e305902c5e658a9649dfb2d3f9cd6eb27b84c01a7e32c1b1a2",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L512.json",
+      "previous_inputs_sha256": "143e31d0028668fb993dd823060c6569123f4cbd389c0bce510bd43ba55f1ef5",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L512.json",
+      "mean_us": 4.92736,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L1024",
+      "export": "paper_kernels/mtpc_Q16_L1024/tilelang/best/export/kernel.so",
+      "kernel_sha256": "608c84628ed58ad8ff4f2645ff0f08b85e5b749e453fe3565f71a409e4c201a0",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L1024.json",
+      "previous_inputs_sha256": "a148d945146fec340e3be7f5480df794dbe433c32b4d8842b8cd01649dc3976e",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L1024.json",
+      "mean_us": 5.42528,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L2048",
+      "export": "paper_kernels/mtpc_Q16_L2048/tilelang/best/export/kernel.so",
+      "kernel_sha256": "cf04581c243001b69a41d2ade7467e7a36b094d41539cde4279181d43a9c5142",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L2048.json",
+      "previous_inputs_sha256": "91ae83140a7223db5053b94643cd0d4964dc37f384ab4ff4407e46e88716682b",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L2048.json",
+      "mean_us": 6.439039999999999,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L4096",
+      "export": "paper_kernels/mtpc_Q16_L4096/tilelang/best/export/kernel.so",
+      "kernel_sha256": "c2db3876988ed188f4477a8604300c9ee72bbd136c0a9bbd2233b17fecbc006d",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L4096.json",
+      "previous_inputs_sha256": "f5ed3ec8d220d7de6a7e66cb4dc529f0620efec2f2e0bd05ab1f3a2bfb9c3f21",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L4096.json",
+      "mean_us": 7.690239999999999,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L8192",
+      "export": "paper_kernels/mtpc_Q16_L8192/tilelang/best/export/kernel.so",
+      "kernel_sha256": "7997228757893974eb4e572326ce2c4fc182a8668f56aaa25511805a020a267a",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L8192.json",
+      "previous_inputs_sha256": "ffbdcbfe8095834aa298ff7ee6b5d4feb21967517b76ca5f9711e9aeae0fa567",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L8192.json",
+      "mean_us": 10.902399999999998,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L16384",
+      "export": "paper_kernels/mtpc_Q16_L16384/tilelang/best/export/kernel.so",
+      "kernel_sha256": "b44e634f5c9f464f78d51c0f20af31a2ecac924d54a67fdc0a9e0bc448e4b793",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L16384.json",
+      "previous_inputs_sha256": "96919f59d31a13577e950c2bb8d1bb67532bfcaa3fccd40a9135bdd479b666ce",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L16384.json",
+      "mean_us": 17.37472,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L32768",
+      "export": "paper_kernels/mtpc_Q16_L32768/tilelang/best/export/kernel.so",
+      "kernel_sha256": "b48eb6e699ae3f56e3585e3d7bdbeb6210a526dce1d675b048ef0d560be37d03",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L32768.json",
+      "previous_inputs_sha256": "3566dfb0231c8d6137ce405c330c55d608c1f9331b0a5ac7cc79a87f3c74b74b",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L32768.json",
+      "mean_us": 29.39392,
+      "reused": true
+    },
+    {
+      "case": "mtpc_Q16_L65536",
+      "export": "paper_kernels/mtpc_Q16_L65536/tilelang/best/export/kernel.so",
+      "kernel_sha256": "8595aebc3c6108a7520eca00107f1631aae1da473cbab3cb0c438b7408670200",
+      "changed": false,
+      "previous_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L65536.json",
+      "previous_inputs_sha256": "178a673343a70ae21e89cf6e91f63d06997940c6f1ffa84d1e023709ebe30f43",
+      "used_measurement": "profiles_paper_kernels/sweep_20261026_b/mtpc_Q16_L65536.json",
+      "mean_us": 49.55136,
+      "reused": true
+    }
+  ],
+  "measurement_job": "3468181",
+  "measurement_node": "gh011",
+  "plot_script": "plot_from_csv.py"
+}

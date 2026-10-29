@@ -1,0 +1,1174 @@
+{
+  "status": "complete",
+  "upstream_commit": "5c7555b4e51b4b0c966a9b4ef84d8ed764fa81c7",
+  "prior_run": "profiles_paper_kernels/mtpc_f8beba1_20261028",
+  "q_lengths": [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "kv_lengths": [
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384,
+    32768,
+    65536
+  ],
+  "expected_cases": 54,
+  "expected_method_case_pairs": 162,
+  "existing_cases": 29,
+  "missing_cases": [
+    "mtpc_Q2_L256",
+    "mtpc_Q2_L512",
+    "mtpc_Q2_L2048",
+    "mtpc_Q2_L8192",
+    "mtpc_Q2_L32768",
+    "mtpc_Q4_L256",
+    "mtpc_Q4_L512",
+    "mtpc_Q4_L2048",
+    "mtpc_Q4_L8192",
+    "mtpc_Q4_L32768",
+    "mtpc_Q8_L256",
+    "mtpc_Q8_L512",
+    "mtpc_Q8_L2048",
+    "mtpc_Q8_L8192",
+    "mtpc_Q8_L32768",
+    "mtpc_Q32_L256",
+    "mtpc_Q32_L512",
+    "mtpc_Q32_L2048",
+    "mtpc_Q32_L8192",
+    "mtpc_Q32_L32768",
+    "mtpc_Q64_L256",
+    "mtpc_Q64_L512",
+    "mtpc_Q64_L2048",
+    "mtpc_Q64_L8192",
+    "mtpc_Q64_L32768"
+  ],
+  "methods": [
+    "nautilus",
+    "flex",
+    "tileops"
+  ],
+  "cases": [
+    {
+      "case": "mtpc_Q2_L256",
+      "query_length": 2,
+      "kv_length": 256,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L256/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "7951135f6964f3c740a9588fabdec51b0aca8884e4d6bccb6b95bf4f5d45129f",
+        "meta.json": "34c82dba96cd220e005d060e75f56421b32bc1d4ec36485a2116f89d683215a8",
+        "schedule.py": "da1285443499fa32620e618f82e89baed5deed67ca68d1fe430da01ec7e74423",
+        "tilelang_0.cu": "e29e812f6cff9a06dbcc4ca2ba401909079a9add3c5d5d2e5e6929428b2808d1"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q2_L256/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q2_L512",
+      "query_length": 2,
+      "kv_length": 512,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L512/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "e038d362d700eabbb78f6cb6cd8c35cf8d3d80577e8bf9ee256e45b0205de58b",
+        "meta.json": "699862b28b84ee8fe8c13b45c34c1a0b142970f1b80a6f8a5ac0ba7ab932fc70",
+        "schedule.py": "4919a89d872b5c55c6f08dbb4504062a443b727088940cf4337c98593c290717",
+        "tilelang_0.cu": "c12b2f14bfa95dcd89d5e1a75e051a04dd559567cc8ff968618df18c9ffdac97"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q2_L512/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q2_L1024",
+      "query_length": 2,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q2_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "ecf934755ec77ae18ee2022b3fd25c2be69b9063a2b2662c1b946bb6b8011ed3",
+        "meta.json": "a38d3a914cbbf6906c921c9bd525fc59bbc4c12760a18bc45cf49c2acbda1121",
+        "schedule.py": "6b50eba6cf1be772097ed73afb1f275dc98702a391d3878cfddf69e9a9f8dbd4",
+        "tilelang_0.cu": "95df35787087070d47476132437275e1537383e9bfde05e1ea4d42729cd3bb05"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q2_L2048",
+      "query_length": 2,
+      "kv_length": 2048,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L2048/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "15d48df291fc1b07b32a30cf45a1dd7ccd1787018cb126f622645084cb64f582",
+        "meta.json": "d0f68b3afab6b0be677c551b05c287da90ba58696838c278c6d88c1b35d9713d",
+        "schedule.py": "bf748cfd91fcfefbfb40a8b90673335f0f72754e61e72f6ace0dc0aa78acd2db",
+        "tilelang_0.cu": "b3d9456fc3ebfcf032df6e3199203e54a280a99d7b1b98201ce3056fb228988e"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q2_L2048/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q2_L4096",
+      "query_length": 2,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q2_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "af3e3c15de41d02b6fb6df76c1f84c98638e130e736558b7f14acd537ad5fe99",
+        "meta.json": "fca022d265031543b352048620f9e692b2f5292e8587f5a3ff183f98a0898064",
+        "schedule.py": "9aa17fe6a59c202165af07e28debb99473a230a772aa45762c0102deccb6fe70",
+        "tilelang_0.cu": "320e0e9c40853350291ada4842a80d58c0c3f1242c84683180a68148aa789204"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q2_L8192",
+      "query_length": 2,
+      "kv_length": 8192,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L8192/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "5a4df3f308ae7e8b3b148238d315016d8ab19d76ca6f6fe476cde4acb8a29ec3",
+        "meta.json": "13ee3c8f317c5530bc15a6bdf2eed6457d57173b7b8972a1646a3d1cf6691297",
+        "schedule.py": "2533e18e8fb96c1a9e3142fbf8e05248fde33703643c20ff752ae1588795f5df",
+        "tilelang_0.cu": "14ece7c76b2e8d26210eec069f40029b75f9fb357e055690ca3f3096b2102471"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q2_L8192/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q2_L16384",
+      "query_length": 2,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q2_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "a0a265d2ba6066c0ae2437a0fbc3383de2b2d77a41c79dec20b8febc56fce1b5",
+        "meta.json": "c8d0447abb2d4f03c0eb3b5f9ac580bfa5aa8739e67310f12ac79ca02ff8aea4",
+        "schedule.py": "6297dcbadc3ea746156e3d5b1ff896b610aec312b6c65eb67807bb4d4528a3c9",
+        "tilelang_0.cu": "b46002c25ae51dbc4ba1a533c9a5841b69288e925327e84862078f5e83b287dc"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q2_L32768",
+      "query_length": 2,
+      "kv_length": 32768,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L32768/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "328e961b480d0b9dd943b5b95d8c4e25146eb7ef630aa805e70869ad00b3ca6b",
+        "meta.json": "b0488c89de096f3751ad522d9b06d1f8dab1ce749b836935d340ac454d8f5b43",
+        "schedule.py": "e9f6ae3f96fd44331b5c934b910f81d1634ba16b932323554e53375cba4bd4c2",
+        "tilelang_0.cu": "f141d43638832da70600bb3bb3630970d980a9abafaac8c853d318564d8b2c1d"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q2_L32768/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q2_L65536",
+      "query_length": 2,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q2_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q2_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "13435eeba2a25b4efb2f01a9fdb7965487d5180b8e5cc269afe72e89d321384a",
+        "meta.json": "c28db6f459fca10b6d1732529c8fa8b068db0a4133c50fe9600b4ce0a552e842",
+        "schedule.py": "85d8e32abf99e984e156c68fe6b0ae4cab9122ee8616f6aa2275439a5079f67f",
+        "tilelang_0.cu": "9ae80d6319166e88860e08e645d16e9ef94ca88f42dd4a23bbc1c6c136120c49"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q4_L256",
+      "query_length": 4,
+      "kv_length": 256,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L256/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "e584d213dc14fdbe9d783b5c86b1893d25060febb1c2ff31d66e3bf52ad57655",
+        "meta.json": "5c7af5c683c02d546ef67c0132b04cc62abc9520747f4e12c54f2988c86563b5",
+        "schedule.py": "92ebf7ca0e6dfe0bd23e01df477d9ee4bc8be1a76c167f03d0d5b25228c7c39f",
+        "tilelang_0.cu": "4fe690053fd4332a51b17a33ed8421efedd95a9345491382359fef22922740be"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q4_L256/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q4_L512",
+      "query_length": 4,
+      "kv_length": 512,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L512/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "8092cdcf77086e56e1470ee734abbe9d41e4842a0959b5c4c720a2bef2c172f7",
+        "meta.json": "b796421bfd1e7f89d193d57d4c87146ab7a4c5a5a292649a4b979c34e9049cf6",
+        "schedule.py": "cbaa3d1ed9c4aafce2c5e250d7f9807aa4431e821b90009ecf6ab2893553b15a",
+        "tilelang_0.cu": "9ee40840bcf81e83fec75b1b057598b2b9008604dec45eab297fcee4f17e3a45"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q4_L512/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q4_L1024",
+      "query_length": 4,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q4_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "be62d37f2f74a96678af428117bca338a9395a6df6ddaaea5c91fe13e3a18af8",
+        "meta.json": "26bfe2b3fc23e96c9fc7e3c86aa26df01d8dc909ec72a69e8fb3cbe67a97b4ed",
+        "schedule.py": "7b492c384c4c3bf29f0ce7e9de1ef2984e126580a08e94da7fbdd63c5b1bb4d2",
+        "tilelang_0.cu": "46d11379652babf7583635381b1c20cf612db9b65d71d39b98deb91fb55363ba"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q4_L2048",
+      "query_length": 4,
+      "kv_length": 2048,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L2048/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "918b9d4900ea81a0966b345ea85031a590935f42fe2ffcffbab095e61ec12033",
+        "meta.json": "a4d747ee5598f3f587068c894beb9753f2be8a64d53ad0b3ad065c4ba41b946d",
+        "schedule.py": "e524a83a5291cfa89a0b363404b5e7e5e2e9ac61918a7df070d4811751c70120",
+        "tilelang_0.cu": "2e4b9a27e649ce16eaebb1c4eeb3ff83815c8e9a5e02d8ea8ad8b441615b9ae8"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q4_L2048/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q4_L4096",
+      "query_length": 4,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q4_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "d75c1e4eb369d9b4f63a7f7f651e463e275de9b28bbc5d51933f5ff0afee64a5",
+        "meta.json": "5eaa308ec6eaa72b86482a1698328aef6b9828d28aabbadf6a48c2889c7a4be6",
+        "schedule.py": "1d1ec79cc6706f0eee7087ad55b34f13df3cb5ff6f033670cbcba4936baf0ed4",
+        "tilelang_0.cu": "4f88cdf40413d934ddb34037a414c7731df0a6bf2db3aca142ce3d59b660d510"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q4_L8192",
+      "query_length": 4,
+      "kv_length": 8192,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L8192/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "b354bea2e16eab0b4aacb37e676532d314ae61789a7d4117d3dd7f6f10c201be",
+        "meta.json": "50d2d532e3d9fa2ddf03224c3c69c5956679c7b376cd1b64e891f06cb34cbabe",
+        "schedule.py": "ab7d030c5657fd3e69e4f253cc839512eca4cbecbedd6e25a213ddea9e074421",
+        "tilelang_0.cu": "06a50b2254731488dff06942e491a3149403c77ca6efe757520e2fc2563fa3fd"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q4_L8192/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q4_L16384",
+      "query_length": 4,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q4_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "32674a9584435f0070ead592c59bc1eb7d5084db154ca17ae666d0f83ca22708",
+        "meta.json": "c8a083a81e95c0382c76a67fa001fa043a818eec8d3655aab7181ba1690e8c5e",
+        "schedule.py": "b40cf6aade24db8b4953e82a3bba497c53a9069ec43839cc2fb3738902fa7d1a",
+        "tilelang_0.cu": "5bac52007e8c90f18c479939412a787ec851ca6dacda3b33778dd83b6ef87a40"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q4_L32768",
+      "query_length": 4,
+      "kv_length": 32768,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L32768/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "f0c3c5bebfb400b58599d8d688e1cd4f065102eb9a5f7e39a234de5bfb37e716",
+        "meta.json": "aea69b1fb954cc9191fced4cddf193ceaf2515ed9366a293fac76f19b00cd622",
+        "schedule.py": "fbbce8a733d06786d924a8be2bbce75bccd015e684c3bc6db1796fc287a5e589",
+        "tilelang_0.cu": "ae9bd6e4757fbc25c328b758c1a657fb1b77045267beef0123d9d2f385b14223"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q4_L32768/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q4_L65536",
+      "query_length": 4,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q4_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q4_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "ffa32c44c6e8e0fb864e6576360efc7c6851b6682f2377cb5935590d6e958e7e",
+        "meta.json": "ae974f1dd195c17a89d4da6911990f8737f2b1510c27d98c4e6f74ae7cbeb408",
+        "schedule.py": "d2dfc24dfb916f734e647ba6a1796ced688835a819ac3ea3a8fd911671e9c3b5",
+        "tilelang_0.cu": "e709d60418408e142a6ff43a95050d5c7254dd4af73c80bad8b08f0aa38ac8f6"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q8_L256",
+      "query_length": 8,
+      "kv_length": 256,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L256/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "306bf7427bb57964674981a1174bf87b28b80c382405c1ee78fbbbe20dad6e58",
+        "meta.json": "3cc07a2460d881ce198ae2cdb5f777c9d7aa5182690154e368f4ae9c76cc3670",
+        "schedule.py": "88161c96e50082e9cd7a1e37ce46f520c769439f576c4a06eacd77dd6af86ae3",
+        "tilelang_0.cu": "9b682e8d17c166b6d051f6caa706093cc351b2c78761de44a2afeb35f1af5389"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q8_L256/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q8_L512",
+      "query_length": 8,
+      "kv_length": 512,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L512/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "396d7c047b91d54583f909dbeaa9d08ef9e3d3fddcbb3f9bb47932481ceda118",
+        "meta.json": "c44992b5c465aeaf50fb568d38042fdf178546422a30e9bdbd98fbfd796503df",
+        "schedule.py": "f371bf16dd864b28f5a5993558f0ed7a23a041645e47ef2b4ece25adc9479b56",
+        "tilelang_0.cu": "23a82a548722f1918a0d93dc2ee7940b1be5202b091bac30ea31eae6a5f83a4e"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q8_L512/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q8_L1024",
+      "query_length": 8,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q8_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "c55d6d3e3f9e4f6fd62451a2b4e62f5ca8802a92d990bec511fe3a06af943f49",
+        "meta.json": "d4cb47379514e9f7530d9ea3740bfd98852f6411ba52348f3e63a79f4c2da62c",
+        "schedule.py": "ff2e0166e5eecb0c26f14cd0229bd7d830e0dd12c96b2ef9662205c0b5b5fb0c",
+        "tilelang_0.cu": "091587d95d53b333e6c84b8bc6445b1c5a65ec1942443127d1557425d18d1f7b"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q8_L2048",
+      "query_length": 8,
+      "kv_length": 2048,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L2048/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "59dd65ed91736c3c654dd0e0cf3b14f0d372561e5a11fc88c1b967c8a81d7cad",
+        "meta.json": "28e0ccd664842fc9b1843dedb6935d07231f2e60d1a395b939d7a2b2d9f0f1ad",
+        "schedule.py": "cf5201efac599169dcd737307ac7ff2414a82119cf5edb1d6fceb75e2b1b1a6a",
+        "tilelang_0.cu": "6c577b8ce14dc26e61a5fdfb8f9014645e537b2d7d2992e63bfb523730caae0a"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q8_L2048/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q8_L4096",
+      "query_length": 8,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q8_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "030b837d3bca715ce07000c42a04ad6ec35a8703d8311233f2258377665c2140",
+        "meta.json": "2d302ed65d5bbcdff792afc2ecb5add2e44b9a459e2ae19d7ebde47d19f5575e",
+        "schedule.py": "6572a3c6cb9632bbd61fa0a5e4b467ebe9804e356b06f30014c6ef66dcdc7f2a",
+        "tilelang_0.cu": "ab11290bff0d6a2e5ddbe04281b11352061a7ad7669792b1e73056236e11fdb0"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q8_L8192",
+      "query_length": 8,
+      "kv_length": 8192,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L8192/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "eab3067249e8bf246f37e26dda395e1b405554276439e0f489d1100f19f7c837",
+        "meta.json": "d88abb0222eb6fe2be07395928bf1723887c91e6f6f7fa3ef8c0708848d3ebd2",
+        "schedule.py": "a163e517b1916e9f90993c7e1bf5aca23f8166707cd7021bfb641e8fd521f8e7",
+        "tilelang_0.cu": "f3b8ae66455bf707f317c8602302e0018a003306757b5e74ca8f5d569a2fad7d"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q8_L8192/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q8_L16384",
+      "query_length": 8,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q8_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "cb27f91719176b91d9f269009d0a34f6b05d80970af9564864744419e704755a",
+        "meta.json": "9c7427423da6b74b9d9fa861367faa926809bc8e25d48f7efa1ff86d273a8fec",
+        "schedule.py": "e9d48a21180426e671df75cad04ed82d2a69686d49d57f008f60f9147370cb52",
+        "tilelang_0.cu": "63a2942220d3fc20a852d38c67acc10863099996cd19d7d7820bd7056e1f24e2"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q8_L32768",
+      "query_length": 8,
+      "kv_length": 32768,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L32768/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "5900331b3119fe5cbfa75ea7989ef496d13464ba609cb40f4b4482d86a9edf2b",
+        "meta.json": "292b6497b60a3a17b43d5e253ad20e83b7e8a8f5c09ba29a597a90a50c06a3d7",
+        "schedule.py": "5463a2fae49df07cd9f9213d7aecc9e546da9f40f662163e67a7d3cb9cff48ba",
+        "tilelang_0.cu": "7a1fe8aad66406e40c4d46e12b08585dc2c97abf49a0b0a7e5418a1cfb730727"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q8_L32768/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q8_L65536",
+      "query_length": 8,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q8_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q8_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "e7cc68f7a95b7e3f34bd1abec86874a5c482fa82940a5dd49c07e3bd0d695ee7",
+        "meta.json": "f04f6f58035d5228e8f878d21c284781d14d340efdf9959328c5941c124c9df6",
+        "schedule.py": "a974bec2be4ab1c5d72a5a1a8c6843bb0e681128edca961bf499c42b162bbfde",
+        "tilelang_0.cu": "88b49e6a0719f1cde7d2c0ed2113a92ec36b1f97f0adf3cff5e600f89ff3a473"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L256",
+      "query_length": 16,
+      "kv_length": 256,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L256/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L256/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "d88f691d057a57213928acebe1d20dc62fe3d2e4368c84c38fe0b1fe701e2177",
+        "schedule.py": "1dfc508bec3df7f9a7e42af4821c7aad2bdeb8d49c60a76feeb5775de20f04b4",
+        "tilelang_0.cu": "1933f3780acb435e0c9744a4d523f258c7c5615f8a2af8710015a8c15a2cd27d"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L512",
+      "query_length": 16,
+      "kv_length": 512,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L512/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L512/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "4d3bb7d82b4f28e305902c5e658a9649dfb2d3f9cd6eb27b84c01a7e32c1b1a2",
+        "schedule.py": "aa86a93775df7c05f956cb698a0fbba6ad90652a315a002b77c06f6794d62888",
+        "tilelang_0.cu": "8d14dc3f2f63dd7e916815874a8a00052d7722198e70563bcf872e52b68e6fb1"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L1024",
+      "query_length": 16,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L1024/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L1024/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "608c84628ed58ad8ff4f2645ff0f08b85e5b749e453fe3565f71a409e4c201a0",
+        "schedule.py": "4913d018f6ff4a22c8629b1251f9e9456a39b6b94a1c48ec2c3683cbb86a2483",
+        "tilelang_0.cu": "c379922099d90651e38ac41833badfae32bb66c53bd30563483e573c5e07c4e6"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L2048",
+      "query_length": 16,
+      "kv_length": 2048,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L2048/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L2048/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "cf04581c243001b69a41d2ade7467e7a36b094d41539cde4279181d43a9c5142",
+        "schedule.py": "ffece3002a02a878e65346876b9be70b99c623c3a9052cefab5c21fb836f3858",
+        "tilelang_0.cu": "743c4debb35429c2a334891917dd44ab11fe05389232060e07c4f0c857410d48"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L4096",
+      "query_length": 16,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L4096/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L4096/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "c2db3876988ed188f4477a8604300c9ee72bbd136c0a9bbd2233b17fecbc006d",
+        "schedule.py": "0cd6211e89c95252037beb68fb37e786271b68a987429de926f5550b8931ed41",
+        "tilelang_0.cu": "aac8afbf87c41067db6cdb04869d1364ccd5b0630ce09963b74b82e844869015"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L8192",
+      "query_length": 16,
+      "kv_length": 8192,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L8192/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L8192/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "7997228757893974eb4e572326ce2c4fc182a8668f56aaa25511805a020a267a",
+        "schedule.py": "9ce258734ce95a727461beea6dda38b61c84a3316335daf1cc276d0080687dda",
+        "tilelang_0.cu": "de258db43a0828af65d30a1dbc4b1308510104a2ec654bdf9f1f74dec05af017"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L16384",
+      "query_length": 16,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L16384/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L16384/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "b44e634f5c9f464f78d51c0f20af31a2ecac924d54a67fdc0a9e0bc448e4b793",
+        "schedule.py": "56f21707000d005000255bd0e72c32bd5c77ba0793e408e12f3824d815ec9d9a",
+        "tilelang_0.cu": "ee7e41a112df5c1491071f7dea35fa6769ab7f8645a16c84b8b3902af3788109"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L32768",
+      "query_length": 16,
+      "kv_length": 32768,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L32768/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L32768/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "b48eb6e699ae3f56e3585e3d7bdbeb6210a526dce1d675b048ef0d560be37d03",
+        "schedule.py": "21f5a9de4c32d974931c6b44d2d45fadf8f74267539a53755c24bd5b80082614",
+        "tilelang_0.cu": "ccaa30e80b8fb3244b84917b687276ea14dd85c164189e33e40e653f558dd186"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q16_L65536",
+      "query_length": 16,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q16_L65536/tilelang/best/export/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q16_L65536/tilelang/best/export",
+      "original_tuning_export": null,
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "8595aebc3c6108a7520eca00107f1631aae1da473cbab3cb0c438b7408670200",
+        "schedule.py": "4a4c57e6a6f93d344f13d3a027c6c7ccbd796519f391568e81963cfc3179e8c8",
+        "tilelang_0.cu": "d56db97454b8ce06027bf0586edc870166e98102bae3eb66b79ce77abefca99f"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q32_L256",
+      "query_length": 32,
+      "kv_length": 256,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q32_L256/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "be6bc2a13d7c6d77ee3db3dfc7a8b96a73a067dc887cd2755c9aad9726b22cba",
+        "meta.json": "9713f51cd7bf9bd34fb871820ae959a50ee999623bad00fbafdc2a957974bfb2",
+        "schedule.py": "b48537b3b9a098c5e1b22c1067e03cfdd865827a1615f6aa616ed63d42ccd048",
+        "tilelang_0.cu": "16bf82cd7f629940ecc24ddb5a8eeb0ce8beb1b8f525c19adedeab650c92bfa6"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q32_L256/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q32_L512",
+      "query_length": 32,
+      "kv_length": 512,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q32_L512/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "a8b75d150fd9e07d4af405f5610ef3a772181b4371d0fbb2f74e2a241fa8952b",
+        "meta.json": "52be93add43ffbc335c074f0a650fa7b36ceced5b42eb92dff6a4c025459cffe",
+        "schedule.py": "c7130f5963ded8b7c15d34de9762f5d666c2a48cd3566b55d0cbe7af5a3c64ee",
+        "tilelang_0.cu": "ac62d7d9a427812426ec01a3c34a41a0f6309dade9126d122cbbfec94b0cc991"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q32_L512/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q32_L1024",
+      "query_length": 32,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q32_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "7d8bf58935775b93a6b4f515fb3a6684d8fafb13df6869ba1bf2192946d95bbb",
+        "meta.json": "ffef3397874b0aa927bb465b1196b815d048d7372281d910d9ffdb9210c71592",
+        "schedule.py": "79ef3c8b52adc3c04d03e0a31ee2f30b332ef40504c25eddac88d0d423fee5d0",
+        "tilelang_0.cu": "060bf018b383b35de9d831026f8c14b54f2d2ed88904aa83eab69735d4943230"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q32_L2048",
+      "query_length": 32,
+      "kv_length": 2048,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q32_L2048/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "36f5802e8b933f04f196cfab0f931553c0894c8be7e9abb29fe38897d135d6dd",
+        "meta.json": "9b9e71b5dcab4dc87c733f197d574430ba06c2d879d0b3c6e7f493d1ab795b8d",
+        "schedule.py": "d6b46bdef2ba840d3cc8919370e16554f96cafd1da21213a4fd8d594bec37803",
+        "tilelang_0.cu": "0c80f47d870b3d62d02a59031541d9628b335a5efa2a2b9bb508ee26df54a4ab"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q32_L2048/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q32_L4096",
+      "query_length": 32,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q32_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "7ecbc5343929a884858fb1472b1487e529dfdc101f12bb1d060978e19f9dfdac",
+        "meta.json": "8e9c82799aea6c727f641889aba80f736a9df8e9d2ac2e8c52dd8b9815fa6e63",
+        "schedule.py": "c1f465f8d71c3d16c1569361b2c88cf2bfffd3b317725d483c71b000153a481d",
+        "tilelang_0.cu": "f68cfecf66432303d3f48ac9fc103c898edee1a7870034ede7cbf53224d1c641"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q32_L8192",
+      "query_length": 32,
+      "kv_length": 8192,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q32_L8192/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "6a28537d3609a955711e82683f07b154e76a2c5331a703f64666470f19b01b0c",
+        "meta.json": "d060ee54cc4e03bb81421134d08691bb954c3250a8a2fbbdb7f32f68e69f4264",
+        "schedule.py": "620e8f79318ba713117950afefe44956da5e4c32bd7c518addfaaa576aef7ba9",
+        "tilelang_0.cu": "0c9bab53ff6a7716cc20a339b73afc3d7053f067781b1e4b0de0d459eb1304c5"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q32_L8192/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q32_L16384",
+      "query_length": 32,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q32_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "f9e2f91d3d91a18dfed928ea7d01e83dba6496586305d1b421bc301e9a32e1ac",
+        "meta.json": "94f0968af02045d422df3b047b696ff261e5dbd130114ebd93ee63fd6e5d0fab",
+        "schedule.py": "e88054e1b90ceb5c125d90416d45d39d1ba975a3f27c707a5d0043eac6e35048",
+        "tilelang_0.cu": "7978cec41223bc35f0e7bfac5ceeb851c7daf9f8c0ae0ce82c499906098e3ce1"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q32_L32768",
+      "query_length": 32,
+      "kv_length": 32768,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q32_L32768/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "ef703cb4df5eb1b0dc194a229ebd5876b5df7811ba08599a179790461bec125c",
+        "meta.json": "1c4e6285ca1457b161a15da48b0676dd75bebdab3f2d3da513f397464c19f707",
+        "schedule.py": "e4ea506c47bed2af90e7523a86eabd6e91467d6282b27b2e8fd7d2913b614c0c",
+        "tilelang_0.cu": "789dac291fa5e16fda2c348f8485b718e7cb3a170f2a445fb8f3f0d54696c371"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q32_L32768/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q32_L65536",
+      "query_length": 32,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q32_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q32_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q32_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "8a13bcef17d2dbcfddc4c25cd7ed0c9d714885a377d5509fefa05ccd3da9bb01",
+        "meta.json": "aa2e2276d33bca783cc830024df44f942503f5b3feeba90c00bf9aeb0e7c9341",
+        "schedule.py": "cc0c342616da81074ffcb3ced24625b5c78ede22d70fb028d8e57283b67f6fb1",
+        "tilelang_0.cu": "49d98871d95e1a6b897c3ce821ded78dbc72d0db0b743e8444277dc622aaf678"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q64_L256",
+      "query_length": 64,
+      "kv_length": 256,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q64_L256/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "9461b8bf2dce742299fdc77860206f9866530f42ff4fed6529ebc149f54a4a40",
+        "meta.json": "ab4c2c0209137c1b69de7dde43fff4c34c71613c8966c3b0a3edb4a5ac1f6bde",
+        "schedule.py": "35487bcded12f8c35ef252542e04b97bd9e1d09b74c94c51c3bae7f54c4b42f2",
+        "tilelang_0.cu": "5aecc4ab63768f9ee1d947f9c024d7c354f048b7cfca1d5c84c514fa975c98d2"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q64_L256/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q64_L512",
+      "query_length": 64,
+      "kv_length": 512,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q64_L512/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "f71a79e3b189e8e691d9005752ebb72ad14a20e3c0352a41ff7b6d40a3fe92dc",
+        "meta.json": "40d82e72848405ce420b059f9cde40db7a2179c9baced59d9f43c16fc6545a9f",
+        "schedule.py": "4d9e8906714a90a992d224e14995784ad796fff486d84c77639012831bfe50a6",
+        "tilelang_0.cu": "debcd659901bf47775898b1ab5623a252e5387573ebe9108935c451d3447e531"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q64_L512/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q64_L1024",
+      "query_length": 64,
+      "kv_length": 1024,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L1024/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L1024/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q64_L1024/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "58a353a964543399e336157c93a7a8618d9b711789799ffdff0b3039d6c93c9b",
+        "meta.json": "7be8d8d2c4306c9de731a6cf01ed88b23b6795c094293c710fa95f8e3e4dcc6b",
+        "schedule.py": "02894c6b7c8a85486e627630a65579d1be42e15bc12f1494f9fd4c147f739b1e",
+        "tilelang_0.cu": "896c53507b0f6e53d741de985584c0b11851c933827df72ec48641b57bccd751"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q64_L2048",
+      "query_length": 64,
+      "kv_length": 2048,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q64_L2048/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "4fa6aea73b5840ccd11541928aed32f5c0ba9a1a6ba132363fcd357298939f4c",
+        "meta.json": "a6c2025b796b3b9626d87130b0181821306c49d8f94f3b4099d3a394abf5c861",
+        "schedule.py": "78bd0b9b1f85487c21c5de30b07bad24a0c491680f6c347f5f17d8e8cb661ae0",
+        "tilelang_0.cu": "08d622fd4b842b090a19ccf4e0bdbc0949e17f039353721abae7ad0cc3d30049"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q64_L2048/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q64_L4096",
+      "query_length": 64,
+      "kv_length": 4096,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L4096/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L4096/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L4096/mtpc_Q64_L4096/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "2801d01fe8bd21a53ab90f626db8822266e8ac1e5241ec364a4d0995c8351f5c",
+        "meta.json": "b5c6c59c5ea50c8069cd4f637ff0d927b7b5f5eae80026f15e1b2127e3a26844",
+        "schedule.py": "75e828596e6a845d9f60c2c8fc4edd6242455cca7e4f7f7f66b387ac7a6235d3",
+        "tilelang_0.cu": "2878835c8e92886462203c6a542cba63a34f6d8c83f310dc72d32c3ad8dbd053"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q64_L8192",
+      "query_length": 64,
+      "kv_length": 8192,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q64_L8192/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "e893e3e2ba40ea0b37ba5f24ceb18ea009c3adce1f826428f64c0fecaa506ebd",
+        "meta.json": "626617c733387f10ce71be2e2a37f992be1505a2678d0fb3a546aa3856fde590",
+        "schedule.py": "30aeb9db66f95f1fc012e384cf81b17065c49c2bbd84201df8610eb4c572f5ec",
+        "tilelang_0.cu": "12d5e53dae5e1b68c173cfb64058e9de19a2533bfc7e107bbe6f47394d4029e5"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q64_L8192/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q64_L16384",
+      "query_length": 64,
+      "kv_length": 16384,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L16384/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L16384/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L16384/mtpc_Q64_L16384/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "a0498f53e53f2cd055226a7949eab1323f304051d20634002e03fffc9597e747",
+        "meta.json": "6f311dbe55e8f646a4f4313b881f2a017a6589aad601a395cda3da1a8daa94a8",
+        "schedule.py": "23c417d5ac89fedfb1093a032863d63aa9a526328d38aba918125b1988a5de02",
+        "tilelang_0.cu": "21feb4422050a6f53d5e1b949c24cdcfaf179dcc7a3dc35ca7b93187a82462bf"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    },
+    {
+      "case": "mtpc_Q64_L32768",
+      "query_length": 64,
+      "kv_length": 32768,
+      "export": "profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q64_L32768/tilelang/best/export",
+      "generated_locally": true,
+      "measurement_origin": "local_upstream_autotune; three methods measured in one allocation",
+      "tuning": {
+        "trials": 64,
+        "population": 64,
+        "evolve_iters": 1,
+        "fusion": "auto",
+        "seed": 3
+      },
+      "sha256": {
+        "kernel.so": "6836b7964bb0339d0ee6ab2d3b046c5e8ee1da415067fde94ad859c74ddc19a8",
+        "meta.json": "1c4192457f2c8e0db0708768876bb8b5c4155baa2e655dd5e4478f77e9c27d7a",
+        "schedule.py": "1876f2e90777b9708c6c03a4f5eea31276bea41c6205d0afa78053e35e38ae5d",
+        "tilelang_0.cu": "2af8dc8ff496af50c9741fd296d887fd06e45445460b76abfd5c8aedb9d29a6c"
+      },
+      "tuning_result": "profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q64_L32768/tilelang/result.json",
+      "validation_status": "passed"
+    },
+    {
+      "case": "mtpc_Q64_L65536",
+      "query_length": 64,
+      "kv_length": 65536,
+      "upstream_schedule": "paper_kernels/mtpc_Q64_L65536/tilelang/best/schedule.py",
+      "export": "profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q64_L65536/tilelang/best/export",
+      "original_tuning_export": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q64_L65536/tilelang_w/best/export",
+      "upstream_schedule_byte_identical": true,
+      "sha256": {
+        "kernel.so": "eee2222bb23aa85a6573d99887345d088a5f4fd3a36715aced3f0f5f6aaff279",
+        "meta.json": "34c453d44e6012b55b3659682c117e83bcf44664f54ad222173a05e1184ddda8",
+        "schedule.py": "5cdcea3be242b2d8e86d8b18d2465785c7d7464a79ccb43c12d45b371efff61e",
+        "tilelang_0.cu": "19983b36717317260fada761373192e5402fbe5569307eaeab118e3ba8d7049a"
+      },
+      "measurement_origin": "reused_gh066_job3478832",
+      "generated_locally": false
+    }
+  ],
+  "note": "25 missing shapes are local tuning of upstream compute using upstream official tuner, not prepublished paper exports.",
+  "tuning_source": {
+    "upstream_commit": "5c7555b4e51b4b0c966a9b4ef84d8ed764fa81c7",
+    "tilelang_submodule": "04b88a92305ddd4ce8c463d48656e3ff1b910edc",
+    "entry": "source/upstream/python/attn_tune.py",
+    "source_sha256": "7194ec7625f1a9d3762ea2823c92200a21b42cbfe3bcbcd4f684f46c1baf9f8c",
+    "compiler_libraries": "/work/nvme/beqg/mbudiu2/neptune-release-build2",
+    "python_ffi": "same unchanged ffi sources, precompiled Python 3.13 core.abi3.so reused",
+    "trial_budget_per_missing_shape": 64,
+    "population": 64,
+    "evolve_iters": 1,
+    "fusion": "auto",
+    "seed": 3,
+    "validation_harness_patch": {
+      "file": "source/upstream/python/attn_variants.py",
+      "change": "tuner check_and_time output torch.zeros -> torch.empty",
+      "reason": "catch unwritten output elements; no kernel algorithm change",
+      "original_sha256": "66daa977a33f58a4cc0ef9c68400c6a16c19dca3efa03263a1d84421a0e98a81",
+      "patched_sha256": "ce2926363518ee6b3caf8f554fb58e21e02b47e342a9991998cb998bdfe5b18a",
+      "scope": "only Q64_L8192 replacement tuning"
+    }
+  },
+  "jobs": {
+    "pilot": "3479794",
+    "remaining_array": "3479801",
+    "array_dependency": "afterok:3479794",
+    "array_max_concurrent": 4,
+    "final_recollection": "3480105",
+    "recollection_dependency": "afterany:3479801:3480293",
+    "known_empty_capture_recollection": "3480293",
+    "known_empty_capture_dependency": "afterany:3479801_10"
+  },
+  "failed_environment_probes": [
+    "3479757: old runtime-overlay library shadowed compiler; scheduler unavailable",
+    "3479792: cancelled before using corrected configuration"
+  ],
+  "capture_note": "A CUDA-empty Nsight capture is archived and recollected once; no event-time substitute or zero latency. Incomplete triples are remeasured on one GPU.",
+  "capture_scratch": "Each nsys profile and child uses its own local /tmp TemporaryDirectory; reports remain in shared output directories.",
+  "measured_method_case_pairs": 162,
+  "nodes_used": [
+    "gh004.hsn.cm.delta.internal.ncsa.edu",
+    "gh005.hsn.cm.delta.internal.ncsa.edu",
+    "gh031.hsn.cm.delta.internal.ncsa.edu",
+    "gh041.hsn.cm.delta.internal.ncsa.edu",
+    "gh042.hsn.cm.delta.internal.ncsa.edu",
+    "gh059.hsn.cm.delta.internal.ncsa.edu",
+    "gh066.hsn.cm.delta.internal.ncsa.edu",
+    "gh069.hsn.cm.delta.internal.ncsa.edu",
+    "gh075.hsn.cm.delta.internal.ncsa.edu",
+    "gh088.hsn.cm.delta.internal.ncsa.edu",
+    "gh121.hsn.cm.delta.internal.ncsa.edu"
+  ],
+  "completed_shapes": 54,
+  "validation_gate": "all 162 points correct=true measurement_complete=true 50 samples; no tolerance relaxation"
+}

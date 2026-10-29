@@ -1,0 +1,229 @@
+{
+  "plot_script": "plot_from_csv_5090.py",
+  "metric": "median_ms",
+  "normalization": "Nautilus median latency / method median latency; higher is faster",
+  "compiler_baselines_only": true,
+  "runs": [
+    {
+      "source": "rtx5090_decode_results.json",
+      "source_sha256": "061bfa3e030eb066e407dfd28f1e10785225d1be2e45986200f1c8df45aab59c",
+      "csv": "rtx5090_decode_plot_input.csv",
+      "pdf": "rtx5090-decode.pdf",
+      "lengths": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768
+      ],
+      "methods": [
+        "Ours",
+        "FlexAttn",
+        "TileLang"
+      ],
+      "excluded": [
+        {
+          "variant": "decode_L1024",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L1024",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        },
+        {
+          "variant": "decode_L16384",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L16384",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        },
+        {
+          "variant": "decode_L2048",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L2048",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        },
+        {
+          "variant": "decode_L256",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L256",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        },
+        {
+          "variant": "decode_L32768",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L32768",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        },
+        {
+          "variant": "decode_L4096",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L4096",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        },
+        {
+          "variant": "decode_L512",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L512",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        },
+        {
+          "variant": "decode_L8192",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "decode_L8192",
+          "implementation": "flashinfer-5090",
+          "reason": "unsupported",
+          "error": null
+        }
+      ]
+    },
+    {
+      "source": "rtx5090_mtpc_results.json",
+      "source_sha256": "8a966fdf5f135f0a99a7013775238b5a37609fcff06c31a85602eaf75edc35fc",
+      "csv": "rtx5090_causal-mtp_plot_input.csv",
+      "pdf": "rtx5090-causal-mtp.pdf",
+      "lengths": [
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192,
+        16384,
+        32768
+      ],
+      "methods": [
+        "Ours",
+        "FlexAttn"
+      ],
+      "excluded": [
+        {
+          "variant": "mtpc_Q16_L1024",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L1024",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        },
+        {
+          "variant": "mtpc_Q16_L16384",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L16384",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        },
+        {
+          "variant": "mtpc_Q16_L2048",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L2048",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        },
+        {
+          "variant": "mtpc_Q16_L256",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L256",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        },
+        {
+          "variant": "mtpc_Q16_L32768",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L32768",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        },
+        {
+          "variant": "mtpc_Q16_L4096",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L4096",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        },
+        {
+          "variant": "mtpc_Q16_L512",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L512",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        },
+        {
+          "variant": "mtpc_Q16_L8192",
+          "implementation": "sdpa-5090",
+          "reason": "not identified as a compiler baseline; SDPA backend unspecified"
+        },
+        {
+          "variant": "mtpc_Q16_L8192",
+          "implementation": "tilelang-official-mtp",
+          "reason": "failed",
+          "error": "Auto-tuning failed: No configuration successfully compiled and passed benchmarking/validation."
+        }
+      ]
+    }
+  ]
+}

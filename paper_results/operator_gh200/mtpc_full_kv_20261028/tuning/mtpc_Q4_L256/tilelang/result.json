@@ -1,0 +1,38 @@
+{
+  "variant": "mtpc_Q4_L256",
+  "backend": "tilelang",
+  "fusion": "auto",
+  "trials": 64,
+  "trials_measured": 50,
+  "trials_failed": 14,
+  "in_tuner_best_ms": 0.0043479999999999994,
+  "tuned": {
+    "correct": true,
+    "max_err": 0.0001220703125,
+    "ms": 0.004456140000000006,
+    "event_ms": 0.00848000030964613
+  },
+  "decisions": [
+    "tile=[8, 32]",
+    "tile=[1, 128]",
+    "warps=4",
+    "stages_idx=1",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "warps=2",
+    "stages_idx=2",
+    "[0, 1]=0",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=0",
+    "[0, 1]=0"
+  ],
+  "export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q4_L256/tilelang/best/export",
+  "manual": {
+    "error": "splits and tile must divide NKV",
+    "note": "schedule_split_kv_flash(sch, 16), mask on every tile"
+  },
+  "sdpa_ms": 0.00850978000000005,
+  "seconds": 878.8318598270416
+}

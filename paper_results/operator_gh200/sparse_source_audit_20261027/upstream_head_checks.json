@@ -1,0 +1,30 @@
+[
+  {
+    "repo": "tile-ai/tilelang",
+    "head": "af08dae6e4a9b5a5336aae16202d35a029f9b9cd",
+    "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+    "sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30",
+    "same_as_measured_source": true
+  },
+  {
+    "repo": "pytorch/helion",
+    "head": "3c8749703b606c52b2464c63d6937bd672c2f8db",
+    "path": "examples/flex_attention.py",
+    "sha256": "01624062392487b6e97646419e356722be1f54039372737577d9cbf7326a0631",
+    "same_as_measured_source": true
+  },
+  {
+    "repo": "tile-ai/TileOPs",
+    "head": "4062bf9d43a18af5a0dc12ca91a422450a4d8edf",
+    "path": "src/tileops/_kernels/attention/dsa/decode.py",
+    "sha256": "03d1ef0180004aea98457b8b6bae9130259ba1b978f0d182658f70fd13b1328e",
+    "same_as_measured_source": true
+  },
+  {
+    "repo": "tile-ai/TileOPs",
+    "head": "4062bf9d43a18af5a0dc12ca91a422450a4d8edf",
+    "path": "pyproject.toml",
+    "sha256": "037980fa29dfc3605ce8bf423493bc98716df2875e42fdb9a44bb1fe2a3d1b8c",
+    "same_as_measured_source": true
+  }
+]

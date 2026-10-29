@@ -1,0 +1,987 @@
+{
+  "variant": "mtp",
+  "family": "pdf_dense",
+  "stage": "candidates",
+  "repeat": 50,
+  "environment": {
+    "host": "gh024.hsn.cm.delta.internal.ncsa.edu",
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "eb75a6aa-5f9e-3062-bc66-9310274ac0fa",
+    "compute_capability": [
+      9,
+      0
+    ],
+    "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+    "torch": "2.14.1+cu130",
+    "cuda": "13.0",
+    "packages": {
+      "triton": {
+        "version": "3.8.0",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/triton/__init__.py"
+      },
+      "flashinfer": {
+        "version": "0.7.2.post1",
+        "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/__init__.py"
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "flex",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "flex",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9250532896164505e-06,
+            "max_abs_error": 1.0705441930273368e-05,
+            "relative_l2": 0.0003050051305619375,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.5091878363938246e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003975555978412928,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.8910488666662776e-06,
+            "max_abs_error": 9.469902171488354e-06,
+            "relative_l2": 0.0002991119333944385,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.419057277392113e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003826267818370824,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.963626047033617e-06,
+            "max_abs_error": 1.0655665195646868e-05,
+            "relative_l2": 0.000298251665029472,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.4877337053097067e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00037785744491341535,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.725212312554694e-07,
+            "max_abs_error": 3.95298411604017e-06,
+            "relative_l2": 0.00020294462538447946,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 4.6966736868257174e-07,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.00012338198804695368,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "ready"
+    },
+    {
+      "name": "torch_flash",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "torch_flash",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.7812818571509952e-06,
+            "max_abs_error": 9.140314570429964e-06,
+            "relative_l2": 0.0002822260081518041,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.3297888164431657e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00036913162591134443,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.7659559232717642e-06,
+            "max_abs_error": 9.245202856344309e-06,
+            "relative_l2": 0.0002793256693732999,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.2722016831864187e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003593983597857144,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.8272174679766546e-06,
+            "max_abs_error": 1.0043907892880177e-05,
+            "relative_l2": 0.0002775328087637877,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.3111298395780578e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00035103339806114784,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.0,
+            "max_abs_error": 0.0,
+            "relative_l2": 0.0,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "ready"
+    },
+    {
+      "name": "torch_cudnn",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "torch_cudnn",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9252785515342116e-06,
+            "max_abs_error": 1.0705441930273368e-05,
+            "relative_l2": 0.00030504082102360313,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.5102605800944557e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003977255633006536,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.891271507315731e-06,
+            "max_abs_error": 9.469902171488354e-06,
+            "relative_l2": 0.00029914714902333316,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.421746369103807e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00038305212046685615,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.963391916690059e-06,
+            "max_abs_error": 1.0655665195646868e-05,
+            "relative_l2": 0.00029821610338834104,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.487373518228269e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00037780273673866487,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.725212312554694e-07,
+            "max_abs_error": 3.95298411604017e-06,
+            "relative_l2": 0.00020294462538447946,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 4.6966736868257174e-07,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.00012338198804695368,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "ready"
+    },
+    {
+      "name": "openai_triton",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "openai_triton",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 0.1960589968758081,
+            "max_abs_error": 0.9311342110851699,
+            "relative_l2": 31.063555623368096,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.19605900068473595,
+            "max_abs_error": 0.9311332702636719,
+            "relative_l2": 31.063578461071835,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 0.19763582997759935,
+            "max_abs_error": 0.9189471577255676,
+            "relative_l2": 31.26055399976431,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.19763581972767127,
+            "max_abs_error": 0.9189472198486328,
+            "relative_l2": 31.260424622792016,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 0.19205994025821277,
+            "max_abs_error": 0.7815932338496359,
+            "relative_l2": 29.171642459116466,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.19205992771311783,
+            "max_abs_error": 0.7815933227539062,
+            "relative_l2": 29.171640598445524,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 0.12509017776488737,
+            "max_abs_error": 0.3894842389727273,
+            "relative_l2": 32.86172371536782,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 0.12509018851540132,
+            "max_abs_error": 0.3894844055175781,
+            "relative_l2": 32.861291146308126,
+            "finite": true,
+            "allclose": false,
+            "passed": false,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": false,
+      "status": "accuracy_failed"
+    },
+    {
+      "name": "tridao_triton",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "tridao_triton",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 3.1037748055705735e-06,
+            "max_abs_error": 1.273424053679223e-05,
+            "relative_l2": 0.0004917615761153915,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.597638290801711e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.000570009634500682,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 3.058749620541801e-06,
+            "max_abs_error": 1.2718173934488444e-05,
+            "relative_l2": 0.0004838100849200432,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.5171071811944015e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0005563073742376588,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 3.111283722334209e-06,
+            "max_abs_error": 1.2612826989812087e-05,
+            "relative_l2": 0.0004725673465001583,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 3.611161040050024e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0005484928233483503,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 2.6244581897562898e-06,
+            "max_abs_error": 8.548525329388212e-06,
+            "relative_l2": 0.0006894563703986852,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.7114611871015335e-06,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.0007123029916154242,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "ready"
+    },
+    {
+      "name": "helion",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "helion",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [
+        {
+          "case": "benchmark",
+          "accuracy": {
+            "rmse": 1.9313851795849275e-06,
+            "max_abs_error": 1.0705441930273368e-05,
+            "relative_l2": 0.00030600835418019063,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.5160177070678424e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00039863772221620223,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8292212215512558e-06,
+            "max_abs_error": 9.412639272912693e-06,
+            "relative_l2": 0.0002898215132616243,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed17",
+          "accuracy": {
+            "rmse": 1.8943405755935767e-06,
+            "max_abs_error": 9.469902171488354e-06,
+            "relative_l2": 0.00029963259123611126,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.420167552792515e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.00038280239615898334,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.782388525450065e-06,
+            "max_abs_error": 9.273086142444487e-06,
+            "relative_l2": 0.0002819248551981052,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "seed29",
+          "accuracy": {
+            "rmse": 1.9544250781479373e-06,
+            "max_abs_error": 1.0040392393047964e-05,
+            "relative_l2": 0.00029685414624315126,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 2.4915491659531807e-06,
+            "max_abs_error": 1.52587890625e-05,
+            "relative_l2": 0.0003784369684399221,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 1.8593329331031888e-06,
+            "max_abs_error": 9.56328324692654e-06,
+            "relative_l2": 0.00028241076959632745,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        },
+        {
+          "case": "zero_query",
+          "accuracy": {
+            "rmse": 7.725212312554694e-07,
+            "max_abs_error": 3.95298411604017e-06,
+            "relative_l2": 0.00020294462538447946,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "vs_nautilus": {
+            "rmse": 4.6966736868257174e-07,
+            "max_abs_error": 7.62939453125e-06,
+            "relative_l2": 0.00012338198804695368,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          },
+          "nautilus_accuracy": {
+            "rmse": 7.677455428167437e-07,
+            "max_abs_error": 3.67641041520983e-06,
+            "relative_l2": 0.00020169003164396168,
+            "finite": true,
+            "allclose": true,
+            "passed": true,
+            "atol": 0.003,
+            "rtol": 0.01,
+            "relative_l2_limit": 0.01
+          }
+        }
+      ],
+      "nautilus_failed_cases": [],
+      "all_cases_equivalent": true,
+      "status": "ready"
+    },
+    {
+      "name": "flashinfer",
+      "source": {
+        "family": "PDF dense baseline",
+        "runner": "flashinfer",
+        "scope": "current Argus latest environment"
+      },
+      "validation": [],
+      "status": "compile_or_runtime_failed",
+      "error": "Traceback (most recent call last):\n  File \"/u/yucheny8/argus/scripts/bench_paper_strong.py\", line 179, in prepare_candidates\n    output = call()\n  File \"/u/yucheny8/argus/scripts/bench_paper_strong.py\", line 79, in run\n    runner.run()\n    ~~~~~~~~~~^^\n  File \"/u/yucheny8/argus/argus/flashinfer/__init__.py\", line 85, in run\n    self.output = self.fi_wrapper.run(self.q, (self.k, self.v))\n                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/api_logging.py\", line 2369, in _auto_dump_wrapper\n    return _inner(*args, **kwargs)\n  File \"/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/flashinfer/prefill.py\", line 4179, in run\n    raise ValueError(\n    ...<3 lines>...\n    )\nValueError: q.shape[0] (16) does not match qo_indptr[-1] (65536). For paged prefill, q must have shape [total_tokens, num_heads, head_dim] where total_tokens = qo_indptr[-1].\n"
+    }
+  ],
+  "accuracy_metric": "scripts.error.compute_rmse against FP64 reference",
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "measurement_complete": false
+}

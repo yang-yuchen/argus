@@ -1,0 +1,141 @@
+{
+  "variant": "sparse",
+  "implementation": "baseline",
+  "nvtx_marker": "tilelang(sparse)",
+  "params": [
+    {
+      "name": "q",
+      "shape": [
+        2048,
+        16,
+        576
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "name": "kv",
+      "shape": [
+        512,
+        576
+      ],
+      "dtype": "bfloat16"
+    },
+    {
+      "name": "sparse_indices",
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "int32"
+    },
+    {
+      "name": "compute",
+      "shape": [
+        2048,
+        16,
+        512
+      ],
+      "dtype": "bfloat16"
+    }
+  ],
+  "seed": 0,
+  "inputs_sha256": "3a121b00b64ca99026531e49cfc118c63769104100131f03c5c8e01123036ad7",
+  "nautilus_export_sha256": "a96f99bf3693cc1c5b88b533f983f4317fc26ef48180c6ccf76b4dbfb2192604",
+  "baseline_source": {
+    "repository": "https://github.com/tile-ai/tilelang",
+    "commit": "efa1ffc1e3dc547b11fee5acf671daff1f0f94cb",
+    "path": "examples/deepseek_v32/sparse_mla_fwd.py",
+    "original_sha256": "3c79a33636ec3c9cc50014e2b61b365143eba5d4cc34eed4a1ef057cbe072c30",
+    "configuration": {
+      "block_I": 64,
+      "num_stages": 2,
+      "threads": 256
+    },
+    "adaptations": [
+      "index-only mask ignoring -1",
+      "zero output for empty rows",
+      "preallocated outputs",
+      "split-layout concatenation included in timing"
+    ]
+  },
+  "host": "gh008.hsn.cm.delta.internal.ncsa.edu",
+  "gpu": "NVIDIA GH200 120GB",
+  "python": "3.13.17 | packaged by Anaconda, Inc. | (main, Oct 23 2026, 00:32:40) [GCC 14.3.0]",
+  "gpu_uuid": "ffe64d70-e658-1c7c-018b-e1978a340e0d",
+  "torch": "2.14.1+cu130",
+  "cuda": "13.0",
+  "nvidia_smi": "NVIDIA GH200 120GB, GPU-ffe64d70-e658-1c7c-018b-e1978a340e0d, 595.71.05, 1980 MHz, 2619 MHz, 900.00 W",
+  "packages": {
+    "tilelang": {
+      "version": "0.1.15",
+      "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/__init__.py"
+    },
+    "tvm": {
+      "version": "0.25.dev0",
+      "path": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest/lib/python3.13/site-packages/tilelang/3rdparty/tvm/python/tvm/__init__.py"
+    }
+  },
+  "correct": true,
+  "max_abs_error": 0.003020048141479492,
+  "relative_l2": 0.0020255455747246742,
+  "repeats": 50,
+  "measurement_complete": true,
+  "metric": "sum of GPU kernel durations per cold-L2 NVTX repeat (us)",
+  "l2_flush_bytes": 209715200,
+  "warmup": 10,
+  "samples_us": [
+    1389.568,
+    1389.152,
+    1392.32,
+    1393.216,
+    1392.64,
+    1392.192,
+    1389.152,
+    1386.944,
+    1391.392,
+    1391.552,
+    1388.64,
+    1388.736,
+    1393.76,
+    1388.16,
+    1388.864,
+    1388.8,
+    1389.088,
+    1388.32,
+    1393.376,
+    1393.664,
+    1391.712,
+    1371.936,
+    1371.648,
+    1370.848,
+    1375.712,
+    1376.864,
+    1371.456,
+    1375.84,
+    1370.4,
+    1374.432,
+    1373.312,
+    1371.584,
+    1378.304,
+    1371.328,
+    1375.776,
+    1371.744,
+    1372.0,
+    1375.872,
+    1411.392,
+    1410.304,
+    1409.472,
+    1415.488,
+    1411.808,
+    1413.12,
+    1404.832,
+    1417.632,
+    1409.76,
+    1406.816,
+    1408.768,
+    1411.552
+  ],
+  "mean_us": 1389.62496,
+  "median_us": 1389.12,
+  "min_us": 1370.4
+}

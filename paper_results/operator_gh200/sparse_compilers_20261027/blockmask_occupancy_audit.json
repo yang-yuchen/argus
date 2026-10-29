@@ -1,0 +1,90 @@
+[
+  {
+    "length": 256,
+    "block_size": 128,
+    "nonempty_blocks": 3,
+    "causal_blocks": 3,
+    "full_blocks": 1,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 32896,
+    "block_traversal_pair_slots": 49152,
+    "block_slots_over_logical_pairs": 1.4941634241245136
+  },
+  {
+    "length": 512,
+    "block_size": 128,
+    "nonempty_blocks": 10,
+    "causal_blocks": 10,
+    "full_blocks": 6,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 131328,
+    "block_traversal_pair_slots": 163840,
+    "block_slots_over_logical_pairs": 1.2475633528265107
+  },
+  {
+    "length": 1024,
+    "block_size": 128,
+    "nonempty_blocks": 36,
+    "causal_blocks": 36,
+    "full_blocks": 28,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 524800,
+    "block_traversal_pair_slots": 589824,
+    "block_slots_over_logical_pairs": 1.1239024390243904
+  },
+  {
+    "length": 2048,
+    "block_size": 128,
+    "nonempty_blocks": 136,
+    "causal_blocks": 136,
+    "full_blocks": 120,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 2098176,
+    "block_traversal_pair_slots": 2228224,
+    "block_slots_over_logical_pairs": 1.0619814543679844
+  },
+  {
+    "length": 4096,
+    "block_size": 128,
+    "nonempty_blocks": 528,
+    "causal_blocks": 528,
+    "full_blocks": 120,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 6292480,
+    "block_traversal_pair_slots": 8650752,
+    "block_slots_over_logical_pairs": 1.3747762408462165
+  },
+  {
+    "length": 8192,
+    "block_size": 128,
+    "nonempty_blocks": 2080,
+    "causal_blocks": 2080,
+    "full_blocks": 120,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 14681088,
+    "block_traversal_pair_slots": 34078720,
+    "block_slots_over_logical_pairs": 2.321266652716747
+  },
+  {
+    "length": 16384,
+    "block_size": 128,
+    "nonempty_blocks": 8256,
+    "causal_blocks": 8256,
+    "full_blocks": 120,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 31458304,
+    "block_traversal_pair_slots": 135266304,
+    "block_slots_over_logical_pairs": 4.299860030597962
+  },
+  {
+    "length": 32768,
+    "block_size": 128,
+    "nonempty_blocks": 32896,
+    "causal_blocks": 32896,
+    "full_blocks": 120,
+    "nonempty_causal_block_fraction": 1.0,
+    "logical_selected_pairs": 65012736,
+    "block_traversal_pair_slots": 538968064,
+    "block_slots_over_logical_pairs": 8.290192001764085
+  }
+]

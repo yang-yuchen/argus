@@ -1,0 +1,274 @@
+[
+  {
+    "kv_length": 256,
+    "source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          256,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; non-native layout refresh and public op allocations included in each call"
+    },
+    "bound_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          256,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": null,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 0
+    },
+    "relative_l2_after_input_updates": [
+      0.0,
+      0.0
+    ],
+    "bound_cpu_events": {}
+  },
+  {
+    "kv_length": 512,
+    "source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          512,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; non-native layout refresh and public op allocations included in each call"
+    },
+    "bound_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          512,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": null,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 0
+    },
+    "relative_l2_after_input_updates": [
+      0.0,
+      0.0
+    ],
+    "bound_cpu_events": {}
+  },
+  {
+    "kv_length": 8192,
+    "source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          8192,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; non-native layout refresh and public op allocations included in each call"
+    },
+    "bound_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          8192,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "relative_l2_after_input_updates": [
+      0.0,
+      0.0
+    ],
+    "bound_cpu_events": {}
+  },
+  {
+    "kv_length": 32768,
+    "source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          32768,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; non-native layout refresh and public op allocations included in each call"
+    },
+    "bound_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          32768,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "relative_l2_after_input_updates": [
+      0.0,
+      0.0
+    ],
+    "bound_cpu_events": {}
+  }
+]

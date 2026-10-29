@@ -1,0 +1,18 @@
+{
+  "environment": "/work/nvme/beqg/yucheny8/envs/argus-gh200-latest",
+  "implementations": [
+    "helion",
+    "triton(tri-dao)"
+  ],
+  "cases": [
+    "decode_L1024",
+    "decode_L16384",
+    "decode_L2048",
+    "decode_L256",
+    "decode_L32768",
+    "decode_L4096",
+    "decode_L512",
+    "decode_L8192"
+  ],
+  "repeats": 50
+}

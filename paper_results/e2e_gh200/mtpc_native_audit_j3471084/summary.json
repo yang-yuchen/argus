@@ -1,0 +1,28 @@
+{
+  "tileops": {
+    "profiled_forwards": 2,
+    "large_gpu_copies_ge_64mib": 0,
+    "large_allocations_ge_64mib": 0,
+    "maximum_aten_copy_elements": 8192,
+    "index_copy_kernels": 128,
+    "index_copy_grids": {
+      "[128, 1, 1]": 64,
+      "[256, 1, 1]": 64
+    },
+    "expected_new_kv_payload_per_forward_bytes": 8388608,
+    "torch": "2.14.1+cu130"
+  },
+  "nautilus": {
+    "profiled_forwards": 2,
+    "large_gpu_copies_ge_64mib": 0,
+    "large_allocations_ge_64mib": 0,
+    "maximum_aten_copy_elements": 8192,
+    "index_copy_kernels": 128,
+    "index_copy_grids": {
+      "[128, 1, 1]": 64,
+      "[256, 1, 1]": 64
+    },
+    "expected_new_kv_payload_per_forward_bytes": 8388608,
+    "torch": "2.14.1+cu130"
+  }
+}

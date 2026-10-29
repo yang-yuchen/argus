@@ -1,0 +1,2 @@
+variant,implementation,mean_ms,median_ms,min_ms,repeat,relative_l2,compiled_relative_l2,kv_length,query_length
+mtpc,nautilus,58.99643984985232,58.87179349883809,58.83813099899271,20,0.00439482182264328,0.0057878633961081505,65536,16

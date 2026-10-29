@@ -1,0 +1,112 @@
+[
+  {
+    "file": "smoke_3482373/nautilus/prefill8_L2048.json",
+    "case": "prefill8_L2048",
+    "method": "Nautilus",
+    "mean_us": 118.83712,
+    "relative_l2": 0.024521205574274063,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": null
+  },
+  {
+    "file": "smoke_3482373/tilelang/prefill8_L2048.json",
+    "case": "prefill8_L2048",
+    "method": "TileLang",
+    "mean_us": 102.48,
+    "relative_l2": 0.02273629419505596,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": [
+      "GQADenseFP8Kernel"
+    ]
+  },
+  {
+    "file": "smoke_3482373/nautilus/prefillc8_L2048.json",
+    "case": "prefillc8_L2048",
+    "method": "Nautilus",
+    "mean_us": 101.62176,
+    "relative_l2": 0.019794462248682976,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": null
+  },
+  {
+    "file": "smoke_3482373/tilelang/prefillc8_L2048.json",
+    "case": "prefillc8_L2048",
+    "method": "TileLang",
+    "mean_us": 109.09056,
+    "relative_l2": 0.01983913965523243,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": [
+      "GQADenseFP8Kernel"
+    ]
+  },
+  {
+    "file": "smoke_3482373/nautilus/decode8_L4096.json",
+    "case": "decode8_L4096",
+    "method": "Nautilus",
+    "mean_us": 20.4,
+    "relative_l2": 0.019931867718696594,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": null
+  },
+  {
+    "file": "varlen_decode/decode8_L4096.json",
+    "case": "decode8_L4096",
+    "method": "TileLang",
+    "mean_us": 50.0416,
+    "relative_l2": 0.025009779259562492,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": [
+      "GQAVarlenFP8WSFwdKernel"
+    ]
+  },
+  {
+    "file": "mtp_smoke_3482675/nautilus/mtp8_Q16_L4096.json",
+    "case": "mtp8_Q16_L4096",
+    "method": "Nautilus",
+    "mean_us": 6.87232,
+    "relative_l2": 0.021115878596901894,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": null
+  },
+  {
+    "file": "mtp_smoke_3482675/tilelang/mtp8_Q16_L4096.json",
+    "case": "mtp8_Q16_L4096",
+    "method": "TileLang",
+    "mean_us": 49.04896,
+    "relative_l2": 0.02498823218047619,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": [
+      "GQAVarlenFP8WSFwdKernel"
+    ]
+  },
+  {
+    "file": "mtp_smoke_3482675/nautilus/mtpc8_Q16_L4096.json",
+    "case": "mtpc8_Q16_L4096",
+    "method": "Nautilus",
+    "mean_us": 6.863360000000001,
+    "relative_l2": 0.021115167066454887,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": null
+  },
+  {
+    "file": "mtp_smoke_3482675/tilelang/mtpc8_Q16_L4096.json",
+    "case": "mtpc8_Q16_L4096",
+    "method": "TileLang",
+    "mean_us": 42.57152,
+    "relative_l2": 0.02502281777560711,
+    "correct": true,
+    "complete": true,
+    "selected_kernels": [
+      "GQADenseFP8Kernel"
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "variant": "mtpc_Q2_L32768",
+  "backend": "tilelang",
+  "fusion": "auto",
+  "trials": 64,
+  "trials_measured": 41,
+  "trials_failed": 23,
+  "in_tuner_best_ms": 0.0301994,
+  "tuned": {
+    "correct": true,
+    "max_err": 1.52587890625e-05,
+    "ms": 0.030146919999999962,
+    "event_ms": 0.03440000116825104
+  },
+  "decisions": [
+    "tile=[512, 64]",
+    "tile=[1, 128]",
+    "tile=[64, 8]",
+    "warps=2",
+    "stages_idx=1",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "warps=8",
+    "stages_idx=1",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=1",
+    "[0, 1]=0",
+    "[0, 1]=0"
+  ],
+  "export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/tuning/mtpc_Q2_L32768/tilelang/best/export",
+  "manual": {
+    "error": "Check failed: (M % kMPerWarp == 0) is false: M must be divisible by 16, but got 2",
+    "note": "schedule_split_kv_flash(sch, 16), mask on every tile"
+  },
+  "sdpa_ms": 0.04533360000000007,
+  "seconds": 826.3702871799469
+}

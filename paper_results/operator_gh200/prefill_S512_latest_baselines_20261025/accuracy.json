@@ -1,0 +1,90 @@
+{
+  "flex": {
+    "name": "flex",
+    "status": "passed",
+    "rmse": 1.985072487225967e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.000274032779814972,
+    "finite": true
+  },
+  "torch(flash)": {
+    "name": "torch(flash)",
+    "status": "passed",
+    "rmse": 1.9849404721491803e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.0002740145555643705,
+    "finite": true
+  },
+  "torch(cudnn)": {
+    "name": "torch(cudnn)",
+    "status": "passed",
+    "rmse": 1.9948595337229495e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.00027538384964995535,
+    "finite": true
+  },
+  "triton(openai)": {
+    "name": "triton(openai)",
+    "status": "passed",
+    "rmse": 1.9850538858112324e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.00027403021195036197,
+    "finite": true
+  },
+  "triton(tri-dao)": {
+    "name": "triton(tri-dao)",
+    "status": "passed",
+    "rmse": 2.080418330633305e-05,
+    "max_abs": 0.0003739336008941052,
+    "relative_l2": 0.0002871949623956334,
+    "finite": true
+  },
+  "tri-dao": {
+    "name": "tri-dao",
+    "status": "passed",
+    "rmse": 1.984960932317361e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.0002740173800238288,
+    "finite": true
+  },
+  "flashinfer": {
+    "name": "flashinfer",
+    "status": "passed",
+    "rmse": 1.9868786115122833e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.00027428210937953726,
+    "finite": true
+  },
+  "tilelang": {
+    "name": "tilelang",
+    "status": "passed",
+    "rmse": 1.9948665807452367e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.0002753848224683886,
+    "finite": true
+  },
+  "helion": {
+    "name": "helion",
+    "status": "passed",
+    "rmse": 1.9850538858112324e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.00027403021195036197,
+    "finite": true
+  },
+  "tawa(tma)": {
+    "name": "tawa(tma)",
+    "status": "passed",
+    "rmse": 1.9948954333350093e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.00027538880547426427,
+    "finite": true
+  },
+  "neptune_tilelang": {
+    "name": "neptune_tilelang",
+    "status": "passed",
+    "rmse": 1.9948665807452367e-05,
+    "max_abs": 0.0002146802479838783,
+    "relative_l2": 0.0002753848224683886,
+    "finite": true
+  }
+}

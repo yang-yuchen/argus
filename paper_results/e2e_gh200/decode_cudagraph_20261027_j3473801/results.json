@@ -1,0 +1,900 @@
+[
+  {
+    "kv_length": 256,
+    "means": {
+      "compiled": {
+        "wall_ms": 28.23003527397911,
+        "submit_ms": 28.197460031757753
+      },
+      "graph": {
+        "wall_ms": 5.103106889873743,
+        "submit_ms": 0.018080417066812515
+      }
+    },
+    "samples": [
+      {
+        "round": 0,
+        "mode": "compiled",
+        "wall_ms": 28.504928573966026,
+        "submit_ms": 28.47843337804079
+      },
+      {
+        "round": 0,
+        "mode": "graph",
+        "wall_ms": 5.093979649245739,
+        "submit_ms": 0.020478852093219757
+      },
+      {
+        "round": 1,
+        "mode": "graph",
+        "wall_ms": 5.160762928426266,
+        "submit_ms": 0.017791055142879486
+      },
+      {
+        "round": 1,
+        "mode": "compiled",
+        "wall_ms": 28.264904394745827,
+        "submit_ms": 28.23434490710497
+      },
+      {
+        "round": 2,
+        "mode": "compiled",
+        "wall_ms": 26.356984861195087,
+        "submit_ms": 26.32920816540718
+      },
+      {
+        "round": 2,
+        "mode": "graph",
+        "wall_ms": 5.085437558591366,
+        "submit_ms": 0.017152167856693268
+      },
+      {
+        "round": 3,
+        "mode": "graph",
+        "wall_ms": 5.0965407863259315,
+        "submit_ms": 0.016415491700172424
+      },
+      {
+        "round": 3,
+        "mode": "compiled",
+        "wall_ms": 28.550080955028534,
+        "submit_ms": 28.519585728645325
+      },
+      {
+        "round": 4,
+        "mode": "compiled",
+        "wall_ms": 33.55955146253109,
+        "submit_ms": 33.51392038166523
+      },
+      {
+        "round": 4,
+        "mode": "graph",
+        "wall_ms": 5.1048919558525085,
+        "submit_ms": 0.02751871943473816
+      },
+      {
+        "round": 5,
+        "mode": "graph",
+        "wall_ms": 5.077245645225048,
+        "submit_ms": 0.01651141792535782
+      },
+      {
+        "round": 5,
+        "mode": "compiled",
+        "wall_ms": 28.643646277487278,
+        "submit_ms": 28.613374568521976
+      },
+      {
+        "round": 6,
+        "mode": "compiled",
+        "wall_ms": 26.169054210186005,
+        "submit_ms": 26.14044677466154
+      },
+      {
+        "round": 6,
+        "mode": "graph",
+        "wall_ms": 5.15564251691103,
+        "submit_ms": 0.017374753952026367
+      },
+      {
+        "round": 7,
+        "mode": "graph",
+        "wall_ms": 5.084861069917679,
+        "submit_ms": 0.016478821635246277
+      },
+      {
+        "round": 7,
+        "mode": "compiled",
+        "wall_ms": 28.238664381206036,
+        "submit_ms": 28.207752853631973
+      },
+      {
+        "round": 8,
+        "mode": "compiled",
+        "wall_ms": 25.82202199846506,
+        "submit_ms": 25.792134925723076
+      },
+      {
+        "round": 8,
+        "mode": "graph",
+        "wall_ms": 5.159642547369003,
+        "submit_ms": 0.017823651432991028
+      },
+      {
+        "round": 9,
+        "mode": "graph",
+        "wall_ms": 5.107932724058628,
+        "submit_ms": 0.028479844331741333
+      },
+      {
+        "round": 9,
+        "mode": "compiled",
+        "wall_ms": 28.23981549590826,
+        "submit_ms": 28.209096752107143
+      },
+      {
+        "round": 10,
+        "mode": "compiled",
+        "wall_ms": 25.70890448987484,
+        "submit_ms": 25.681129656732082
+      },
+      {
+        "round": 10,
+        "mode": "graph",
+        "wall_ms": 5.093757063150406,
+        "submit_ms": 0.01910235732793808
+      },
+      {
+        "round": 11,
+        "mode": "graph",
+        "wall_ms": 5.113756284117699,
+        "submit_ms": 0.015839003026485443
+      },
+      {
+        "round": 11,
+        "mode": "compiled",
+        "wall_ms": 28.366117738187313,
+        "submit_ms": 28.338725678622723
+      },
+      {
+        "round": 12,
+        "mode": "compiled",
+        "wall_ms": 25.774311274290085,
+        "submit_ms": 25.744584389030933
+      },
+      {
+        "round": 12,
+        "mode": "graph",
+        "wall_ms": 5.090909078717232,
+        "submit_ms": 0.015966594219207764
+      },
+      {
+        "round": 13,
+        "mode": "graph",
+        "wall_ms": 5.0811488181352615,
+        "submit_ms": 0.018143095076084137
+      },
+      {
+        "round": 13,
+        "mode": "compiled",
+        "wall_ms": 31.441781669855118,
+        "submit_ms": 31.347448006272316
+      },
+      {
+        "round": 14,
+        "mode": "compiled",
+        "wall_ms": 41.66292678564787,
+        "submit_ms": 41.61905590444803
+      },
+      {
+        "round": 14,
+        "mode": "graph",
+        "wall_ms": 5.180219188332558,
+        "submit_ms": 0.027935020625591278
+      },
+      {
+        "round": 15,
+        "mode": "graph",
+        "wall_ms": 5.0917090848088264,
+        "submit_ms": 0.018144026398658752
+      },
+      {
+        "round": 15,
+        "mode": "compiled",
+        "wall_ms": 28.948246501386166,
+        "submit_ms": 28.918295167386532
+      },
+      {
+        "round": 16,
+        "mode": "compiled",
+        "wall_ms": 26.559794321656227,
+        "submit_ms": 26.53150726109743
+      },
+      {
+        "round": 16,
+        "mode": "graph",
+        "wall_ms": 5.082813091576099,
+        "submit_ms": 0.01654401421546936
+      },
+      {
+        "round": 17,
+        "mode": "graph",
+        "wall_ms": 5.159098654985428,
+        "submit_ms": 0.016256235539913177
+      },
+      {
+        "round": 17,
+        "mode": "compiled",
+        "wall_ms": 28.46742607653141,
+        "submit_ms": 28.437922708690166
+      },
+      {
+        "round": 18,
+        "mode": "compiled",
+        "wall_ms": 25.8815735578537,
+        "submit_ms": 25.852518156170845
+      },
+      {
+        "round": 18,
+        "mode": "graph",
+        "wall_ms": 5.081788636744022,
+        "submit_ms": 0.017791055142879486
+      },
+      {
+        "round": 19,
+        "mode": "graph",
+        "wall_ms": 5.075646564364433,
+        "submit_ms": 0.016639940440654755
+      },
+      {
+        "round": 19,
+        "mode": "compiled",
+        "wall_ms": 28.573663905262947,
+        "submit_ms": 28.539777733385563
+      },
+      {
+        "round": 20,
+        "mode": "compiled",
+        "wall_ms": 25.988642126321793,
+        "submit_ms": 25.959842838346958
+      },
+      {
+        "round": 20,
+        "mode": "graph",
+        "wall_ms": 5.151194520294666,
+        "submit_ms": 0.016510486602783203
+      },
+      {
+        "round": 21,
+        "mode": "graph",
+        "wall_ms": 5.073213949799538,
+        "submit_ms": 0.015968456864356995
+      },
+      {
+        "round": 21,
+        "mode": "compiled",
+        "wall_ms": 28.397989459335804,
+        "submit_ms": 28.368037194013596
+      },
+      {
+        "round": 22,
+        "mode": "compiled",
+        "wall_ms": 26.209212839603424,
+        "submit_ms": 26.17887780070305
+      },
+      {
+        "round": 22,
+        "mode": "graph",
+        "wall_ms": 5.0817253068089485,
+        "submit_ms": 0.016767531633377075
+      },
+      {
+        "round": 23,
+        "mode": "graph",
+        "wall_ms": 5.068125203251839,
+        "submit_ms": 0.015807338058948517
+      },
+      {
+        "round": 23,
+        "mode": "compiled",
+        "wall_ms": 28.673404827713966,
+        "submit_ms": 28.643709607422352
+      },
+      {
+        "round": 24,
+        "mode": "compiled",
+        "wall_ms": 25.95005091279745,
+        "submit_ms": 25.920899584889412
+      },
+      {
+        "round": 24,
+        "mode": "graph",
+        "wall_ms": 5.081756971776485,
+        "submit_ms": 0.017248094081878662
+      },
+      {
+        "round": 25,
+        "mode": "graph",
+        "wall_ms": 5.070941522717476,
+        "submit_ms": 0.015744008123874664
+      },
+      {
+        "round": 25,
+        "mode": "compiled",
+        "wall_ms": 28.46153825521469,
+        "submit_ms": 28.431300073862076
+      },
+      {
+        "round": 26,
+        "mode": "compiled",
+        "wall_ms": 25.797191075980663,
+        "submit_ms": 25.768904015421867
+      },
+      {
+        "round": 26,
+        "mode": "graph",
+        "wall_ms": 5.080796778202057,
+        "submit_ms": 0.01699104905128479
+      },
+      {
+        "round": 27,
+        "mode": "graph",
+        "wall_ms": 5.079580470919609,
+        "submit_ms": 0.015422701835632324
+      },
+      {
+        "round": 27,
+        "mode": "compiled",
+        "wall_ms": 28.69878150522709,
+        "submit_ms": 28.67161389440298
+      },
+      {
+        "round": 28,
+        "mode": "compiled",
+        "wall_ms": 26.293658651411533,
+        "submit_ms": 26.264123618602753
+      },
+      {
+        "round": 28,
+        "mode": "graph",
+        "wall_ms": 5.082044750452042,
+        "submit_ms": 0.017056241631507874
+      },
+      {
+        "round": 29,
+        "mode": "graph",
+        "wall_ms": 5.146043375134468,
+        "submit_ms": 0.016510486602783203
+      },
+      {
+        "round": 29,
+        "mode": "compiled",
+        "wall_ms": 28.696189634501934,
+        "submit_ms": 28.66722922772169
+      }
+    ],
+    "correctness": [
+      {
+        "case": "changed_token_0",
+        "relative_l2": 0.0
+      },
+      {
+        "case": "changed_token_1",
+        "relative_l2": 0.0
+      },
+      {
+        "case": "changed_prefix_V",
+        "output_change_relative_l2": 1.2456457614898682,
+        "relative_l2": 0.0
+      }
+    ],
+    "relative_l2": 0.005604042671620846,
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "14e15701-106d-342f-8e76-85e18d9df384",
+    "torch": "2.14.1+cu130",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          256,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": null,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 0
+    },
+    "profiles": [
+      {
+        "range": "whole_graph_L256[0]",
+        "kernel_count": 642,
+        "attention_kernel_count": 32,
+        "attention_graph_ids": [
+          2
+        ],
+        "attention_gpu_ms": 0.184604,
+        "all_gpu_kernel_ms": 5.088417000000001
+      },
+      {
+        "range": "whole_graph_L256[1]",
+        "kernel_count": 642,
+        "attention_kernel_count": 32,
+        "attention_graph_ids": [
+          2
+        ],
+        "attention_gpu_ms": 0.185149,
+        "all_gpu_kernel_ms": 5.036636000000001
+      }
+    ],
+    "scope": "whole backbone single decode step; includes new KV writes; fixed cache position; excludes token/prefix setup and capture"
+  },
+  {
+    "kv_length": 32768,
+    "means": {
+      "compiled": {
+        "wall_ms": 28.600227211912472,
+        "submit_ms": 28.57044565801819
+      },
+      "graph": {
+        "wall_ms": 9.55762897307674,
+        "submit_ms": 0.01530203347404798
+      }
+    },
+    "samples": [
+      {
+        "round": 0,
+        "mode": "compiled",
+        "wall_ms": 29.043476097285748,
+        "submit_ms": 29.013109393417835
+      },
+      {
+        "round": 0,
+        "mode": "graph",
+        "wall_ms": 9.532074443995953,
+        "submit_ms": 0.01977570354938507
+      },
+      {
+        "round": 1,
+        "mode": "graph",
+        "wall_ms": 9.515147656202316,
+        "submit_ms": 0.012830831110477448
+      },
+      {
+        "round": 1,
+        "mode": "compiled",
+        "wall_ms": 26.965640485286713,
+        "submit_ms": 26.936394162476063
+      },
+      {
+        "round": 2,
+        "mode": "compiled",
+        "wall_ms": 29.607621021568775,
+        "submit_ms": 29.578566551208496
+      },
+      {
+        "round": 2,
+        "mode": "graph",
+        "wall_ms": 9.54481028020382,
+        "submit_ms": 0.019103288650512695
+      },
+      {
+        "round": 3,
+        "mode": "graph",
+        "wall_ms": 9.503467939794064,
+        "submit_ms": 0.01398380845785141
+      },
+      {
+        "round": 3,
+        "mode": "compiled",
+        "wall_ms": 27.162307873368263,
+        "submit_ms": 27.13210042566061
+      },
+      {
+        "round": 4,
+        "mode": "compiled",
+        "wall_ms": 38.39881904423237,
+        "submit_ms": 38.369699381291866
+      },
+      {
+        "round": 4,
+        "mode": "graph",
+        "wall_ms": 9.54948179423809,
+        "submit_ms": 0.018144026398658752
+      },
+      {
+        "round": 5,
+        "mode": "graph",
+        "wall_ms": 9.484810754656792,
+        "submit_ms": 0.012062489986419678
+      },
+      {
+        "round": 5,
+        "mode": "compiled",
+        "wall_ms": 26.47000551223755,
+        "submit_ms": 26.440278626978397
+      },
+      {
+        "round": 6,
+        "mode": "compiled",
+        "wall_ms": 28.875927440822124,
+        "submit_ms": 28.846519999206066
+      },
+      {
+        "round": 6,
+        "mode": "graph",
+        "wall_ms": 9.675494395196438,
+        "submit_ms": 0.01743994653224945
+      },
+      {
+        "round": 7,
+        "mode": "graph",
+        "wall_ms": 9.555816650390625,
+        "submit_ms": 0.01177564263343811
+      },
+      {
+        "round": 7,
+        "mode": "compiled",
+        "wall_ms": 26.1541735380888,
+        "submit_ms": 26.124831289052963
+      },
+      {
+        "round": 8,
+        "mode": "compiled",
+        "wall_ms": 28.273222967982292,
+        "submit_ms": 28.24275940656662
+      },
+      {
+        "round": 8,
+        "mode": "graph",
+        "wall_ms": 9.527402929961681,
+        "submit_ms": 0.018334947526454926
+      },
+      {
+        "round": 9,
+        "mode": "graph",
+        "wall_ms": 9.498442523181438,
+        "submit_ms": 0.012031756341457367
+      },
+      {
+        "round": 9,
+        "mode": "compiled",
+        "wall_ms": 41.684686206281185,
+        "submit_ms": 41.63873475044966
+      },
+      {
+        "round": 10,
+        "mode": "compiled",
+        "wall_ms": 28.62012665718794,
+        "submit_ms": 28.59126403927803
+      },
+      {
+        "round": 10,
+        "mode": "graph",
+        "wall_ms": 9.528841823339462,
+        "submit_ms": 0.017566606402397156
+      },
+      {
+        "round": 11,
+        "mode": "graph",
+        "wall_ms": 9.502154774963856,
+        "submit_ms": 0.01055840402841568
+      },
+      {
+        "round": 11,
+        "mode": "compiled",
+        "wall_ms": 26.41141600906849,
+        "submit_ms": 26.382168754935265
+      },
+      {
+        "round": 12,
+        "mode": "compiled",
+        "wall_ms": 28.32887042313814,
+        "submit_ms": 28.30048743635416
+      },
+      {
+        "round": 12,
+        "mode": "graph",
+        "wall_ms": 9.690149687230587,
+        "submit_ms": 0.01798383891582489
+      },
+      {
+        "round": 13,
+        "mode": "graph",
+        "wall_ms": 9.540362283587456,
+        "submit_ms": 0.014816410839557648
+      },
+      {
+        "round": 13,
+        "mode": "compiled",
+        "wall_ms": 26.785646565258503,
+        "submit_ms": 26.757647283375263
+      },
+      {
+        "round": 14,
+        "mode": "compiled",
+        "wall_ms": 29.406601563096046,
+        "submit_ms": 29.37850635498762
+      },
+      {
+        "round": 14,
+        "mode": "graph",
+        "wall_ms": 9.670439176261425,
+        "submit_ms": 0.017023645341396332
+      },
+      {
+        "round": 15,
+        "mode": "graph",
+        "wall_ms": 9.566986002027988,
+        "submit_ms": 0.012896023690700531
+      },
+      {
+        "round": 15,
+        "mode": "compiled",
+        "wall_ms": 27.01312769204378,
+        "submit_ms": 26.983175426721573
+      },
+      {
+        "round": 16,
+        "mode": "compiled",
+        "wall_ms": 29.166895896196365,
+        "submit_ms": 29.13899254053831
+      },
+      {
+        "round": 16,
+        "mode": "graph",
+        "wall_ms": 9.660710580646992,
+        "submit_ms": 0.017503276467323303
+      },
+      {
+        "round": 17,
+        "mode": "graph",
+        "wall_ms": 9.503339417278767,
+        "submit_ms": 0.0126715749502182
+      },
+      {
+        "round": 17,
+        "mode": "compiled",
+        "wall_ms": 27.691766619682312,
+        "submit_ms": 27.66354288905859
+      },
+      {
+        "round": 18,
+        "mode": "compiled",
+        "wall_ms": 28.799577616155148,
+        "submit_ms": 28.770489618182182
+      },
+      {
+        "round": 18,
+        "mode": "graph",
+        "wall_ms": 9.523499757051468,
+        "submit_ms": 0.01788884401321411
+      },
+      {
+        "round": 19,
+        "mode": "graph",
+        "wall_ms": 9.488780051469803,
+        "submit_ms": 0.011679716408252716
+      },
+      {
+        "round": 19,
+        "mode": "compiled",
+        "wall_ms": 26.276827789843082,
+        "submit_ms": 26.24825108796358
+      },
+      {
+        "round": 20,
+        "mode": "compiled",
+        "wall_ms": 28.64834852516651,
+        "submit_ms": 28.61910220235586
+      },
+      {
+        "round": 20,
+        "mode": "graph",
+        "wall_ms": 9.664454497396946,
+        "submit_ms": 0.01740735024213791
+      },
+      {
+        "round": 21,
+        "mode": "graph",
+        "wall_ms": 9.503306820988655,
+        "submit_ms": 0.011519528925418854
+      },
+      {
+        "round": 21,
+        "mode": "compiled",
+        "wall_ms": 26.46530233323574,
+        "submit_ms": 26.435126550495625
+      },
+      {
+        "round": 22,
+        "mode": "compiled",
+        "wall_ms": 29.073010198771954,
+        "submit_ms": 29.04235478490591
+      },
+      {
+        "round": 22,
+        "mode": "graph",
+        "wall_ms": 9.52423457056284,
+        "submit_ms": 0.018496066331863403
+      },
+      {
+        "round": 23,
+        "mode": "graph",
+        "wall_ms": 9.488875977694988,
+        "submit_ms": 0.013056211173534393
+      },
+      {
+        "round": 23,
+        "mode": "compiled",
+        "wall_ms": 26.433142833411694,
+        "submit_ms": 26.40367206186056
+      },
+      {
+        "round": 24,
+        "mode": "compiled",
+        "wall_ms": 28.5335686057806,
+        "submit_ms": 28.503618203103542
+      },
+      {
+        "round": 24,
+        "mode": "graph",
+        "wall_ms": 9.667431935667992,
+        "submit_ms": 0.01673586666584015
+      },
+      {
+        "round": 25,
+        "mode": "graph",
+        "wall_ms": 9.495274163782597,
+        "submit_ms": 0.014367513358592987
+      },
+      {
+        "round": 25,
+        "mode": "compiled",
+        "wall_ms": 26.28825046122074,
+        "submit_ms": 26.257850229740143
+      },
+      {
+        "round": 26,
+        "mode": "compiled",
+        "wall_ms": 28.95487006753683,
+        "submit_ms": 28.926679864525795
+      },
+      {
+        "round": 26,
+        "mode": "graph",
+        "wall_ms": 9.596168994903564,
+        "submit_ms": 0.016959384083747864
+      },
+      {
+        "round": 27,
+        "mode": "graph",
+        "wall_ms": 9.637128561735153,
+        "submit_ms": 0.01152046024799347
+      },
+      {
+        "round": 27,
+        "mode": "compiled",
+        "wall_ms": 26.80167742073536,
+        "submit_ms": 26.773294433951378
+      },
+      {
+        "round": 28,
+        "mode": "compiled",
+        "wall_ms": 28.93704641610384,
+        "submit_ms": 28.906743973493576
+      },
+      {
+        "round": 28,
+        "mode": "graph",
+        "wall_ms": 9.588969871401787,
+        "submit_ms": 0.01817569136619568
+      },
+      {
+        "round": 29,
+        "mode": "graph",
+        "wall_ms": 9.500810876488686,
+        "submit_ms": 0.01475214958190918
+      },
+      {
+        "round": 29,
+        "mode": "compiled",
+        "wall_ms": 26.734862476587296,
+        "submit_ms": 26.707408018410206
+      }
+    ],
+    "correctness": [
+      {
+        "case": "changed_token_0",
+        "relative_l2": 0.0
+      },
+      {
+        "case": "changed_token_1",
+        "relative_l2": 0.0
+      },
+      {
+        "case": "changed_prefix_V",
+        "output_change_relative_l2": 1.2909759283065796,
+        "relative_l2": 0.0
+      }
+    ],
+    "relative_l2": 0.005481668747961521,
+    "gpu": "NVIDIA GH200 120GB",
+    "gpu_uuid": "14e15701-106d-342f-8e76-85e18d9df384",
+    "torch": "2.14.1+cu130",
+    "baseline_source": {
+      "repository": "https://github.com/tile-ai/TileOPs",
+      "commit": "85e7e644f1d99037e937378b8d8dc70c6568113f",
+      "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
+      "layout": "BSHD",
+      "semantic_mapping": "Hq=Hkv gives MHA",
+      "selected_kernel": "GQADecodeBs1Kernel",
+      "kernel_config": {
+        "block_M": 64,
+        "block_N": 128,
+        "threads": 160
+      },
+      "shape": {
+        "q": [
+          1,
+          1,
+          32,
+          128
+        ],
+        "kv": [
+          1,
+          32768,
+          32,
+          128
+        ]
+      },
+      "scope": "native BSHD storage reused; prebound DLPack executable; output/workspace allocated once outside timing; unchanged official GPU schedule",
+      "integration": "prebound selected TileOPs program, caller-owned output/workspace",
+      "ctx_splits": 4,
+      "execution_backend": "tvm_ffi",
+      "workspace_bytes": 66048
+    },
+    "profiles": [
+      {
+        "range": "whole_graph_L32768[0]",
+        "kernel_count": 674,
+        "attention_kernel_count": 64,
+        "attention_graph_ids": [
+          5
+        ],
+        "attention_gpu_ms": 4.616389,
+        "all_gpu_kernel_ms": 9.569953
+      },
+      {
+        "range": "whole_graph_L32768[1]",
+        "kernel_count": 674,
+        "attention_kernel_count": 64,
+        "attention_graph_ids": [
+          5
+        ],
+        "attention_gpu_ms": 4.644101,
+        "all_gpu_kernel_ms": 9.518593000000001
+      }
+    ],
+    "scope": "whole backbone single decode step; includes new KV writes; fixed cache position; excludes token/prefix setup and capture"
+  }
+]

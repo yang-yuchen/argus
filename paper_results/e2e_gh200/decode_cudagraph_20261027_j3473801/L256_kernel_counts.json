@@ -1,0 +1,13 @@
+{
+  "triton_poi_fused__to_copy_bmm_cat_expand_mul_transpose_unsqueeze_0": 1,
+  "triton_red_fused__to_copy_add_mean_mul_pow_rsqrt_0": 65,
+  "nvjet_sm90_hsh_64x8_64x16_2x1_v_bz_splitK_TNT": 160,
+  "void cublasLt::splitKreduce_kernel<32, 16, int, float, __half, float, __half, false, float, __half, __half, true, false, false, false>(cublasLt::cublasSplitKParams<float>, float const*, __half const*, float*, __half*, float const*, float const*, __half const*, float const*, __half*, void*, long, float*, int*, float*, float*, float const*, float const*, float const*, float const*, float const*)": 160,
+  "triton_poi_fused__unsafe_view_add_cat_index_copy_mul_neg_permute_slice_transpose_unsqueeze_view_0": 32,
+  "triton_poi_fused__unsafe_view_index_copy_permute_transpose_view_1": 32,
+  "memcpy32_post": 32,
+  "gqa_decode_no_split_kernel": 32,
+  "nvjet_sm90_hsh_128x8_64x12_4x1_v_bz_TNT": 64,
+  "triton_poi_fused__unsafe_view_mul_silu_1": 32,
+  "triton_poi_fused__unsafe_view_add_2": 32
+}

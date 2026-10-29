@@ -1,0 +1,62 @@
+[
+  {
+    "kv_length": 2048,
+    "implementation": "nautilus",
+    "kernel_count": 1634,
+    "attention_kernel_count": 512,
+    "kv_update_kernel_count": 64,
+    "all_kernels_in_graph": true,
+    "attention_gpu_ms": 1.3906169999999998,
+    "all_gpu_kernel_ms": 7.465213
+  },
+  {
+    "kv_length": 2048,
+    "implementation": "tileops",
+    "kernel_count": 1634,
+    "attention_kernel_count": 512,
+    "kv_update_kernel_count": 64,
+    "all_kernels_in_graph": true,
+    "attention_gpu_ms": 2.1360165,
+    "all_gpu_kernel_ms": 8.397627
+  },
+  {
+    "kv_length": 2048,
+    "implementation": "flex",
+    "kernel_count": 1890,
+    "attention_kernel_count": 768,
+    "kv_update_kernel_count": 64,
+    "all_kernels_in_graph": true,
+    "attention_gpu_ms": 2.912873,
+    "all_gpu_kernel_ms": 9.0021115
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "nautilus",
+    "kernel_count": 1634,
+    "attention_kernel_count": 512,
+    "kv_update_kernel_count": 64,
+    "all_kernels_in_graph": true,
+    "attention_gpu_ms": 1.691819,
+    "all_gpu_kernel_ms": 7.8092535000000005
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "tileops",
+    "kernel_count": 1634,
+    "attention_kernel_count": 512,
+    "kv_update_kernel_count": 64,
+    "all_kernels_in_graph": true,
+    "attention_gpu_ms": 2.6030975,
+    "all_gpu_kernel_ms": 8.937358
+  },
+  {
+    "kv_length": 4096,
+    "implementation": "flex",
+    "kernel_count": 1890,
+    "attention_kernel_count": 768,
+    "kv_update_kernel_count": 64,
+    "all_kernels_in_graph": true,
+    "attention_gpu_ms": 3.9936059999999998,
+    "all_gpu_kernel_ms": 10.007094500000001
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "donor": "/work/nvme/beqg/mbudiu2/paper_kernels_sweep/L65536/mtpc_Q4_L65536/tilelang_w/best/trace.json",
+  "donor_sha256": "1a687a1015950047b72fa73d3ebc0fff5c30fa07bd7011255b1beb1487f3e23d",
+  "parameters": {
+    "kv_tile": 64,
+    "kv_outer_tiles": 512,
+    "num_splits": 64,
+    "rolling_tiles": 8,
+    "query_padding": 16,
+    "donor_case": "mtpc_Q4_L65536"
+  },
+  "replay_api": "tir.schedule.Trace.apply_json_to_schedule"
+}
