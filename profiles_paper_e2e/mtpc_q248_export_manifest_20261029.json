@@ -1,0 +1,218 @@
+[
+  {
+    "case": "mtpc_Q2_L256",
+    "query_length": 2,
+    "kv_length": 256,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L256/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L256/tilelang/best/export",
+    "kernel_sha256": "7951135f6964f3c740a9588fabdec51b0aca8884e4d6bccb6b95bf4f5d45129f"
+  },
+  {
+    "case": "mtpc_Q2_L512",
+    "query_length": 2,
+    "kv_length": 512,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L512/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L512/tilelang/best/export",
+    "kernel_sha256": "e038d362d700eabbb78f6cb6cd8c35cf8d3d80577e8bf9ee256e45b0205de58b"
+  },
+  {
+    "case": "mtpc_Q2_L1024",
+    "query_length": 2,
+    "kv_length": 1024,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L1024/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L1024/tilelang/best/export",
+    "kernel_sha256": "ecf934755ec77ae18ee2022b3fd25c2be69b9063a2b2662c1b946bb6b8011ed3"
+  },
+  {
+    "case": "mtpc_Q2_L2048",
+    "query_length": 2,
+    "kv_length": 2048,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L2048/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L2048/tilelang/best/export",
+    "kernel_sha256": "15d48df291fc1b07b32a30cf45a1dd7ccd1787018cb126f622645084cb64f582"
+  },
+  {
+    "case": "mtpc_Q2_L4096",
+    "query_length": 2,
+    "kv_length": 4096,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L4096/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L4096/tilelang/best/export",
+    "kernel_sha256": "af3e3c15de41d02b6fb6df76c1f84c98638e130e736558b7f14acd537ad5fe99"
+  },
+  {
+    "case": "mtpc_Q2_L8192",
+    "query_length": 2,
+    "kv_length": 8192,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L8192/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L8192/tilelang/best/export",
+    "kernel_sha256": "5a4df3f308ae7e8b3b148238d315016d8ab19d76ca6f6fe476cde4acb8a29ec3"
+  },
+  {
+    "case": "mtpc_Q2_L16384",
+    "query_length": 2,
+    "kv_length": 16384,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L16384/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L16384/tilelang/best/export",
+    "kernel_sha256": "a0a265d2ba6066c0ae2437a0fbc3383de2b2d77a41c79dec20b8febc56fce1b5"
+  },
+  {
+    "case": "mtpc_Q2_L32768",
+    "query_length": 2,
+    "kv_length": 32768,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q2_L32768/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L32768/tilelang/best/export",
+    "kernel_sha256": "328e961b480d0b9dd943b5b95d8c4e25146eb7ef630aa805e70869ad00b3ca6b"
+  },
+  {
+    "case": "mtpc_Q2_L65536",
+    "query_length": 2,
+    "kv_length": 65536,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q2_L65536/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q2_L65536/tilelang/best/export",
+    "kernel_sha256": "13435eeba2a25b4efb2f01a9fdb7965487d5180b8e5cc269afe72e89d321384a"
+  },
+  {
+    "case": "mtpc_Q4_L256",
+    "query_length": 4,
+    "kv_length": 256,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L256/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L256/tilelang/best/export",
+    "kernel_sha256": "e584d213dc14fdbe9d783b5c86b1893d25060febb1c2ff31d66e3bf52ad57655"
+  },
+  {
+    "case": "mtpc_Q4_L512",
+    "query_length": 4,
+    "kv_length": 512,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L512/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L512/tilelang/best/export",
+    "kernel_sha256": "8092cdcf77086e56e1470ee734abbe9d41e4842a0959b5c4c720a2bef2c172f7"
+  },
+  {
+    "case": "mtpc_Q4_L1024",
+    "query_length": 4,
+    "kv_length": 1024,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L1024/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L1024/tilelang/best/export",
+    "kernel_sha256": "be62d37f2f74a96678af428117bca338a9395a6df6ddaaea5c91fe13e3a18af8"
+  },
+  {
+    "case": "mtpc_Q4_L2048",
+    "query_length": 4,
+    "kv_length": 2048,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L2048/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L2048/tilelang/best/export",
+    "kernel_sha256": "918b9d4900ea81a0966b345ea85031a590935f42fe2ffcffbab095e61ec12033"
+  },
+  {
+    "case": "mtpc_Q4_L4096",
+    "query_length": 4,
+    "kv_length": 4096,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L4096/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L4096/tilelang/best/export",
+    "kernel_sha256": "d75c1e4eb369d9b4f63a7f7f651e463e275de9b28bbc5d51933f5ff0afee64a5"
+  },
+  {
+    "case": "mtpc_Q4_L8192",
+    "query_length": 4,
+    "kv_length": 8192,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q4_L8192/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L8192/tilelang/best/export",
+    "kernel_sha256": "b354bea2e16eab0b4aacb37e676532d314ae61789a7d4117d3dd7f6f10c201be"
+  },
+  {
+    "case": "mtpc_Q4_L16384",
+    "query_length": 4,
+    "kv_length": 16384,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L16384/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L16384/tilelang/best/export",
+    "kernel_sha256": "32674a9584435f0070ead592c59bc1eb7d5084db154ca17ae666d0f83ca22708"
+  },
+  {
+    "case": "mtpc_Q4_L32768",
+    "query_length": 4,
+    "kv_length": 32768,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_optimize_20261028/selected/mtpc_Q4_L32768/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L32768/tilelang/best/export",
+    "kernel_sha256": "bb3a02b5b0aa1575c6fc85b9b21ec3e849958683dbcc8fcc27786417547f01de"
+  },
+  {
+    "case": "mtpc_Q4_L65536",
+    "query_length": 4,
+    "kv_length": 65536,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q4_L65536/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q4_L65536/tilelang/best/export",
+    "kernel_sha256": "ffa32c44c6e8e0fb864e6576360efc7c6851b6682f2377cb5935590d6e958e7e"
+  },
+  {
+    "case": "mtpc_Q8_L256",
+    "query_length": 8,
+    "kv_length": 256,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L256/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L256/tilelang/best/export",
+    "kernel_sha256": "306bf7427bb57964674981a1174bf87b28b80c382405c1ee78fbbbe20dad6e58"
+  },
+  {
+    "case": "mtpc_Q8_L512",
+    "query_length": 8,
+    "kv_length": 512,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L512/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L512/tilelang/best/export",
+    "kernel_sha256": "396d7c047b91d54583f909dbeaa9d08ef9e3d3fddcbb3f9bb47932481ceda118"
+  },
+  {
+    "case": "mtpc_Q8_L1024",
+    "query_length": 8,
+    "kv_length": 1024,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L1024/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L1024/tilelang/best/export",
+    "kernel_sha256": "c55d6d3e3f9e4f6fd62451a2b4e62f5ca8802a92d990bec511fe3a06af943f49"
+  },
+  {
+    "case": "mtpc_Q8_L2048",
+    "query_length": 8,
+    "kv_length": 2048,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L2048/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L2048/tilelang/best/export",
+    "kernel_sha256": "59dd65ed91736c3c654dd0e0cf3b14f0d372561e5a11fc88c1b967c8a81d7cad"
+  },
+  {
+    "case": "mtpc_Q8_L4096",
+    "query_length": 8,
+    "kv_length": 4096,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L4096/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L4096/tilelang/best/export",
+    "kernel_sha256": "030b837d3bca715ce07000c42a04ad6ec35a8703d8311233f2258377665c2140"
+  },
+  {
+    "case": "mtpc_Q8_L8192",
+    "query_length": 8,
+    "kv_length": 8192,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L8192/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L8192/tilelang/best/export",
+    "kernel_sha256": "eab3067249e8bf246f37e26dda395e1b405554276439e0f489d1100f19f7c837"
+  },
+  {
+    "case": "mtpc_Q8_L16384",
+    "query_length": 8,
+    "kv_length": 16384,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L16384/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L16384/tilelang/best/export",
+    "kernel_sha256": "cb27f91719176b91d9f269009d0a34f6b05d80970af9564864744419e704755a"
+  },
+  {
+    "case": "mtpc_Q8_L32768",
+    "query_length": 8,
+    "kv_length": 32768,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_full_kv_20261028/kernels/mtpc_Q8_L32768/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L32768/tilelang/best/export",
+    "kernel_sha256": "5900331b3119fe5cbfa75ea7989ef496d13464ba609cb40f4b4482d86a9edf2b"
+  },
+  {
+    "case": "mtpc_Q8_L65536",
+    "query_length": 8,
+    "kv_length": 65536,
+    "source_export": "/u/yucheny8/argus/profiles_paper_kernels/mtpc_f8beba1_20261028/kernels/mtpc_Q8_L65536/tilelang/best/export",
+    "export": "/u/yucheny8/argus/paper_kernels/mtpc_Q8_L65536/tilelang/best/export",
+    "kernel_sha256": "e7cc68f7a95b7e3f34bd1abec86874a5c482fa82940a5dd49c07e3bd0d695ee7"
+  }
+]

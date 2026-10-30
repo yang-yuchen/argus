@@ -1,0 +1,7 @@
+[    51s] tuning mtpc_Q8_L1024: backend tilelang, 64 trials, 16 per iteration, fusion default, kernel timing True, population 64, evolve iters 1, seed 1, out /work/nvme/beqg/mbudiu2/paper_kernels_sweep/L1024/mtpc_Q8_L1024/tilelang_w
+[   998s] tuning done
+[   998s] trials: 43 measured, 21 failed (10 error in building, 11 error in running); in-tuner best 0.0059 ms
+[   998s] winner's decisions (in trace order; [0,1] = ws, tma, fold; [0..k-1] = block order): tile=[32, 32], tile=[1, 128], tile=[16, 2], warps=2, stages_idx=1, [0, 1]=1, [0, 1]=1, [0, 1]=0, warps=4, stages_idx=0, [0, 1]=0, [0, 1]=1, [0, 1]=1, [0, 1]=0, [0, 1]=0
+[  1014s] tuned:  correct (max err 1.2e-04), 0.0059 ms kernel, 0.0100 ms event  (exported kernel.so, reloaded)
+[  1014s] manual: FAILED (Check failed: (reduce_iv_indices.size() == 1) is false: There should be exactly one reduction IterVar in the block that touches the target loop var; got [])  [schedule_split_kv_flash(sch, 16), mask on every tile]
+[  1015s] sdpa:   0.0094 ms kernel  (torch.nn.functional.scaled_dot_product_attention)

@@ -16,6 +16,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("implementation", choices=("tileops", "flex", "nautilus"))
     parser.add_argument("directory", type=Path)
+    parser.add_argument("--query-length", type=int, choices=(2, 4, 8, 16), default=16)
     parser.add_argument("--repeat", type=int, default=30)
     parser.add_argument("--warmup", type=int, default=5)
     args = parser.parse_args()
@@ -29,9 +30,10 @@ def main():
     from transformers.modeling_utils import ALL_ATTENTION_FUNCTIONS
 
     for length, output in zip(LENGTHS, outputs):
-        print(f"Starting MTP L{length}/{args.implementation}", flush=True)
+        print(f"Starting MTP Q{args.query_length} L{length}/{args.implementation}", flush=True)
         try:
             measure(SimpleNamespace(variant="mtpc", implementation=args.implementation,
+                                    query_length=args.query_length,
                                     kv_length=length, output=output, repeat=args.repeat,
                                     warmup=args.warmup, cudagraph=True, profile_child=False))
         finally:
@@ -39,7 +41,7 @@ def main():
             torch._dynamo.reset()
             gc.collect()
             torch.cuda.empty_cache()
-        print(f"Finished MTP L{length}/{args.implementation}", flush=True)
+        print(f"Finished MTP Q{args.query_length} L{length}/{args.implementation}", flush=True)
 
 
 if __name__ == "__main__":

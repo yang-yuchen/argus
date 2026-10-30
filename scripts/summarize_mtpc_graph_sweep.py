@@ -19,22 +19,26 @@ LENGTHS = (256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536)
 IMPLEMENTATIONS = ("nautilus", "tileops", "flex")
 SHARED = ("weights_sha256", "gpu_uuid", "host", "torch", "cuda", "transformers", "metric",
           "scope", "execution", "repeat", "warmup", "seed", "cache_implementation")
-SOURCE = Path(__file__).resolve().parents[2] / "neptune-internal/scripts/csv_figures.py"
+SOURCE = (Path(__file__).resolve().parents[1]
+          / "paper_results/prefill_final_repro/scripts/csv_figures.py")
 
 
-def summarize(directory):
+def summarize(directory, query_length=16):
     """Refuse incomplete, mismatched or incorrectly captured inputs before writing results."""
+    if query_length not in (2, 4, 8, 16):
+        raise ValueError("MTP query length must be 2, 4, 8 or 16")
     directory = Path(directory)
     rows, first, backend_packages = [], None, {}
     for length in LENGTHS:
-        current = export_path("mtpc", length).resolve()
+        current = export_path("mtpc", length, query_length=query_length).resolve()
         digest = hashlib.sha256((current / "kernel.so").read_bytes()).hexdigest()
         per_length = None
         for implementation in IMPLEMENTATIONS:
             path = directory / f"mtpc_L{length}_{implementation}.json"
             record = json.loads(path.read_text())
             if (record.get("variant") != "mtpc" or record.get("implementation") != implementation
-                    or record.get("execution") != "cuda_graph_replay"):
+                    or record.get("execution") != "cuda_graph_replay"
+                    or record.get("query_length", 16) != query_length):
                 raise ValueError(f"Wrong case/execution: {path.name}")
             samples = record["samples_ms"]
             if (record["correct"] is not True or record["measurement_complete"] is not True
@@ -79,7 +83,8 @@ def summarize(directory):
                             "api": "GQADenseFwdOp(is_causal=True,target=BUILTIN)",
                             "layout": "BSHD", "selected_kernel": "GQADensePersistentWSKernel",
                             "kernel_config": None,
-                            "shape": {"q": [1, 16, 4, 128], "kv": [1, length, 4, 128]}}
+                            "shape": {"q": [1, query_length, 4, 128],
+                                      "kv": [1, length, 4, 128]}}
                 if any(source.get(key) != value for key, value in expected.items()):
                     raise ValueError(f"Wrong TileOPs source: {path.name}")
             elif implementation == "nautilus":
@@ -134,8 +139,9 @@ def summarize(directory):
             if packages != backend_packages[implementation]:
                 raise ValueError(f"Mismatched backend packages: {path.name}")
             mean = statistics.mean(samples)
-            flops = model_flops(length)
-            rows.append({"kv_length": length, "implementation": implementation,
+            flops = model_flops(length, query_length=query_length)
+            rows.append({"kv_length": length, "query_length": query_length,
+                         "implementation": implementation,
                          "execution": "cuda_graph_replay", "mean_ms": mean,
                          "median_ms": statistics.median(samples),
                          "stdev_ms": statistics.stdev(samples), "model_flops": flops,
@@ -146,7 +152,7 @@ def summarize(directory):
         writer.writeheader()
         writer.writerows(rows)
     lines = ["# MTP whole-step graph replay: all KV lengths", "",
-             "Llama-7B backbone, B1, FP16, Q16, same GPU and model weights.",
+             f"Llama-7B backbone, B1, FP16, Q{query_length}, same GPU and model weights.",
              "All27points passed correctness, fresh-input, capture and cache checks.", "",
              "| KV length | Nautilus TFLOPs/s | TileOPs TFLOPs/s | FlexAttn TFLOPs/s |",
              "|---|---:|---:|---:|"]
@@ -157,15 +163,21 @@ def summarize(directory):
     lines += ["", "Each point has5replay warmups and30synchronized wall samples.",
               "TFLOPs/s = theoretical model FLOPs / mean replay seconds /1e12.",
               "Original model-FLOPs convention: QKV/output projections and two MLP linears;",
-              "Q=16 for token-local work, and Q*KV-Q*(Q-1)/2 visible causal attention pairs.",
-              "The64K numerator is710754172928FLOPs. This adapts the original square-prefill",
+              f"Q={query_length} for token-local work, and Q*KV-Q*(Q-1)/2 "
+              "visible causal attention pairs.",
+              f"The64K numerator is{model_flops(65536, query_length)}FLOPs. "
+              "This adapts the original square-prefill",
               "formula to the measured rectangular MTP step; it does not count prefix work.",
               "Prefix setup, compilation, capture, LM head, draft and acceptance are excluded.", ""]
     (directory / "results.md").write_text("\n".join(lines))
     return rows
 
 
-def plot(rows, directory):
+def plot(rows, directory, query_length=16):
+    if query_length not in (2, 4, 8, 16):
+        raise ValueError("MTP query length must be 2, 4, 8 or 16")
+    if any(row.get("query_length", 16) != query_length for row in rows):
+        raise ValueError("Mismatched plot query_length")
     import matplotlib
 
     matplotlib.use("Agg")
@@ -181,7 +193,8 @@ def plot(rows, directory):
     data = data.reset_index().rename(columns={"kv_length": "seq_len"})
     data.to_csv(Path(directory) / "throughput_plot_input.csv", index=False)
     fig, ax = plt.subplots(figsize=(7.5, 5.0))
-    original.plot_subplot(ax, data, list(keys.values()), "LLAMA - FP16 Batch 1 (MTP)")
+    suffix = "MTP" if query_length == 16 else f"MTP Q{query_length}"
+    original.plot_subplot(ax, data, list(keys.values()), f"LLAMA - FP16 Batch 1 ({suffix})")
     ax.set_xlabel("Sequence Length", fontsize=18)
     ax.set_ylim(bottom=0)
     handles, _ = ax.get_legend_handles_labels()
@@ -197,8 +210,9 @@ def plot(rows, directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
+    parser.add_argument("--query-length", type=int, choices=(2, 4, 8, 16), default=16)
     args = parser.parse_args()
-    plot(summarize(args.directory), args.directory)
+    plot(summarize(args.directory, args.query_length), args.directory, args.query_length)
     print("Validated27MTP graph points; wrote results, throughput plot input, PDF and PNG")
 
 

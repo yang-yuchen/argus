@@ -31,7 +31,8 @@ def tensor_hash(tensors):
 class AttentionCore:
     """Bind permanent KV addresses and prepare only Q for native-cache decode/MTP."""
 
-    def __init__(self, variant, inputs, implementation, kv_length=None, persistent_kv=False):
+    def __init__(self, variant, inputs, implementation, kv_length=None, persistent_kv=False,
+                 query_length=16):
         self.variant = variant
         self.persistent_kv = persistent_kv
         self.implementation = "tilelang" if implementation == "baseline" else implementation
@@ -58,8 +59,10 @@ class AttentionCore:
                 dst.copy_(src)
         self.source = None
         if self.implementation == "nautilus":
-            self.call = (build_exported(variant, self.buffers, kv_length=kv_length)
-                         if kv_length is not None else build_exported(variant, self.buffers))
+            options = {"kv_length": kv_length} if kv_length is not None else {}
+            if query_length != 16:
+                options["query_length"] = query_length
+            self.call = build_exported(variant, self.buffers, **options)
         elif variant in ("decode", "mtpc") and self.implementation in (
             "tileops", "tileops_bound", "flex",
         ):
@@ -121,12 +124,12 @@ def grouped_attention(core, query, key, value, heads):
 
 @torch.inference_mode()
 def build_decode_model(core_factory, device="cuda", variant="decode", kv_length=None,
-                       implementation="nautilus"):
+                       implementation="nautilus", query_length=16):
     from transformers import LlamaConfig, LlamaModel
     from transformers.modeling_utils import ALL_ATTENTION_FUNCTIONS
 
     # Match the existing prefill benchmark's Llama-7B backbone, without unused vocabulary weights.
-    shapes = [tuple(p["shape"]) for p in metadata(variant, kv_length)["params"][:3]]
+    shapes = [tuple(p["shape"]) for p in metadata(variant, kv_length, query_length)["params"][:3]]
     _, export_heads, query_length, _ = shapes[0]
     length = shapes[1][2]
     config = LlamaConfig(vocab_size=16, attn_implementation="sdpa",
@@ -190,10 +193,10 @@ def build_decode_model(core_factory, device="cuda", variant="decode", kv_length=
             f"prefix={length - query_length}, total KV={length}, variant={variant}")
 
 
-def build_model(variant, factory, kv_length=None, implementation="nautilus"):
+def build_model(variant, factory, kv_length=None, implementation="nautilus", query_length=16):
     if variant in ("decode", "mtpc"):
         return build_decode_model(factory, variant=variant, kv_length=kv_length,
-                                  implementation=implementation)
+                                  implementation=implementation, query_length=query_length)
     from argus.paper_baselines.e2e_sparse import build_sparse_model
 
     model, inputs, description = build_sparse_model(variant, factory)
@@ -201,6 +204,7 @@ def build_model(variant, factory, kv_length=None, implementation="nautilus"):
 
 
 def measure(args):
+    query_length = getattr(args, "query_length", 16)
     use_graph = getattr(args, "cudagraph", False)
     graph_backends = {"decode": ("tileops_bound", "nautilus", "flex"),
                       "mtpc": ("tileops", "nautilus", "flex")}
@@ -218,13 +222,14 @@ def measure(args):
     cores = []
 
     def factory(variant, inputs, persistent_kv=False):
-        core = AttentionCore(variant, inputs, args.implementation, args.kv_length, persistent_kv)
+        core = AttentionCore(variant, inputs, args.implementation, args.kv_length, persistent_kv,
+                             query_length=query_length)
         cores.append(core)
         return core
 
     print(f"Building {args.variant}/{args.implementation} model and prefix cache", flush=True)
     model, make_inputs, description = build_model(args.variant, factory, args.kv_length,
-                                                 args.implementation)
+                                                 args.implementation, query_length=query_length)
     with torch.inference_mode():
         print("Checking reference and backend model outputs", flush=True)
         expected = model(**make_inputs()).last_hidden_state.float().clone()
@@ -290,6 +295,7 @@ def measure(args):
 
     payload = {
         "variant": args.variant, "implementation": args.implementation,
+        "query_length": cores[0].buffers[0].shape[2] if args.variant in ("decode", "mtpc") else None,
         "model": description, "config": model.config.to_dict(), "seed": 0,
         "scope": "compiled backbone forward, model projections, attention staging, MLP, norm; "
                  "cache reset/setup, tokenizer, embedding lookup, LM head and sampling excluded",
@@ -312,9 +318,9 @@ def measure(args):
         "gpu_uuid": str(torch.cuda.get_device_properties(0).uuid),
         "torch": torch.__version__, "cuda": torch.version.cuda,
         "transformers": transformers.__version__, "repeat": args.repeat,
-        "export_directory": str(export_path(args.variant, args.kv_length)),
+        "export_directory": str(export_path(args.variant, args.kv_length, query_length)),
         "kernel_sha256": hashlib.sha256(
-            (export_path(args.variant, args.kv_length) / "kernel.so").read_bytes()
+            (export_path(args.variant, args.kv_length, query_length) / "kernel.so").read_bytes()
         ).hexdigest(),
         "packages": {name: {"version": getattr(sys.modules[name], "__version__", None),
                             "path": getattr(sys.modules[name], "__file__", None)}
@@ -342,6 +348,8 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--kv-length", type=int, default=None,
                         help="Select an exported dense length; default decode=512, mtpc=65536")
+    parser.add_argument("--query-length", type=int, choices=(2, 4, 8, 16), default=16,
+                        help="MTP query tokens; decode remains Q=1")
     parser.add_argument("--repeat", type=int, default=20)
     parser.add_argument("--warmup", type=int, default=3)
     parser.add_argument("--cudagraph", action="store_true",
@@ -349,6 +357,8 @@ def main():
     parser.add_argument("--profiler", choices=("nsys",))
     parser.add_argument("--profile-child", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.query_length != 16 and args.variant != "mtpc":
+        parser.error("--query-length only applies to mtpc")
     if args.repeat < 1 or args.warmup < 1:
         parser.error("--repeat and --warmup must be positive")
     if args.kv_length is not None and args.kv_length <= 0:

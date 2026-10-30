@@ -1,0 +1,82 @@
+[
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/hf_xet-1.2.0.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/hf_xet-1.2.0.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/hf_xet-1.2.0.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/safetensors-0.7.0.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/safetensors-0.7.0.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/safetensors-0.7.0.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/regex-2025.11.3.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/regex-2025.11.3.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/regex-2025.11.3.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/beartype-0.22.5.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/beartype-0.22.5.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/beartype-0.22.5.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/pyyaml-6.0.3.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/pyyaml-6.0.3.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/pyyaml-6.0.3.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/huggingface_hub",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/huggingface_hub",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/huggingface_hub"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/yaml",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/yaml",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/yaml"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/huggingface_hub-0.36.0.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/huggingface_hub-0.36.0.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/huggingface_hub-0.36.0.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/beartype",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/beartype",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/beartype"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/hf_xet",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/hf_xet",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/hf_xet"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/tokenizers-0.22.1.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/tokenizers-0.22.1.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/tokenizers-0.22.1.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/safetensors",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/safetensors",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/safetensors"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/transformers-4.57.1.dist-info",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/transformers-4.57.1.dist-info",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/transformers-4.57.1.dist-info"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/tokenizers",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/tokenizers",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/tokenizers"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/transformers",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/transformers",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/transformers"
+  },
+  {
+    "path": "/u/yucheny8/argus/.paper_e2e_hf/regex",
+    "old_target": "/u/yucheny8/miniconda3/envs/nt/lib/python3.13/site-packages/regex",
+    "new_target": "/u/yucheny8/argus/.paper_e2e_hf_nvme/regex"
+  }
+]
