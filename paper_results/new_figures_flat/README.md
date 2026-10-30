@@ -1,9 +1,9 @@
 # Standard operator/e2e PNG browser directory
 
-This flat directory contains 37 PNG renders selected from the tracked
-`paper_results` figures. It keeps standard `operator_gh200`, `operator_rtx5090`
-and `e2e_gh200` figures only. RMSE/Qwen, prefill reproduction, and diagnostic
-figures were removed from this browsing set.
+This flat directory contains 18 final paper-style figures only:
+14 GH200 operator figures, 2 RTX5090 operator figures and 2 GH200 E2E figures.
+Intermediate diagnostics, single-method plots, RMSE/Qwen plots, prefill-repro
+copies and historical source artifacts were removed from this browsing set.
 
-`index.csv` maps each PNG to its source PDF. The original unfiltered PNG archive
-remains in `paper_results/new_figures_png/` if needed.
+`index.csv` maps every PNG to its source PDF. The full unfiltered PNG archive is
+still available under `paper_results/new_figures_png/`.
