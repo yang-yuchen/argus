@@ -16,7 +16,7 @@ import plot_from_csv as paper
 LENGTHS = (256, 512, 1024, 2048, 4096, 8192, 16384, 32768)
 STAGES = ('decode', 'mtp2', 'mtp4', 'mtp8', 'mtp16', 'mtp32', 'mtp64', 'prefill')
 METHODS = ('Ours', 'FlexAttn', 'TileLang')
-POSITIONS = (0, 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 8.3)
+POSITIONS = tuple(range(len(STAGES)))
 
 
 def summarize(data):
@@ -53,37 +53,35 @@ def plot(data, output):
     normalized, summary = summarize(data)
     colors = paper.build_colormap([paper.METHOD_DISPLAY_NAMES[m] for m in METHODS])
     fig, ax = plt.subplots(figsize=(12, 4.4))
-    offsets = np.linspace(-0.17, 0.17, len(LENGTHS))
+    offsets = np.linspace(-0.12, 0.12, len(LENGTHS))
     for method in METHODS:
         label = paper.METHOD_DISPLAY_NAMES[method]
         color = colors[label]
         means = summary[summary['method'] == method]['geomean'].to_numpy()
-        ax.plot(POSITIONS[1:7], means[1:7], color=color, linewidth=2, label=label)
-        for start, stop in ((0, 2), (6, 8)):
-            ax.plot(POSITIONS[start:stop], means[start:stop], color=color,
-                    linewidth=2, linestyle='--')
+        ax.plot(POSITIONS, means, color=color, linewidth=2.4, label=label)
         if method != 'Ours':
             for stage, x in zip(STAGES, POSITIONS):
                 group = normalized[normalized['stage'] == stage].sort_values('kv_length')
-                ax.scatter(x + offsets, group[method], color=color, s=19, alpha=0.28,
+                ax.scatter(x + offsets, group[method], color=color, s=14, alpha=0.16,
                            edgecolors='none', zorder=2)
-        ax.scatter(POSITIONS, means, color=color, s=58, zorder=4)
-    for position in (0.7, 7.35):
-        ax.axvline(position, color='0.7', linestyle='--', linewidth=1)
-    for x, text in ((0, 'Decode'), (4, 'Causal MTP'),
-                    (8.3, 'Causal prefill')):
-        ax.text(x, 1.035, text, transform=ax.get_xaxis_transform(), ha='center', fontsize=13)
+        ax.scatter(POSITIONS, means, color=color, s=52, zorder=4)
     ax.set_xticks(POSITIONS, ['1', '2', '4', '8', '16', '32', '64', 'KV'])
-    ax.set_xlabel('Query tokens (Q)', fontsize=20)
+    ax.set_xlabel('Query tokens (Q)', fontsize=20, labelpad=48)
     ax.set_ylabel('Relative Performance', fontsize=20)
     ax.tick_params(labelsize=16)
     ax.set_xlim(-0.5, 8.85)
     ax.set_ylim(0, max(1.12, float(normalized[list(METHODS)].max().max()) * 1.08))
-    ax.grid(True, linestyle='--', alpha=0.5)
+    ax.grid(True, linestyle=':', alpha=0.45)
     ax.set_axisbelow(True)
+    ax.text(POSITIONS[0], -0.13, 'Decode', transform=ax.get_xaxis_transform(),
+            ha='center', va='top', fontsize=13)
+    ax.text((POSITIONS[1] + POSITIONS[6]) / 2, -0.13, 'Causal MTP',
+            transform=ax.get_xaxis_transform(), ha='center', va='top', fontsize=13)
+    ax.text(POSITIONS[7], -0.13, 'Causal Prefill', transform=ax.get_xaxis_transform(),
+            ha='center', va='top', fontsize=13)
     fig.legend(loc='upper center', bbox_to_anchor=(0.5, 1.04), ncol=3, fontsize=18,
                frameon=True)
-    fig.subplots_adjust(left=0.10, right=0.99, top=0.76, bottom=0.19)
+    fig.subplots_adjust(left=0.10, right=0.99, top=0.76, bottom=0.36)
     output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output.with_suffix('.pdf'), bbox_inches='tight')
     fig.savefig(output.with_suffix('.png'), bbox_inches='tight', dpi=180)
