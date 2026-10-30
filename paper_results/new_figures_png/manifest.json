@@ -1,0 +1,450 @@
+{
+  "source_branch": "target/tilelang_tawa_Yuchen",
+  "source_revision": "b1c48818b5bb43ffa6570a96a1e3425d12a2f26f",
+  "old_paper_root": "/u/yucheny8/nautilus-mlsys27/figures",
+  "policy": "PDFs whose exact SHA256 occurs in old paper figures are excluded; all other tracked paper_results PDFs are rendered here.",
+  "count_pdf": 55,
+  "count_png": 55,
+  "figures": [
+    {
+      "pdf": "paper_results/e2e_gh200/decode_bound_only_20261027_j3473405/decode_e2e_with_bound.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_bound_only_20261027_j3473405/decode_e2e_with_bound.png"
+      ],
+      "pdf_sha256": "e8bebae12a5d88077e588ba19e92ed59498df2e3757a872de43425d4df249f22"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_comparison.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_comparison.png"
+      ],
+      "pdf_sha256": "d134ebd10304e22c553bfbd19dd1351cb4cfd99dd872c20c9eba2e375d9aa609"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_flex.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_flex.png"
+      ],
+      "pdf_sha256": "faa1b646619c2a27e3707d59558b0be3ad2525219456e9c7fec67b0acc804731"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_nautilus.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_nautilus.png"
+      ],
+      "pdf_sha256": "f96402177b50dd0c030a4c860051fd401d65c73275933296e98428130b93e650"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_paper_style.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_paper_style.png"
+      ],
+      "pdf_sha256": "5f41127c2a03b1785e9296bc36bc22ce1e6e7be00f5e353a592fef31841aac74"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_throughput_paper_style.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_throughput_paper_style.png"
+      ],
+      "pdf_sha256": "7c45fd2aa11bc3b65374810200c33a94c49607bd3d8d52696204e4d222af85f5"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/decode_graph_sweep_20261027_j3473944/decode_e2e_graph.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_graph_sweep_20261027_j3473944/decode_e2e_graph.png"
+      ],
+      "pdf_sha256": "f9cab88a2e2dc4258f53a19ba94ea753e4bb060b4e83a77733bb63fc6c441ea9"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/decode_sweep_20261027_j3472132/decode_e2e.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/decode_sweep_20261027_j3472132/decode_e2e.png"
+      ],
+      "pdf_sha256": "e8c1fc3e856c4d0cca7e7de6118f660912d563802a4382725b936fc48322a9e4"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/mtpc_2k4k_recheck_j3481758/mtp_e2e_graph_throughput.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/mtpc_2k4k_recheck_j3481758/mtp_e2e_graph_throughput.png"
+      ],
+      "pdf_sha256": "3026d4709fe148bce6fe6855a90085d66cff4f998e13d733fb94bcb4557221e3"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/mtpc_graph_20261027_j3474393/mtp_e2e_graph.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/mtpc_graph_20261027_j3474393/mtp_e2e_graph.png"
+      ],
+      "pdf_sha256": "9e6f939151a578aa20717d61a3475aeeb3c9b7beb433d25d90ccf852c064c20c"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/mtpc_graph_20261027_j3474393/mtp_e2e_graph_throughput_paper_style.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/mtpc_graph_20261027_j3474393/mtp_e2e_graph_throughput_paper_style.png"
+      ],
+      "pdf_sha256": "5c2bdaff3406682b8972692a9ed7efc7eb9f4b562fe094f72669f778dd76ccfa"
+    },
+    {
+      "pdf": "paper_results/e2e_gh200/mtpc_graph_sweep_3478086/mtp_e2e_graph_throughput.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/e2e_gh200/mtpc_graph_sweep_3478086/mtp_e2e_graph_throughput.png"
+      ],
+      "pdf_sha256": "eab9d3edc02633fbed521a06a056a7078f913a37e8b85186ac7b55c7d8fa7741"
+    },
+    {
+      "pdf": "paper_results/figures/e2e_gh200/decode_e2e_graph_throughput.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/e2e_gh200/decode_e2e_graph_throughput.png"
+      ],
+      "pdf_sha256": "7c45fd2aa11bc3b65374810200c33a94c49607bd3d8d52696204e4d222af85f5"
+    },
+    {
+      "pdf": "paper_results/figures/e2e_gh200/mtpc16_e2e_graph_throughput.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/e2e_gh200/mtpc16_e2e_graph_throughput.png"
+      ],
+      "pdf_sha256": "3026d4709fe148bce6fe6855a90085d66cff4f998e13d733fb94bcb4557221e3"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-bf16-tc1-sparse-d35a206-shared-kv-tilelang.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-bf16-tc1-sparse-d35a206-shared-kv-tilelang.png"
+      ],
+      "pdf_sha256": "3774094a1aefaa5ba3ff4932c1501cda5411122acb25931530a73f9d119bb62d"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-bf16-tc1-sparse-d35a206-shared-kv.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-bf16-tc1-sparse-d35a206-shared-kv.png"
+      ],
+      "pdf_sha256": "c57ba157c80466ab772d8c5b7822cf1fdd5e9f6e85000e37e8c136fc1c51debf"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-attention-transition-20261029.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-attention-transition-20261029.png"
+      ],
+      "pdf_sha256": "d9ce33a6802eb35a178ee2cee3adb4b5ad3662cadf95ff18cd6d40dd44cef59f"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-decode-b7749f3.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-decode-b7749f3.png"
+      ],
+      "pdf_sha256": "f678df9f6788268305962bd42fe2b5e574f26f42c612033a60c4c5951c966ced"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q16-full-kv-optimized-20261029.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q16-full-kv-optimized-20261029.png"
+      ],
+      "pdf_sha256": "dbcedad90a8dddc84fc902c1c35c6628ace7667c30272b73894ceb32f769a714"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q2-full-kv-optimized-20261029.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q2-full-kv-optimized-20261029.png"
+      ],
+      "pdf_sha256": "d1c6b32e0398bcb3ff4b36bb0e68cff7c6d941566cabc182b266dc382e15c12f"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q32-full-kv-optimized-20261029.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q32-full-kv-optimized-20261029.png"
+      ],
+      "pdf_sha256": "d0daff9abae09c6d4f9fa8fbac8743849810ab834f0ea3c6a6ad8f3d505e4daa"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q4-full-kv-optimized-20261029.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q4-full-kv-optimized-20261029.png"
+      ],
+      "pdf_sha256": "61e986131feeefcd79d10651e126f0363c3fb5678c66eb6e4db597c2ff8a8ebb"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q64-full-kv-optimized-20261029.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q64-full-kv-optimized-20261029.png"
+      ],
+      "pdf_sha256": "a65c5f96df30333c221b6c52fddac7e4b8f6bf20b79220303b1fc9563a53c921"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q8-full-kv-optimized-20261029.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp16-tc1-mtpc-Q8-full-kv-optimized-20261029.png"
+      ],
+      "pdf_sha256": "6197ba3bbb8378a63500568ef5ec37491a6163c05678a132f757ff2afc0bda45"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp8-tc1-decode8-4e06b84.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp8-tc1-decode8-4e06b84.png"
+      ],
+      "pdf_sha256": "07cdf6e0eccd65f531022cc938b0fa2b11d22a0ef65a9bda39d306b0bc3a7292"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp8-tc1-decode8-best-official-4e06b84.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp8-tc1-decode8-best-official-4e06b84.png"
+      ],
+      "pdf_sha256": "d6da0ff3ece3e6743116087e4e6c64f5902aa0adf72bf048c8fd4e7c29e7fa0a"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp8-tc1-mtpc8-4e06b84.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp8-tc1-mtpc8-4e06b84.png"
+      ],
+      "pdf_sha256": "d4bfeb22b45542ce6635fac06563d2b961faddf04ea7024f32c13e7113c84153"
+    },
+    {
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp8-tc1-mtpc8-best-official-4e06b84.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_gh200/gh200-fp8-tc1-mtpc8-best-official-4e06b84.png"
+      ],
+      "pdf_sha256": "8c066a906b596c54a25a791657a79d56390840d90e1670424e4fdb7e9c4e39f0"
+    },
+    {
+      "pdf": "paper_results/figures/operator_rtx5090/rtx5090-20261029-causal-mtp.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_rtx5090/rtx5090-20261029-causal-mtp.png"
+      ],
+      "pdf_sha256": "ba4bf039fd274dfffe7d0da9e8094b380d428942fcf4ddba736c28948bcdbab0"
+    },
+    {
+      "pdf": "paper_results/figures/operator_rtx5090/rtx5090-20261029-decode.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/operator_rtx5090/rtx5090-20261029-decode.png"
+      ],
+      "pdf_sha256": "896144de0e5ca0060e36c2567f533478c01928651a69b74397c07dd1317f4fdb"
+    },
+    {
+      "pdf": "paper_results/figures/prefill/gh200-fp16-tc1.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/prefill/gh200-fp16-tc1.png"
+      ],
+      "pdf_sha256": "c4f1e624f8c55644504328b4651867bf805787df7f452dc18f62a26baa9e345d"
+    },
+    {
+      "pdf": "paper_results/figures/prefill/gh200-fp8-tc1.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/prefill/gh200-fp8-tc1.png"
+      ],
+      "pdf_sha256": "57bf71cb696d704d24dc92718fff7da2de03b6e5b3a33b808b490673db0e6e24"
+    },
+    {
+      "pdf": "paper_results/figures/prefill/rtx5090-fp16-tc1.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/prefill/rtx5090-fp16-tc1.png"
+      ],
+      "pdf_sha256": "0c25a475744f722949abb535adef76bb64c3bc1ebb64dc630281759644adbe43"
+    },
+    {
+      "pdf": "paper_results/figures/prefill/throughput_plot.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/prefill/throughput_plot.png"
+      ],
+      "pdf_sha256": "48076b2c8ddc70a869c1d531b6ba41de1617818e2762e16fad6bd93278b841ce"
+    },
+    {
+      "pdf": "paper_results/figures/prefill/throughput_plot_5090.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/figures/prefill/throughput_plot_5090.png"
+      ],
+      "pdf_sha256": "13a9ceed0cd26588065603b7b247c6dd898abb68b0da49e5fc132267e6ab24e8"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/rmse_sources/reconstructed/qwen_rmse_kde_3curves_1000_causal.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/rmse_sources/reconstructed/qwen_rmse_kde_3curves_1000_causal.png"
+      ],
+      "pdf_sha256": "f69186339c1934e1a3a435615b9ebd1a4f333eab8cf830a69d7ad29b3dd4b71c"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/rmse_sources/reconstructed/qwen_rmse_kde_3curves_1000_global.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/rmse_sources/reconstructed/qwen_rmse_kde_3curves_1000_global.png"
+      ],
+      "pdf_sha256": "8a3b14b8298fdf00c5dcf4de8349cfc86fe5fc3909136c131a40658198c2d0a6"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/rmse_sources/reconstructed/qwen_rmse_kde_3curves_1000_gqa.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/rmse_sources/reconstructed/qwen_rmse_kde_3curves_1000_gqa.png"
+      ],
+      "pdf_sha256": "2f96d197208a26a8b3ebfe463329bb563b7d654ba3d870a893979a31573607bf"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/sources/legacy/error/qwen_rmse_focus_100.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/sources/legacy/error/qwen_rmse_focus_100.png"
+      ],
+      "pdf_sha256": "f45975fb2da90173503feb1d812dd861717ecd958ff3a0db60c7ed17d0a7e462"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/sources/legacy/error/qwen_rmse_full.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/sources/legacy/error/qwen_rmse_full.png"
+      ],
+      "pdf_sha256": "47a2486078dd6f6767152732c62f44b1a3e6375436d5d70ef22ebb08300b9b7f"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/sources/legacy/error/qwen_rmse_kde_3curves_100.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/sources/legacy/error/qwen_rmse_kde_3curves_100.png"
+      ],
+      "pdf_sha256": "851216c1e3eddced3b472ab1f7ea1d3a7e8b9b3c68bbe9e47702f158a4d88166"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/sources/legacy/error/qwen_rmse_kde_3curves_1000.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/sources/legacy/error/qwen_rmse_kde_3curves_1000.png"
+      ],
+      "pdf_sha256": "eb3a839f61b59829fc320bfdc1314b733735b171f65db6bf7b5901a42ff13b9a"
+    },
+    {
+      "pdf": "paper_results/nautilus_mlsys27/sources/legacy/error/qwen_rmse_kde_3curves_1000_causal.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/nautilus_mlsys27/sources/legacy/error/qwen_rmse_kde_3curves_1000_causal.png"
+      ],
+      "pdf_sha256": "5cf39c59c298318215b9913dffb9509cb65aa341e5a7e6259ac0d38f80794bb5"
+    },
+    {
+      "pdf": "paper_results/operator_gh200/prefill_decode_compare_20261026_validated/comparison.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/operator_gh200/prefill_decode_compare_20261026_validated/comparison.png"
+      ],
+      "pdf_sha256": "cd6e11ba5c0894d668d903c278225cf44f7b490afa359e7605d0534f7f514be8"
+    },
+    {
+      "pdf": "paper_results/operator_rtx5090/rtx5090-20261029-causal-mtp.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/operator_rtx5090/rtx5090-20261029-causal-mtp.png"
+      ],
+      "pdf_sha256": "ba4bf039fd274dfffe7d0da9e8094b380d428942fcf4ddba736c28948bcdbab0"
+    },
+    {
+      "pdf": "paper_results/operator_rtx5090/rtx5090-20261029-decode.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/operator_rtx5090/rtx5090-20261029-decode.png"
+      ],
+      "pdf_sha256": "896144de0e5ca0060e36c2567f533478c01928651a69b74397c07dd1317f4fdb"
+    },
+    {
+      "pdf": "paper_results/operator_rtx5090/rtx5090-causal-mtp.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/operator_rtx5090/rtx5090-causal-mtp.png"
+      ],
+      "pdf_sha256": "8765a1112255ac1885f54985d1d454c7dc33df7c1bc1a5310778f37bf3328e8f"
+    },
+    {
+      "pdf": "paper_results/operator_rtx5090/rtx5090-decode.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/operator_rtx5090/rtx5090-decode.png"
+      ],
+      "pdf_sha256": "8db0a69c0240458c6575cfee1c63738d68c37d1aead1f5d8e8f43751af078939"
+    },
+    {
+      "pdf": "paper_results/operator_rtx5090/rtx5090-nsys-causal-mtp.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/operator_rtx5090/rtx5090-nsys-causal-mtp.png"
+      ],
+      "pdf_sha256": "784df29cbf452ffcde6117cf586800aa0caa7f43a1ae1f422c927a61f47ddea7"
+    },
+    {
+      "pdf": "paper_results/operator_rtx5090/rtx5090-nsys-decode.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/operator_rtx5090/rtx5090-nsys-decode.png"
+      ],
+      "pdf_sha256": "a3616119d3d274059e101315707d9e60749199b3dec05d787fb4d5b8e494e68c"
+    },
+    {
+      "pdf": "paper_results/prefill_final_repro/figures/gh200-fp16-tc1.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/prefill_final_repro/figures/gh200-fp16-tc1.png"
+      ],
+      "pdf_sha256": "c4f1e624f8c55644504328b4651867bf805787df7f452dc18f62a26baa9e345d"
+    },
+    {
+      "pdf": "paper_results/prefill_final_repro/figures/gh200-fp8-tc1.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/prefill_final_repro/figures/gh200-fp8-tc1.png"
+      ],
+      "pdf_sha256": "57bf71cb696d704d24dc92718fff7da2de03b6e5b3a33b808b490673db0e6e24"
+    },
+    {
+      "pdf": "paper_results/prefill_final_repro/figures/rtx5090-fp16-tc1.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/prefill_final_repro/figures/rtx5090-fp16-tc1.png"
+      ],
+      "pdf_sha256": "0c25a475744f722949abb535adef76bb64c3bc1ebb64dc630281759644adbe43"
+    },
+    {
+      "pdf": "paper_results/prefill_final_repro/figures/throughput_plot.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/prefill_final_repro/figures/throughput_plot.png"
+      ],
+      "pdf_sha256": "48076b2c8ddc70a869c1d531b6ba41de1617818e2762e16fad6bd93278b841ce"
+    },
+    {
+      "pdf": "paper_results/prefill_final_repro/figures/throughput_plot_5090.pdf",
+      "pages": 1,
+      "pngs": [
+        "paper_results/new_figures_png/prefill_final_repro/figures/throughput_plot_5090.png"
+      ],
+      "pdf_sha256": "13a9ceed0cd26588065603b7b247c6dd898abb68b0da49e5fc132267e6ab24e8"
+    }
+  ]
+}
