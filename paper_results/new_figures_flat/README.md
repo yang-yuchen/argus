@@ -1,23 +1,19 @@
 # Flat paper-style figure review set
 
-There are18 PNGs in one directory:12 operator previews and6 E2E experiments.
-IDs3,13,15,16 were removed as requested. Figure5 has the corrected transition
-layout. Other retained IDs are preserved.
+There are 14 PNGs in one directory: 12 operator previews and 2 E2E figures.
+IDs 3, 13, 15, 16, 19, 25, 26, 28 were retired; retained IDs are stable.
+Figure 5 has the repaired transition layout.
 
-Every E2E preview now uses the original paper's grouped throughput bars, method
-colors and legend, Throughput(TFLOPs/s) vertical axis and power-of-two KV labels.
-The original plot_subplot function is reused directly. Eager and CUDA Graph
-measurements remain different experiments, explicitly recorded in index.csv.
-No benchmark was rerun and no measurement was substituted between experiments.
+E2E titles contain model, dtype, batch/query size, operator and GPU.
+Both E2E figures reuse the original paper grouped throughput bars and colors.
+The index retains the execution protocol and exact data sources.
 
-E2E review IDs:
-- 1: decode CUDA Graph, all three methods; replaces latency/single-method views20–24.
-- 2: final MTP CUDA Graph sweep with the2K/4K rechecks.
-- 19: eager decode comparison including the prebound TileLang route.
-- 25: earlier eager decode comparison.
-- 26: earlier single64K MTP CUDA Graph experiment; merges original views26/27.
-- 28: original MTP CUDA Graph sweep before the2K/4K rechecks.
+- 1: decode CUDA Graph comparison.
+- 2: corrected full MTP CUDA Graph sweep, including all six rerun 2K/4K measurements.
 
-The standard E2E PDFs, exact plot-input CSVs and manifest are under
-paper_results/e2e_gh200/standard_review. index.csv records the underlying result
-CSV for every E2E preview and identifies which old presentation IDs it replaces.
+26 was the earlier 64K-only MTP run. 28 was the full sweep before its 2K/4K
+outliers were rerun. Figure 2 uses the corrected full sweep.
+Raw experiment files remain in their original folders.
+
+See [EXPERIMENTS.md](EXPERIMENTS.md) for retained and omitted experiments, and
+`../e2e_gh200/standard_review/manifest.json` for E2E provenance.

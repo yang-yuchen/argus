@@ -22,6 +22,11 @@ METHODS = {'nautilus': 'neptune_tawa', 'tileops': 'tilelang',
 ORDER = ('neptune_tawa', 'tilelang', 'tilelang_prebound', 'flex_attention')
 
 
+def figure_title(query_length):
+    operator = 'Decode' if query_length == 1 else 'Causal MTP'
+    return f'Llama-7B · FP16 · B1/Q{query_length} · {operator} · GH200'
+
+
 def load_data(path, query_length, kv_length=None):
     data = pd.read_csv(path)
     if 'seq_len' in data and 'neptune_tawa' in data:
@@ -88,8 +93,8 @@ if __name__ == '__main__':
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--query-length', type=int, choices=(1, 16), required=True)
     parser.add_argument('--kv-length', type=int)
-    parser.add_argument('--title', required=True)
+    parser.add_argument('--title')
     args = parser.parse_args()
     figure, _ = plot(load_data(args.input, args.query_length, args.kv_length),
-                     args.output, args.title)
+                     args.output, args.title or figure_title(args.query_length))
     plt.close(figure)
