@@ -1,0 +1,56 @@
+\textbf{Hardware Platforms.}
+We evaluate \NAME{} on an NVIDIA GH200 Grace Hopper Superchip (H100 GPU, Hopper)
+and an NVIDIA RTX 5090 GPU (Blackwell).
+
+\textbf{Workloads.}
+We evaluate the attention operators of five transformer models
+(Appendix Table~\ref{tab:operators}):
+global attention from ViT 1.2B, causal attention (MHA) from Llama 2 7B, Qwen2 7B, and Qwen3 8B,
+and grouped-query attention (GQA) from GLM-4 9B.
+In end-to-end experiments, we run each model in prefill mode
+on batch sizes 1 and 8, sequence lengths $2^{10}, \dots, 2^{15}$,
+and FP16 and FP8-E4M3 precisions;
+in operator experiments, we evaluate the three attention operators individually
+on the same inputs.
+We refer to the tuple of hardware platform, operator, input shape, and input precision as
+a \textbf{setup}.
+For each setup, we run \NAME{}'s auto-tuner for 256 empirical measurements.
+
+\textbf{Baselines.}
+We compare \NAME{} to 12 baselines (names we use are underlined):
+seven compilers, namely \uline{Tawa}~\cite{tawa} and \uline{TileLang}~\cite{tilelang}
+with their FlashAttention-3-style attention kernels,
+two Triton implementations (\uline{OpenAI Triton}~\cite{openai-fused-attn}
+and \uline{Tri-Dao Triton}~\cite{flash-attn-repo}), \uline{Helion},
+FlexAttention (\uline{FlexAttn}) in PyTorch, and \uline{TVM};
+and five hand-optimized libraries, namely \uline{cuDNN},
+Dao-AILab's CUTLASS FlashAttention (\uline{Tri-Dao})~\cite{flash-attn-repo},
+\uline{FlashInfer}~\cite{flashinfer}, \uline{ThunderKittens}~\cite{thunderkittens},
+and \uline{PyTorch}'s built-in attention~\cite{pytorch}.
+Appendix Table~\ref{tab:baselines} lists versions and configurations.
+We do not evaluate FlashAttention-4~\cite{zadouri2026flashattention4algorithmkernelpipelining}
+because it uses approximation techniques outside the scope of exact attention.
+
+\textbf{Profiling and Performance Reporting.}
+We report throughput in TFLOPs per second, dividing the theoretical attention FLOPs
+of each configuration~\cite{Megatron-LM} by the measured latency,
+which we measure with CUDA Events in end-to-end experiments
+and with Nsight Systems in operator experiments (Appendix~\ref{sec:exp-details}).
+We warm up once, report the mean latency of 10 measurements,
+and average across setups with geometric means.
+
+% \yuchen{GH200 has H100 as GPU} \yifan{thanks for the correction!}
+%\sasa{Motivate that these are sota hw architectures with modern features...}
+% \NA{Sparse} & \NA{Deepseek Sparse Attention} & \NA{DeepSeek-V3.2} \\
+%\sasa{Can we motivate why these networks are representative?}
+% Each operator is evaluated in both prefill and decoding modes:
+% in prefill (PF), the query sequence length $s_q$ equals the key/value sequence length $s_{kv}$,
+% and in decoding (DC), $s_q = 1$.
+% Variations on masking (Global and Causal) collapse into the same operator under decoding
+% mode, so we select one.
+% Each operator is evaluated in prefill (PF) mode, where the query sequence length $s_q$
+% equals the key/value sequence length $s_{kv}$.
+%\yifan{Reminder: ThunderKittens kernel is not ``official'' but provided by one of the maintainers.}
+% \sasa{Doublechk; cite the method if we have from somewhere}
+%We also report \textbf{relative performance} of a baseline relative to \NAME{},
+%which is $t_0 / t_i$ for the $i$-th baseline.

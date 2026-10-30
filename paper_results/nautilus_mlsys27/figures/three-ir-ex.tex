@@ -1,0 +1,72 @@
+\setminted{breaklines=true, breakanywhere=true, fontsize=\footnotesize, fontfamily=lmtt,
+xleftmargin=0pt, xrightmargin=0pt, framesep=1pt}
+\begin{figure*}[ht]
+  \begin{subfigure}[b]{0.36\textwidth}
+    \centering
+    \begin{minted}{python}
+for bx in range(N0, "blockIdx.x"):
+  for i1 in range(N1):
+    xmax[bx*N1+i1] = -inf
+  for j0 in range(M0):
+    for i1, j1, k in grid(N1, M1, K):
+      i, j = bx*N1+i1, j0*M1+j1
+      mm[i, j] += Q[i, k] * K[j, k]
+    for i1, j1 in grid(N1, M1):
+      i, j = bx*N1+i1, j0*M1+j1
+      xmax[i] = max(
+        xmax[i], mm[i, j])
+    \end{minted}
+    \caption{Scalar IR, with scalar memory accesses and computation under loop nests.
+      This IR facilitates high-level optimizations such as operator fusion,
+    which are central to \NAME{}'s auto-scheduler.}
+  \end{subfigure}
+  \hspace{2pt}
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \begin{minted}{python}
+bx = block("blockIdx.x", 0, N0)
+vmax_init = tile(-inf, [N1])
+vmax = for j0 in loop(M0)
+    params (vmax_1 = vmax_init) {
+  il, ir = bx*N1, (bx+1)*N1
+  jl, jr = j0*M1, (j0+1)*M1
+  vmm = dot(Q[il:ir, 0:K],
+    K[jl:jr, 0:K].T)
+  vmax_local = max(vmm, axis=1)
+  vmax = maximum(
+    vmax_local, vmax_1)
+  yield vmax
+}
+store(vmax, xmax[bx*N1:bx*N1+N1])
+    \end{minted}
+    \caption{Virtual register (VR) tile IR facilitates expression rewrites.
+    Tiles are expressed as values instead of tensor accesses.}
+    \label{fig:vr-ir-example}
+  \end{subfigure}
+  \hspace{2pt}
+  \begin{subfigure}[b]{0.31\textwidth}
+    \centering
+    \begin{minted}{python}
+bx = block("blockIdx.x", 0, N0)
+for j0 in range(M0):
+  il, ir = bx*N1, (bx+1)*N1
+  jl, jr = j0*M1, (j0+1)*M1
+  xmm[0:N1, 0:M1] = dot(
+    Q[il:ir, 0:K],
+    K[jl:jr, 0:K].T)
+  xmax_local = tile(-inf, [N1])
+  xmax_local[0:N1] = max(
+    xmm[:, :], axis=1)
+  xmax[0:N1] = maximum(
+    xmax_local[:], xmax[:])
+    \end{minted}
+    \caption{Memory access (MA) tile IR desugars the VR-tile IR and exposes data
+      movement between tensors. \NAME{} uses this IR to interface with its tile
+      optimizers (Triton, Tawa, and TileLang).
+    }
+  \end{subfigure}
+  \vspace*{-1.5em}
+  \caption{An example program in \NAME{}'s three IRs.}
+  \label{fig:3ir-example}
+  \vspace*{-1em}
+\end{figure*}

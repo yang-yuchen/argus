@@ -1,0 +1,16 @@
+\NAME{} is implemented on TVM's TensorIR infrastructure~\cite{tvm}:
+its scheduling language builds on TensorIR's, and all three IRs use TensorIR code
+infrastructure as a foundation.
+The scalar IR and the MA-tile IR are adapted from Neptune~\cite{neptune},
+while the VR-tile IR is new.
+Each scheduling pass is implemented as a TVM MetaSchedule rule, driven by a custom
+design-space generator that implements the pre-order traversal of \S\ref{sec:auto-sched}.
+A runtime manages kernel compilation, caching, and invocation for all tile compilers
+through a unified interface.
+
+%\sasa{We should use stronger wording here so it doesn't sound like we are just lego bricks guys.}
+%\sasa{Say what we implemented in autoscheduler :) }
+%is implemented on top of TVM's MetaSchedule framework, but with entirely custom components. We 
+%
+%The \NAME{} auto-scheduler has an auto-tuning stage that leverages MetaSchedule's
+% (Auto-tuner search algorithm and budget are described in Sec. 3.4.)

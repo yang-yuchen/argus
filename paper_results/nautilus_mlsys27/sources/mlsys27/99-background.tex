@@ -1,0 +1,62 @@
+\textbf{Schedule-based Tensor Optimizations.}
+Schedule-based tensor compilers (e.g., TVM~\cite{tvm} and Halide~\cite{halide})
+separate the mathematical definition of a tensor program from \mbox{optimization} decisions.
+Optimization decisions are conveyed via dedicated scheduling languages,
+with a library of program transformations, e.g., for loops,
+parallelization, and data movement.
+%A {schedule} is a sequence of transformations applied to the program to optimize it.
+%
+Auto-schedulers (e.g., Ansor~\cite{ansor} and Halide's auto-sche\-duler~\cite{halide-autosched})
+aim to relieve users from hand-writing schedules by searching over the space of
+legal transformation sequences.
+They rely on heuristic rules and cost models to prune unfavorable schedules.
+The design of schedule languages adds to the difficulty of auto-scheduling:
+they tend to expose a set of fine-grained transformations
+and mix optimizations from different levels (e.g., high-level fusion decisions with
+low-level thread mappings) \mbox{in a single schedule.}
+
+\textbf{Tile Optimizations.}
+Tile-based compilers (e.g., Triton~\cite{triton} and TileLang~\cite{tilelang})
+are an alternative approach to effectively automate low-level optimizations.
+Programmers describe the workload as tile computation (fixed-shape subtensors)
+in a tile-based language with an SIMD-like programming model,
+and the compiler maps the tiles to hardware SIMD units.
+While tile compilers automate SIMD-level optimizations,
+they leave most higher-level optimizations, e.g., operator fusion and expression rewriting,
+to the programmer.
+
+\textbf{Bridging Schedule and Tile Optimizations.}
+Prior work (e.g., Neptune~\cite{neptune}) has shown that schedule-based and tile-based
+approaches are complementary and can combine to achieve higher performance than either.
+Schedule languages are well-suited for high-level optimizations such as operator fusion,
+and tile compilers excel at low-level mapping of tile programs to hardware.
+Neptune proposes a unified framework where scheduling acts on loop-based programs
+(loop-scalar IR in Neptune), which Neptune translates into a tile-based representation (tile IR)
+to exploit Triton for SIMD optimizations.
+Neptune still requires major manual effort to use, as it does not include an auto-scheduler
+and requires the user to provide a schedule.
+As Neptune only targets Triton as its optimizer, it cannot make use of
+features on newer GPUs such as asynchronous tensor core matmul,
+and delivers subpar performance compared to newer kernel libraries.
+% \sasa{IMPORTANT: Why Neptune doesn't wor with modern GPUs or backends!!}
+% \sasa{Also why it doesn't autoschedule.}
+% \matei{However, Neptune is complicated to use since it does not come with an
+% auto-scheduler. Additionally, it only targets the Triton backend, which isn't able to
+% make use of features on newer GPUs such as asynchronous memory loads, preventing
+% performance from being competitive with newer systems.}
+
+\textbf{Tensor Operator Fusion.}
+In GPU kernels, multiple outermost loops execute in parallel across different GPU thread blocks.
+Combining compute operations under the same parallel loops can bring significant
+performance benefit,
+since it reduces data communication across thread blocks. This technique is called operator fusion.
+Operator fusion is not always possible for computation with complex data dependency patterns.
+Neptune generalizes operator fusion to support fusing multiple reduction operations,
+and provides them as program transformation passes that \NAME{} uses.
+
+% Additionally, fusing deeper-nested for loops can also be advantageous, as it can
+% improve cache locality of data access and allow for better use of shared memory, which
+% is a limited resource.
+% Being able to fuse these outer loops thus allows for multiple computations to be
+% batched together in the same GPU kernel launch, which eliminates the expensive cost of
+% launching a kernel.

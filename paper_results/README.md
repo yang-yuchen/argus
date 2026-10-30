@@ -24,6 +24,7 @@ Conventions:
 | `operator_gh200/gh200-fp16-tc1-attention-transition-20261029.pdf` (decode → MTP → prefill) | `operator_gh200/attention_transition_20261029/plot_input.csv` | `scripts/plot_attention_transition.py` |
 | `operator_gh200/gh200-fp8-tc1-{decode8,mtpc8}-4e06b84.pdf` (FP8) | `operator_gh200/fp8_compilers_20261029/sweep_4e06b84_3484820/plot_input_*.csv` | `fp8_compilers_20261029/make_plots_fp8_sweep.py` |
 | `operator_gh200/gh200-fp8-tc1-{decode8,mtpc8}-best-official-4e06b84.pdf` (FP8 best measured official route) | `operator_gh200/fp8_compilers_20261029/plot_input_*_best_official.csv` | `plot_from_csv.py` |
+| `nautilus_mlsys27/` (historical figure archive and source inventory) | `nautilus_mlsys27/manifest.json` | `nautilus_mlsys27/README.md` |
 | `operator_rtx5090/rtx5090-20261029-{decode,causal-mtp}.pdf` | `operator_rtx5090/rtx5090_decode_mtpc16_results.md` | `operator_rtx5090/make_plots_20261029.py` |
 | `e2e_gh200/decode_e2e_graph_throughput.pdf` | `e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_throughput_paper_style.csv` | `scripts/plot_decode_e2e_paper_style.py` |
 | `e2e_gh200/mtpc16_e2e_graph_throughput.pdf` | `e2e_gh200/mtpc_2k4k_recheck_j3481758/throughput_plot_input.csv` | `scripts/plot_mtpc_throughput_paper_style.py`, `mtpc_2k4k_recheck_j3481758/summarize_recheck.py` |

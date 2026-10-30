@@ -1,0 +1,112 @@
+{
+  "source_repo": "/u/yucheny8/nautilus-mlsys27",
+  "source_pdf_count": 29,
+  "archived_pdf_count": 23,
+  "excluded_by_owner": [
+    "bf16_prefill_causal_rmse.pdf",
+    "bf16_prefill_global_rmse.pdf",
+    "bf16_prefill_gqa_rmse.pdf",
+    "fp8_prefill_causal_rmse.pdf",
+    "fp8_prefill_global_rmse.pdf",
+    "fp8_prefill_gqa_rmse.pdf"
+  ],
+  "figures": [
+    {
+      "path": "figures/ablation_study.pdf",
+      "sha256": "181e836f386048f20c143ddfac0d467ae2093bdc3fc086242b853bef5a5909f1"
+    },
+    {
+      "path": "figures/gh200-fp16-baseline.pdf",
+      "sha256": "db40c42fb602ff66812fb46b8ca491a0435cd5edce13db31b29e1b519e39dd43"
+    },
+    {
+      "path": "figures/gh200-fp16-baseline1.pdf",
+      "sha256": "e414dd9170b4da84ee6d34a562bf2994fef224de1c81128bd727c67fc45610ef"
+    },
+    {
+      "path": "figures/gh200-fp16-baseline1new.pdf",
+      "sha256": "6d5d1dd836b5ab7587d69cd2f40217182bc22c2aff329919ae92318af2b61713"
+    },
+    {
+      "path": "figures/gh200-fp16-tc.pdf",
+      "sha256": "4016fcd0e228716eafc5094dbeda00375e8607e93111e206853eec42b8c373de"
+    },
+    {
+      "path": "figures/gh200-fp16-tc1.pdf",
+      "sha256": "696acf8da7c50abdbbb375a90e2f5d2610c1078cd94feb5309addacbb83ff517"
+    },
+    {
+      "path": "figures/gh200-fp16-tc1new.pdf",
+      "sha256": "dd07fe7ce06201b5c7330b3f571bc01e63a113de2c5e346b66331072f2bdfaae"
+    },
+    {
+      "path": "figures/gh200-fp8-tc.pdf",
+      "sha256": "c2a193e85d60e537abbacce9e1c4c63a0bc6520638359f99d610c4fc9e52b82a"
+    },
+    {
+      "path": "figures/gh200-fp8-tc1.pdf",
+      "sha256": "13b2b48d51acc8e424366aff568c9d19cac247546f72a09da689055b10594790"
+    },
+    {
+      "path": "figures/old/rtx5090-fp16-baseline.pdf",
+      "sha256": "60926b6cfa70c2e4af8f5d27f78176cd16446f314b6969bcf96f1ca1702f127b"
+    },
+    {
+      "path": "figures/old/rtx5090-fp16-baseline1.pdf",
+      "sha256": "fe4fabf443da061750ff43879f0f0688a0279375b9dd46e274194e4b6c15a5bc"
+    },
+    {
+      "path": "figures/old/rtx5090-fp16-tc.pdf",
+      "sha256": "5a2a9d26a9ba23923b4349aa7164eb433c513a7d34302eecf6db99b4bcda616f"
+    },
+    {
+      "path": "figures/old/rtx5090-fp16-tc1.pdf",
+      "sha256": "25e5e786abcca222b7dc4e447ed99b5cfe1d45a1b1761e3952397b28afca32d5"
+    },
+    {
+      "path": "figures/old/throughput_plot.pdf",
+      "sha256": "fb4d3247394100edd178730ddc9cf2398ecffadec9e2d927effdd149ff2f0a8c"
+    },
+    {
+      "path": "figures/old/throughput_plot_5090.pdf",
+      "sha256": "2e754673951ea6803d146908753b6ec0e62da070d96ac7b64f73aae94a3f9dfe"
+    },
+    {
+      "path": "figures/one-col-figs.pdf",
+      "sha256": "1ee0d53749598341f30288f877595c41dba00475531ac1579171cfd67362313a"
+    },
+    {
+      "path": "figures/qwen_rmse_kde_3curves_1000_causal.pdf",
+      "sha256": "f362a446622b270f8ac95f41b779d5af7d5f7706ce19704f96e298f620618628"
+    },
+    {
+      "path": "figures/qwen_rmse_kde_3curves_1000_global.pdf",
+      "sha256": "760cc402d5081cbabf0afa780cd520211895ec04389bf6c5afc6cb4ce52fe418"
+    },
+    {
+      "path": "figures/qwen_rmse_kde_3curves_1000_gqa.pdf",
+      "sha256": "a2e39c62c9c9b645e86047bb9f3dbe96321b2b1f2739de0b198e17bfb8b2f74d"
+    },
+    {
+      "path": "figures/rtx5090-fp16-baseline1.pdf",
+      "sha256": "5cbca7e8b10362f67073f8b967cd432bac8fad4bb7330f62eb9a8acc8c805467"
+    },
+    {
+      "path": "figures/rtx5090-fp16-tc1.pdf",
+      "sha256": "bc32317770b8fa0eeeea49f2567516179141ed417a2cc91b08291d523e76cd8e"
+    },
+    {
+      "path": "figures/throughput_plot.pdf",
+      "sha256": "514955bb00b4dd33d7036574bc0caef331218ef666aff589ecd2cc0bb78c4568"
+    },
+    {
+      "path": "figures/throughput_plot_5090.pdf",
+      "sha256": "096182e0eee8596375e3ef6550634e96ecdc9563f84c941a6e4d9eefefe49be4"
+    }
+  ],
+  "core_reproduction": "sources/prefill_final_repro (five canonical figures with data/scripts/reference PDFs)",
+  "performance_sources": "sources/performance_sources",
+  "qwen_rmse_sources": "rmse_sources",
+  "tex_sources": "sources/mlsys27",
+  "source_note": "The paper repository itself contains PDFs and TeX, not plotting scripts or CSVs. Core data/script provenance comes from the existing prefill_final_repro package; legacy candidate mappings are documented in performance_sources."
+}

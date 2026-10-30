@@ -1,0 +1,49 @@
+\textbf{Tile-based Programming Frameworks.}
+Tile languages such as Triton~\cite{triton}, TileLang~\cite{tilelang},
+cuTile~\cite{cutile}, and others~\cite{cutlass,thunderkittens,tawa}
+map tile computation to warps and threads but leave high-level optimizations,
+such as fusion and expression rewriting, to programmers;
+\NAME{} automates these and uses multiple tile compilers as backends.
+
+\textbf{Scheduling Tensor Compilers and Auto-Schedulers.}
+Schedule-based compilers such as Halide~\cite{halide}, TVM~\cite{tvm}, AKG~\cite{akg},
+and Tiramisu~\cite{tiramisu} separate algorithms from schedules,
+which auto-schedulers such as Ansor~\cite{ansor}, MetaSchedule~\cite{metaschedule},
+and FlexTensor~\cite{flextensor} generate automatically.
+Neptune~\cite{neptune} delegates low-level optimization to a tile compiler
+and introduces advanced reduction fusion, but relies on manually written schedules;
+\NAME{}'s auto-scheduler generates them automatically,
+handling non-local advanced fusion while keeping programs tile-ready.
+
+\textbf{Super-optimizing Tensor Compilers.}
+Super-optimizers such as TASO~\cite{taso} and Mirage~\cite{mirage}
+search over transformations that may not preserve semantics and verify candidates afterwards.
+Mirage's multi-level search can take minutes to hours,
+and its probabilistic correctness test can admit unsound kernels;
+\NAME{} applies only semantics-preserving transformations
+(up to floating-point reassociation).
+
+\textbf{PyTorch-Based FlashAttention.}
+Flashlight~\cite{flashlight} adds a semantic fusion pass to PyTorch's TorchInductor
+to generate FlashAttention-style kernels from PyTorch attention definitions.
+Its optimizations (semantic fusion and limited tiling) are graph rewrites
+specific to TorchInductor, and it is tied to Triton;
+\NAME{} combines operation-level, expression, and tile optimizations
+in a three-IR pipeline over multiple tile compilers.
+
+\textbf{Algebraic Expression Rewriting.}
+Expression rewriting exploits algebraic identities, typically over whole tensors at the graph
+level, as in TASO, TenSat~\cite{tensat}, and XLA~\cite{xla},
+or at lower levels in TVM, MLIR~\cite{mlir}, and Lift~\cite{lift}.
+\NAME{}'s VR-tile IR enables rewriting over tiles and across loop iterations,
+and could adopt general-purpose rewriting engines such as egg~\cite{egg}.
+
+\textbf{Graph-level Optimizers and LLM Serving.}
+Graph compilers such as XLA, Glow~\cite{glow}, and BladeDISC~\cite{bladedisc}
+fuse and transform whole computation graphs,
+and LLM serving systems such as vLLM~\cite{vllm}, DeepSpeed Inference~\cite{deepspeed-inference},
+FasterTransformer~\cite{fastertransformer}, and TensorRT-LLM~\cite{tensorrtllm}
+manage KV caches and requests;
+both rely on separate kernel generators or libraries, which \NAME{} can provide.
+
+% \yifan{Update RW -- what came out in the last 3 months?}

@@ -1,0 +1,176 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[inline]{enumitem}   % configure itemize and enumerate
+\usepackage[normalem]{ulem}  % \uline{} for underlining terms
+\usepackage{xurl}  % allow URLs to break anywhere for better wrapping
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{titlesec}  % for adjusting section spacing
+\usepackage{minted}
+% Table packages:
+\usepackage{makecell}  % \Xhline
+\usepackage{multirow}  % \multirow
+\usepackage{diagbox}   % \diagbox
+\usepackage{booktabs}
+\usepackage{wrapfig}
+% Use inconsolata font for monospaced text, which is not so wide.
+\usepackage[varqu]{zi4}
+\usepackage{newtxmath}
+
+% hyperref makes hyperlinks in the resulting PDF.
+% If your build breaks (sometimes temporarily if a hyperlink spans a page)
+% please comment out the following usepackage line and replace
+% \usepackage{mlsys2025} with \usepackage[nohyperref]{mlsys2025} above.
+\usepackage{hyperref}
+
+% Use the following line for the initial blind version submitted for review:
+\usepackage{mlsys2025}
+% If accepted, instead use the following line for the camera-ready submission:
+% \usepackage[accepted]{mlsys2025}
+
+% \raggedbottom  % Allow more flexible spacing at bottom of pages/columns
+% \emergencystretch=2pt
+% \clubpenalty=0
+% \widowpenalty=0
+
+\setlist[itemize]{leftmargin=1em, itemsep=0pt, topsep=2pt plus 2pt, parsep=2pt}
+\setlist[enumerate]{leftmargin=1em, itemsep=0pt, topsep=2pt plus 2pt, parsep=2pt}
+\setlength{\parskip}{0pt plus 0.5pt}
+% \titlespacing*{\subsection}{0pt}{3pt plus 1pt minus 1pt}{2pt minus 1pt}
+% \titlespacing*{\subsubsection}{0pt}{3pt plus 1pt minus 1pt}{2pt minus 1pt}
+\setlength{\textfloatsep}{3pt plus 2pt minus 2pt}
+\setlength{\floatsep}{3pt plus 2pt minus 2pt}
+\setlength{\intextsep}{3pt}
+
+\definecolor{mauve}{HTML}{9558B2}
+\definecolor{rose}{HTML}{FF007F}
+
+\newcommand{\XComment}[1]{}
+\def\COMMENTSON{true}  % Set to false to disable all comments
+\ifdefined\COMMENTSON
+\newcommand{\yifan}[1]{\textcolor{rose}{Yifan: #1}}
+\newcommand{\sasa}[1]{\textcolor{mauve}{#1}}
+\newcommand{\yuchen}[1]{\textcolor{orange}{Yuchen: #1}}
+\newcommand{\matei}[1]{\textcolor{purple}{Matei: #1}}
+\newcommand{\egan}[1]{{\color{green} Egan: #1}}
+\newcommand{\minsoo}[1]{{\color{red} Minsoo: #1}}
+\newcommand{\needattn}[1]{{\color{blue} #1}}
+\newcommand{\NA}[1]{{\color{blue} #1}}
+\else
+\newcommand{\yifan}[1]{}
+\newcommand{\sasa}[1]{}
+\newcommand{\yuchen}[1]{}
+\newcommand{\matei}[1]{}
+\newcommand{\egan}[1]{}
+\newcommand{\minsoo}[1]{}
+\newcommand{\needattn}[1]{#1}
+\newcommand{\NA}[1]{#1}
+\fi
+
+\def\NAME{Nautilus}
+\def\TITLE{Nautilus: An Auto-Scheduling Tensor Compiler for Efficient Tiled GPU Kernels}
+
+\mlsystitlerunning{\TITLE{}}
+
+\begin{document}
+
+\twocolumn[
+  \mlsystitle{\TITLE{}}
+  \vspace*{-1em}
+  \begin{mlsysauthorlist}
+    \mlsysauthor{Yifan Zhao}{illinois}
+    \mlsysauthor{Yuchen Yang}{illinois}
+    \mlsysauthor{Matei Budiu}{illinois}
+    \mlsysauthor{Sasa Misailovic}{illinois}
+  \end{mlsysauthorlist}
+  \mlsysaffiliation{illinois}{Siebel School of Computer Science, University of Illinois
+  Urbana-Champaign, Urbana, IL, USA}
+  \mlsyscorrespondingauthor{Yifan Zhao}{yifanz16@illinois.edu}
+  \vspace*{1em}
+
+  \begin{abstract}
+    We present \NAME{}, a novel tensor compiler that moves toward fully automated
+    \emph{math-to-kernel} optimization.
+    \NAME{} compiles a high-level algebraic specification of tensor operators into
+    efficient tiled GPU kernels.
+    \NAME{}'s successive lowering design allows high-level optimizations, expression
+    rewrites, and tile optimizations to be jointly applied in a single end-to-end system.
+    \NAME{} presents a novel auto-scheduler that discovers sequences of high-level
+    optimizations, while preserving the regular program structure
+    needed by tile optimizers.
+    \NAME{}'s auto-scheduler captures complex interactions and trade-offs in the high-level
+    optimizations,
+    including aggressive global transformations like advanced reduction fusion.
+
+    \NAME{} is the first end-to-end tensor compiler capable of starting from a math-like
+    description of attention
+    and automatically discovering FlashAttention-3-like kernels,
+    offloading the entire burden of optimization from the programmer to the compiler.
+    Across five transformer-based models and 150 evaluation configurations on NVIDIA GH200 and RTX
+    5090 GPUs, \NAME{} achieves up to 23\% higher throughput than state-of-the-art
+    compilers on GH200
+    and up to 42\% on RTX 5090, while matching or exceeding manually written cuDNN kernels
+    on many \mbox{long-sequence configurations.}
+  \end{abstract}
+]
+\typeout{parskip = \the\parskip}
+\typeout{parindent = \the\parindent}
+\typeout{baselineskip = \the\baselineskip}
+\typeout{textfloatsep = \the\textfloatsep}
+\typeout{floatsep = \the\floatsep}
+\typeout{intextsep = \the\intextsep}
+\typeout{abovedisplayskip = \the\abovedisplayskip}
+\typeout{belowdisplayskip = \the\belowdisplayskip}
+
+\printAffiliationsAndNotice{}
+
+\section{Introduction}
+{\input{01-introduction.tex}}
+
+\section{\NAME{} System Design}
+\label{sec:design}
+{\input{02-system.tex}}
+
+% \vspace{-.05in}
+% \section{Background}
+% \label{sec:background}
+% {\input{03-background.tex}}
+
+\section{\NAME{} Auto-Scheduler}
+\label{sec:auto-sched}
+{\input{04-autosched.tex}}
+
+\vspace{-.08in}
+\section{Implementation}
+\label{sec:impl}
+{\input{04-implementation.tex}}
+
+\section{Experimental Methodology}
+\label{sec:method}
+{\input{05-method.tex}}
+
+\section{Evaluation}
+\label{sec:eval}
+{\input{06-evaluation.tex}}
+
+\section{\NA{Related Work}}
+\label{sec:rw}
+{\input{07-related.tex}}
+
+\section{\NA{Conclusion}}
+\label{sec:conclusion}
+{\input{08-conclusion.tex}}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\clearpage
+\onecolumn
+\appendix
+\label{app}
+\clearpage
+\input{A-Appendix}
+
+\end{document}

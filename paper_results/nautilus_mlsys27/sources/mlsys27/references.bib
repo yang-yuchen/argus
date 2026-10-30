@@ -1,0 +1,709 @@
+@misc{gpt5,
+  title  = {GPT-5 System Card},
+  author = {OpenAI},
+  year   = {2025},
+  note   = {\url{https://cdn.openai.com/gpt-5-system-card.pdf}}
+}
+
+@misc{image-gen-paper,
+  title         = {Photorealistic Text-to-Image Diffusion Models with Deep Language Understanding},
+  author        = {Chitwan Saharia and William Chan and Saurabh Saxena and Lala Li and Jay Whang and Emily Denton and Seyed Kamyar Seyed Ghasemipour and Burcu Karagol Ayan and S. Sara Mahdavi and Rapha Gontijo Lopes and Tim Salimans and Jonathan Ho and David J Fleet and Mohammad Norouzi},
+  year          = {2022},
+  eprint        = {2205.11487},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2205.11487}
+}
+
+
+@article{flashlight,
+  title={Flashlight: PyTorch Compiler Extensions to Accelerate
+  Attention Variants},
+  author={Bozhi You and Irene Wang and Zelal Su Mustafaoglu and
+    Abhinav Jangda and Angélica Moreira and Roshan Dathathri and Divya
+  Mahajan and Keshav Pingali},
+  journal={Proceedings of Machine Learning and Systems},
+  year={2026},
+}
+
+
+@misc{audio-gen-paper,
+  title         = {AudioLM: a Language Modeling Approach to Audio Generation},
+  author        = {Zalán Borsos and Raphaël Marinier and Damien Vincent and Eugene Kharitonov and Olivier Pietquin and Matt Sharifi and Dominik Roblek and Olivier Teboul and David Grangier and Marco Tagliasacchi and Neil Zeghidour},
+  year          = {2023},
+  eprint        = {2209.03143},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.SD},
+  url           = {https://arxiv.org/abs/2209.03143}
+}
+
+@article{flash-attention,
+  title   = {Flashattention: Fast and memory-efficient exact attention with io-awareness},
+  author  = {Dao, Tri and Fu, Dan and Ermon, Stefano and Rudra, Atri and R{\'e}, Christopher},
+  journal = {Advances in neural information processing systems},
+  volume  = {35},
+  pages   = {16344--16359},
+  year    = {2022}
+}
+
+@inproceedings{flash-attention-2,
+  title     = {Flash{A}ttention-2: Faster Attention with Better Parallelism and Work Partitioning},
+  author    = {Dao, Tri},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024}
+}
+
+@misc{flash-decoding,
+  title   = {Flash-decoding for long-context inference},
+  url     = {https://pytorch.org/blog/flash-decoding/},
+  journal = {PyTorch},
+  author  = {Dao, Tri and Sizov, Grigory and Massa, Francisco and Haziza, Daniel},
+  year    = {2023},
+  month   = {Oct}
+}
+
+@misc{flash-attention-3,
+  title         = {FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-precision},
+  author        = {Jay Shah and Ganesh Bikshandi and Ying Zhang and Vijay Thakkar and Pradeep Ramani and Tri Dao},
+  year          = {2024},
+  eprint        = {2407.08608},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2407.08608}
+}
+
+
+@inproceedings{mirage,
+  title     = {Mirage: A $\{$Multi-Level$\}$ Superoptimizer for Tensor Programs},
+  author    = {Wu, Mengdi and Cheng, Xinhao and Liu, Shengyu and Shi, Chunan and Ji, Jianan and Ao, Man Kit and Velliengiri, Praveen and Miao, Xupeng and Padon, Oded and Jia, Zhihao},
+  booktitle = {19th USENIX Symposium on Operating Systems Design and Implementation (OSDI 25)},
+  pages     = {21--38},
+  year      = {2025}
+}
+
+
+@article{halide-autosched,
+  author     = {Adams, Andrew and Ma, Karima and Anderson, Luke and Baghdadi, Riyadh and Li, Tzu-Mao and Gharbi, Micha\"{e}l and Steiner, Benoit and Johnson, Steven and Fatahalian, Kayvon and Durand, Fr\'{e}do and Ragan-Kelley, Jonathan},
+  title      = {Learning to optimize halide with tree search and random programs},
+  year       = {2019},
+  issue_date = {August 2019},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {38},
+  number     = {4},
+  issn       = {0730-0301},
+  url        = {https://doi.org/10.1145/3306346.3322967},
+  doi        = {10.1145/3306346.3322967},
+  abstract   = {We present a new algorithm to automatically schedule Halide programs for high-performance image processing and deep learning. We significantly improve upon the performance of previous methods, which considered a limited subset of schedules. We define a parameterization of possible schedules much larger than prior methods and use a variant of beam search to search over it. The search optimizes runtime predicted by a cost model based on a combination of new derived features and machine learning. We train the cost model by generating and featurizing hundreds of thousands of random programs and schedules. We show that this approach operates effectively with or without autotuning. It produces schedules which are on average almost twice as fast as the existing Halide autoscheduler without autotuning, or more than twice as fast with, and is the first automatic scheduling algorithm to significantly outperform human experts on average.},
+  journal    = {ACM Trans. Graph.},
+  month      = jul,
+  articleno  = {121},
+  numpages   = {12},
+  keywords   = {optimizing compilers, halide}
+}
+
+@inproceedings{relax,
+  title      = {Relax: Composable Abstractions for End-to-End Dynamic Machine Learning},
+  url        = {http://dx.doi.org/10.1145/3676641.3716249},
+  doi        = {10.1145/3676641.3716249},
+  booktitle  = {Proceedings of the 30th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2},
+  publisher  = {ACM},
+  author     = {Lai, Ruihang and Shao, Junru and Feng, Siyuan and Lyubomirsky, Steven and Hou, Bohan and Lin, Wuwei and Ye, Zihao and Jin, Hongyi and Jin, Yuchen and Liu, Jiawei and Jin, Lesheng and Cai, Yaxing and Jiang, Ziheng and Wu, Yong and Park, Sunghyun and Srivastava, Prakalp and Roesch, Jared and Mowry, Todd C. and Chen, Tianqi},
+  year       = {2025},
+  month      = mar,
+  pages      = {998–1013},
+  collection = {ASPLOS ’25}
+}
+
+@misc{pallas,
+  title        = {{Pallas: a JAX kernel language}},
+  howpublished = {\url{https://docs.jax.dev/en/latest/pallas/index.html}},
+  year         = {2024},
+  author       = {JAX Authors, Google}
+}
+
+@inproceedings{tensorflow,
+  author    = {Mart{\'\i}n Abadi and Paul Barham and Jianmin Chen and Zhifeng Chen and Andy Davis and Jeffrey Dean and Matthieu Devin and Sanjay Ghemawat and Geoffrey Irving and Michael Isard and Manjunath Kudlur and Josh Levenberg and Rajat Monga and Sherry Moore and Derek G. Murray and Benoit Steiner and Paul Tucker and Vijay Vasudevan and Pete Warden and Martin Wicke and Yuan Yu and Xiaoqiang Zheng},
+  title     = {{TensorFlow}: A System for {Large-Scale} Machine Learning},
+  booktitle = {12th USENIX Symposium on Operating Systems Design and Implementation (OSDI 16)},
+  year      = {2016},
+  isbn      = {978-1-931971-33-1},
+  address   = {Savannah, GA},
+  pages     = {265--283},
+  url       = {https://www.usenix.org/conference/osdi16/technical-sessions/presentation/abadi},
+  publisher = {USENIX Association},
+  month     = nov
+}
+
+@inproceedings{cuda,
+  author    = {John Nickolls and Ian Buck and Michael Garland and Kevin Skadron},
+  title     = {Scalable Parallel Programming with {CUDA}},
+  year      = {2008},
+  publisher = {ACM SIGGRAPH},
+  url       = {https://dl.acm.org/doi/abs/10.1145/1401132.1401152}
+}
+
+@inproceedings{neptune,
+  author     = {Zhao, Yifan and Johnson, Egan and Chatarasi, Prasanth and Adve, Vikram and Misailovic, Sasa},
+  title      = {Neptune: Advanced ML Operator Fusion for Locality and Parallelism on GPUs},
+  year = {2026},
+  booktitle = {ACM SIGPLAN Conference on Programming Language Design and
+               Implementation},
+  series = {PLDI'26}
+}
+
+@inproceedings{halide,
+  author    = {Ragan-Kelley, Jonathan and Barnes, Connelly and Adams,
+               Andrew and Paris, Sylvain and Durand, Fr\'{e}do and
+               Amarasinghe, Saman},
+  title     = {Halide: A Language and Compiler for Optimizing
+               Parallelism, Locality, and Recomputation in Image
+               Processing Pipelines},
+  year      = {2013},
+  isbn      = {9781450320146},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/2491956.2462176},
+  doi       = {10.1145/2491956.2462176},
+  abstract  = {Image processing pipelines combine the challenges of
+               stencil computations and stream programs. They are composed
+               of large graphs of different stencil stages, as well as
+               complex reductions, and stages with global or
+               data-dependent access patterns. Because of their complex
+               structure, the performance difference between a naive
+               implementation of a pipeline and an optimized one is often
+               an order of magnitude. Efficient implementations require
+               optimization of both parallelism and locality, but due to
+               the nature of stencils, there is a fundamental tension
+               between parallelism, locality, and introducing redundant
+               recomputation of shared values.We present a systematic
+               model of the tradeoff space fundamental to stencil
+               pipelines, a schedule representation which describes
+               concrete points in this space for each stage in an image
+               processing pipeline, and an optimizing compiler for the
+               Halide image processing language that synthesizes high
+               performance implementations from a Halide algorithm and a
+               schedule. Combining this compiler with stochastic search
+               over the space of schedules enables terse, composable
+               programs to achieve state-of-the-art performance on a wide
+               range of real image processing pipelines, and across
+               different hardware architectures, including multicores with
+               SIMD, and heterogeneous CPU+GPU execution. From simple
+               Halide programs written in a few hours, we demonstrate
+               performance up to 5x faster than hand-tuned C, intrinsics,
+               and CUDA implementations optimized by experts over weeks or
+               months, for image processing applications beyond the reach
+               of past automatic compilers.},
+  booktitle = {ACM SIGPLAN Conference on Programming Language Design and
+               Implementation},
+  pages     = {519–530},
+  numpages  = {12},
+  keywords  = {redundant computation, vectorization, optimization,
+               autotuning, gpu, compiler, parallelism, image processing,
+               domain specific language, locality},
+  location  = {Seattle, Washington, USA},
+  series    = {PLDI '13}
+}
+
+@article{tvm,
+  author     = {Tianqi Chen and Thierry Moreau and Ziheng Jiang and
+                Haichen Shen and Eddie Q. Yan and Leyuan Wang and Yuwei Hu
+                and Luis Ceze and Carlos Guestrin and Arvind
+                Krishnamurthy},
+  title      = {{TVM:} End-to-End Optimization Stack for Deep Learning},
+  journal    = {CoRR},
+  volume     = {abs/1802.04799},
+  year       = {2018},
+  url        = {http://arxiv.org/abs/1802.04799},
+  eprinttype = {arXiv},
+  eprint     = {1802.04799},
+  timestamp  = {Sat, 17 Dec 2022 01:15:27 +0100},
+  biburl     = {https://dblp.org/rec/journals/corr/abs-1802-04799.bib},
+  bibsource  = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{tiramisu,
+  author    = {Baghdadi, Riyadh and Ray, Jessica and Romdhane, Malek Ben
+               and Sozzo, Emanuele Del and Akkas, Abdurrahman and Zhang,
+               Yunming and Suriana, Patricia and Kamil, Shoaib and
+               Amarasinghe, Saman},
+  booktitle = {2019 IEEE/ACM International Symposium on Code Generation
+               and Optimization (CGO)},
+  title     = {Tiramisu: A Polyhedral Compiler for Expressing Fast and
+               Portable Code},
+  year      = {2019},
+  volume    = {},
+  number    = {},
+  pages     = {193-205},
+  doi       = {10.1109/CGO.2019.8661197}
+}
+
+@misc{flash-attn-repo,
+  title        = {{FlashAttention}},
+  howpublished = {\url{https://github.com/Dao-AILab/flash-attention}},
+  year         = {2023},
+  author       = {Dao-AILab}
+}
+
+@article{pytorch,
+  title   = {Pytorch: An imperative style, high-performance deep
+             learning library},
+  author  = {Paszke, Adam and Gross, Sam and Massa, Francisco and
+             Lerer, Adam and Bradbury, James and Chanan, Gregory and
+             Killeen, Trevor and Lin, Zeming and Gimelshein, Natalia and
+             Antiga, Luca and others},
+  journal = {Advances in neural information processing systems},
+  volume  = {32},
+  pages   = {8026--8037},
+  year    = {2019}
+}
+
+@article{flashinfer,
+  title   = {FlashInfer: Efficient and Customizable Attention Engine
+             for LLM Inference Serving},
+  author  = { Ye, Zihao and Chen, Lequn and Lai, Ruihang and Lin, Wuwei
+             and Zhang, Yineng and Wang, Stephanie and Chen, Tianqi and
+             Kasikci, Baris and Grover, Vinod and Krishnamurthy, Arvind
+             and Ceze, Luis },
+  journal = {arXiv preprint arXiv:2501.01005},
+  year    = {2025},
+  url     = {https://arxiv.org/abs/2501.01005}
+}
+
+@misc{openai-fused-attn,
+  title        = {{Fused Attention -- Triton Documentation}},
+  howpublished = {\url{https://triton-lang.org/main/getting-started/tutorials/06-fused-attention.html}},
+  year         = {2024},
+  author       = {OpenAI}
+}
+
+@inproceedings{triton,
+  address      = {Phoenix AZ USA},
+  title        = {Triton: an intermediate language and compiler for tiled
+                  neural network computations},
+  isbn         = {978-1-4503-6719-6},
+  url          = {https://dl.acm.org/doi/10.1145/3315508.3329973},
+  doi          = {10.1145/3315508.3329973},
+  abstractnote = {The validation and deployment of novel research ideas in
+                  the field of Deep Learning is often limited by the
+                  availability of efficient compute kernels for certain basic
+                  primitives. In particular, operations that cannot leverage
+                  existing vendor libraries (e.g., cuBLAS, cuDNN) are at risk
+                  of facing poor device utilization unless custom
+                  implementations are written by experts – usually at the
+                  expense of portability. For this reason, the development of
+                  new programming abstractions for specifying custom Deep
+                  Learning workloads at a minimal performance cost has become
+                  crucial.},
+  booktitle    = {Proceedings of the 3rd ACM SIGPLAN International Workshop
+                  on Machine Learning and Programming Languages},
+  publisher    = {ACM},
+  author       = {Tillet, Philippe and Kung, H. T. and Cox, David},
+  year         = {2019},
+  month        = jun,
+  pages        = {10–19},
+  language     = {en}
+}
+
+@misc{thunderkittens,
+  title         = {ThunderKittens: Simple, Fast, and Adorable AI Kernels},
+  author        = {Benjamin F. Spector and Simran Arora and Aaryan Singhal
+                   and Daniel Y. Fu and Christopher Ré},
+  year          = {2024},
+  eprint        = {2410.20399},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2410.20399}
+}
+
+@misc{cutlass,
+  author       = {{NVIDIA}},
+  title        = {{CUTLASS: CUDA Templates for Linear Algebra Subroutines}},
+  howpublished = {\url{https://github.com/NVIDIA/cutlass}},
+  year         = {2021}
+}
+
+@misc{xla,
+  title        = {XLA},
+  author       = {OpenXLA},
+  url          = {https://openxla.org/xla},
+  howpublished = {\url{https://openxla.org/xla}}
+}
+
+@inproceedings{taso,
+  title     = {TASO: optimizing deep learning computation with automatic
+               generation of graph substitutions},
+  author    = {Jia, Zhihao and Padon, Oded and Thomas, James and
+               Warszawski, Todd and Zaharia, Matei and Aiken, Alex},
+  booktitle = {Proceedings of the 27th ACM Symposium on Operating Systems
+               Principles},
+  pages     = {47--62},
+  year      = {2019}
+}
+
+@inproceedings{flextensor,
+  author    = {Zheng, Size and Liang, Yun and Wang, Shuo and Chen, Renze
+               and Sheng, Kaiwen},
+  title     = {FlexTensor: An Automatic Schedule Exploration and
+               Optimization Framework for Tensor Computation on
+               Heterogeneous System},
+  year      = {2020},
+  isbn      = {9781450371025},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3373376.3378508},
+  doi       = {10.1145/3373376.3378508},
+  abstract  = {Tensor computation plays a paramount role in a broad range
+               of domains, including machine learning, data analytics, and
+               scientific computing. The wide adoption of tensor
+               computation and its huge computation cost has led to high
+               demand for flexible, portable, and high-performance library
+               implementation on heterogeneous hardware accelerators such
+               as GPUs and FPGAs. However, the current tensor library
+               implementation mainly requires programmers to manually
+               design low-level implementation and optimize from the
+               algorithm, architecture, and compilation perspectives. Such
+               a manual development process often takes months or even
+               years, which falls far behind the rapid evolution of the
+               application algorithms.In this paper, we introduce
+               FlexTensor, which is a schedule exploration and
+               optimization framework for tensor computation on
+               heterogeneous systems. FlexTensor can optimize tensor
+               computation programs without human interference, allowing
+               programmers to only work on high-level programming
+               abstraction without considering the hardware platform
+               details. FlexTensor systematically explores the
+               optimization design spaces that are composed of many
+               different schedules for different hardware. Then,
+               FlexTensor combines different exploration techniques,
+               including heuristic method and machine learning method to
+               find the optimized schedule configuration. Finally, based
+               on the results of exploration, customized schedules are
+               automatically generated for different hardware. In the
+               experiments, we test 12 different kinds of tensor
+               computations with totally hundreds of test cases and
+               FlexTensor achieves average 1.83x performance speedup on
+               NVIDIA V100 GPU compared to cuDNN; 1.72x performance
+               speedup on Intel Xeon CPU compared to MKL-DNN for 2D
+               convolution; 1.5x performance speedup on Xilinx VU9P FPGA
+               compared to OpenCL baselines; 2.21x speedup on NVIDIA V100
+               GPU compared to the state-of-the-art.},
+  booktitle = {Proceedings of the Twenty-Fifth International Conference
+               on Architectural Support for Programming Languages and
+               Operating Systems},
+  pages     = {859–873},
+  numpages  = {15},
+  keywords  = {machine learning, heterogeneous systems, compiler
+               optimization, code generation},
+  location  = {Lausanne, Switzerland},
+  series    = {ASPLOS '20}
+}
+
+@inproceedings{ansor,
+  author    = {Zheng, Lianmin and Jia, Chengfan and Sun, Minmin and Wu,
+               Zhao and Yu, Cody Hao and Haj-Ali, Ameer and Wang, Yida and
+               Yang, Jun and Zhuo, Danyang and Sen, Koushik and Gonzalez,
+               Joseph E. and Stoica, Ion},
+  title     = {Ansor: Generating High-Performance Tensor Programs for
+               Deep Learning},
+  year      = {2020},
+  isbn      = {978-1-939133-19-9},
+  publisher = {USENIX Association},
+  address   = {USA},
+  abstract  = {High-performance tensor programs are crucial to guarantee
+               efficient execution of deep neural networks. However,
+               obtaining performant tensor programs for different
+               operators on various hardware platforms is notoriously
+               challenging. Currently, deep learning systems rely on
+               vendor-provided kernel libraries or various search
+               strategies to get performant tensor programs. These
+               approaches either require significant engineering effort to
+               develop platform-specific optimization code or fall short
+               of finding high-performance programs due to restricted
+               search space and ineffective exploration strategy.We
+               present Ansor, a tensor program generation framework for
+               deep learning applications. Compared with existing search
+               strategies, Ansor explores many more optimization
+               combinations by sampling programs from a hierarchical
+               representation of the search space. Ansor then fine-tunes
+               the sampled programs with evolutionary search and a learned
+               cost model to identify the best programs. Ansor can find
+               high-performance programs that are outside the search space
+               of existing state-of-the-art approaches. In addition, Ansor
+               utilizes a task scheduler to simultaneously optimize
+               multiple subgraphs in deep neural networks. We show that
+               Ansor improves the execution performance of deep neural
+               networks relative to the state-of-the-art on the Intel CPU,
+               ARM CPU, and NVIDIA GPU by up to 3.8\texttimes{},
+               2.6\texttimes{}, and 1.7\texttimes{}, respectively.},
+  booktitle = {USENIX Conference on Operating Systems Design and
+               Implementation},
+  articleno = {49},
+  numpages  = {17},
+  series    = {OSDI'20}
+}
+
+@inproceedings{metaschedule,
+  author    = {Shao, Junru and Zhou, Xiyou and Feng, Siyuan and Hou,
+               Bohan and Lai, Ruihang and Jin, Hongyi and Lin, Wuwei and
+               Masuda, Masahiro and Yu, Cody Hao and Chen, Tianqi},
+  booktitle = {Advances in Neural Information Processing Systems},
+  editor    = {S. Koyejo and S. Mohamed and A. Agarwal and D. Belgrave
+               and K. Cho and A. Oh},
+  pages     = {35783--35796},
+  publisher = {Curran Associates, Inc.},
+  title     = {Tensor Program Optimization with Probabilistic Programs},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2022/file/e894eafae43e68b4c8dfdacf742bcbf3-Paper-Conference.pdf},
+  volume    = {35},
+  year      = {2022}
+}
+
+@misc{tilelang,
+  title         = {TileLang: A Composable Tiled Programming Model for AI
+                   Systems},
+  author        = {Lei Wang and Yu Cheng and Yining Shi and Zhengju Tang and
+                   Zhiwen Mo and Wenhao Xie and Lingxiao Ma and Yuqing Xia and
+                   Jilong Xue and Fan Yang and Zhi Yang},
+  year          = {2025},
+  eprint        = {2504.17577},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2504.17577}
+}
+
+@inproceedings{vllm,
+  title     = {Efficient Memory Management for Large Language Model
+               Serving with PagedAttention},
+  author    = {Kwon, Woosuk and Li, Zhuohan and Zhuang, Siyuan and Sheng,
+               Ying and Zheng, Lianmin and Yu, Cody Hao and Gonzalez,
+               Joseph E. and Zhang, Hao and Stoica, Ion},
+  booktitle = {Proceedings of the 29th ACM Symposium on Operating Systems
+               Principles},
+  series    = {SOSP '23},
+  year      = {2023},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  doi       = {10.1145/3600006.3613165}
+}
+
+@inproceedings{deepspeed-inference,
+  title     = {DeepSpeed-Inference: Enabling Efficient Inference of
+               Transformer Models at Unprecedented Scale},
+  author    = {Aminabadi, Reza Yazdani and Rajbhandari, Samyam and Zhang,
+               Minjia and Awan, Ammar Ahmad and Li, Cheng and Li, Du and
+               Zheng, Elton and Rasley, Jeff and Smith, Shaden and Ruwase,
+               Olatunji and He, Yuxiong},
+  booktitle = {SC '22: Proceedings of the International Conference for
+               High Performance Computing, Networking, Storage and
+               Analysis},
+  year      = {2022},
+  publisher = {IEEE Computer Society},
+  doi       = {10.1109/SC41404.2022.00051}
+}
+
+@misc{fastertransformer,
+  title        = {{FasterTransformer}: A Fast Transformer Library for
+                   Inference},
+  year         = {2019},
+  author       = {{NVIDIA}},
+  howpublished = {\url{https://github.com/NVIDIA/FasterTransformer}},
+}
+
+@misc{tensorrtllm,
+   title       = {{TensorRT-LLM}: TensorRT Library for Optimized Large
+                   Language Model Inference},
+  year         = {2023},
+  author       = {{NVIDIA}},
+  howpublished = {\url{https://github.com/NVIDIA/TensorRT-LLM}},
+}
+
+@misc{cutile,
+  title        = {Simplify {GPU} Programming with {NVIDIA CUDA Tile} in
+                  Python},
+  author       = {Bentz, Jonathan and Scudiero, Tony},
+  howpublished = {\url{https://developer.nvidia.com/blog/simplify-gpu-programming-with-nvidia-cuda-tile-in-python/}},
+  year         = {2025},
+  month        = dec,
+  note         = {NVIDIA Technical Blog}
+}
+
+@misc{tawa,
+  title         = {Tawa: Automatic Warp Specialization for Modern GPUs with Asynchronous References},
+  author        = {Hongzheng Chen and Bin Fan and Alexander Collins and Bastian Hagedorn and Evghenii Gaburov and Masahiro Masuda and Matthew Brookhart and Chris Sullivan and Jason Knight and Zhiru Zhang and Vinod Grover},
+  year          = {2025},
+  eprint        = {2510.14719},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2510.14719}
+}
+
+@misc{akg,
+  title        = {{AKG}: Automatic Kernel Generation in {MindSpore}},
+  author       = {{Huawei Technologies Co. Ltd.}},
+  howpublished = {MindSpore Auto Kernel Generator (AKG) compiler
+                  documentation},
+  year         = {2020},
+  note         = {\url{https://www.mindspore.cn}, accessed 2025-12-09}
+}
+
+@inproceedings{autotvm,
+  title     = {Learning to Optimize Tensor Programs},
+  author    = {Chen, Tianqi and Zheng, Lianmin and Yan, Eddie Qijie and
+               Jiang, Ziheng and Moreau, Thierry and Ceze, Luis and
+               Guestrin, Carlos and Krishnamurthy, Arvind},
+  booktitle = {Advances in Neural Information Processing Systems 31},
+  series    = {NeurIPS '18},
+  year      = {2018}
+}
+
+@article{glow,
+  title   = {Glow: Graph Lowering Compiler Techniques for Neural
+             Networks},
+  author  = {Rotem, Nadav and Fix, Jordan and Abdulrasool, Saleem and
+             Catron, Garret and Deng, Summer and Dzhabarov, Roman and
+             Gibson, Nick and Hegeman, James and Lele, Meghan and
+             Levenstein, Roman and Montgomery, Jack and Maher, Bert and
+             Nadathur, Satish and Olesen, Jakob and Park, Jongsoo and
+             Rakhov, Artem and Smelyanskiy, Misha and Wang, Man},
+  journal = {arXiv preprint arXiv:1805.00907},
+  year    = {2018}
+}
+
+@article{bladedisc,
+  author     = {Zheng, Zhen and Pan, Zaifeng and Wang, Dalin and Zhu, Kai and Zhao, Wenyi and Guo, Tianyou and Qiu, Xiafei and Sun, Minmin and Bai, Junjie and Zhang, Feng and Du, Xiaoyong and Zhai, Jidong and Lin, Wei},
+  title      = {BladeDISC: Optimizing Dynamic Shape Machine Learning Workloads via Compiler Approach},
+  year       = {2023},
+  issue_date = {September 2023},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {1},
+  number     = {3},
+  url        = {https://doi-org.proxy2.library.illinois.edu/10.1145/3617327},
+  doi        = {10.1145/3617327},
+  abstract   = {Compiler optimization plays an increasingly important role to boost the performance of machine learning models for data processing and management. With increasingly complex data, the dynamic tensor shape phenomenon emerges for ML models. However, existing ML compilers either can only handle static shape models or expose a series of performance problems for both operator fusion optimization and code generation in dynamic shape scenes. This paper tackles the main challenges of dynamic shape optimization: the fusion optimization without shape value, and code generation supporting arbitrary shapes. To tackle the fundamental challenge of the absence of shape values, it systematically abstracts and excavates the shape information and designs a cross-level symbolic shape representation. With the insight that what fusion optimization relies upon is tensor shape relationships between adjacent operators rather than exact shape values, it proposes the dynamic shape fusion approach based on shape information propagation. To generate code that adapts to arbitrary shapes efficiently, it proposes a compile-time and runtime combined code generation approach. Finally, it presents a complete optimization pipeline for dynamic shape models and implements an industrial-grade ML compiler, named BladeDISC. The extensive evaluation demonstrates that BladeDISC outperforms PyTorch, TorchScript, TVM, ONNX Runtime, XLA, Torch Inductor (dynamic shape), and TensorRT by up to 6.95\texttimes{}, 6.25\texttimes{}, 4.08\texttimes{}, 2.04\texttimes{}, 2.06\texttimes{}, 7.92\texttimes{}, and 4.16\texttimes{} (3.54\texttimes{}, 3.12\texttimes{}, 1.95\texttimes{}, 1.47\texttimes{}, 1.24\texttimes{}, 2.93\texttimes{}, and 1.46\texttimes{} on average) in terms of end-to-end inference speedup on the A10 and T4 GPU, respectively. BladeDISC's source code is publicly available at https://github.com/alibaba/BladeDISC.},
+  journal    = {Proc. ACM Manag. Data},
+  month      = nov,
+  articleno  = {206},
+  numpages   = {29},
+  keywords   = {code generation, dynamic shape, machine learning, operator fusion, tensor compiler}
+}
+
+@article{tensat,
+  title   = {Equality Saturation for Tensor Graph Superoptimization},
+  author  = {Yang, Yichen and Phothilimtha, Phitchaya Mangpo and Wang,
+             Yisu Remy and Willsey, Max and Roy, Sudip and Pienaar,
+             Jacques},
+  journal = {arXiv preprint arXiv:2101.01332},
+  year    = {2021}
+}
+
+@article{egg,
+  title     = {egg: Fast and Extensible Equality Saturation},
+  author    = {Willsey, Max and Nandi, Chandrakana and Wang, Yisu Remy
+               and Flatt, Oliver and Tatlock, Zachary and Panchekha,
+               Pavel},
+  journal   = {Proceedings of the ACM on Programming Languages},
+  volume    = {5},
+  number    = {POPL},
+  pages     = {1--29},
+  year      = {2021},
+  articleno = {23},
+  doi       = {10.1145/3434304}
+}
+
+@article{mlir,
+  title   = {MLIR: A Compiler Infrastructure for the End of Moore's
+             Law},
+  author  = {Lattner, Chris and Amini, Mehdi and Bondhugula, Uday and
+             Cohen, Albert and Davis, Andy and Pienaar, Jacques and
+             Riddle, River and Shpeisman, Tatiana and Vasilache, Nicolas
+             and Zinenko, Oleksandr},
+  journal = {arXiv preprint arXiv:2002.11054},
+  year    = {2020}
+}
+
+@inproceedings{lift,
+  title     = {Lift: A Functional Data-Parallel IR for High-Performance
+               GPU Code Generation},
+  author    = {Steuwer, Michel and Remmelg, Toomas and Dubach,
+               Christophe},
+  booktitle = {CGO 2017: Proceedings of the 2017 International Symposium
+               on Code Generation and Optimization},
+  pages     = {74--85},
+  publisher = {IEEE},
+  year      = {2017},
+  doi       = {10.1109/CGO.2017.7863730},
+  isbn      = {978-1-5090-4931-8}
+}
+
+
+
+@misc{du2022glmgenerallanguagemodel,
+  title         = {GLM: General Language Model Pretraining with Autoregressive Blank Infilling},
+  author        = {Zhengxiao Du and Yujie Qian and Xiao Liu and Ming Ding and Jiezhong Qiu and Zhilin Yang and Jie Tang},
+  year          = {2022},
+  eprint        = {2103.10360},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2103.10360}
+}
+
+@misc{touvron2023llama2openfoundation,
+  title         = {Llama 2: Open Foundation and Fine-Tuned Chat Models},
+  author        = {Hugo Touvron and Louis Martin and Kevin Stone and Peter Albert and Amjad Almahairi and Yasmine Babaei and Nikolay Bashlykov and Soumya Batra and Prajjwal Bhargava and Shruti Bhosale and Dan Bikel and Lukas Blecher and Cristian Canton Ferrer and Moya Chen and Guillem Cucurull and David Esiobu and Jude Fernandes and Jeremy Fu and Wenyin Fu and Brian Fuller and Cynthia Gao and Vedanuj Goswami and Naman Goyal and Anthony Hartshorn and Saghar Hosseini and Rui Hou and Hakan Inan and Marcin Kardas and Viktor Kerkez and Madian Khabsa and Isabel Kloumann and Artem Korenev and Punit Singh Koura and Marie-Anne Lachaux and Thibaut Lavril and Jenya Lee and Diana Liskovich and Yinghai Lu and Yuning Mao and Xavier Martinet and Todor Mihaylov and Pushkar Mishra and Igor Molybog and Yixin Nie and Andrew Poulton and Jeremy Reizenstein and Rashi Rungta and Kalyan Saladi and Alan Schelten and Ruan Silva and Eric Michael Smith and Ranjan Subramanian and Xiaoqing Ellen Tan and Binh Tang and Ross Taylor and Adina Williams and Jian Xiang Kuan and Puxin Xu and Zheng Yan and Iliyan Zarov and Yuchen Zhang and Angela Fan and Melanie Kambadur and Sharan Narang and Aurelien Rodriguez and Robert Stojnic and Sergey Edunov and Thomas Scialom},
+  year          = {2023},
+  eprint        = {2307.09288},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2307.09288}
+}
+
+@misc{yang2024qwen2technicalreport,
+  title         = {Qwen2 Technical Report},
+  author        = {An Yang and Baosong Yang and Binyuan Hui and Bo Zheng and Bowen Yu and Chang Zhou and Chengpeng Li and Chengyuan Li and Dayiheng Liu and Fei Huang and Guanting Dong and Haoran Wei and Huan Lin and Jialong Tang and Jialin Wang and Jian Yang and Jianhong Tu and Jianwei Zhang and Jianxin Ma and Jianxin Yang and Jin Xu and Jingren Zhou and Jinze Bai and Jinzheng He and Junyang Lin and Kai Dang and Keming Lu and Keqin Chen and Kexin Yang and Mei Li and Mingfeng Xue and Na Ni and Pei Zhang and Peng Wang and Ru Peng and Rui Men and Ruize Gao and Runji Lin and Shijie Wang and Shuai Bai and Sinan Tan and Tianhang Zhu and Tianhao Li and Tianyu Liu and Wenbin Ge and Xiaodong Deng and Xiaohuan Zhou and Xingzhang Ren and Xinyu Zhang and Xipin Wei and Xuancheng Ren and Xuejing Liu and Yang Fan and Yang Yao and Yichang Zhang and Yu Wan and Yunfei Chu and Yuqiong Liu and Zeyu Cui and Zhenru Zhang and Zhifang Guo and Zhihao Fan},
+  year          = {2024},
+  eprint        = {2407.10671},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2407.10671}
+}
+
+@misc{yang2025qwen3technicalreport,
+  title         = {Qwen3 Technical Report},
+  author        = {An Yang and Anfeng Li and Baosong Yang and Beichen Zhang and Binyuan Hui and Bo Zheng and Bowen Yu and Chang Gao and Chengen Huang and Chenxu Lv and Chujie Zheng and Dayiheng Liu and Fan Zhou and Fei Huang and Feng Hu and Hao Ge and Haoran Wei and Huan Lin and Jialong Tang and Jian Yang and Jianhong Tu and Jianwei Zhang and Jianxin Yang and Jiaxi Yang and Jing Zhou and Jingren Zhou and Junyang Lin and Kai Dang and Keqin Bao and Kexin Yang and Le Yu and Lianghao Deng and Mei Li and Mingfeng Xue and Mingze Li and Pei Zhang and Peng Wang and Qin Zhu and Rui Men and Ruize Gao and Shixuan Liu and Shuang Luo and Tianhao Li and Tianyi Tang and Wenbiao Yin and Xingzhang Ren and Xinyu Wang and Xinyu Zhang and Xuancheng Ren and Yang Fan and Yang Su and Yichang Zhang and Yinger Zhang and Yu Wan and Yuqiong Liu and Zekun Wang and Zeyu Cui and Zhenru Zhang and Zhipeng Zhou and Zihan Qiu},
+  year          = {2025},
+  eprint        = {2505.09388},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2505.09388}
+}
+
+@misc{dosovitskiy2021imageworth16x16words,
+  title         = {An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale},
+  author        = {Alexey Dosovitskiy and Lucas Beyer and Alexander Kolesnikov and Dirk Weissenborn and Xiaohua Zhai and Thomas Unterthiner and Mostafa Dehghani and Matthias Minderer and Georg Heigold and Sylvain Gelly and Jakob Uszkoreit and Neil Houlsby},
+  year          = {2021},
+  eprint        = {2010.11929},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2010.11929}
+}
+
+@misc{Megatron-LM,
+  title         = {Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM},
+  author        = {Deepak Narayanan and Mohammad Shoeybi and Jared Casper and Patrick LeGresley and Mostofa Patwary and Vijay Anand Korthikanti and Dmitri Vainbrand and Prethvi Kashinkunti and Julie Bernauer and Bryan Catanzaro and Amar Phanishayee and Matei Zaharia},
+  year          = {2021},
+  eprint        = {2104.04473},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+  url           = {https://arxiv.org/abs/2104.04473}
+}
+
+@misc{zadouri2026flashattention4algorithmkernelpipelining,
+      title={FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling}, 
+      author={Ted Zadouri and Markus Hoehnerbach and Jay Shah and Timmy Liu and Vijay Thakkar and Tri Dao},
+      year={2026},
+      eprint={2603.05451},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2603.05451}, 
+}

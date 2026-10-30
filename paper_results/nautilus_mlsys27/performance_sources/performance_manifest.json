@@ -1,0 +1,239 @@
+{
+  "target_commit": "cced96b12330f0739d0312ce915c7c9cdc2a435d",
+  "source_policy": "CPU source files and provenance only; historical PDFs are referenced by SHA256 and not duplicated.",
+  "reusable_package": "../../prefill_final_repro",
+  "figures": {
+    "gh200-fp16-baseline.pdf": {
+      "data": "data/datasheet_new.csv",
+      "script": "scripts/plot_from_csv copy.py",
+      "sha256": "db40c42fb602ff66812fb46b8ca491a0435cd5edce13db31b29e1b519e39dd43",
+      "status": "candidate source available; exact historical script/input/layout combination not verified"
+    },
+    "gh200-fp16-baseline1.pdf": {
+      "data": "data/datasheet_new.csv",
+      "script": "scripts/plot_from_csv.py",
+      "sha256": "e414dd9170b4da84ee6d34a562bf2994fef224de1c81128bd727c67fc45610ef",
+      "status": "exact hash in plots_from_csv",
+      "evidence": "PDF identity only; script and input listed as candidate, not a verified redraw"
+    },
+    "gh200-fp16-baseline1new.pdf": {
+      "data": "data/datasheet_new.csv",
+      "script": "scripts/plot_from_csv copy.py",
+      "sha256": "6d5d1dd836b5ab7587d69cd2f40217182bc22c2aff329919ae92318af2b61713",
+      "status": "exact hash in plots_from_csv",
+      "evidence": "PDF identity only; script and input listed as candidate, not a verified redraw"
+    },
+    "gh200-fp16-tc.pdf": {
+      "data": "data/datasheet_new.csv",
+      "script": "scripts/plot_from_csv.py",
+      "sha256": "4016fcd0e228716eafc5094dbeda00375e8607e93111e206853eec42b8c373de",
+      "status": "candidate source available; exact historical script/input/layout combination not verified"
+    },
+    "gh200-fp16-tc1.pdf": {
+      "data": "data/datasheet_new.csv",
+      "script": "../../prefill_final_repro/scripts/plot_from_csv.py",
+      "sha256": "696acf8da7c50abdbbb375a90e2f5d2610c1078cd94feb5309addacbb83ff517",
+      "status": "exact reproduction package"
+    },
+    "gh200-fp16-tc1new.pdf": {
+      "data": "data/datasheet_new.csv",
+      "script": "scripts/plot_from_csv copy.py",
+      "sha256": "dd07fe7ce06201b5c7330b3f571bc01e63a113de2c5e346b66331072f2bdfaae",
+      "status": "candidate source available; exact historical script/input/layout combination not verified"
+    },
+    "gh200-fp8-tc.pdf": {
+      "data": "data/datasheet_fp8.csv",
+      "script": "scripts/plot_from_csv.py",
+      "sha256": "c2a193e85d60e537abbacce9e1c4c63a0bc6520638359f99d610c4fc9e52b82a",
+      "status": "candidate source available; exact historical script/input/layout combination not verified"
+    },
+    "gh200-fp8-tc1.pdf": {
+      "data": "data/datasheet_fp8.csv",
+      "script": "../../prefill_final_repro/scripts/plot_from_csv.py",
+      "sha256": "13b2b48d51acc8e424366aff568c9d19cac247546f72a09da689055b10594790",
+      "status": "exact reproduction package"
+    },
+    "rtx5090-fp16-baseline1.pdf": {
+      "data": "data/5090_latency_us_new.csv",
+      "script": "scripts/plot_from_csv_5090.py",
+      "sha256": "5cbca7e8b10362f67073f8b967cd432bac8fad4bb7330f62eb9a8acc8c805467",
+      "status": "candidate source available; exact historical script/input/layout combination not verified"
+    },
+    "rtx5090-fp16-tc1.pdf": {
+      "data": "data/5090_latency_us_new.csv",
+      "script": "../../prefill_final_repro/scripts/plot_from_csv_5090.py",
+      "sha256": "bc32317770b8fa0eeeea49f2567516179141ed417a2cc91b08291d523e76cd8e",
+      "status": "exact reproduction package"
+    },
+    "ablation_study.pdf": {
+      "data": "data/ablation.csv",
+      "script": "scripts/ablation_figure.py",
+      "sha256": "181e836f386048f20c143ddfac0d467ae2093bdc3fc086242b853bef5a5909f1",
+      "status": "candidate source available; exact historical script/input/layout combination not verified"
+    },
+    "throughput_plot.pdf": {
+      "data": "data/e2e_throughput.csv (variants 1,2,4 retained)",
+      "script": "scripts/csv_figures.py",
+      "sha256": "514955bb00b4dd33d7036574bc0caef331218ef666aff589ecd2cc0bb78c4568",
+      "status": "exact reproduction package"
+    },
+    "throughput_plot_5090.pdf": {
+      "data": "data/throughput_5090new.csv",
+      "script": "scripts/csv_figures_5090.py",
+      "sha256": "096182e0eee8596375e3ef6550634e96ecdc9563f84c941a6e4d9eefefe49be4",
+      "status": "exact reproduction package"
+    },
+    "figures/old/rtx5090-fp16-baseline.pdf": {
+      "data": "data/datasheet_rtx5090.csv and data/throughput_5090.csv (candidate historical inputs)",
+      "script": "scripts/plot_from_csv_5090 copy.py and scripts/csv_figures_5090.py",
+      "status": "PDF SHA256 in figures_sha256; exact source mapping unresolved",
+      "sha256": "60926b6cfa70c2e4af8f5d27f78176cd16446f314b6969bcf96f1ca1702f127b"
+    },
+    "figures/old/rtx5090-fp16-baseline1.pdf": {
+      "data": "data/datasheet_rtx5090.csv and data/throughput_5090.csv (candidate historical inputs)",
+      "script": "scripts/plot_from_csv_5090 copy.py and scripts/csv_figures_5090.py",
+      "status": "PDF SHA256 in figures_sha256; exact source mapping unresolved",
+      "sha256": "fe4fabf443da061750ff43879f0f0688a0279375b9dd46e274194e4b6c15a5bc"
+    },
+    "figures/old/rtx5090-fp16-tc.pdf": {
+      "data": "data/datasheet_rtx5090.csv and data/throughput_5090.csv (candidate historical inputs)",
+      "script": "scripts/plot_from_csv_5090 copy.py and scripts/csv_figures_5090.py",
+      "status": "PDF SHA256 in figures_sha256; exact source mapping unresolved",
+      "sha256": "5a2a9d26a9ba23923b4349aa7164eb433c513a7d34302eecf6db99b4bcda616f"
+    },
+    "figures/old/rtx5090-fp16-tc1.pdf": {
+      "data": "data/datasheet_rtx5090.csv and data/throughput_5090.csv (candidate historical inputs)",
+      "script": "scripts/plot_from_csv_5090 copy.py and scripts/csv_figures_5090.py",
+      "status": "PDF SHA256 in figures_sha256; exact source mapping unresolved",
+      "sha256": "25e5e786abcca222b7dc4e447ed99b5cfe1d45a1b1761e3952397b28afca32d5"
+    },
+    "figures/old/throughput_plot.pdf": {
+      "data": "data/datasheet_rtx5090.csv and data/throughput_5090.csv (candidate historical inputs)",
+      "script": "scripts/plot_from_csv_5090 copy.py and scripts/csv_figures_5090.py",
+      "status": "PDF SHA256 in figures_sha256; exact source mapping unresolved",
+      "sha256": "fb4d3247394100edd178730ddc9cf2398ecffadec9e2d927effdd149ff2f0a8c"
+    },
+    "figures/old/throughput_plot_5090.pdf": {
+      "data": "data/datasheet_rtx5090.csv and data/throughput_5090.csv (candidate historical inputs)",
+      "script": "scripts/plot_from_csv_5090 copy.py and scripts/csv_figures_5090.py",
+      "status": "PDF SHA256 in figures_sha256; exact source mapping unresolved",
+      "sha256": "2e754673951ea6803d146908753b6ec0e62da070d96ac7b64f73aae94a3f9dfe"
+    }
+  },
+  "files": [
+    {
+      "path": "data/5090_latency_us_new.csv",
+      "sha256": "dec0dae18ca9337ee29cdc9cb23bd42dbcc998dcd5c100aa2a1e93f468a3e5cf",
+      "origin": "/u/yucheny8/argus/5090_latency_us_new.csv"
+    },
+    {
+      "path": "data/ablation.csv",
+      "sha256": "b92e7162b8e5595e6a6ef7c9152f4f1e4b95ed38c18e673608d75a94848c2b14",
+      "origin": "/u/yucheny8/argus/ablation.csv"
+    },
+    {
+      "path": "data/datasheet.csv",
+      "sha256": "52efa41e95f0c10ead532be4ed49a0602db93fa9f00680b1e7ce222678e8cc1c",
+      "origin": "/u/yucheny8/argus/datasheet.csv"
+    },
+    {
+      "path": "data/datasheet_fp8.csv",
+      "sha256": "cf9542fa9f1250b3272c3cf1683bf794d846e497e2de64468c5b25cbf1e97f2e",
+      "origin": "/u/yucheny8/argus/datasheet_fp8.csv"
+    },
+    {
+      "path": "data/datasheet_new.csv",
+      "sha256": "dbd2cd690f4819265dffc4f1a764f4afe40ea07850b512bf4f4ef90f4aa36e4f",
+      "origin": "/u/yucheny8/argus/datasheet_new.csv"
+    },
+    {
+      "path": "data/datasheet_new_asplos.csv",
+      "sha256": "914c222da7bd7abefa635038ec6e1669f8a06670e593652105aa379acd3e6f02",
+      "origin": "/u/yucheny8/argus/datasheet_new_asplos.csv"
+    },
+    {
+      "path": "data/datasheet_rtx5090.csv",
+      "sha256": "911ce13c94e8b21c01d2da04c8586143c01f9fd20d75cd540b83a119fa6dd931",
+      "origin": "/u/yucheny8/argus/datasheet_rtx5090.csv"
+    },
+    {
+      "path": "data/e2e_throughput.csv",
+      "sha256": "152fc7aa9ed9b7d176d990a066064343f96ba858d6ccac9366c217e47b298c62",
+      "origin": "/u/yucheny8/neptune-internal/e2e_throughput.csv"
+    },
+    {
+      "path": "data/e2e_throughput1.csv",
+      "sha256": "68f8d5da4a3a677f44554ea50a7ac5bb1f6982a05e64551ef1c7743742743c93",
+      "origin": "/u/yucheny8/neptune-internal/e2e_throughput1.csv"
+    },
+    {
+      "path": "data/e2e_throughput2.csv",
+      "sha256": "4cd73c2f4aeee95a7e603be27490a7e604f4e8aef60ab6026b1a02fa0548991d",
+      "origin": "/u/yucheny8/neptune-internal/e2e_throughput2.csv"
+    },
+    {
+      "path": "data/e2e_throughput4.csv",
+      "sha256": "f19708578a882a157c405187a5a5837853894d9544838798b0b8f22b94610955",
+      "origin": "/u/yucheny8/neptune-internal/e2e_throughput4.csv"
+    },
+    {
+      "path": "data/throughput_5090.csv",
+      "sha256": "3781d6a30b01fff97ec06139a40d3e198c00945bda8b671a30b0612e0ba49074",
+      "origin": "/u/yucheny8/neptune-internal/throughput_5090.csv"
+    },
+    {
+      "path": "data/throughput_5090new.csv",
+      "sha256": "e0b01e0e012ae82cdab7621b13cae8b9b9f9988fe81b64420fb9ee394e825b3d",
+      "origin": "/u/yucheny8/neptune-internal/throughput_5090new.csv"
+    },
+    {
+      "path": "scripts/ablation_figure.py",
+      "sha256": "37e1cd25038c6ad9785412c8559c2a3bb198802ce09dd0aa7bdc9032ad24fc70",
+      "origin": "/u/yucheny8/argus/ablation_figure.py"
+    },
+    {
+      "path": "scripts/csv_figures.py",
+      "sha256": "03972ca89d0c392b40d3a0a09444d4b5c72810df19cab29aae2db5d44566b1f7",
+      "origin": "/u/yucheny8/neptune-internal/scripts/csv_figures.py"
+    },
+    {
+      "path": "scripts/csv_figures_5090.py",
+      "sha256": "11b8a1959446463614c3cb71cab977f6a030552471e00e00269f81239aa8bf91",
+      "origin": "/u/yucheny8/neptune-internal/scripts/csv_figures_5090.py"
+    },
+    {
+      "path": "scripts/csv_figures_ablation.py",
+      "sha256": "6571a0a8560f8723bd7d946e464ad43c51368defa3255bf0fcfbf203c63145de",
+      "origin": "/u/yucheny8/neptune-internal/scripts/csv_figures_ablation.py"
+    },
+    {
+      "path": "scripts/plot_from_csv copy.py",
+      "sha256": "c7cc7890f0b123758111472776c64febfc3f044c0d0d3a2afc7e7baae8315ee8",
+      "origin": "/u/yucheny8/argus/plot_from_csv copy.py"
+    },
+    {
+      "path": "scripts/plot_from_csv.py",
+      "sha256": "d37ba70fa664dc880eca6dd7f8edb5ccb6c5771592be113c4e767df477405bce",
+      "origin": "/u/yucheny8/argus/plot_from_csv.py"
+    },
+    {
+      "path": "scripts/plot_from_csv1.py",
+      "sha256": "0aed36c028a1ea43bf9a47e1d9975b23c7204f7eef24ebc98d62e7766b2f5d77",
+      "origin": "/u/yucheny8/argus/plot_from_csv1.py"
+    },
+    {
+      "path": "scripts/plot_from_csv_5090 copy.py",
+      "sha256": "69f17b3808777446aa13fed6903dfbafbbd2ead9829bb0acb7c5e87af896e3e9",
+      "origin": "/u/yucheny8/argus/plot_from_csv_5090 copy.py"
+    },
+    {
+      "path": "scripts/plot_from_csv_5090.py",
+      "sha256": "b7a3811841f9a2b08970072aca4527b25778dad29945fc664f486eaaf4552471",
+      "origin": "/u/yucheny8/argus/plot_from_csv_5090.py"
+    }
+  ],
+  "git_history": {
+    "argus": "git log --all -- plot_from_csv.py reports only 0c105e8 Add collected Nautilus paper results, figures and plotting scripts",
+    "paper": "git log --all -- figures reports 25116f0, cedf3ee, bd9296f; PDF history alone does not prove CSV provenance"
+  }
+}

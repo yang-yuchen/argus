@@ -1,0 +1,363 @@
+The \NAME{} auto-scheduler finds high-performance schedules for an input program without
+user intervention. \NA{Three challenges shape its design.
+  First, advanced fusion is non-local: it fuses two reductions together with all statements
+  on the path between them, so it cannot be decided one statement at a time;
+  the auto-scheduler looks ahead along data dependencies to find these opportunities
+  (\S\ref{sec:adv-fusion}).
+  Second, fusion can leave the program in forms that tile compilers optimize poorly,
+  such as scan dependencies;
+  the auto-scheduler regularizes the program to keep it tile-ready (\S\ref{sec:regularize}).
+  Third, the best schedule and tile compilers depend on the operator, input shape, and GPU;
+  the auto-scheduler sketches a set of promising schedules,
+  which we call \textit{schedule seeds},
+  and leaves their decision parameters to the auto-tuner (\S\ref{sec:auto-tuner}),
+while heuristics prune the seeds aggressively to keep auto-tuning \mbox{within minutes.}}
+
+\subsection{Auto-scheduling Algorithm}\label{sec:autosched-alg}
+The auto-scheduler builds up schedule seeds by applying a sequence of \emph{scheduling passes}
+(Table~\ref{tab:passes}), each applying one class of optimizations such as tiling or fusion.
+% The input to the auto-scheduler is a program in which all compute statements
+% are perfectly nested in their own loops.
+It visits compute statements in a pre-order traversal, producers to consumers,
+while maintaining a list of candidate schedules.
+At each statement, it applies the passes in order to every candidate;
+a pass may replace a candidate with several if there are multiple promising ways
+to transform the statement, keeping only those its heuristics favor
+(e.g., fusing into the deepest feasible loop).
+After the last statement, the final two passes run on each finished candidate,
+and the candidates become the schedule seeds,
+whose design parameters (e.g., block tiling sizes) the auto-tuner explores.
+
+\begin{table*}[t]
+  \centering
+  \small
+  \caption{Compile passes in the Nautilus auto-scheduler, in the order they are applied.
+    The last two run on
+  each finished candidate.}
+  \label{tab:passes}
+  \begin{tabular}{lll}
+    \hline
+    Scheduling Pass & Transformations & Description \\
+    & Used & \\
+    \hline
+    PadRows            & 1                & Adds a candidate with short query rows
+    (decode, MTP) padded to 16 for tensor cores \\
+    InlineReshapes     & 1                & Inlines tensor reshaping \\
+    AdvTilingFusion    & 4   & Uses advanced Neptune fusion to fuse compute statements \\
+    CacheSetup         & 4  & Shares or rematerializes large intermediates per tile in
+    shared memory \\
+    DecomposeSplitScan & 3      & Binds grid loops; apply decompose reduction or split
+    scan buffer \\
+    & & to every compute statement which had advanced fusion \\
+    BackendSelection   & (none)            & Configures compile parameters for different backends \\
+    BlockOrder         & 1                & Makes the order of statements in each loop a
+    tuning choice \\
+    DataPlacement      & 4   & Places every tensor in global, shared memory or registers;
+    caches index values \\
+    Finalize           & 2          & Turns masks into loop ranges and folds accumulators
+    before lowering to tile IR \\
+    \hline
+  \end{tabular}
+\end{table*}
+
+\subsection{Auto-Scheduler Transformations}
+Our auto-scheduler applies four families of transformations:
+tiling, fusion, cache management, and dataflow management.
+These transformations capture the main steps needed to translate
+and optimize a tensor-expression operator into a tile program ready for \NAME{}'s tile optimizers.
+% A family of transformations may be implemented as multiple passes in the auto-scheduler
+% to break dependencies between certain transformations. \matei{It might be unnecessary
+% to talk about
+% passes at all if we give an idea of the transformation types.}
+
+\subsubsection{Tiling.}
+The bi-level tiling transformation applies to a perfect loop nest,
+splitting each loop into an inner loop and an outer loop,
+and reordering them so that all outer loops are outside of all inner loops.
+For example, a loop nest with two loops \texttt{i, j} turns into the loops
+\texttt{i0, j0, i1, j1}, with the first two loops being the outer loops.
+The other passes in the auto-scheduler transform only the outer loops;
+the inner loops remain perfectly nested so they cleanly map to tiles in the tile IRs later.
+Later, outer loops that are parallelizable (no data dependency across iterations)
+are mapped to GPU blocks.
+A size limit on inner loops is also enforced to prevent tiles from becoming
+too large and not fitting into the cache - in this case, the respective large inner loop is itself
+tiled into an inner and outer loop if possible.
+
+% \yifan{Good to have but I'm struggling where to put this, maybe not here.}
+% \matei{moved to dataflow}
+
+\subsubsection{Operator Fusion.}\label{sec:adv-fusion}
+Fusion reduces the number of kernels and improves data locality.
+Each fusion primitive fuses a compute statement into a loop nest.
+\textbf{Classic loop fusion} preserves data dependencies
+and fuses a statement into the element-wise loop nest of a direct producer.
+Fusing into a reduction loop nest requires \textbf{advanced fusion}~\cite{neptune},
+which fuses reductions into an ``online'' form by intentionally breaking some dependencies,
+and repairing the program with changed compute expressions, at the cost of extra computation.
+Advanced fusion applies to a pair of reductions,
+but also needs to capture all element-wise statements on the path between them.
+
+\NAME{} has two advanced fusion primitives.
+\textbf{Rolling update} fuses the reductions into a single kernel.
+\textbf{Split-k update} computes a partial result for each iteration of the reduction loop
+in parallel thread blocks, then combines the partials in a second kernel with the same repair;
+this gains parallelism along the reduction axis when the other loops cannot fill the GPU,
+as happens in decoding attention.
+The auto-scheduler is capable of \textbf{hybrid strategies}, applying split-k update across chunks
+of the reduction and rolling update within each chunk.
+% which suits kernels with few query rows but a long reduction,
+% such as multi-token prediction verification.
+% The auto-scheduler chooses the strategy when tiling the loop nest.
+
+For each program statement $s$, the fusion pass first greedily applies classic fusion
+into the loop nests of its direct producers, at the deepest possible level.
+% \yifan{I moved this over from ``additional considerations'' -- it can be beneficial, but
+% what do we actually do?} \matei{not supported yet to fuse with multiple producers, we try
+% either one as a candidate}
+When a statement has multiple producers, the pass tries fusing with each one and produces
+multiple candidate schedules.
+If $s$ is a reduction, the pass also tries advanced fusion into each predecessor
+reduction, which, when feasible, always fuses deeper than classic fusion.
+If an element-wise $s$ cannot be fused, the pass looks ahead for a successor reduction
+whose advanced fusion would capture $s$; if none exists, $s$ starts a new kernel.
+
+Consider a loop nest $L$ with an element-wise loop $e$ around a reduction loop $r$.
+$L$ has an element-wise consumer $c_1$, and $c_1$ has a reduction consumer $c_2$.
+On its own, $c_1$ can only fuse into $e$ via classic fusion.
+Advanced fusion of $c_2$ into $r$ would also capture $c_1$ and place it under $r$,
+deeper than classic fusion can, but this opportunity is only visible when examining $c_2$;
+this is what makes advanced fusion \emph{non-local}.
+Since pre-order traversal visits $c_1$ first, the fusion pass greedily fuses $c_1$ into $e$.
+This does not prevent the deeper fusion: when the pass later fuses $c_2$ into $r$,
+it fuses $c_1$ again, moving it from under $e$ to under $r$.
+Therefore, \NAME{}'s fusion pass handles non-local advanced fusion with a plain
+pre-order traversal, without anticipating advanced fusion when making classic fusion decisions.
+
+% Matei: moved earlier | and a ``rolling update'' technique that enables fusion between reductions.
+% Rolling update is an advanced fusion technique from Neptune \cite{neptune}
+% which is beyond the capabilities of classic loop fusion,
+% fusing multiple reductions into an ``online'' kernel.
+% While classic loop fusion preserves data dependency,
+% rolling update intentionally breaks some dependency constraints
+% and repairs the program by changing compute expressions.
+% \matei{the greedy heuristic part might make more sense to include in section 4.4
+% instead of here if we are discussing advanced fusion there}
+% and in the case of RollingUpdate, we prefer to capture more loop nests.
+% In the case where there isn't a Pareto-dominant choice (such as when one fusion choice
+% is deeper but
+% the other captures more loop nests), both strategies are considered as produced schedules.
+% The fused loop nests do not have to be
+% adjacent, in which case any element-wise loop nests along the data dependency path
+% between the target loop nests
+% will be `captured' and fused as well
+% This pass operates in a pre-order traversal of the schedule. The program's compute statements are
+% traversed from producer to consumer, and existing candidate schedules are evaluated for
+% fusion opportunities
+% at the compute statement - when fusion is possible with one of that compute statement's loops,
+% new candidate schedules are added, replacing the original unfused candidate.
+
+\subsubsection{Cache Management.}
+Cache management places tensors on an inner (more local) memory level,
+i.e., shared memory or registers rather than global HBM, to reduce slow global memory traffic.
+All tensors start in global memory. The auto-scheduler performs two types of data
+localization: (1) it caches a copy of a tensor to shared memory if \NA{a reduce loop
+nest} exhibits temporal reuse of the tensor, and (2) it places the tensor itself
+in an inner memory level if all of its accesses are local to a thread block.
+Tensors that are not explicitly cached are placed by how they are used:
+in global memory if another kernel reads them (such as split-k partials),
+\NA{in shared memory for matmul operands whose layout is incompatible with
+  tensor core matmul, and in registers otherwise.
+  A tensor core matmul has strict requirement for the layout of its register operands,
+  which can cause tile compilers to fail on programs.
+  \NAME{} anticipates layout failures using heuristic rules and places tensors on shared memory
+when a relayout is needed.}
+% \NA{ A matmul's second
+%   operand always goes to shared memory: every warp reads all of its columns, so keeping it
+%   in registers would require redistributing it across threads before each matmul. The first
+%   operand may be the result of an earlier matmul, held in registers and spread across
+%   threads in that matmul's output layout. It can stay there only if this layout matches the
+%   operand layout the second matmul expects, which holds under the following conditions: (1)
+%   The second matmul reads the tile along its reduction axis. (2) The tile has at least 16
+%   rows per warp (128 rows for the 8 warps we can sample), so both matmuls split rows across
+%   warps the same way. With fewer rows, threads hold elements the consumer expects in other
+%   threads, and moving them would need a cross-thread exchange that the tile optimizer does
+%   not insert. (3) Finally, the operand is not FP8. FP8 matrix instructions pack four
+%   consecutive reduction-axis elements per register, while the FP32 accumulator gives each
+% thread pairs of adjacent columns, so the layouts will never match.} \matei{this may be
+% too detailed...}
+% Later in the tile optimizer, tensors whose register layout does not match what their
+% consumer expects are rejected, so cache management places these tensors in shared memory
+% such that the tile optimizer can reload them with a relayout.
+% ; this applies to a matmul's second operand, and an 8-bit operand computed in registers,
+% which inherits its FP32 accumulator's layout while FP8 tensor cores expect a different one.
+
+Inner memory levels such as shared memory are small,
+so the auto-scheduler analyzes tensor sizes to identify
+large buffers with multiple readers that would otherwise occupy scarce local memory.
+If such a buffer's producer and all its readers share a loop, and the producer's
+tile at that loop fits in shared memory, the auto-scheduler keeps one copy of
+that tile for all readers. Otherwise, it rematerializes the buffer,
+recomputing the buffer near each use to reduce memory pressure and improve occupancy.
+Integer tensors used for indexing, such as sparse attention's top-k indices,
+are placed by how they are accessed.
+\NAME{} tries to eliminate integer intermediates used only for indexing (in a gather
+operation) by inlining their computation into their consumers.
+
+% Each thread then loads the indices it needs directly from global memory, instead of being
+% restricted to those held in its own registers, so the gather can be spread across all warps.
+% \NA{When the auto-scheduler folds accumulators,} an integer input used both in gathers
+% and as a value in computation gets a shared memory copy for the value consumer only,
+% staged once per tile and prefetched with the gathers, while the gathers still read it
+% directly from global memory.
+
+\subsubsection{Dataflow Management.}\label{sec:regularize}
+Our auto-scheduler applies several transformations to align the data dependency patterns
+of the program with what tile compilers expect,
+as tile compilers often optimize only a small set of tile computation patterns well.
+One pattern they handle poorly is the ``scan'' dependency
+(e.g., \texttt{a[i, j] = f(a[i - 1, j])}),
+which can exist in the input program itself
+or arise from previous transformations, such as rolling update;
+existing tile compilers often fail to optimize scan dependencies
+or produce significantly suboptimal kernels.
+The auto-scheduler removes them with a split-scan-buffer transformation,
+which multi-buffers the scan's output and updates the buffers once per loop iteration.
+\NAME{} uses range analysis to convert expressions of boolean masks
+into tightened loop ranges that skip fully masked tiles,
+which improves the performance of masked attention, such as causal attention.
+\NA{Because matmuls with fewer than 16 rows cannot use tensor cores,
+  \NAME{} also adds candidates that pad such row axes to 16 (e.g., query rows in decoding),
+zero-filling the computation and masking the load and stores.}
+
+% To maintain correctness, if a value computed inside a rolling update loop is read
+% from outside of that loop, the candidate is rejected, as the value would not be properly rescaled.
+% \yifan{Sentence moved from Auto-Tuner.}
+
+\input{figures/three-ir-ex.tex}
+
+\subsection{Auto-Tuner}\label{sec:auto-tuner}
+\NAME{} uses MetaSchedule's auto-tuner~\cite{metaschedule} to search the decision parameters
+of the schedule seeds.
+Every tunable decision is a sampled variable in the schedule trace,
+which MetaSchedule's evolutionary search mutates and child schedules inherit:
+the search generates schedules by varying these decisions, predicts their performance
+with a learned cost model, and measures the projected-best schedules on the target GPU.
+The tuning budget is the number of GPU measurements.
+% \matei{The search space is pruned by dropping any seeds which fail to build.
+%   Many fusion structures can't be built with any tile sizes - these would otherwise dominate
+%   the initial tuning population.
+%   \textit{note: is this something to include? might make people question why we are
+% producing invalid seeds?}}
+
+\NA{\textbf{Tunable decisions.}
+  A full list of tunable decisions is given in Appendix Table~\ref{tab:decisions}.
+  Structural decisions become separate seeds during auto-scheduling (\S\ref{sec:autosched-alg}),
+  such as fusion strategy, whether row padding is applied, and the tile compiler to use.
+  The BackendSelection pass splits each seed into one per tile compiler (Triton,
+  Tawa, or TileLang).
+  Within each seed, there are integer and categorical knobs to be tuned.
+  Some apply directly to the schedule, such as tile sizes and the KV split count.
+  The order of certain expensive statements (matmuls, reductions, copies) is also tunable.
+  Other knobs become annotations on the IR program and take effect in later stages:
+  switchable expression rewrites (such as accumulator folding),
+  and tile optimizer parameters (e.g., TMA copy flags).
+  % BackendSelection records these as annotations that the implementing stage reads.
+  This design allows the auto-tuner to explore all these decisions from multiple levels,
+jointly making decisions on tiling, fusion, expression rewrite, and tile optimization.}
+% \matei{determine if table will be included}}
+
+\section{\NAME{}'s Successive Lowering Pipeline}
+\label{sec:opt-pipeline}
+
+After scheduling, \NAME{} lowers the program from its scalar IR through two tile IRs,
+because no single IR suits both remaining categories of
+optimizations: expression rewriting needs tiles as values that it can freely combine and move
+across statements and loop iterations, while tile compilers need explicit tile loads and stores
+to perform SIMD optimizations.
+The virtual register tile IR (VR-tile IR) serves the former and is new in \NAME{};
+the memory access tile IR (MA-tile IR) serves the latter and is purposefully similar to
+the tile IRs of existing tile compilers, simplifying interfacing with them.
+
+\textbf{Tile IRs.}
+Figure \ref{fig:3ir-example} shows an example program in both tile IRs,
+and scalar IR for reference.
+The MA-tile IR exposes tile data movement as explicit tensor accesses,
+which is typical in tile IRs of existing tile compilers.
+\NAME{}'s VR-tile IR expresses tiles as local variables (``virtual registers'')
+rather than as memory accesses, similar in spirit to memory-to-register promotion
+(``mem2reg'') in compilers such as LLVM.
+This design reduces data movement instructions that would otherwise obstruct expression
+manipulation, and enable powerful rewrites.
+For example, \texttt{vmm}, \texttt{vmax\_local}, and \texttt{vmax} in Figure \ref{fig:vr-ir-example}
+are each bound to a tile expression, so expression rewrites view them as one
+expression when needed and freely move terms across them.
+
+Virtual registers cover values within a loop body, but a value that evolves across loop
+iterations, such as a running maximum, would still be expressed as repeated update-writes
+to a tensor, hiding it from expression rewrites.
+The VR-tile IR therefore includes a for-loop expression, which takes loop-carried
+parameters and returns values: in Figure \ref{fig:vr-ir-example}, the loop expression
+\texttt{for j0 in loop(M0)}
+takes parameter \texttt{vmax\_1} and returns \texttt{vmax}.
+Loops with loop-carried values also exist in other IRs, e.g., MLIR's \texttt{scf.for}~\cite{mlir};
+the VR-tile IR uses them over tiles, so that tile value evolution over loop iterations
+is expressed natively and tensor expression rewriting can operate across iterations.
+
+\textbf{Lowering to VR-tile IR.}
+\NAME{} lowers the scheduled scalar IR into the VR-tile IR,
+relying on the tile-ready form that the auto-scheduler maintains (\S\ref{sec:auto-sched}).
+Each perfectly nested inner loop nest becomes a tile expression bound to a virtual register,
+such as the \texttt{dot} for the matmul in Figure~\ref{fig:vr-ir-example};
+an outer loop that updates a tensor across its iterations, such as the running maximum
+\texttt{xmax}, becomes a loop expression whose loop-carried parameter (\texttt{vmax\_1})
+holds that tensor's tile.
+
+\textbf{Expression Rewriting.}
+\NAME{}'s expression rewriter applies a set of rewrite rules recursively on the VR-tile IR.
+Table \ref{tab:rewrite-rules} lists representative rules, including rules over loop expressions
+and rules informed by GPU hardware (e.g., rewriting $e^x$ using $2^x$).
+These rules matter more after advanced fusion,
+whose repair computation (\S\ref{sec:adv-fusion}) introduces rescaling in every loop iteration.
+For example, the fourth rule in Table \ref{tab:rewrite-rules}
+cancels out division and multiplication over loop iterations, removing $2n - 1$
+operations from the program,
+and the second rule computes the online-softmax rescale once per row instead of per element.
+Expression rewriting reduces the latency of \NAME{}'s kernels in our ablation study
+(Table~\ref{tab:ablation}).
+
+\begin{table}[ht]
+  \centering
+  \scriptsize
+  \setlength{\tabcolsep}{3pt}
+  \renewcommand{\arraystretch}{1.1}
+  \caption{Representative rules in \NAME{}'s expression rewriter. Standard algebraic
+  identities are used but not listed.}
+  \tt
+  \label{tab:rewrite-rules}
+  \begin{tabular}{l}
+    \hline
+    \textbf{Pattern} $\Rightarrow$ \textbf{Replacement} \\
+    \hline
+    $ \exp(x) \Rightarrow \mathrm{exp2}(\mathrm{log2}(e) \cdot x) $ \\[2pt]
+    $\mathrm{exp2}(\text{bcast}(a) - \text{bcast}(b))$ $\Rightarrow$
+    $\text{bcast}(\mathrm{exp2}(a - b))$ \\[2pt]
+    $ x = \text{for}(...)\ \{ \text{yield } c \cdot x \} $ \\
+    \quad $\Rightarrow$ $ x' = \text{for}(...)\ \{ \text{yield } x \};\ x = c \cdot x' $ \\[2pt]
+    $ x = \text{for}(i: n)\ \{ \text{yield } x / y_i \cdot y_{i+1} \} $ \\
+    \quad $\Rightarrow$ $ x' = y_n \cdot \text{for}(i: n)\ \{ \text{yield } x \} $ \\[2pt]
+    $\text{select}(c, \text{dot}(A,B) \cdot s, k)$ \\
+    \quad $\Rightarrow$ $\text{dot}(A, B, \text{init} = \text{select}(c, 0, k/s))\cdot s$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\textbf{Tile Optimizations.}
+After expression rewriting, \NAME{} translates the program into the MA-tile IR
+by desugaring loop expressions and tile-valued virtual registers
+into plain for-loops and explicit tile loads and stores.
+The MA-tile IR builds on the tile IR of Neptune, which Neptune lowers to Triton.
+We design the MA-tile IR as a superset of multiple existing tile languages,
+which enables \NAME{} to use multiple tile compilers as its tile optimizers
+(Triton, Tawa~\cite{tawa}, and TileLang~\cite{tilelang}), as chosen by the auto-tuner
+(\S\ref{sec:auto-tuner}).

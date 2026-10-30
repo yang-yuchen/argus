@@ -1,0 +1,138 @@
+Modern attention-based machine learning (ML) models
+are essential for language, vision, and other emerging tasks in artificial intelligence
+\cite{gpt5,image-gen-paper,audio-gen-paper}. To efficiently deploy these models on GPUs,
+system engineers need tools to bridge the performance gap
+between a \emph{math-like model specification}, such as PyTorch or JAX code, and efficient
+low-level code that maximally utilizes the underlying hardware.
+Today, \NA{existing tools fall short of this goal on increasingly varied hardware:}
+they are either too hard to use, requiring expertise in rapidly-evolving low-level
+hardware details, or produce programs that are not sufficiently performant.
+
+The most common approach today is writing manually optimized kernels in hardware vendor languages
+like CUDA~\cite{cuda} and CUTLASS~\cite{cutlass}. They achieve high performance and have been
+used in PyTorch~\cite{pytorch} and TensorFlow~\cite{tensorflow}.
+However, programming in these low-level languages requires significant hardware and
+algorithmic expertise and does not scale to rapidly evolving GPU architectures and ML models.
+On the opposite side, schedule-based tensor compilers such as Halide~\cite{halide} and
+TVM~\cite{tvm} optimize a high-level specification of the ML operator {in a math-like
+tensor language.}
+This design offloads the obligation of optimization from the programmer to the compiler,
+which needs to search in a complex design space of \emph{schedules}
+(sequence of transformations) to find an optimal kernel on the target GPU.
+\NA{But this space mixes high-level decisions (e.g., fusion) with low-level ones
+(e.g., thread mappings)}, and searching it is intractable; thus
+today's high-level tensor compilers fail to match handwritten code in performance.
+
+As a tentative trade-off between programmability and efficiency,
+tile-based compilers and languages,
+including Triton~\cite{triton}, Pallas~\cite{pallas}, and TileLang~\cite{tilelang},
+have emerged as an abstraction layer over hardware vendor languages.
+Here, a programmer manually expresses the ML operator as computation over tiles (fixed
+size subtensors), and the tile compiler applies low-level SIMD
+optimizations to map tile computation to the hardware.
+With tile languages, a programmer still has to manually control many essential
+high-level optimizations. This issue is especially evident for attention:
+each version of FlashAttention
+\cite{flash-attention,flash-attention-2,flash-decoding,flash-attention-3}
+is an increasingly complex, manually written tile program
+that must be significantly modified for every new GPU architecture.
+
+\NA{We advocate for a \emph{math-to-kernel} compiler}:
+the program\-mer writes operators in a math-like linear algebraic language
+(e.g., attention as a sequence of matmuls and softmax),
+and the compiler automatically finds high-performance kernels (e.g., FlashAttention).
+\NA{Such a compiler is a viable solution that can yield ML
+kernel efficiency competitive with manually-written code on modern GPU architectures.}
+The central difficulty to materialize this goal is that we must bridge two types of optimizations
+that live on different levels of abstraction:
+(1)~operation-level optimizations that reason about compute expressions and data
+dependencies of linear algebra operations,
+and (2)~tile optimizations that map regular computation patterns to the underlying hardware.
+\NA{Our key insight is that the two levels can be separated:
+  tile compilers already perform (2) effectively and can serve as the compiler's
+  low-level IR and backend, so schedules only need to capture (1),
+  which drastically shrinks the space to search.
+Automating (1) on top of tile compilers, however, raises two challenges.}
+First, compiling many tensor operations into one or a few efficient kernels
+requires new fusion techniques to handle complex data dependency.
+In particular, \emph{advanced reduction fusion}, introduced by Neptune~\cite{neptune},
+can fuse reduction loop nests, such as softmax and matmul in attention,
+and it is a key optimization to allow compilers to automatically discover
+FlashAttention from math-like attention.
+\NA{Neptune already delegates tile optimizations to Triton,
+but it relies on manually written schedules;}
+it is still unclear how to apply such optimizations in a compiler without user intervention.
+\NA{Second, no single intermediate representation (IR) suits all of these optimizations.
+  Operation-level optimizations reason about both data dependencies (e.g., fusion)
+  and compute expressions (e.g., expression rewriting):
+  fusion needs loops and data dependencies,
+  while expression rewriting needs tiles as values it can freely manipulate.
+Tile compilers, in turn, need explicit tile memory accesses.}
+% \sasa{We need to develop the argument more here. Why is tile promising and why is tile
+% not a good language for programmers but an IR?}
+
+\vspace{0.3em}
+\noindent{\textbf{Our work: \NAME{}}. } \NAME{} is a novel tensor compiler for
+attention-based ML models.
+\NAME{} brings together operation-level optimizations
+(advanced reduction fusion and expression rewriting)
+and tile optimizations in one pipeline, to generate high-performance
+GPU kernels on modern and emerging GPUs.
+\NAME{} adopts the concept of schedules to regulate the legality of the sequence of transformations
+and facilitate search-based exploration~\cite{tvm},
+and automates the generation of schedules that incorporate advanced reduction fusion
+via a novel auto-scheduler designed specifically to target tile compilers.
+The auto-scheduler addresses three challenges that have kept such optimizations manual.
+\NA{(1) \emph{Non-local fusion:} advanced fusion fuses two reductions together with all
+  element-wise operations between them,
+  so a pass that transforms one statement at a time cannot decide it locally.
+  The auto-scheduler looks ahead along data dependencies to find these opportunities.
+  (2) \emph{Tile-readiness:} operation-level transformations can leave the program in a
+  form tile compilers handle poorly, e.g., advanced fusion can introduce scan dependencies.
+  The auto-scheduler regularizes the program to keep it ``tile-ready'',
+  i.e., easy to optimize by tile compilers.
+  (3) \emph{Input-dependent trade-offs:} the best schedule to apply and tile compiler to use
+  depend on the operator, input shape, and hardware.
+The auto-scheduler generates promising schedules and lets the auto-tuner select among them.}
+
+\NA{\NAME{} then successively lowers the scheduled program through three IRs,
+  each at the abstraction level of one category of optimizations.
+  Fusion and other scheduling happen in a scalar IR.
+  Expression rewriting happens in a novel virtual-register tile IR (VR-tile IR),
+  which expresses tiles as values rather than memory accesses.
+  Tile optimizations happen in a memory-access tile IR (MA-tile IR),
+  which \NAME{} translates to multiple tile compilers (Triton, Tawa~\cite{tawa}, and TileLang)
+and selects the best-performing one.}
+
+\NAME{} is the first end-to-end compiler to perform fully automated math-to-kernel
+optimization on attention: \NA{starting from a simple linear algebraic representation of attention,
+it automatically discovers variants of FlashAttention-3 and delivers FlashAttention-3 performance.}
+%\sasa{be careful re Flashlight}
+%\sasa{This is the first general end-to-end compiler system that can do this task. (we
+% may need to massage it!)}
+
+We evaluate \NAME{} on five \matei{needs updating}
+% \sasa{[Is it five?]}
+transformer-based models, with {150} total evaluation configurations, on two
+modern GPU architectures: NVIDIA GH200 (Hopper) and NVIDIA RTX 5090 (Blackwell). We used
+seven compiler backends and five hand-optimized libraries as baselines. \NAME{}-generated
+attention kernels have up to 23\% higher throughput over the
+state-of-the-art compiler systems on NVIDIA GH200 and up to 42\% on NVIDIA RTX 5090.
+Moreover, our results are comparable to and for many configurations (with longer sequences)
+faster than manually written cuDNN kernels.
+
+\vspace{0.3em}
+\noindent\textbf{Contributions:} The paper makes several contributions:
+\begin{itemize}
+  \item \NAME{}, a tensor compiler for attention-based ML models that fully automates the
+    generation of high-per\-for\-mance GPU kernels from a program description (\S\ref{sec:design}).
+  \item An auto-scheduler composing advanced reduction fusion and other high-level
+    optimizations in \NAME{}'s scheduling language, while keeping programs tile-ready
+    (\S\ref{sec:auto-sched}).
+  \item A three-IR lowering pipeline: a scalar IR, a novel VR-tile IR for expression
+    rewriting, and an MA-tile IR that enables multiple tile compilers as backends
+    (\S\ref{sec:opt-pipeline}).
+  \item An evaluation on multiple state-of-the-art attention models and GPU architectures,
+    showing higher throughput than existing compilers and performance on par with
+    hand-optimized kernels (\S\ref{sec:eval}).
+\end{itemize}

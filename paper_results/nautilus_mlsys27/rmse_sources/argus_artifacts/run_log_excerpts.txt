@@ -1,0 +1,23 @@
+logs/error/prefill_global.log:40:2026-04-15 18:14:54,797 INFO __main__ Artifacts: plot=/u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_global.pdf results=/u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_global.json log=/u/yucheny8/argus/logs/error/prefill_global.log
+logs/error/prefill_global.log:1043:2026-04-15 18:25:13,808 INFO __main__ Nautilus: mean 4.9499e-05 median 4.9206e-05 min 4.5943e-05 max 6.0028e-05 p01 4.6829e-05 p99 5.5358e-05 samples=1000
+logs/error/prefill_global.log:1044:2026-04-15 18:25:13,809 INFO __main__ FlexAttn: mean 5.0281e-05 median 5.0101e-05 min 4.7003e-05 max 5.5500e-05 p01 4.7955e-05 p99 5.4156e-05 samples=1000
+logs/error/prefill_global.log:1045:2026-04-15 18:25:13,809 INFO __main__ FlashAttention-2: mean 4.8366e-05 median 4.8270e-05 min 4.5337e-05 max 5.4048e-05 p01 4.6208e-05 p99 5.1494e-05 samples=1000
+logs/error/prefill_global.log:1047:2026-04-15 18:25:13,809 INFO __main__ Wrote RMSE plot to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_global.pdf
+logs/error/prefill_global.log:1048:2026-04-15 18:25:13,809 INFO __main__ Wrote RMSE results to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_global.json
+logs/error/prefill_gqa.log:38:2026-04-15 18:15:54,644 INFO __main__ Artifacts: plot=/u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_gqa.pdf results=/u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_gqa.json log=/u/yucheny8/argus/logs/error/prefill_gqa.log
+logs/error/prefill_gqa.log:1040:2026-04-15 18:25:56,261 INFO __main__ Nautilus: mean 4.9701e-05 median 4.9554e-05 min 4.7357e-05 max 5.6176e-05 p01 4.7910e-05 p99 5.3044e-05 samples=1000
+logs/error/prefill_gqa.log:1041:2026-04-15 18:25:56,262 INFO __main__ FlexAttn: mean 5.0089e-05 median 4.9979e-05 min 4.7936e-05 max 5.3953e-05 p01 4.8202e-05 p99 5.2810e-05 samples=1000
+logs/error/prefill_gqa.log:1042:2026-04-15 18:25:56,262 INFO __main__ FlashAttention-2: mean 4.9216e-05 median 4.9089e-05 min 4.7192e-05 max 5.5000e-05 p01 4.7548e-05 p99 5.1854e-05 samples=1000
+logs/error/prefill_gqa.log:1044:2026-04-15 18:25:56,262 INFO __main__ Wrote RMSE plot to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_gqa.pdf
+logs/error/prefill_gqa.log:1045:2026-04-15 18:25:56,262 INFO __main__ Wrote RMSE results to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_gqa.json
+logs/error/prefill_causal.log:1043:2026-04-15 18:26:44,835 INFO __main__ Nautilus: mean 4.9701e-05 median 4.9554e-05 min 4.7357e-05 max 5.6176e-05 p01 4.7910e-05 p99 5.3044e-05 samples=1000
+logs/error/prefill_causal.log:1044:2026-04-15 18:26:44,836 INFO __main__ FlexAttn: mean 5.0089e-05 median 4.9979e-05 min 4.7936e-05 max 5.3953e-05 p01 4.8202e-05 p99 5.2810e-05 samples=1000
+logs/error/prefill_causal.log:1045:2026-04-15 18:26:44,836 INFO __main__ FlashAttention-2: mean 4.9216e-05 median 4.9089e-05 min 4.7192e-05 max 5.5000e-05 p01 4.7548e-05 p99 5.1854e-05 samples=1000
+logs/error/prefill_causal.log:1047:2026-04-15 18:26:44,837 INFO __main__ Wrote RMSE plot to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_causal.pdf
+logs/error/prefill_causal.log:1048:2026-04-15 18:26:44,837 INFO __main__ Wrote RMSE results to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_causal.json
+logs/error/prefill_causal.log:1050:2026-04-15 18:35:17,411 INFO __main__ Artifacts: plot=/u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_causal_seed1.pdf results=/u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_causal_seed1.json log=/u/yucheny8/argus/logs/error/prefill_causal.log
+logs/error/prefill_causal.log:2053:2026-04-15 18:45:04,335 INFO __main__ Nautilus: mean 4.9703e-05 median 4.9532e-05 min 4.7479e-05 max 5.6302e-05 p01 4.7868e-05 p99 5.2892e-05 samples=1000
+logs/error/prefill_causal.log:2054:2026-04-15 18:45:04,336 INFO __main__ FlexAttn: mean 5.0081e-05 median 4.9968e-05 min 4.7898e-05 max 5.3967e-05 p01 4.8289e-05 p99 5.2839e-05 samples=1000
+logs/error/prefill_causal.log:2055:2026-04-15 18:45:04,337 INFO __main__ FlashAttention-2: mean 4.9218e-05 median 4.9081e-05 min 4.7243e-05 max 5.5168e-05 p01 4.7601e-05 p99 5.1992e-05 samples=1000
+logs/error/prefill_causal.log:2057:2026-04-15 18:45:04,337 INFO __main__ Wrote RMSE plot to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_causal_seed1.pdf
+logs/error/prefill_causal.log:2058:2026-04-15 18:45:04,337 INFO __main__ Wrote RMSE results to /u/yucheny8/argus/logs/error/qwen_rmse_kde_3curves_1000_causal_seed1.json

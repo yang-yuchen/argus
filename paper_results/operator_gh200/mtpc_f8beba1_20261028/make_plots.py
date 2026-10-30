@@ -8,8 +8,8 @@ import statistics
 import sys
 
 root = Path(__file__).resolve().parent
-project = root.parents[1]
-sys.path.insert(0, str(project))
+project = root.parents[2]
+sys.path.insert(0, str(project / "paper_results/nautilus_mlsys27/performance_sources/scripts"))
 import plot_from_csv as plotting
 
 source_manifest = json.loads((root / 'source_manifest.json').read_text())
