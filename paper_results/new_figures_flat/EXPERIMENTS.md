@@ -8,11 +8,15 @@
 
 路径以 `paper_results/` 为根目录。
 
+“Prefill 沿用旧结果”仅指 Global、Causal、GQA 三种 **operator-level** 实验；不包含 Prefill E2E。
+
 ## GH200：可以加入的图
 
 | Operator / E2E | dtype、形状 | baseline / 数据范围 | 当前状态 | 建议 |
 |---|---|---|---|---|
-| Prefill operator（旧论文） | FP16；Global、Causal、GQA；L 256–32768 | FlexAttn、Helion、OpenAI Triton、TAWA、TVM、TileLang、Tri-Dao Triton | 已有标准图和可复现脚本 | **可加入**，直接用旧图 |
+| Global Prefill operator（旧论文） | FP16 / FP8；原论文长度 | FP16 使用原论文 compiler baselines；FP8 为 FlexAttn / TAWA | 已有标准图和可复现脚本 | **可加入**，沿用旧结果 |
+| Causal Prefill operator（旧论文） | FP16 / FP8；原论文长度 | FP16 使用原论文 compiler baselines；FP8 为 FlexAttn / TAWA | 已有标准图和可复现脚本 | **可加入**，沿用旧结果 |
+| GQA Prefill operator（旧论文） | FP16 / FP8；原论文长度 | FP16 使用原论文 compiler baselines；FP8 为 FlexAttn / TAWA | 已有标准图和可复现脚本 | **可加入**，沿用旧结果 |
 | Decode operator | FP16；B1/H32/Q1；KV 256–32768 | Nautilus、TileLang、FlexAttn、Helion | 当前图 6 | **可加入** |
 | Causal MTP operator | FP16；H4；Q=2/4/8/16/32/64；KV 256–65536 | Nautilus、TileLang、FlexAttn | 当前图 7–12，共 6 张 | **可加入** |
 | Sparse operator | BF16；H16；L 256–32768；top-2048 | 当前 4：Nautilus、TileLang、FlexAttn、Helion；另有 TileLang-only 版本 | 当前图 4 | **可加入**；若只留等价 compiler baseline，用 TileLang-only 源数据重画 |
@@ -20,14 +24,16 @@
 | FP8 Causal MTP operator | FP8 输入；H4/Q16；KV 256–65536 | Nautilus、官方 TileOPs；native 版和 best-official 版都已测 | 图 15/16 已按要求删除 | **数据完整但当前不加入** |
 | Decode E2E | Llama-7B、FP16、B1/Q1；KV 256–32768 | Nautilus、TileLang、FlexAttn；CUDA Graph | 当前图 1 | **可加入** |
 | Causal MTP E2E | Llama-7B、FP16、B1/Q16；KV 256–65536 | Nautilus、TileLang、FlexAttn；CUDA Graph | 当前图 2，含 2K/4K 复测 | **可加入** |
-| Prefill E2E（旧论文） | 旧论文模型与长度 | 原论文 baseline；`prefill_final_repro` 已有标准图 | 已归档 | **可加入旧图**；本轮不补新测 Prefill |
+| Prefill E2E（旧论文） | 旧论文模型与长度 | 原论文 baseline；`prefill_final_repro` 已有标准图 | 历史归档 | 独立记录；不在本次“三种 Prefill operator 沿用旧结果”的范围内 |
 | Attention transition | FP16；Decode → Q2…Q64 MTP → Prefill | 三条跨形状平均曲线 | 当前图 5 | **可加入**；Prefill 段沿用旧数据 |
 
 ## RTX 5090：可以加入的图
 
 | Operator / E2E | dtype、形状 | baseline / 数据范围 | 当前状态 | 建议 |
 |---|---|---|---|---|
-| Prefill operator（旧论文） | FP16；原论文长度 | FlashAttention、FlexAttn、SDPA、TileLang 等 | 旧论文标准图已归档 | **可加入旧图** |
+| Global Prefill operator（旧论文） | FP16；原论文长度 | 原论文 baseline，见 `5090_latency_us_new.csv` | 旧论文标准图已归档 | **可加入**，沿用旧结果 |
+| Causal Prefill operator（旧论文） | FP16；原论文长度 | 原论文 baseline，见 `5090_latency_us_new.csv` | 旧论文标准图已归档 | **可加入**，沿用旧结果 |
+| GQA Prefill operator（旧论文） | FP16；原论文长度 | 原论文 baseline，见 `5090_latency_us_new.csv` | 旧论文标准图已归档 | **可加入**，沿用旧结果 |
 | Decode operator | FP16；B1/H32/Q1；KV 256–32768 | Nautilus、TileLang main GQA、GitHub FlexAttention | 当前图 18 | **可加入** |
 | Causal MTP operator | FP16；Q16；KV 256–32768 | Nautilus、GitHub FlexAttention | 当前图 17 | **可加入** |
 | Decode / MTP E2E | — | 没有完成的对应 5090 E2E sweep | 未测 / 已取消 | **不加入** |
@@ -65,7 +71,7 @@
 ## 选图结论
 
 - 现有新图覆盖：Decode、六种 Q 的 causal MTP、Sparse、跨形状总览、FP8 Decode，以及 Decode / causal MTP E2E。
-- 新测 FP16 causal prefill 已有完整 CSV，但按你的要求不作为本轮新增图；Prefill 使用旧论文标准图和旧数据。
+- 新测 FP16 causal prefill 已有完整 CSV，但按你的要求不作为本轮新增图；Global/Causal/GQA 三种 Prefill operator 使用旧论文标准图和旧数据；这不决定 Prefill E2E 的选图。
 - **FP8 causal MTP 已做全**，只是被明确删掉；如之后恢复，直接用已存在的 best-official PDF。
 - Sparse 当前 4 与此前“只保留 TileLang”的要求不一致；两方法 PDF 已有，表中保留这一版本差异供筛选。
 - 不把 smoke、Nautilus-only sweep、诊断图或旧论文图算作遗漏的完整新对比实验。
