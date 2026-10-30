@@ -30,6 +30,24 @@
   "plotting_script": "scripts/plot_attention_transition.py",
   "reused_style_and_normalization": "plot_from_csv.py:build_colormap, METHOD_DISPLAY_NAMES, normalize_by_baseline",
   "pdf": "plots_from_csv/gh200-fp16-tc1-attention-transition-20261029.pdf",
-  "visual_connectors": "Dashed decode-to-MTP and MTP-to-prefill segments for Nautilus, FlexAttn and TileLang; measured values unchanged.",
-  "mtp_head_annotation_visible": false
+  "visual_connectors": "Solid lines for all three averaged curves",
+  "mtp_head_annotation_visible": false,
+  "layout": {
+    "positions": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "x_limits": [
+      -0.42,
+      7.42
+    ],
+    "phase_label_offset_points": -39,
+    "phase_labels": "below tick labels, above x-axis title"
+  }
 }

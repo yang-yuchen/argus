@@ -1,0 +1,80 @@
+{
+  "plot_script": "scripts/plot_e2e_review.py",
+  "original_style": "paper_results/prefill_final_repro/scripts/csv_figures.py:plot_subplot",
+  "flops_source": "scripts/e2e_model_flops.py (original existing accounting)",
+  "latency_to_throughput": "model_flops / mean_ms / 1e9",
+  "experiments": [
+    {
+      "index": 1,
+      "filename": "001_decode_e2e_graph_throughput.png",
+      "kind": "e2e",
+      "source_pdf": "paper_results/e2e_gh200/standard_review/001_decode_e2e_graph_throughput.pdf",
+      "pdf_sha256": "593aacfdd1a76c8df3259a4c311143bf12cf28c61f82268a05f175970d7a2437",
+      "render_dpi": 180,
+      "source_csv": "paper_results/e2e_gh200/decode_graph_baselines_20261027_j3474109/comparison.csv",
+      "plot_input_csv": "paper_results/e2e_gh200/standard_review/001_decode_e2e_graph_throughput.csv",
+      "execution": "cuda_graph_replay",
+      "replaces_ids": "[1, 20, 21, 22, 23, 24]"
+    },
+    {
+      "index": 2,
+      "filename": "002_mtpc16_e2e_graph_throughput.png",
+      "kind": "e2e",
+      "source_pdf": "paper_results/e2e_gh200/standard_review/002_mtpc16_e2e_graph_throughput.pdf",
+      "pdf_sha256": "274435d828667caae9345a6ba74bafaca7d1a4ae832fcc1357b2c5b807e81572",
+      "render_dpi": 180,
+      "source_csv": "paper_results/e2e_gh200/mtpc_2k4k_recheck_j3481758/throughput_plot_input.csv",
+      "plot_input_csv": "paper_results/e2e_gh200/standard_review/002_mtpc16_e2e_graph_throughput.csv",
+      "execution": "cuda_graph_replay",
+      "replaces_ids": "[2]"
+    },
+    {
+      "index": 19,
+      "filename": "019_decode_e2e_eager_prebound_throughput.png",
+      "kind": "e2e",
+      "source_pdf": "paper_results/e2e_gh200/standard_review/019_decode_e2e_eager_prebound_throughput.pdf",
+      "pdf_sha256": "2ac3545c7637930bf1888b21a86e23bde3d2b68fbe4f15dddd46ec0f3b6d8e69",
+      "render_dpi": 180,
+      "source_csv": "paper_results/e2e_gh200/decode_bound_only_20261027_j3473405/comparison.csv",
+      "plot_input_csv": "paper_results/e2e_gh200/standard_review/019_decode_e2e_eager_prebound_throughput.csv",
+      "execution": "normal_forward",
+      "replaces_ids": "[19]"
+    },
+    {
+      "index": 25,
+      "filename": "025_decode_e2e_eager_throughput.png",
+      "kind": "e2e",
+      "source_pdf": "paper_results/e2e_gh200/standard_review/025_decode_e2e_eager_throughput.pdf",
+      "pdf_sha256": "932e7cb67d4dc33d812371d7078f5f0bd9f34e10d554794be041637a040706c3",
+      "render_dpi": 180,
+      "source_csv": "paper_results/e2e_gh200/decode_sweep_20261027_j3472132/results.csv",
+      "plot_input_csv": "paper_results/e2e_gh200/standard_review/025_decode_e2e_eager_throughput.csv",
+      "execution": "normal_forward",
+      "replaces_ids": "[25]"
+    },
+    {
+      "index": 26,
+      "filename": "026_mtp_e2e_graph_64k_throughput.png",
+      "kind": "e2e",
+      "source_pdf": "paper_results/e2e_gh200/standard_review/026_mtp_e2e_graph_64k_throughput.pdf",
+      "pdf_sha256": "2147426a927f66dd99183c895f9b5571249eb56ced24237e3a7212ee66508b74",
+      "render_dpi": 180,
+      "source_csv": "paper_results/e2e_gh200/mtpc_graph_20261027_j3474393/results.csv",
+      "plot_input_csv": "paper_results/e2e_gh200/standard_review/026_mtp_e2e_graph_64k_throughput.csv",
+      "execution": "cuda_graph_replay",
+      "replaces_ids": "[26, 27]"
+    },
+    {
+      "index": 28,
+      "filename": "028_mtp_e2e_graph_original_sweep_throughput.png",
+      "kind": "e2e",
+      "source_pdf": "paper_results/e2e_gh200/standard_review/028_mtp_e2e_graph_original_sweep_throughput.pdf",
+      "pdf_sha256": "c4091811cb29e256f3d932dc351fb1c00c3dfdf1879ef82fed3be7fb6d679bcb",
+      "render_dpi": 180,
+      "source_csv": "paper_results/e2e_gh200/mtpc_graph_sweep_3478086/results.csv",
+      "plot_input_csv": "paper_results/e2e_gh200/standard_review/028_mtp_e2e_graph_original_sweep_throughput.csv",
+      "execution": "cuda_graph_replay",
+      "replaces_ids": "[28]"
+    }
+  ]
+}

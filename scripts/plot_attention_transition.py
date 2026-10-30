@@ -52,7 +52,7 @@ def summarize(data):
 def plot(data, output):
     normalized, summary = summarize(data)
     colors = paper.build_colormap([paper.METHOD_DISPLAY_NAMES[m] for m in METHODS])
-    fig, ax = plt.subplots(figsize=(12, 4.4))
+    fig, ax = plt.subplots(figsize=(12, 4.6))
     offsets = np.linspace(-0.12, 0.12, len(LENGTHS))
     for method in METHODS:
         label = paper.METHOD_DISPLAY_NAMES[method]
@@ -66,22 +66,22 @@ def plot(data, output):
                            edgecolors='none', zorder=2)
         ax.scatter(POSITIONS, means, color=color, s=52, zorder=4)
     ax.set_xticks(POSITIONS, ['1', '2', '4', '8', '16', '32', '64', 'KV'])
-    ax.set_xlabel('Query tokens (Q)', fontsize=20, labelpad=48)
+    ax.set_xlabel('Query tokens (Q)', fontsize=20, labelpad=46)
     ax.set_ylabel('Relative Performance', fontsize=20)
     ax.tick_params(labelsize=16)
-    ax.set_xlim(-0.5, 8.85)
+    ax.set_xlim(POSITIONS[0] - 0.42, POSITIONS[-1] + 0.42)
     ax.set_ylim(0, max(1.12, float(normalized[list(METHODS)].max().max()) * 1.08))
     ax.grid(True, linestyle=':', alpha=0.45)
     ax.set_axisbelow(True)
-    ax.text(POSITIONS[0], -0.13, 'Decode', transform=ax.get_xaxis_transform(),
-            ha='center', va='top', fontsize=13)
-    ax.text((POSITIONS[1] + POSITIONS[6]) / 2, -0.13, 'Causal MTP',
-            transform=ax.get_xaxis_transform(), ha='center', va='top', fontsize=13)
-    ax.text(POSITIONS[7], -0.13, 'Causal Prefill', transform=ax.get_xaxis_transform(),
-            ha='center', va='top', fontsize=13)
-    fig.legend(loc='upper center', bbox_to_anchor=(0.5, 1.04), ncol=3, fontsize=18,
+    for x, label in ((POSITIONS[0], 'Decode'),
+                     ((POSITIONS[1] + POSITIONS[6]) / 2, 'Causal MTP'),
+                     (POSITIONS[7], 'Causal Prefill')):
+        ax.annotate(label, xy=(x, 0), xycoords=ax.get_xaxis_transform(),
+                    xytext=(0, -39), textcoords='offset points',
+                    ha='center', va='top', fontsize=13, annotation_clip=False)
+    fig.legend(loc='upper center', bbox_to_anchor=(0.5, 1.01), ncol=3, fontsize=18,
                frameon=True)
-    fig.subplots_adjust(left=0.10, right=0.99, top=0.76, bottom=0.36)
+    fig.subplots_adjust(left=0.10, right=0.99, top=0.86, bottom=0.30)
     output.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output.with_suffix('.pdf'), bbox_inches='tight')
     fig.savefig(output.with_suffix('.png'), bbox_inches='tight', dpi=180)

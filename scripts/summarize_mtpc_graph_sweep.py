@@ -12,6 +12,7 @@ import statistics
 from argus.paper_baselines.e2e_mtp_baselines import TILEOPS_COMMIT
 from argus.paper_baselines.workloads import export_path
 from scripts.summarize_decode_e2e_graph import valid_error
+from scripts.e2e_model_flops import model_flops
 
 
 LENGTHS = (256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536)
@@ -19,17 +20,6 @@ IMPLEMENTATIONS = ("nautilus", "tileops", "flex")
 SHARED = ("weights_sha256", "gpu_uuid", "host", "torch", "cuda", "transformers", "metric",
           "scope", "execution", "repeat", "warmup", "seed", "cache_implementation")
 SOURCE = Path(__file__).resolve().parents[2] / "neptune-internal/scripts/csv_figures.py"
-
-
-def model_flops(length, query_length=16):
-    """Original full-model FLOPs convention with lower-right causal cached attention."""
-    if not 0 < query_length <= length:
-        raise ValueError("Query length must be positive and fit the visible KV length")
-    q, h, intermediate, heads, dim, layers = query_length, 4096, 11008, 32, 128, 32
-    projections = 2 * q * h * (3 * heads * dim) + 2 * q * (heads * dim) * h
-    mlp = 2 * q * (h * intermediate + intermediate * h)
-    pairs = q * length - q * (q - 1) // 2
-    return layers * (projections + mlp + 4 * heads * dim * pairs)
 
 
 def summarize(directory):
