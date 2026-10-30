@@ -26,8 +26,9 @@ All are B1/D128/FP16. Decode and prefill have32 heads; MTP has4. Baseline
 implementations/environments also come from the corresponding prior experiments.
 This figure supports a comparison across the existing workloads, not a claim
 that heads, compiler versions and all other parameters were held constant.
-Dashed lines visually connect decode to MTP and MTP to prefill for all three
-methods, including Nautilus. MTP itself uses solid lines. No new measurements
+Solid lines connect all stages for all three methods, including Nautilus.
+Individual KV points use size 20 and alpha 0.38 to remain visible beneath
+the averaged curves. No new measurements
 or interpolated samples are introduced. The MTP H=4 annotation is omitted from
 the figure as requested; the actual shape remains documented here and in the CSV.
 

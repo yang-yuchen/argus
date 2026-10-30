@@ -62,7 +62,7 @@ def plot(data, output):
         if method != 'Ours':
             for stage, x in zip(STAGES, POSITIONS):
                 group = normalized[normalized['stage'] == stage].sort_values('kv_length')
-                ax.scatter(x + offsets, group[method], color=color, s=14, alpha=0.16,
+                ax.scatter(x + offsets, group[method], color=color, s=20, alpha=0.38,
                            edgecolors='none', zorder=2)
         ax.scatter(POSITIONS, means, color=color, s=52, zorder=4)
     ax.set_xticks(POSITIONS, ['1', '2', '4', '8', '16', '32', '64', 'KV'])

@@ -49,5 +49,15 @@
     ],
     "phase_label_offset_points": -39,
     "phase_labels": "below tick labels, above x-axis title"
+  },
+  "background_points": {
+    "methods": [
+      "FlexAttn",
+      "TileLang"
+    ],
+    "kv_lengths_per_stage": 8,
+    "size": 20,
+    "alpha": 0.38,
+    "meaning": "Individual KV-length results, not uncertainty; Nautilus normalizes to 1"
   }
 }
