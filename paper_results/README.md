@@ -98,10 +98,13 @@ uniform kernel or precision path. The replacement policy is recorded in
 `fp8_compilers_20261029/sweep_4e06b84_3484820/best_official_plot_manifest.json`.
 
 ### RTX 5090 (operator level, nsys medians)
-- Newest numbers (`rtx5090_decode_mtpc16_results.md`):
-  - Decode: Nautilus vs TileLang main GQA 1.17×, vs Flex 1.23×.
-  - MTP-Q16: vs official Flex lower-right 1.47×.
-- `rtx5090-nsys-*.pdf` / `rtx5090-*.pdf` are older plots that used the earlier, slower TileLang/Flex baselines.
+- The current figures are `operator_rtx5090/rtx5090-{decode,causal-mtp}.pdf`.
+- Source table: `operator_rtx5090/rtx5090_decode_mtpc16_results.md`; the
+  versioned plot inputs and plotting script are committed beside it.
+- Decode compares Nautilus with TileLang main GQA and GitHub FlexAttention.
+  MTP-Q16 compares Nautilus with official Flex lower-right attention.
+- Values are median sums of GPU kernel durations per cold-L2 nsys repeat, in
+  microseconds. Raw nsys profiles are not committed.
 
 ### E2E (GH200, Llama-7B backbone, 32 layers, B1/FP16, whole-step CUDA Graph replay, 30 samples)
 - Decode, Q1 / KV 256–32K: Nautilus 5.20 → 9.84 ms, FlexAttn 5.43 → 17.21 ms, TileOPs-prebound 5.22 → 10.08 ms.

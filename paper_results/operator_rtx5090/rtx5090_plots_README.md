@@ -1,24 +1,22 @@
 # RTX 5090 result plots
 
-Generated from the two original JSON files using the existing
-`plot_from_csv_5090.py` load, normalization and plotting functions.
-No benchmark was rerun and the source JSON files were not modified.
+These are the current RTX 5090 operator plots. The source table and both
+plot-input CSVs are committed; raw Nsight Systems profiles are intentionally
+kept off GitHub.
 
-- [Decode PDF](rtx5090-decode.pdf): Nautilus, FlexAttn, TileLang.
-- [Causal MTP Q16 PDF](rtx5090-causal-mtp.pdf): Nautilus, FlexAttn.
-- Each plot covers sequence lengths 256 through 32768, sorted numerically.
-- Input CSV values are the saved **median_ms**, from 5 rounds per successful result.
-- Y = Nautilus median latency / method median latency. Nautilus=1; higher means faster.
-- `tilelang-<variant>` is labeled Nautilus (the generated exports in the supplied
-  `nautilus/local/rtx5090/.../paper-tilelang` result paths).
-  `tilelang-official-*` is the separate TileLang baseline. `flex-5090` is FlexAttn.
-- Following the compiler-baseline scope, `sdpa-5090` is excluded; the JSON does
-  not identify its selected SDPA backend. FlashInfer decode is unsupported.
-- All eight official TileLang MTP measurements failed autotuning; they are
-  omitted, not plotted as zeros or substituted with another kernel.
-- The saved JSON correctness/status flags and positive finite latencies were
-  checked. This plotting task does not independently revalidate the kernels,
-  timing protocol or baseline provenance.
+- [Decode PDF](rtx5090-decode.pdf): Nautilus, TileLang main GQA, and GitHub FlexAttention.
+- [Causal MTP Q16 PDF](rtx5090-causal-mtp.pdf): Nautilus and official Flex lower-right attention.
+- Versioned copies are [decode](rtx5090-20261029-decode.pdf) and
+  [MTP](rtx5090-20261029-causal-mtp.pdf).
+- The plotted sequence lengths are 256 through 32768 in ascending order.
+- Values in the CSVs and source table are **microseconds**, computed as the
+  median sum of GPU kernel durations in an nsys cold-L2 repeat.
+- The y-axis is `Nautilus latency / method latency`; Nautilus is 1.0 and a
+  higher value means the method is faster.
+- The decode TileLang curve is the SM120-safe configuration of TileLang's
+  main `flash_decoding/example_gqa_decode.py` split-KV example.
+- TileOPs is not plotted because its dispatcher has no SM120 implementation.
 
-Exact source hashes, method mapping outcomes and omissions are recorded in
-[rtx5090_plot_manifest.json](rtx5090_plot_manifest.json).
+`make_plots_20261029.py` parses the Markdown table, regenerates both CSVs and
+PDFs, and uses the shared `plot_from_csv_5090.py` normalization/plotting code.
+The manifests record the source hash and exact file mapping.

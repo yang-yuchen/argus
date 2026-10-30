@@ -13,6 +13,7 @@ repo-root plot_from_csv_5090.py. Run from the repo root:
 from __future__ import annotations
 
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -53,7 +54,24 @@ def main() -> None:
         df = p.normalize_by_baseline(p.load_data(csv_path), "Ours")
         suffix = "-20261029-decode" if operator == "DC_CAUSAL" else "-20261029-causal-mtp"
         p.plot_multi_operator_row(df, [operator], "Ours", HERE, suffix=suffix)
-        print(f"wrote {csv_path.name} -> rtx5090{suffix}.pdf")
+        generated_pdf = HERE / f"rtx5090{suffix}.pdf"
+        if operator == "DC_CAUSAL":
+            aliases = (
+                HERE / "rtx5090_decode_plot_input.csv",
+                HERE / "rtx5090_nsys_decode_plot_input.csv",
+                HERE / "rtx5090-decode.pdf",
+                HERE / "rtx5090-nsys-decode.pdf",
+            )
+        else:
+            aliases = (
+                HERE / "rtx5090_causal-mtp_plot_input.csv",
+                HERE / "rtx5090_nsys_causal-mtp_plot_input.csv",
+                HERE / "rtx5090-causal-mtp.pdf",
+                HERE / "rtx5090-nsys-causal-mtp.pdf",
+            )
+        for alias in aliases:
+            shutil.copy2(csv_path if alias.suffix == ".csv" else generated_pdf, alias)
+        print(f"wrote {csv_path.name} and {generated_pdf.name}")
 
 
 if __name__ == "__main__":
