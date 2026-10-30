@@ -1,0 +1,29 @@
+{
+  "source_sweep": "paper_results/operator_gh200/fp8_compilers_20261029/sweep_4e06b84_3484820",
+  "normalization": "Nautilus latency / selected official TileLang latency; higher=faster",
+  "selected_official_policy": "Native Dense/Varlen values are used except at the two measured paged points. Paged uses FP16 internal QK/PV/probability, so this is a best-official envelope, not one kernel curve.",
+  "replacements": {
+    "decode8_L32768": {
+      "mean_us": 146.57344,
+      "route": "GQAPagedFP8DecodeKernel",
+      "internal": "FP16 QK/PV/probability"
+    },
+    "mtpc8_Q16_L65536": {
+      "mean_us": 105.5488,
+      "route": "GQAPagedFP8DecodeKernel",
+      "internal": "FP16 QK/PV/probability"
+    }
+  },
+  "plots": [
+    {
+      "group": "decode8",
+      "input": "paper_results/operator_gh200/fp8_compilers_20261029/plot_input_decode8_best_official.csv",
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp8-tc1-decode8-best-official-4e06b84.pdf"
+    },
+    {
+      "group": "mtpc8",
+      "input": "paper_results/operator_gh200/fp8_compilers_20261029/plot_input_mtpc8_best_official.csv",
+      "pdf": "paper_results/figures/operator_gh200/gh200-fp8-tc1-mtpc8-best-official-4e06b84.pdf"
+    }
+  ]
+}

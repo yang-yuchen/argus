@@ -23,6 +23,7 @@ Conventions:
 | `operator_gh200/gh200-bf16-tc1-sparse-d35a206-shared-kv.pdf` (also has Flex/Helion BlockMask) | `operator_gh200/sparse_shared_kv_20261027/plot_input.csv` | `plot_from_csv.py` |
 | `operator_gh200/gh200-fp16-tc1-attention-transition-20261029.pdf` (decode → MTP → prefill) | `operator_gh200/attention_transition_20261029/plot_input.csv` | `scripts/plot_attention_transition.py` |
 | `operator_gh200/gh200-fp8-tc1-{decode8,mtpc8}-4e06b84.pdf` (FP8) | `operator_gh200/fp8_compilers_20261029/sweep_4e06b84_3484820/plot_input_*.csv` | `fp8_compilers_20261029/make_plots_fp8_sweep.py` |
+| `operator_gh200/gh200-fp8-tc1-{decode8,mtpc8}-best-official-4e06b84.pdf` (FP8 best measured official route) | `operator_gh200/fp8_compilers_20261029/plot_input_*_best_official.csv` | `plot_from_csv.py` |
 | `operator_rtx5090/rtx5090-20261029-{decode,causal-mtp}.pdf` | `operator_rtx5090/rtx5090_decode_mtpc16_results.md` | `operator_rtx5090/make_plots_20261029.py` |
 | `e2e_gh200/decode_e2e_graph_throughput.pdf` | `e2e_gh200/decode_graph_baselines_20261027_j3474109/decode_e2e_graph_throughput_paper_style.csv` | `scripts/plot_decode_e2e_paper_style.py` |
 | `e2e_gh200/mtpc16_e2e_graph_throughput.pdf` | `e2e_gh200/mtpc_2k4k_recheck_j3481758/throughput_plot_input.csv` | `scripts/plot_mtpc_throughput_paper_style.py`, `mtpc_2k4k_recheck_j3481758/summarize_recheck.py` |
@@ -81,12 +82,19 @@ Full-length decode8 and mtpc8 sweep, `fp8_compilers_20261029/sweep_4e06b84_34848
 - Run: one GH200 (gh081), job 3484820. 17 cases × 2 methods, all passed the FP8 correctness gate and the 50-repeat cold-L2 nsys measurement.
 - decode8, B1/H32/Q1, KV 256–32K: Nautilus vs TileLang (official TileOPs `GQAVarlenFP8WSFwdKernel`) geomean **2.58×** (2.25–3.11×).
 - mtpc8, H4/Q16 lower-right causal, KV 256–64K: vs TileLang (official TileOPs `GQADenseFP8Kernel`) geomean **5.53×** (1.71× at 256, 14.8× at 64K).
-  - The official FP8 dense kernel has no split-KV path for this short-Q shape, so its latency grows linearly with KV.
+  - The selected contiguous `GQADenseFP8Kernel` has no split-KV path for this short-Q shape, so its latency grows linearly with KV. TileOPs also contains paged FP8 split kernels, but they use a paged-cache API and FP16 internal probability/PV math; they are not equivalent to this native-FP8 dense contract.
 - FlexAttention is excluded: its official all-FP8 path outputs FP8, not FP16.
 - Plots: `make_plots_fp8_sweep.py` (reuses `plot_from_csv.py`).
 
 `fp8_compilers_20261029/smoke_summary.json` keeps the earlier 5-case smoke, which includes prefill8 L2048 (0.86×) and prefillc8 L2048 (1.07×).
 prefill8/prefillc8/mtp8 have not been swept over all lengths.
+
+The `best-official` PDFs use the native Dense/Varlen TileOPs result at each
+length, replacing only decode8/32768 and mtpc8/65536 with measured
+`GQAPagedFP8DecodeKernel` results. Paged FP8 uses FP16 internal QK/PV/probability
+math, so these plots are a best-measured-official envelope rather than one
+uniform kernel or precision path. The replacement policy is recorded in
+`fp8_compilers_20261029/sweep_4e06b84_3484820/best_official_plot_manifest.json`.
 
 ### RTX 5090 (operator level, nsys medians)
 - Newest numbers (`rtx5090_decode_mtpc16_results.md`):
