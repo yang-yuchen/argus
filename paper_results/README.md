@@ -122,3 +122,20 @@ uniform kernel or precision path. The replacement policy is recorded in
 ### Early single-shape runs (Oct 25)
 `single_shape_*`: the first fixed-shape pass over the paper kernels, plus the "strong baseline" search (FlashInfer, MSLK, FA3, …).
 Superseded by the sweeps above, but kept for its accuracy/RMSE data.
+
+### MTP Q2/Q4/Q8 whole-model CUDA Graph replay (job 3487596)
+
+The completed Q2, Q4 and Q8 sweeps are collected in
+`e2e_gh200/mtpc_q248_graph_3487596/` and the paper-style throughput figures are:
+
+- `figures/e2e_gh200/mtpc_q2_e2e_graph_throughput.pdf`
+- `figures/e2e_gh200/mtpc_q4_e2e_graph_throughput.pdf`
+- `figures/e2e_gh200/mtpc_q8_e2e_graph_throughput.pdf`
+
+Each query length covers KV 256…65536 with Nautilus, official TileOPs persistent
+WS and FlexAttention. There are 81 shapes total, 30 synchronized replay samples
+and 5 warmups per point. All points ran on GH200 host `gh151` (GPU UUID
+`5fec3f12-dcb5-1e2c-ff5b-713d0f6aa983`) and passed graph/fresh-input checks.
+The per-point JSON/CSV/Markdown records and plot-input CSVs are in the collection
+directory. Large Chrome graph traces remain in the corresponding
+`profiles_paper_e2e/mtpc_q248_graph_3487596/` run directory.
